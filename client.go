@@ -10,7 +10,9 @@ import (
 	"github.com/amfranz/go-xmlrpc-client"
 )
 
-const IsMock = false
+var mock = "false"
+
+var IsMock = mock == "true"
 
 type APIResult struct {
 	Value interface{}

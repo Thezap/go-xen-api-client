@@ -462,15 +462,7 @@ func {{ .FuncName }}(context string, record {{ .GoType }}) (rpcStruct xmlrpc.Str
 `
 
 const convertMapTypeToGoFuncTemplate string = `
-func {{ .FuncName }}__mock(context string, input interface{}) (goMap {{ .GoType }}, err error) {
-	log.Println("{{ .FuncName }} not mocked")
-	return nil, errors.New("{{ .FuncName }} not mocked")
-}
-
 func {{ .FuncName }}(context string, input interface{}) (goMap {{ .GoType }}, err error) {
-	if (false) {
-		return {{ .FuncName}}_mock(context, input)
-	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
