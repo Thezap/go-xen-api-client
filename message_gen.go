@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -65,8 +70,16 @@ type MessageClass struct {
 	client *Client
 }
 
+func (_class MessageClass) GetAllRecordsWhere__mock(sessionID SessionRef, expr string) (_retval map[MessageRef]MessageRecord, _err error) {
+	log.Println("Message.GetAllRecordsWhere not mocked")
+	_err = errors.New("Message.GetAllRecordsWhere not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetAllRecordsWhere(sessionID SessionRef, expr string) (_retval map[MessageRef]MessageRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecordsWhere__mock(sessionID, expr)
+	}	
 	_method := "message.get_all_records_where"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -84,8 +97,16 @@ func (_class MessageClass) GetAllRecordsWhere(sessionID SessionRef, expr string)
 	return
 }
 
+func (_class MessageClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[MessageRef]MessageRecord, _err error) {
+	log.Println("Message.GetAllRecords not mocked")
+	_err = errors.New("Message.GetAllRecords not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetAllRecords(sessionID SessionRef) (_retval map[MessageRef]MessageRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "message.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -99,8 +120,16 @@ func (_class MessageClass) GetAllRecords(sessionID SessionRef) (_retval map[Mess
 	return
 }
 
+func (_class MessageClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval MessageRef, _err error) {
+	log.Println("Message.GetByUUID not mocked")
+	_err = errors.New("Message.GetByUUID not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetByUUID(sessionID SessionRef, uuid string) (_retval MessageRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "message.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -118,8 +147,16 @@ func (_class MessageClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 	return
 }
 
+func (_class MessageClass) GetRecord__mock(sessionID SessionRef, self MessageRef) (_retval MessageRecord, _err error) {
+	log.Println("Message.GetRecord not mocked")
+	_err = errors.New("Message.GetRecord not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetRecord(sessionID SessionRef, self MessageRef) (_retval MessageRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "message.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -137,8 +174,16 @@ func (_class MessageClass) GetRecord(sessionID SessionRef, self MessageRef) (_re
 	return
 }
 
+func (_class MessageClass) GetSince__mock(sessionID SessionRef, since time.Time) (_retval map[MessageRef]MessageRecord, _err error) {
+	log.Println("Message.GetSince not mocked")
+	_err = errors.New("Message.GetSince not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetSince(sessionID SessionRef, since time.Time) (_retval map[MessageRef]MessageRecord, _err error) {
+	if (IsMock) {
+		return _class.GetSince__mock(sessionID, since)
+	}	
 	_method := "message.get_since"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -156,8 +201,16 @@ func (_class MessageClass) GetSince(sessionID SessionRef, since time.Time) (_ret
 	return
 }
 
+func (_class MessageClass) GetAll__mock(sessionID SessionRef) (_retval []MessageRef, _err error) {
+	log.Println("Message.GetAll not mocked")
+	_err = errors.New("Message.GetAll not mocked")
+	return
+}
 // 
 func (_class MessageClass) GetAll(sessionID SessionRef) (_retval []MessageRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "message.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -171,8 +224,16 @@ func (_class MessageClass) GetAll(sessionID SessionRef) (_retval []MessageRef, _
 	return
 }
 
+func (_class MessageClass) Get__mock(sessionID SessionRef, cls Cls, objUUID string, since time.Time) (_retval map[MessageRef]MessageRecord, _err error) {
+	log.Println("Message.Get not mocked")
+	_err = errors.New("Message.Get not mocked")
+	return
+}
 // 
 func (_class MessageClass) Get(sessionID SessionRef, cls Cls, objUUID string, since time.Time) (_retval map[MessageRef]MessageRecord, _err error) {
+	if (IsMock) {
+		return _class.Get__mock(sessionID, cls, objUUID, since)
+	}	
 	_method := "message.get"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -198,8 +259,16 @@ func (_class MessageClass) Get(sessionID SessionRef, cls Cls, objUUID string, si
 	return
 }
 
+func (_class MessageClass) Destroy__mock(sessionID SessionRef, self MessageRef) (_err error) {
+	log.Println("Message.Destroy not mocked")
+	_err = errors.New("Message.Destroy not mocked")
+	return
+}
 // 
 func (_class MessageClass) Destroy(sessionID SessionRef, self MessageRef) (_err error) {
+	if (IsMock) {
+		return _class.Destroy__mock(sessionID, self)
+	}	
 	_method := "message.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -213,8 +282,16 @@ func (_class MessageClass) Destroy(sessionID SessionRef, self MessageRef) (_err 
 	return
 }
 
+func (_class MessageClass) Create__mock(sessionID SessionRef, name string, priority int, cls Cls, objUUID string, body string) (_retval MessageRef, _err error) {
+	log.Println("Message.Create not mocked")
+	_err = errors.New("Message.Create not mocked")
+	return
+}
 // 
 func (_class MessageClass) Create(sessionID SessionRef, name string, priority int, cls Cls, objUUID string, body string) (_retval MessageRef, _err error) {
+	if (IsMock) {
+		return _class.Create__mock(sessionID, name, priority, cls, objUUID, body)
+	}	
 	_method := "message.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -38,8 +43,16 @@ type SubjectClass struct {
 	client *Client
 }
 
+func (_class SubjectClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[SubjectRef]SubjectRecord, _err error) {
+	log.Println("Subject.GetAllRecords not mocked")
+	_err = errors.New("Subject.GetAllRecords not mocked")
+	return
+}
 // Return a map of subject references to subject records for all subjects known to the system.
 func (_class SubjectClass) GetAllRecords(sessionID SessionRef) (_retval map[SubjectRef]SubjectRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "subject.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -53,8 +66,16 @@ func (_class SubjectClass) GetAllRecords(sessionID SessionRef) (_retval map[Subj
 	return
 }
 
+func (_class SubjectClass) GetAll__mock(sessionID SessionRef) (_retval []SubjectRef, _err error) {
+	log.Println("Subject.GetAll not mocked")
+	_err = errors.New("Subject.GetAll not mocked")
+	return
+}
 // Return a list of all the subjects known to the system.
 func (_class SubjectClass) GetAll(sessionID SessionRef) (_retval []SubjectRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "subject.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -68,8 +89,16 @@ func (_class SubjectClass) GetAll(sessionID SessionRef) (_retval []SubjectRef, _
 	return
 }
 
+func (_class SubjectClass) GetPermissionsNameLabel__mock(sessionID SessionRef, self SubjectRef) (_retval []string, _err error) {
+	log.Println("Subject.GetPermissionsNameLabel not mocked")
+	_err = errors.New("Subject.GetPermissionsNameLabel not mocked")
+	return
+}
 // This call returns a list of permission names given a subject
 func (_class SubjectClass) GetPermissionsNameLabel(sessionID SessionRef, self SubjectRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetPermissionsNameLabel__mock(sessionID, self)
+	}	
 	_method := "subject.get_permissions_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -87,8 +116,16 @@ func (_class SubjectClass) GetPermissionsNameLabel(sessionID SessionRef, self Su
 	return
 }
 
+func (_class SubjectClass) RemoveFromRoles__mock(sessionID SessionRef, self SubjectRef, role RoleRef) (_err error) {
+	log.Println("Subject.RemoveFromRoles not mocked")
+	_err = errors.New("Subject.RemoveFromRoles not mocked")
+	return
+}
 // This call removes a role from a subject
 func (_class SubjectClass) RemoveFromRoles(sessionID SessionRef, self SubjectRef, role RoleRef) (_err error) {
+	if (IsMock) {
+		return _class.RemoveFromRoles__mock(sessionID, self, role)
+	}	
 	_method := "subject.remove_from_roles"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -106,8 +143,16 @@ func (_class SubjectClass) RemoveFromRoles(sessionID SessionRef, self SubjectRef
 	return
 }
 
+func (_class SubjectClass) AddToRoles__mock(sessionID SessionRef, self SubjectRef, role RoleRef) (_err error) {
+	log.Println("Subject.AddToRoles not mocked")
+	_err = errors.New("Subject.AddToRoles not mocked")
+	return
+}
 // This call adds a new role to a subject
 func (_class SubjectClass) AddToRoles(sessionID SessionRef, self SubjectRef, role RoleRef) (_err error) {
+	if (IsMock) {
+		return _class.AddToRoles__mock(sessionID, self, role)
+	}	
 	_method := "subject.add_to_roles"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -125,8 +170,16 @@ func (_class SubjectClass) AddToRoles(sessionID SessionRef, self SubjectRef, rol
 	return
 }
 
+func (_class SubjectClass) GetRoles__mock(sessionID SessionRef, self SubjectRef) (_retval []RoleRef, _err error) {
+	log.Println("Subject.GetRoles not mocked")
+	_err = errors.New("Subject.GetRoles not mocked")
+	return
+}
 // Get the roles field of the given subject.
 func (_class SubjectClass) GetRoles(sessionID SessionRef, self SubjectRef) (_retval []RoleRef, _err error) {
+	if (IsMock) {
+		return _class.GetRoles__mock(sessionID, self)
+	}	
 	_method := "subject.get_roles"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -144,8 +197,16 @@ func (_class SubjectClass) GetRoles(sessionID SessionRef, self SubjectRef) (_ret
 	return
 }
 
+func (_class SubjectClass) GetOtherConfig__mock(sessionID SessionRef, self SubjectRef) (_retval map[string]string, _err error) {
+	log.Println("Subject.GetOtherConfig not mocked")
+	_err = errors.New("Subject.GetOtherConfig not mocked")
+	return
+}
 // Get the other_config field of the given subject.
 func (_class SubjectClass) GetOtherConfig(sessionID SessionRef, self SubjectRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetOtherConfig__mock(sessionID, self)
+	}	
 	_method := "subject.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -163,8 +224,16 @@ func (_class SubjectClass) GetOtherConfig(sessionID SessionRef, self SubjectRef)
 	return
 }
 
+func (_class SubjectClass) GetSubjectIdentifier__mock(sessionID SessionRef, self SubjectRef) (_retval string, _err error) {
+	log.Println("Subject.GetSubjectIdentifier not mocked")
+	_err = errors.New("Subject.GetSubjectIdentifier not mocked")
+	return
+}
 // Get the subject_identifier field of the given subject.
 func (_class SubjectClass) GetSubjectIdentifier(sessionID SessionRef, self SubjectRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetSubjectIdentifier__mock(sessionID, self)
+	}	
 	_method := "subject.get_subject_identifier"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -182,8 +251,16 @@ func (_class SubjectClass) GetSubjectIdentifier(sessionID SessionRef, self Subje
 	return
 }
 
+func (_class SubjectClass) GetUUID__mock(sessionID SessionRef, self SubjectRef) (_retval string, _err error) {
+	log.Println("Subject.GetUUID not mocked")
+	_err = errors.New("Subject.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given subject.
 func (_class SubjectClass) GetUUID(sessionID SessionRef, self SubjectRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "subject.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -201,8 +278,16 @@ func (_class SubjectClass) GetUUID(sessionID SessionRef, self SubjectRef) (_retv
 	return
 }
 
+func (_class SubjectClass) Destroy__mock(sessionID SessionRef, self SubjectRef) (_err error) {
+	log.Println("Subject.Destroy not mocked")
+	_err = errors.New("Subject.Destroy not mocked")
+	return
+}
 // Destroy the specified subject instance.
 func (_class SubjectClass) Destroy(sessionID SessionRef, self SubjectRef) (_err error) {
+	if (IsMock) {
+		return _class.Destroy__mock(sessionID, self)
+	}	
 	_method := "subject.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -216,9 +301,17 @@ func (_class SubjectClass) Destroy(sessionID SessionRef, self SubjectRef) (_err 
 	return
 }
 
+func (_class SubjectClass) Create__mock(sessionID SessionRef, args SubjectRecord) (_retval SubjectRef, _err error) {
+	log.Println("Subject.Create not mocked")
+	_err = errors.New("Subject.Create not mocked")
+	return
+}
 // Create a new subject instance, and return its handle.
 // The constructor args are: subject_identifier, other_config (* = non-optional).
 func (_class SubjectClass) Create(sessionID SessionRef, args SubjectRecord) (_retval SubjectRef, _err error) {
+	if (IsMock) {
+		return _class.Create__mock(sessionID, args)
+	}	
 	_method := "subject.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -236,8 +329,16 @@ func (_class SubjectClass) Create(sessionID SessionRef, args SubjectRecord) (_re
 	return
 }
 
+func (_class SubjectClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval SubjectRef, _err error) {
+	log.Println("Subject.GetByUUID not mocked")
+	_err = errors.New("Subject.GetByUUID not mocked")
+	return
+}
 // Get a reference to the subject instance with the specified UUID.
 func (_class SubjectClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SubjectRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "subject.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -255,8 +356,16 @@ func (_class SubjectClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 	return
 }
 
+func (_class SubjectClass) GetRecord__mock(sessionID SessionRef, self SubjectRef) (_retval SubjectRecord, _err error) {
+	log.Println("Subject.GetRecord not mocked")
+	_err = errors.New("Subject.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given subject.
 func (_class SubjectClass) GetRecord(sessionID SessionRef, self SubjectRef) (_retval SubjectRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "subject.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

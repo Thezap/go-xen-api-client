@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf

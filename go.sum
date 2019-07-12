@@ -1,0 +1,4 @@
+github.com/amfranz/go-xmlrpc-client v0.0.0-20190612172737-76858463955d h1:39lR6Kg+GsvDpLMD2Mb7gkjXmmLexqfr7SPy4iQWDTE=
+github.com/amfranz/go-xmlrpc-client v0.0.0-20190612172737-76858463955d/go.mod h1:2NlXXRCkTbr/vZtUjcHKhbrESE4a3CDqVrgOROB16dg=
+github.com/serenize/snaker v0.0.0-20171204215717-a683aaf2d516 h1:OeNX+qSVwdf/c0hUIepC8yB84WRgSpEpgXiQ8DysMiI=
+github.com/serenize/snaker v0.0.0-20171204215717-a683aaf2d516/go.mod h1:Yow6lPLSAXx2ifx470yD/nUe22Dv5vBvxK/UK9UUTVs=

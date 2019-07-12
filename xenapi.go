@@ -255,13 +255,18 @@ const fileHeaderTemplate string = `//
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -297,11 +302,19 @@ type {{ .Name|exported }}Ref string
 `
 
 const messageFuncTemplate string = `
+func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}__mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
+	log.Println("{{ .Class.Name|exported }}.{{ .Message.Name|exported }} not mocked")
+	_err = errors.New("{{ .Class.Name|exported }}.{{ .Message.Name|exported }} not mocked")
+	return
+}
 {{ .Message.Description|godoc }}{{ if .Message.Errors }}
 //
 // Errors:{{ range .Message.Errors }}
 //  {{ .Name }} - {{ .Doc }}{{ end }}{{ end }}
 func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
+	if (IsMock) {
+		return _class.{{ .Message.Name|exported }}__mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }}{{ end }})
+	}	
 	_method := "{{ .Class.Name }}.{{ .Message.Name }}"{{ range .Message.Params }}
 	_{{ .Name|internal }}Arg, _err := {{ .Type|convertToXen }}(fmt.Sprintf("%s(%s)", _method, {{ printf "%q" .Name }}), {{ .Name|internal }})
 	if _err != nil {
@@ -449,7 +462,15 @@ func {{ .FuncName }}(context string, record {{ .GoType }}) (rpcStruct xmlrpc.Str
 `
 
 const convertMapTypeToGoFuncTemplate string = `
+func {{ .FuncName }}__mock(context string, input interface{}) (goMap {{ .GoType }}, err error) {
+	log.Println("{{ .FuncName }} not mocked")
+	return nil, errors.New("{{ .FuncName }} not mocked")
+}
+
 func {{ .FuncName }}(context string, input interface{}) (goMap {{ .GoType }}, err error) {
+	if (false) {
+		return {{ .FuncName}}_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)

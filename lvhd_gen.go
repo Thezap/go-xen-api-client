@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -32,8 +37,16 @@ type LVHDClass struct {
 	client *Client
 }
 
+func (_class LVHDClass) EnableThinProvisioning__mock(sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
+	log.Println("LVHD.EnableThinProvisioning not mocked")
+	_err = errors.New("LVHD.EnableThinProvisioning not mocked")
+	return
+}
 // Upgrades an LVHD SR to enable thin-provisioning. Future VDIs created in this SR will be thinly-provisioned, although existing VDIs will be left alone. Note that the SR must be attached to the SRmaster for upgrade to work.
 func (_class LVHDClass) EnableThinProvisioning(sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.EnableThinProvisioning__mock(sessionID, host, sr, initialAllocation, allocationQuantum)
+	}	
 	_method := "LVHD.enable_thin_provisioning"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -63,8 +76,16 @@ func (_class LVHDClass) EnableThinProvisioning(sessionID SessionRef, host HostRe
 	return
 }
 
+func (_class LVHDClass) GetUUID__mock(sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
+	log.Println("LVHD.GetUUID not mocked")
+	_err = errors.New("LVHD.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given LVHD.
 func (_class LVHDClass) GetUUID(sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "LVHD.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -82,8 +103,16 @@ func (_class LVHDClass) GetUUID(sessionID SessionRef, self LVHDRef) (_retval str
 	return
 }
 
+func (_class LVHDClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
+	log.Println("LVHD.GetByUUID not mocked")
+	_err = errors.New("LVHD.GetByUUID not mocked")
+	return
+}
 // Get a reference to the LVHD instance with the specified UUID.
 func (_class LVHDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "LVHD.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -101,8 +130,16 @@ func (_class LVHDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval LV
 	return
 }
 
+func (_class LVHDClass) GetRecord__mock(sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
+	log.Println("LVHD.GetRecord not mocked")
+	_err = errors.New("LVHD.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given LVHD.
 func (_class LVHDClass) GetRecord(sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "LVHD.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

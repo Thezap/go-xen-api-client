@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -126,8 +131,16 @@ type VIFClass struct {
 	client *Client
 }
 
+func (_class VIFClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[VIFRef]VIFRecord, _err error) {
+	log.Println("VIF.GetAllRecords not mocked")
+	_err = errors.New("VIF.GetAllRecords not mocked")
+	return
+}
 // Return a map of VIF references to VIF records for all VIFs known to the system.
 func (_class VIFClass) GetAllRecords(sessionID SessionRef) (_retval map[VIFRef]VIFRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "VIF.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -141,8 +154,16 @@ func (_class VIFClass) GetAllRecords(sessionID SessionRef) (_retval map[VIFRef]V
 	return
 }
 
+func (_class VIFClass) GetAll__mock(sessionID SessionRef) (_retval []VIFRef, _err error) {
+	log.Println("VIF.GetAll not mocked")
+	_err = errors.New("VIF.GetAll not mocked")
+	return
+}
 // Return a list of all the VIFs known to the system.
 func (_class VIFClass) GetAll(sessionID SessionRef) (_retval []VIFRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "VIF.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -156,8 +177,16 @@ func (_class VIFClass) GetAll(sessionID SessionRef) (_retval []VIFRef, _err erro
 	return
 }
 
+func (_class VIFClass) ConfigureIpv6__mock(sessionID SessionRef, self VIFRef, mode VifIpv6ConfigurationMode, address string, gateway string) (_err error) {
+	log.Println("VIF.ConfigureIpv6 not mocked")
+	_err = errors.New("VIF.ConfigureIpv6 not mocked")
+	return
+}
 // Configure IPv6 settings for this virtual interface
 func (_class VIFClass) ConfigureIpv6(sessionID SessionRef, self VIFRef, mode VifIpv6ConfigurationMode, address string, gateway string) (_err error) {
+	if (IsMock) {
+		return _class.ConfigureIpv6__mock(sessionID, self, mode, address, gateway)
+	}	
 	_method := "VIF.configure_ipv6"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -183,8 +212,16 @@ func (_class VIFClass) ConfigureIpv6(sessionID SessionRef, self VIFRef, mode Vif
 	return
 }
 
+func (_class VIFClass) ConfigureIpv4__mock(sessionID SessionRef, self VIFRef, mode VifIpv4ConfigurationMode, address string, gateway string) (_err error) {
+	log.Println("VIF.ConfigureIpv4 not mocked")
+	_err = errors.New("VIF.ConfigureIpv4 not mocked")
+	return
+}
 // Configure IPv4 settings for this virtual interface
 func (_class VIFClass) ConfigureIpv4(sessionID SessionRef, self VIFRef, mode VifIpv4ConfigurationMode, address string, gateway string) (_err error) {
+	if (IsMock) {
+		return _class.ConfigureIpv4__mock(sessionID, self, mode, address, gateway)
+	}	
 	_method := "VIF.configure_ipv4"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -210,8 +247,16 @@ func (_class VIFClass) ConfigureIpv4(sessionID SessionRef, self VIFRef, mode Vif
 	return
 }
 
+func (_class VIFClass) RemoveIpv6Allowed__mock(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	log.Println("VIF.RemoveIpv6Allowed not mocked")
+	_err = errors.New("VIF.RemoveIpv6Allowed not mocked")
+	return
+}
 // Removes an IPv6 address from this VIF
 func (_class VIFClass) RemoveIpv6Allowed(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveIpv6Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.remove_ipv6_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -229,8 +274,16 @@ func (_class VIFClass) RemoveIpv6Allowed(sessionID SessionRef, self VIFRef, valu
 	return
 }
 
+func (_class VIFClass) AddIpv6Allowed__mock(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	log.Println("VIF.AddIpv6Allowed not mocked")
+	_err = errors.New("VIF.AddIpv6Allowed not mocked")
+	return
+}
 // Associates an IPv6 address with this VIF
 func (_class VIFClass) AddIpv6Allowed(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddIpv6Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.add_ipv6_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -248,8 +301,16 @@ func (_class VIFClass) AddIpv6Allowed(sessionID SessionRef, self VIFRef, value s
 	return
 }
 
+func (_class VIFClass) SetIpv6Allowed__mock(sessionID SessionRef, self VIFRef, value []string) (_err error) {
+	log.Println("VIF.SetIpv6Allowed not mocked")
+	_err = errors.New("VIF.SetIpv6Allowed not mocked")
+	return
+}
 // Set the IPv6 addresses to which traffic on this VIF can be restricted
 func (_class VIFClass) SetIpv6Allowed(sessionID SessionRef, self VIFRef, value []string) (_err error) {
+	if (IsMock) {
+		return _class.SetIpv6Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_ipv6_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -267,8 +328,16 @@ func (_class VIFClass) SetIpv6Allowed(sessionID SessionRef, self VIFRef, value [
 	return
 }
 
+func (_class VIFClass) RemoveIpv4Allowed__mock(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	log.Println("VIF.RemoveIpv4Allowed not mocked")
+	_err = errors.New("VIF.RemoveIpv4Allowed not mocked")
+	return
+}
 // Removes an IPv4 address from this VIF
 func (_class VIFClass) RemoveIpv4Allowed(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveIpv4Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.remove_ipv4_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -286,8 +355,16 @@ func (_class VIFClass) RemoveIpv4Allowed(sessionID SessionRef, self VIFRef, valu
 	return
 }
 
+func (_class VIFClass) AddIpv4Allowed__mock(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	log.Println("VIF.AddIpv4Allowed not mocked")
+	_err = errors.New("VIF.AddIpv4Allowed not mocked")
+	return
+}
 // Associates an IPv4 address with this VIF
 func (_class VIFClass) AddIpv4Allowed(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddIpv4Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.add_ipv4_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -305,8 +382,16 @@ func (_class VIFClass) AddIpv4Allowed(sessionID SessionRef, self VIFRef, value s
 	return
 }
 
+func (_class VIFClass) SetIpv4Allowed__mock(sessionID SessionRef, self VIFRef, value []string) (_err error) {
+	log.Println("VIF.SetIpv4Allowed not mocked")
+	_err = errors.New("VIF.SetIpv4Allowed not mocked")
+	return
+}
 // Set the IPv4 addresses to which traffic on this VIF can be restricted
 func (_class VIFClass) SetIpv4Allowed(sessionID SessionRef, self VIFRef, value []string) (_err error) {
+	if (IsMock) {
+		return _class.SetIpv4Allowed__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_ipv4_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -324,8 +409,16 @@ func (_class VIFClass) SetIpv4Allowed(sessionID SessionRef, self VIFRef, value [
 	return
 }
 
+func (_class VIFClass) SetLockingMode__mock(sessionID SessionRef, self VIFRef, value VifLockingMode) (_err error) {
+	log.Println("VIF.SetLockingMode not mocked")
+	_err = errors.New("VIF.SetLockingMode not mocked")
+	return
+}
 // Set the locking mode for this VIF
 func (_class VIFClass) SetLockingMode(sessionID SessionRef, self VIFRef, value VifLockingMode) (_err error) {
+	if (IsMock) {
+		return _class.SetLockingMode__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_locking_mode"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -343,8 +436,16 @@ func (_class VIFClass) SetLockingMode(sessionID SessionRef, self VIFRef, value V
 	return
 }
 
+func (_class VIFClass) Move__mock(sessionID SessionRef, self VIFRef, network NetworkRef) (_err error) {
+	log.Println("VIF.Move not mocked")
+	_err = errors.New("VIF.Move not mocked")
+	return
+}
 // Move the specified VIF to the specified network, even while the VM is running
 func (_class VIFClass) Move(sessionID SessionRef, self VIFRef, network NetworkRef) (_err error) {
+	if (IsMock) {
+		return _class.Move__mock(sessionID, self, network)
+	}	
 	_method := "VIF.move"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -362,8 +463,16 @@ func (_class VIFClass) Move(sessionID SessionRef, self VIFRef, network NetworkRe
 	return
 }
 
+func (_class VIFClass) UnplugForce__mock(sessionID SessionRef, self VIFRef) (_err error) {
+	log.Println("VIF.UnplugForce not mocked")
+	_err = errors.New("VIF.UnplugForce not mocked")
+	return
+}
 // Forcibly unplug the specified VIF
 func (_class VIFClass) UnplugForce(sessionID SessionRef, self VIFRef) (_err error) {
+	if (IsMock) {
+		return _class.UnplugForce__mock(sessionID, self)
+	}	
 	_method := "VIF.unplug_force"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -377,8 +486,16 @@ func (_class VIFClass) UnplugForce(sessionID SessionRef, self VIFRef) (_err erro
 	return
 }
 
+func (_class VIFClass) Unplug__mock(sessionID SessionRef, self VIFRef) (_err error) {
+	log.Println("VIF.Unplug not mocked")
+	_err = errors.New("VIF.Unplug not mocked")
+	return
+}
 // Hot-unplug the specified VIF, dynamically unattaching it from the running VM
 func (_class VIFClass) Unplug(sessionID SessionRef, self VIFRef) (_err error) {
+	if (IsMock) {
+		return _class.Unplug__mock(sessionID, self)
+	}	
 	_method := "VIF.unplug"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -392,8 +509,16 @@ func (_class VIFClass) Unplug(sessionID SessionRef, self VIFRef) (_err error) {
 	return
 }
 
+func (_class VIFClass) Plug__mock(sessionID SessionRef, self VIFRef) (_err error) {
+	log.Println("VIF.Plug not mocked")
+	_err = errors.New("VIF.Plug not mocked")
+	return
+}
 // Hotplug the specified VIF, dynamically attaching it to the running VM
 func (_class VIFClass) Plug(sessionID SessionRef, self VIFRef) (_err error) {
+	if (IsMock) {
+		return _class.Plug__mock(sessionID, self)
+	}	
 	_method := "VIF.plug"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -407,8 +532,16 @@ func (_class VIFClass) Plug(sessionID SessionRef, self VIFRef) (_err error) {
 	return
 }
 
+func (_class VIFClass) RemoveFromQosAlgorithmParams__mock(sessionID SessionRef, self VIFRef, key string) (_err error) {
+	log.Println("VIF.RemoveFromQosAlgorithmParams not mocked")
+	_err = errors.New("VIF.RemoveFromQosAlgorithmParams not mocked")
+	return
+}
 // Remove the given key and its corresponding value from the qos/algorithm_params field of the given VIF.  If the key is not in that Map, then do nothing.
 func (_class VIFClass) RemoveFromQosAlgorithmParams(sessionID SessionRef, self VIFRef, key string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveFromQosAlgorithmParams__mock(sessionID, self, key)
+	}	
 	_method := "VIF.remove_from_qos_algorithm_params"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -426,8 +559,16 @@ func (_class VIFClass) RemoveFromQosAlgorithmParams(sessionID SessionRef, self V
 	return
 }
 
+func (_class VIFClass) AddToQosAlgorithmParams__mock(sessionID SessionRef, self VIFRef, key string, value string) (_err error) {
+	log.Println("VIF.AddToQosAlgorithmParams not mocked")
+	_err = errors.New("VIF.AddToQosAlgorithmParams not mocked")
+	return
+}
 // Add the given key-value pair to the qos/algorithm_params field of the given VIF.
 func (_class VIFClass) AddToQosAlgorithmParams(sessionID SessionRef, self VIFRef, key string, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddToQosAlgorithmParams__mock(sessionID, self, key, value)
+	}	
 	_method := "VIF.add_to_qos_algorithm_params"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -449,8 +590,16 @@ func (_class VIFClass) AddToQosAlgorithmParams(sessionID SessionRef, self VIFRef
 	return
 }
 
+func (_class VIFClass) SetQosAlgorithmParams__mock(sessionID SessionRef, self VIFRef, value map[string]string) (_err error) {
+	log.Println("VIF.SetQosAlgorithmParams not mocked")
+	_err = errors.New("VIF.SetQosAlgorithmParams not mocked")
+	return
+}
 // Set the qos/algorithm_params field of the given VIF.
 func (_class VIFClass) SetQosAlgorithmParams(sessionID SessionRef, self VIFRef, value map[string]string) (_err error) {
+	if (IsMock) {
+		return _class.SetQosAlgorithmParams__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_qos_algorithm_params"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -468,8 +617,16 @@ func (_class VIFClass) SetQosAlgorithmParams(sessionID SessionRef, self VIFRef, 
 	return
 }
 
+func (_class VIFClass) SetQosAlgorithmType__mock(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	log.Println("VIF.SetQosAlgorithmType not mocked")
+	_err = errors.New("VIF.SetQosAlgorithmType not mocked")
+	return
+}
 // Set the qos/algorithm_type field of the given VIF.
 func (_class VIFClass) SetQosAlgorithmType(sessionID SessionRef, self VIFRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.SetQosAlgorithmType__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_qos_algorithm_type"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -487,8 +644,16 @@ func (_class VIFClass) SetQosAlgorithmType(sessionID SessionRef, self VIFRef, va
 	return
 }
 
+func (_class VIFClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self VIFRef, key string) (_err error) {
+	log.Println("VIF.RemoveFromOtherConfig not mocked")
+	_err = errors.New("VIF.RemoveFromOtherConfig not mocked")
+	return
+}
 // Remove the given key and its corresponding value from the other_config field of the given VIF.  If the key is not in that Map, then do nothing.
 func (_class VIFClass) RemoveFromOtherConfig(sessionID SessionRef, self VIFRef, key string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+	}	
 	_method := "VIF.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -506,8 +671,16 @@ func (_class VIFClass) RemoveFromOtherConfig(sessionID SessionRef, self VIFRef, 
 	return
 }
 
+func (_class VIFClass) AddToOtherConfig__mock(sessionID SessionRef, self VIFRef, key string, value string) (_err error) {
+	log.Println("VIF.AddToOtherConfig not mocked")
+	_err = errors.New("VIF.AddToOtherConfig not mocked")
+	return
+}
 // Add the given key-value pair to the other_config field of the given VIF.
 func (_class VIFClass) AddToOtherConfig(sessionID SessionRef, self VIFRef, key string, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+	}	
 	_method := "VIF.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -529,8 +702,16 @@ func (_class VIFClass) AddToOtherConfig(sessionID SessionRef, self VIFRef, key s
 	return
 }
 
+func (_class VIFClass) SetOtherConfig__mock(sessionID SessionRef, self VIFRef, value map[string]string) (_err error) {
+	log.Println("VIF.SetOtherConfig not mocked")
+	_err = errors.New("VIF.SetOtherConfig not mocked")
+	return
+}
 // Set the other_config field of the given VIF.
 func (_class VIFClass) SetOtherConfig(sessionID SessionRef, self VIFRef, value map[string]string) (_err error) {
+	if (IsMock) {
+		return _class.SetOtherConfig__mock(sessionID, self, value)
+	}	
 	_method := "VIF.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -548,8 +729,16 @@ func (_class VIFClass) SetOtherConfig(sessionID SessionRef, self VIFRef, value m
 	return
 }
 
+func (_class VIFClass) GetIpv6Gateway__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetIpv6Gateway not mocked")
+	_err = errors.New("VIF.GetIpv6Gateway not mocked")
+	return
+}
 // Get the ipv6_gateway field of the given VIF.
 func (_class VIFClass) GetIpv6Gateway(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv6Gateway__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv6_gateway"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -567,8 +756,16 @@ func (_class VIFClass) GetIpv6Gateway(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetIpv6Addresses__mock(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	log.Println("VIF.GetIpv6Addresses not mocked")
+	_err = errors.New("VIF.GetIpv6Addresses not mocked")
+	return
+}
 // Get the ipv6_addresses field of the given VIF.
 func (_class VIFClass) GetIpv6Addresses(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv6Addresses__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv6_addresses"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -586,8 +783,16 @@ func (_class VIFClass) GetIpv6Addresses(sessionID SessionRef, self VIFRef) (_ret
 	return
 }
 
+func (_class VIFClass) GetIpv6ConfigurationMode__mock(sessionID SessionRef, self VIFRef) (_retval VifIpv6ConfigurationMode, _err error) {
+	log.Println("VIF.GetIpv6ConfigurationMode not mocked")
+	_err = errors.New("VIF.GetIpv6ConfigurationMode not mocked")
+	return
+}
 // Get the ipv6_configuration_mode field of the given VIF.
 func (_class VIFClass) GetIpv6ConfigurationMode(sessionID SessionRef, self VIFRef) (_retval VifIpv6ConfigurationMode, _err error) {
+	if (IsMock) {
+		return _class.GetIpv6ConfigurationMode__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv6_configuration_mode"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -605,8 +810,16 @@ func (_class VIFClass) GetIpv6ConfigurationMode(sessionID SessionRef, self VIFRe
 	return
 }
 
+func (_class VIFClass) GetIpv4Gateway__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetIpv4Gateway not mocked")
+	_err = errors.New("VIF.GetIpv4Gateway not mocked")
+	return
+}
 // Get the ipv4_gateway field of the given VIF.
 func (_class VIFClass) GetIpv4Gateway(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv4Gateway__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv4_gateway"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -624,8 +837,16 @@ func (_class VIFClass) GetIpv4Gateway(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetIpv4Addresses__mock(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	log.Println("VIF.GetIpv4Addresses not mocked")
+	_err = errors.New("VIF.GetIpv4Addresses not mocked")
+	return
+}
 // Get the ipv4_addresses field of the given VIF.
 func (_class VIFClass) GetIpv4Addresses(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv4Addresses__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv4_addresses"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -643,8 +864,16 @@ func (_class VIFClass) GetIpv4Addresses(sessionID SessionRef, self VIFRef) (_ret
 	return
 }
 
+func (_class VIFClass) GetIpv4ConfigurationMode__mock(sessionID SessionRef, self VIFRef) (_retval VifIpv4ConfigurationMode, _err error) {
+	log.Println("VIF.GetIpv4ConfigurationMode not mocked")
+	_err = errors.New("VIF.GetIpv4ConfigurationMode not mocked")
+	return
+}
 // Get the ipv4_configuration_mode field of the given VIF.
 func (_class VIFClass) GetIpv4ConfigurationMode(sessionID SessionRef, self VIFRef) (_retval VifIpv4ConfigurationMode, _err error) {
+	if (IsMock) {
+		return _class.GetIpv4ConfigurationMode__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv4_configuration_mode"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -662,8 +891,16 @@ func (_class VIFClass) GetIpv4ConfigurationMode(sessionID SessionRef, self VIFRe
 	return
 }
 
+func (_class VIFClass) GetIpv6Allowed__mock(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	log.Println("VIF.GetIpv6Allowed not mocked")
+	_err = errors.New("VIF.GetIpv6Allowed not mocked")
+	return
+}
 // Get the ipv6_allowed field of the given VIF.
 func (_class VIFClass) GetIpv6Allowed(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv6Allowed__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv6_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -681,8 +918,16 @@ func (_class VIFClass) GetIpv6Allowed(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetIpv4Allowed__mock(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	log.Println("VIF.GetIpv4Allowed not mocked")
+	_err = errors.New("VIF.GetIpv4Allowed not mocked")
+	return
+}
 // Get the ipv4_allowed field of the given VIF.
 func (_class VIFClass) GetIpv4Allowed(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetIpv4Allowed__mock(sessionID, self)
+	}	
 	_method := "VIF.get_ipv4_allowed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -700,8 +945,16 @@ func (_class VIFClass) GetIpv4Allowed(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetLockingMode__mock(sessionID SessionRef, self VIFRef) (_retval VifLockingMode, _err error) {
+	log.Println("VIF.GetLockingMode not mocked")
+	_err = errors.New("VIF.GetLockingMode not mocked")
+	return
+}
 // Get the locking_mode field of the given VIF.
 func (_class VIFClass) GetLockingMode(sessionID SessionRef, self VIFRef) (_retval VifLockingMode, _err error) {
+	if (IsMock) {
+		return _class.GetLockingMode__mock(sessionID, self)
+	}	
 	_method := "VIF.get_locking_mode"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -719,8 +972,16 @@ func (_class VIFClass) GetLockingMode(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetMACAutogenerated__mock(sessionID SessionRef, self VIFRef) (_retval bool, _err error) {
+	log.Println("VIF.GetMACAutogenerated not mocked")
+	_err = errors.New("VIF.GetMACAutogenerated not mocked")
+	return
+}
 // Get the MAC_autogenerated field of the given VIF.
 func (_class VIFClass) GetMACAutogenerated(sessionID SessionRef, self VIFRef) (_retval bool, _err error) {
+	if (IsMock) {
+		return _class.GetMACAutogenerated__mock(sessionID, self)
+	}	
 	_method := "VIF.get_MAC_autogenerated"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -738,8 +999,16 @@ func (_class VIFClass) GetMACAutogenerated(sessionID SessionRef, self VIFRef) (_
 	return
 }
 
+func (_class VIFClass) GetMetrics__mock(sessionID SessionRef, self VIFRef) (_retval VIFMetricsRef, _err error) {
+	log.Println("VIF.GetMetrics not mocked")
+	_err = errors.New("VIF.GetMetrics not mocked")
+	return
+}
 // Get the metrics field of the given VIF.
 func (_class VIFClass) GetMetrics(sessionID SessionRef, self VIFRef) (_retval VIFMetricsRef, _err error) {
+	if (IsMock) {
+		return _class.GetMetrics__mock(sessionID, self)
+	}	
 	_method := "VIF.get_metrics"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -757,8 +1026,16 @@ func (_class VIFClass) GetMetrics(sessionID SessionRef, self VIFRef) (_retval VI
 	return
 }
 
+func (_class VIFClass) GetQosSupportedAlgorithms__mock(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	log.Println("VIF.GetQosSupportedAlgorithms not mocked")
+	_err = errors.New("VIF.GetQosSupportedAlgorithms not mocked")
+	return
+}
 // Get the qos/supported_algorithms field of the given VIF.
 func (_class VIFClass) GetQosSupportedAlgorithms(sessionID SessionRef, self VIFRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetQosSupportedAlgorithms__mock(sessionID, self)
+	}	
 	_method := "VIF.get_qos_supported_algorithms"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -776,8 +1053,16 @@ func (_class VIFClass) GetQosSupportedAlgorithms(sessionID SessionRef, self VIFR
 	return
 }
 
+func (_class VIFClass) GetQosAlgorithmParams__mock(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	log.Println("VIF.GetQosAlgorithmParams not mocked")
+	_err = errors.New("VIF.GetQosAlgorithmParams not mocked")
+	return
+}
 // Get the qos/algorithm_params field of the given VIF.
 func (_class VIFClass) GetQosAlgorithmParams(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetQosAlgorithmParams__mock(sessionID, self)
+	}	
 	_method := "VIF.get_qos_algorithm_params"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -795,8 +1080,16 @@ func (_class VIFClass) GetQosAlgorithmParams(sessionID SessionRef, self VIFRef) 
 	return
 }
 
+func (_class VIFClass) GetQosAlgorithmType__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetQosAlgorithmType not mocked")
+	_err = errors.New("VIF.GetQosAlgorithmType not mocked")
+	return
+}
 // Get the qos/algorithm_type field of the given VIF.
 func (_class VIFClass) GetQosAlgorithmType(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetQosAlgorithmType__mock(sessionID, self)
+	}	
 	_method := "VIF.get_qos_algorithm_type"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -814,8 +1107,16 @@ func (_class VIFClass) GetQosAlgorithmType(sessionID SessionRef, self VIFRef) (_
 	return
 }
 
+func (_class VIFClass) GetRuntimeProperties__mock(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	log.Println("VIF.GetRuntimeProperties not mocked")
+	_err = errors.New("VIF.GetRuntimeProperties not mocked")
+	return
+}
 // Get the runtime_properties field of the given VIF.
 func (_class VIFClass) GetRuntimeProperties(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetRuntimeProperties__mock(sessionID, self)
+	}	
 	_method := "VIF.get_runtime_properties"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -833,8 +1134,16 @@ func (_class VIFClass) GetRuntimeProperties(sessionID SessionRef, self VIFRef) (
 	return
 }
 
+func (_class VIFClass) GetStatusDetail__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetStatusDetail not mocked")
+	_err = errors.New("VIF.GetStatusDetail not mocked")
+	return
+}
 // Get the status_detail field of the given VIF.
 func (_class VIFClass) GetStatusDetail(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetStatusDetail__mock(sessionID, self)
+	}	
 	_method := "VIF.get_status_detail"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -852,8 +1161,16 @@ func (_class VIFClass) GetStatusDetail(sessionID SessionRef, self VIFRef) (_retv
 	return
 }
 
+func (_class VIFClass) GetStatusCode__mock(sessionID SessionRef, self VIFRef) (_retval int, _err error) {
+	log.Println("VIF.GetStatusCode not mocked")
+	_err = errors.New("VIF.GetStatusCode not mocked")
+	return
+}
 // Get the status_code field of the given VIF.
 func (_class VIFClass) GetStatusCode(sessionID SessionRef, self VIFRef) (_retval int, _err error) {
+	if (IsMock) {
+		return _class.GetStatusCode__mock(sessionID, self)
+	}	
 	_method := "VIF.get_status_code"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -871,8 +1188,16 @@ func (_class VIFClass) GetStatusCode(sessionID SessionRef, self VIFRef) (_retval
 	return
 }
 
+func (_class VIFClass) GetCurrentlyAttached__mock(sessionID SessionRef, self VIFRef) (_retval bool, _err error) {
+	log.Println("VIF.GetCurrentlyAttached not mocked")
+	_err = errors.New("VIF.GetCurrentlyAttached not mocked")
+	return
+}
 // Get the currently_attached field of the given VIF.
 func (_class VIFClass) GetCurrentlyAttached(sessionID SessionRef, self VIFRef) (_retval bool, _err error) {
+	if (IsMock) {
+		return _class.GetCurrentlyAttached__mock(sessionID, self)
+	}	
 	_method := "VIF.get_currently_attached"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -890,8 +1215,16 @@ func (_class VIFClass) GetCurrentlyAttached(sessionID SessionRef, self VIFRef) (
 	return
 }
 
+func (_class VIFClass) GetOtherConfig__mock(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	log.Println("VIF.GetOtherConfig not mocked")
+	_err = errors.New("VIF.GetOtherConfig not mocked")
+	return
+}
 // Get the other_config field of the given VIF.
 func (_class VIFClass) GetOtherConfig(sessionID SessionRef, self VIFRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetOtherConfig__mock(sessionID, self)
+	}	
 	_method := "VIF.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -909,8 +1242,16 @@ func (_class VIFClass) GetOtherConfig(sessionID SessionRef, self VIFRef) (_retva
 	return
 }
 
+func (_class VIFClass) GetMTU__mock(sessionID SessionRef, self VIFRef) (_retval int, _err error) {
+	log.Println("VIF.GetMTU not mocked")
+	_err = errors.New("VIF.GetMTU not mocked")
+	return
+}
 // Get the MTU field of the given VIF.
 func (_class VIFClass) GetMTU(sessionID SessionRef, self VIFRef) (_retval int, _err error) {
+	if (IsMock) {
+		return _class.GetMTU__mock(sessionID, self)
+	}	
 	_method := "VIF.get_MTU"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -928,8 +1269,16 @@ func (_class VIFClass) GetMTU(sessionID SessionRef, self VIFRef) (_retval int, _
 	return
 }
 
+func (_class VIFClass) GetMAC__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetMAC not mocked")
+	_err = errors.New("VIF.GetMAC not mocked")
+	return
+}
 // Get the MAC field of the given VIF.
 func (_class VIFClass) GetMAC(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetMAC__mock(sessionID, self)
+	}	
 	_method := "VIF.get_MAC"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -947,8 +1296,16 @@ func (_class VIFClass) GetMAC(sessionID SessionRef, self VIFRef) (_retval string
 	return
 }
 
+func (_class VIFClass) GetVM__mock(sessionID SessionRef, self VIFRef) (_retval VMRef, _err error) {
+	log.Println("VIF.GetVM not mocked")
+	_err = errors.New("VIF.GetVM not mocked")
+	return
+}
 // Get the VM field of the given VIF.
 func (_class VIFClass) GetVM(sessionID SessionRef, self VIFRef) (_retval VMRef, _err error) {
+	if (IsMock) {
+		return _class.GetVM__mock(sessionID, self)
+	}	
 	_method := "VIF.get_VM"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -966,8 +1323,16 @@ func (_class VIFClass) GetVM(sessionID SessionRef, self VIFRef) (_retval VMRef, 
 	return
 }
 
+func (_class VIFClass) GetNetwork__mock(sessionID SessionRef, self VIFRef) (_retval NetworkRef, _err error) {
+	log.Println("VIF.GetNetwork not mocked")
+	_err = errors.New("VIF.GetNetwork not mocked")
+	return
+}
 // Get the network field of the given VIF.
 func (_class VIFClass) GetNetwork(sessionID SessionRef, self VIFRef) (_retval NetworkRef, _err error) {
+	if (IsMock) {
+		return _class.GetNetwork__mock(sessionID, self)
+	}	
 	_method := "VIF.get_network"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -985,8 +1350,16 @@ func (_class VIFClass) GetNetwork(sessionID SessionRef, self VIFRef) (_retval Ne
 	return
 }
 
+func (_class VIFClass) GetDevice__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetDevice not mocked")
+	_err = errors.New("VIF.GetDevice not mocked")
+	return
+}
 // Get the device field of the given VIF.
 func (_class VIFClass) GetDevice(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetDevice__mock(sessionID, self)
+	}	
 	_method := "VIF.get_device"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1004,8 +1377,16 @@ func (_class VIFClass) GetDevice(sessionID SessionRef, self VIFRef) (_retval str
 	return
 }
 
+func (_class VIFClass) GetCurrentOperations__mock(sessionID SessionRef, self VIFRef) (_retval map[string]VifOperations, _err error) {
+	log.Println("VIF.GetCurrentOperations not mocked")
+	_err = errors.New("VIF.GetCurrentOperations not mocked")
+	return
+}
 // Get the current_operations field of the given VIF.
 func (_class VIFClass) GetCurrentOperations(sessionID SessionRef, self VIFRef) (_retval map[string]VifOperations, _err error) {
+	if (IsMock) {
+		return _class.GetCurrentOperations__mock(sessionID, self)
+	}	
 	_method := "VIF.get_current_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1023,8 +1404,16 @@ func (_class VIFClass) GetCurrentOperations(sessionID SessionRef, self VIFRef) (
 	return
 }
 
+func (_class VIFClass) GetAllowedOperations__mock(sessionID SessionRef, self VIFRef) (_retval []VifOperations, _err error) {
+	log.Println("VIF.GetAllowedOperations not mocked")
+	_err = errors.New("VIF.GetAllowedOperations not mocked")
+	return
+}
 // Get the allowed_operations field of the given VIF.
 func (_class VIFClass) GetAllowedOperations(sessionID SessionRef, self VIFRef) (_retval []VifOperations, _err error) {
+	if (IsMock) {
+		return _class.GetAllowedOperations__mock(sessionID, self)
+	}	
 	_method := "VIF.get_allowed_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1042,8 +1431,16 @@ func (_class VIFClass) GetAllowedOperations(sessionID SessionRef, self VIFRef) (
 	return
 }
 
+func (_class VIFClass) GetUUID__mock(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	log.Println("VIF.GetUUID not mocked")
+	_err = errors.New("VIF.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given VIF.
 func (_class VIFClass) GetUUID(sessionID SessionRef, self VIFRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "VIF.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1061,8 +1458,16 @@ func (_class VIFClass) GetUUID(sessionID SessionRef, self VIFRef) (_retval strin
 	return
 }
 
+func (_class VIFClass) Destroy__mock(sessionID SessionRef, self VIFRef) (_err error) {
+	log.Println("VIF.Destroy not mocked")
+	_err = errors.New("VIF.Destroy not mocked")
+	return
+}
 // Destroy the specified VIF instance.
 func (_class VIFClass) Destroy(sessionID SessionRef, self VIFRef) (_err error) {
+	if (IsMock) {
+		return _class.Destroy__mock(sessionID, self)
+	}	
 	_method := "VIF.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1076,9 +1481,17 @@ func (_class VIFClass) Destroy(sessionID SessionRef, self VIFRef) (_err error) {
 	return
 }
 
+func (_class VIFClass) Create__mock(sessionID SessionRef, args VIFRecord) (_retval VIFRef, _err error) {
+	log.Println("VIF.Create not mocked")
+	_err = errors.New("VIF.Create not mocked")
+	return
+}
 // Create a new VIF instance, and return its handle.
 // The constructor args are: device*, network*, VM*, MAC*, MTU*, other_config*, qos_algorithm_type*, qos_algorithm_params*, locking_mode, ipv4_allowed, ipv6_allowed (* = non-optional).
 func (_class VIFClass) Create(sessionID SessionRef, args VIFRecord) (_retval VIFRef, _err error) {
+	if (IsMock) {
+		return _class.Create__mock(sessionID, args)
+	}	
 	_method := "VIF.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1096,8 +1509,16 @@ func (_class VIFClass) Create(sessionID SessionRef, args VIFRecord) (_retval VIF
 	return
 }
 
+func (_class VIFClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval VIFRef, _err error) {
+	log.Println("VIF.GetByUUID not mocked")
+	_err = errors.New("VIF.GetByUUID not mocked")
+	return
+}
 // Get a reference to the VIF instance with the specified UUID.
 func (_class VIFClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VIFRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "VIF.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -1115,8 +1536,16 @@ func (_class VIFClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VIF
 	return
 }
 
+func (_class VIFClass) GetRecord__mock(sessionID SessionRef, self VIFRef) (_retval VIFRecord, _err error) {
+	log.Println("VIF.GetRecord not mocked")
+	_err = errors.New("VIF.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given VIF.
 func (_class VIFClass) GetRecord(sessionID SessionRef, self VIFRef) (_retval VIFRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "VIF.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

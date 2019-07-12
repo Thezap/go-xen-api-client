@@ -7,20 +7,33 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
 var _ = strconv.Atoi
 var _ = time.UTC
 
+func convertBondRefToBondRecordMapToGo__mock(context string, input interface{}) (goMap map[BondRef]BondRecord, err error) {
+	log.Println("convertBondRefToBondRecordMapToGo not mocked")
+	return nil, errors.New("convertBondRefToBondRecordMapToGo not mocked")
+}
+
 func convertBondRefToBondRecordMapToGo(context string, input interface{}) (goMap map[BondRef]BondRecord, err error) {
+	if (false) {
+		return convertBondRefToBondRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -42,7 +55,15 @@ func convertBondRefToBondRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertDRTaskRefToDRTaskRecordMapToGo__mock(context string, input interface{}) (goMap map[DRTaskRef]DRTaskRecord, err error) {
+	log.Println("convertDRTaskRefToDRTaskRecordMapToGo not mocked")
+	return nil, errors.New("convertDRTaskRefToDRTaskRecordMapToGo not mocked")
+}
+
 func convertDRTaskRefToDRTaskRecordMapToGo(context string, input interface{}) (goMap map[DRTaskRef]DRTaskRecord, err error) {
+	if (false) {
+		return convertDRTaskRefToDRTaskRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -64,7 +85,15 @@ func convertDRTaskRefToDRTaskRecordMapToGo(context string, input interface{}) (g
 	return
 }
 
+func convertFeatureRefToFeatureRecordMapToGo__mock(context string, input interface{}) (goMap map[FeatureRef]FeatureRecord, err error) {
+	log.Println("convertFeatureRefToFeatureRecordMapToGo not mocked")
+	return nil, errors.New("convertFeatureRefToFeatureRecordMapToGo not mocked")
+}
+
 func convertFeatureRefToFeatureRecordMapToGo(context string, input interface{}) (goMap map[FeatureRef]FeatureRecord, err error) {
+	if (false) {
+		return convertFeatureRefToFeatureRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -86,7 +115,15 @@ func convertFeatureRefToFeatureRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertGPUGroupRefToGPUGroupRecordMapToGo__mock(context string, input interface{}) (goMap map[GPUGroupRef]GPUGroupRecord, err error) {
+	log.Println("convertGPUGroupRefToGPUGroupRecordMapToGo not mocked")
+	return nil, errors.New("convertGPUGroupRefToGPUGroupRecordMapToGo not mocked")
+}
+
 func convertGPUGroupRefToGPUGroupRecordMapToGo(context string, input interface{}) (goMap map[GPUGroupRef]GPUGroupRecord, err error) {
+	if (false) {
+		return convertGPUGroupRefToGPUGroupRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -108,7 +145,15 @@ func convertGPUGroupRefToGPUGroupRecordMapToGo(context string, input interface{}
 	return
 }
 
+func convertPBDRefToPBDRecordMapToGo__mock(context string, input interface{}) (goMap map[PBDRef]PBDRecord, err error) {
+	log.Println("convertPBDRefToPBDRecordMapToGo not mocked")
+	return nil, errors.New("convertPBDRefToPBDRecordMapToGo not mocked")
+}
+
 func convertPBDRefToPBDRecordMapToGo(context string, input interface{}) (goMap map[PBDRef]PBDRecord, err error) {
+	if (false) {
+		return convertPBDRefToPBDRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -130,7 +175,15 @@ func convertPBDRefToPBDRecordMapToGo(context string, input interface{}) (goMap m
 	return
 }
 
+func convertPCIRefToPCIRecordMapToGo__mock(context string, input interface{}) (goMap map[PCIRef]PCIRecord, err error) {
+	log.Println("convertPCIRefToPCIRecordMapToGo not mocked")
+	return nil, errors.New("convertPCIRefToPCIRecordMapToGo not mocked")
+}
+
 func convertPCIRefToPCIRecordMapToGo(context string, input interface{}) (goMap map[PCIRef]PCIRecord, err error) {
+	if (false) {
+		return convertPCIRefToPCIRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -152,7 +205,15 @@ func convertPCIRefToPCIRecordMapToGo(context string, input interface{}) (goMap m
 	return
 }
 
+func convertPGPURefToPGPURecordMapToGo__mock(context string, input interface{}) (goMap map[PGPURef]PGPURecord, err error) {
+	log.Println("convertPGPURefToPGPURecordMapToGo not mocked")
+	return nil, errors.New("convertPGPURefToPGPURecordMapToGo not mocked")
+}
+
 func convertPGPURefToPGPURecordMapToGo(context string, input interface{}) (goMap map[PGPURef]PGPURecord, err error) {
+	if (false) {
+		return convertPGPURefToPGPURecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -174,7 +235,15 @@ func convertPGPURefToPGPURecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertPIFRefToPIFRecordMapToGo__mock(context string, input interface{}) (goMap map[PIFRef]PIFRecord, err error) {
+	log.Println("convertPIFRefToPIFRecordMapToGo not mocked")
+	return nil, errors.New("convertPIFRefToPIFRecordMapToGo not mocked")
+}
+
 func convertPIFRefToPIFRecordMapToGo(context string, input interface{}) (goMap map[PIFRef]PIFRecord, err error) {
+	if (false) {
+		return convertPIFRefToPIFRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -196,7 +265,15 @@ func convertPIFRefToPIFRecordMapToGo(context string, input interface{}) (goMap m
 	return
 }
 
+func convertPIFMetricsRefToPIFMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[PIFMetricsRef]PIFMetricsRecord, err error) {
+	log.Println("convertPIFMetricsRefToPIFMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertPIFMetricsRefToPIFMetricsRecordMapToGo not mocked")
+}
+
 func convertPIFMetricsRefToPIFMetricsRecordMapToGo(context string, input interface{}) (goMap map[PIFMetricsRef]PIFMetricsRecord, err error) {
+	if (false) {
+		return convertPIFMetricsRefToPIFMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -218,7 +295,15 @@ func convertPIFMetricsRefToPIFMetricsRecordMapToGo(context string, input interfa
 	return
 }
 
+func convertPUSBRefToPUSBRecordMapToGo__mock(context string, input interface{}) (goMap map[PUSBRef]PUSBRecord, err error) {
+	log.Println("convertPUSBRefToPUSBRecordMapToGo not mocked")
+	return nil, errors.New("convertPUSBRefToPUSBRecordMapToGo not mocked")
+}
+
 func convertPUSBRefToPUSBRecordMapToGo(context string, input interface{}) (goMap map[PUSBRef]PUSBRecord, err error) {
+	if (false) {
+		return convertPUSBRefToPUSBRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -240,7 +325,15 @@ func convertPUSBRefToPUSBRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo__mock(context string, input interface{}) (goMap map[PVSCacheStorageRef]PVSCacheStorageRecord, err error) {
+	log.Println("convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo not mocked")
+	return nil, errors.New("convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo not mocked")
+}
+
 func convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo(context string, input interface{}) (goMap map[PVSCacheStorageRef]PVSCacheStorageRecord, err error) {
+	if (false) {
+		return convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -262,7 +355,15 @@ func convertPVSCacheStorageRefToPVSCacheStorageRecordMapToGo(context string, inp
 	return
 }
 
+func convertPVSProxyRefToPVSProxyRecordMapToGo__mock(context string, input interface{}) (goMap map[PVSProxyRef]PVSProxyRecord, err error) {
+	log.Println("convertPVSProxyRefToPVSProxyRecordMapToGo not mocked")
+	return nil, errors.New("convertPVSProxyRefToPVSProxyRecordMapToGo not mocked")
+}
+
 func convertPVSProxyRefToPVSProxyRecordMapToGo(context string, input interface{}) (goMap map[PVSProxyRef]PVSProxyRecord, err error) {
+	if (false) {
+		return convertPVSProxyRefToPVSProxyRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -284,7 +385,15 @@ func convertPVSProxyRefToPVSProxyRecordMapToGo(context string, input interface{}
 	return
 }
 
+func convertPVSServerRefToPVSServerRecordMapToGo__mock(context string, input interface{}) (goMap map[PVSServerRef]PVSServerRecord, err error) {
+	log.Println("convertPVSServerRefToPVSServerRecordMapToGo not mocked")
+	return nil, errors.New("convertPVSServerRefToPVSServerRecordMapToGo not mocked")
+}
+
 func convertPVSServerRefToPVSServerRecordMapToGo(context string, input interface{}) (goMap map[PVSServerRef]PVSServerRecord, err error) {
+	if (false) {
+		return convertPVSServerRefToPVSServerRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -306,7 +415,15 @@ func convertPVSServerRefToPVSServerRecordMapToGo(context string, input interface
 	return
 }
 
+func convertPVSSiteRefToPVSSiteRecordMapToGo__mock(context string, input interface{}) (goMap map[PVSSiteRef]PVSSiteRecord, err error) {
+	log.Println("convertPVSSiteRefToPVSSiteRecordMapToGo not mocked")
+	return nil, errors.New("convertPVSSiteRefToPVSSiteRecordMapToGo not mocked")
+}
+
 func convertPVSSiteRefToPVSSiteRecordMapToGo(context string, input interface{}) (goMap map[PVSSiteRef]PVSSiteRecord, err error) {
+	if (false) {
+		return convertPVSSiteRefToPVSSiteRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -328,7 +445,15 @@ func convertPVSSiteRefToPVSSiteRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertSDNControllerRefToSDNControllerRecordMapToGo__mock(context string, input interface{}) (goMap map[SDNControllerRef]SDNControllerRecord, err error) {
+	log.Println("convertSDNControllerRefToSDNControllerRecordMapToGo not mocked")
+	return nil, errors.New("convertSDNControllerRefToSDNControllerRecordMapToGo not mocked")
+}
+
 func convertSDNControllerRefToSDNControllerRecordMapToGo(context string, input interface{}) (goMap map[SDNControllerRef]SDNControllerRecord, err error) {
+	if (false) {
+		return convertSDNControllerRefToSDNControllerRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -350,7 +475,15 @@ func convertSDNControllerRefToSDNControllerRecordMapToGo(context string, input i
 	return
 }
 
+func convertSMRefToSMRecordMapToGo__mock(context string, input interface{}) (goMap map[SMRef]SMRecord, err error) {
+	log.Println("convertSMRefToSMRecordMapToGo not mocked")
+	return nil, errors.New("convertSMRefToSMRecordMapToGo not mocked")
+}
+
 func convertSMRefToSMRecordMapToGo(context string, input interface{}) (goMap map[SMRef]SMRecord, err error) {
+	if (false) {
+		return convertSMRefToSMRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -372,7 +505,15 @@ func convertSMRefToSMRecordMapToGo(context string, input interface{}) (goMap map
 	return
 }
 
+func convertSRRefToSRRecordMapToGo__mock(context string, input interface{}) (goMap map[SRRef]SRRecord, err error) {
+	log.Println("convertSRRefToSRRecordMapToGo not mocked")
+	return nil, errors.New("convertSRRefToSRRecordMapToGo not mocked")
+}
+
 func convertSRRefToSRRecordMapToGo(context string, input interface{}) (goMap map[SRRef]SRRecord, err error) {
+	if (false) {
+		return convertSRRefToSRRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -394,7 +535,15 @@ func convertSRRefToSRRecordMapToGo(context string, input interface{}) (goMap map
 	return
 }
 
+func convertUSBGroupRefToUSBGroupRecordMapToGo__mock(context string, input interface{}) (goMap map[USBGroupRef]USBGroupRecord, err error) {
+	log.Println("convertUSBGroupRefToUSBGroupRecordMapToGo not mocked")
+	return nil, errors.New("convertUSBGroupRefToUSBGroupRecordMapToGo not mocked")
+}
+
 func convertUSBGroupRefToUSBGroupRecordMapToGo(context string, input interface{}) (goMap map[USBGroupRef]USBGroupRecord, err error) {
+	if (false) {
+		return convertUSBGroupRefToUSBGroupRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -416,7 +565,15 @@ func convertUSBGroupRefToUSBGroupRecordMapToGo(context string, input interface{}
 	return
 }
 
+func convertVBDRefToVBDRecordMapToGo__mock(context string, input interface{}) (goMap map[VBDRef]VBDRecord, err error) {
+	log.Println("convertVBDRefToVBDRecordMapToGo not mocked")
+	return nil, errors.New("convertVBDRefToVBDRecordMapToGo not mocked")
+}
+
 func convertVBDRefToVBDRecordMapToGo(context string, input interface{}) (goMap map[VBDRef]VBDRecord, err error) {
+	if (false) {
+		return convertVBDRefToVBDRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -438,7 +595,15 @@ func convertVBDRefToVBDRecordMapToGo(context string, input interface{}) (goMap m
 	return
 }
 
+func convertVBDMetricsRefToVBDMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[VBDMetricsRef]VBDMetricsRecord, err error) {
+	log.Println("convertVBDMetricsRefToVBDMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertVBDMetricsRefToVBDMetricsRecordMapToGo not mocked")
+}
+
 func convertVBDMetricsRefToVBDMetricsRecordMapToGo(context string, input interface{}) (goMap map[VBDMetricsRef]VBDMetricsRecord, err error) {
+	if (false) {
+		return convertVBDMetricsRefToVBDMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -477,7 +642,15 @@ func convertVDIRefToSRRefMapToXen(context string, goMap map[VDIRef]SRRef) (xenMa
 	return
 }
 
+func convertVDIRefToVDIRecordMapToGo__mock(context string, input interface{}) (goMap map[VDIRef]VDIRecord, err error) {
+	log.Println("convertVDIRefToVDIRecordMapToGo not mocked")
+	return nil, errors.New("convertVDIRefToVDIRecordMapToGo not mocked")
+}
+
 func convertVDIRefToVDIRecordMapToGo(context string, input interface{}) (goMap map[VDIRef]VDIRecord, err error) {
+	if (false) {
+		return convertVDIRefToVDIRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -516,7 +689,15 @@ func convertVGPURefToGPUGroupRefMapToXen(context string, goMap map[VGPURef]GPUGr
 	return
 }
 
+func convertVGPURefToVGPURecordMapToGo__mock(context string, input interface{}) (goMap map[VGPURef]VGPURecord, err error) {
+	log.Println("convertVGPURefToVGPURecordMapToGo not mocked")
+	return nil, errors.New("convertVGPURefToVGPURecordMapToGo not mocked")
+}
+
 func convertVGPURefToVGPURecordMapToGo(context string, input interface{}) (goMap map[VGPURef]VGPURecord, err error) {
+	if (false) {
+		return convertVGPURefToVGPURecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -538,7 +719,15 @@ func convertVGPURefToVGPURecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertVGPUTypeRefToVGPUTypeRecordMapToGo__mock(context string, input interface{}) (goMap map[VGPUTypeRef]VGPUTypeRecord, err error) {
+	log.Println("convertVGPUTypeRefToVGPUTypeRecordMapToGo not mocked")
+	return nil, errors.New("convertVGPUTypeRefToVGPUTypeRecordMapToGo not mocked")
+}
+
 func convertVGPUTypeRefToVGPUTypeRecordMapToGo(context string, input interface{}) (goMap map[VGPUTypeRef]VGPUTypeRecord, err error) {
+	if (false) {
+		return convertVGPUTypeRefToVGPUTypeRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -560,7 +749,15 @@ func convertVGPUTypeRefToVGPUTypeRecordMapToGo(context string, input interface{}
 	return
 }
 
+func convertVGPUTypeRefToIntMapToGo__mock(context string, input interface{}) (goMap map[VGPUTypeRef]int, err error) {
+	log.Println("convertVGPUTypeRefToIntMapToGo not mocked")
+	return nil, errors.New("convertVGPUTypeRefToIntMapToGo not mocked")
+}
+
 func convertVGPUTypeRefToIntMapToGo(context string, input interface{}) (goMap map[VGPUTypeRef]int, err error) {
+	if (false) {
+		return convertVGPUTypeRefToIntMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -582,7 +779,15 @@ func convertVGPUTypeRefToIntMapToGo(context string, input interface{}) (goMap ma
 	return
 }
 
+func convertVIFRefToVIFRecordMapToGo__mock(context string, input interface{}) (goMap map[VIFRef]VIFRecord, err error) {
+	log.Println("convertVIFRefToVIFRecordMapToGo not mocked")
+	return nil, errors.New("convertVIFRefToVIFRecordMapToGo not mocked")
+}
+
 func convertVIFRefToVIFRecordMapToGo(context string, input interface{}) (goMap map[VIFRef]VIFRecord, err error) {
+	if (false) {
+		return convertVIFRefToVIFRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -621,7 +826,15 @@ func convertVIFRefToNetworkRefMapToXen(context string, goMap map[VIFRef]NetworkR
 	return
 }
 
+func convertVIFRefToStringMapToGo__mock(context string, input interface{}) (goMap map[VIFRef]string, err error) {
+	log.Println("convertVIFRefToStringMapToGo not mocked")
+	return nil, errors.New("convertVIFRefToStringMapToGo not mocked")
+}
+
 func convertVIFRefToStringMapToGo(context string, input interface{}) (goMap map[VIFRef]string, err error) {
+	if (false) {
+		return convertVIFRefToStringMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -660,7 +873,15 @@ func convertVIFRefToStringMapToXen(context string, goMap map[VIFRef]string) (xen
 	return
 }
 
+func convertVIFMetricsRefToVIFMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[VIFMetricsRef]VIFMetricsRecord, err error) {
+	log.Println("convertVIFMetricsRefToVIFMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertVIFMetricsRefToVIFMetricsRecordMapToGo not mocked")
+}
+
 func convertVIFMetricsRefToVIFMetricsRecordMapToGo(context string, input interface{}) (goMap map[VIFMetricsRef]VIFMetricsRecord, err error) {
+	if (false) {
+		return convertVIFMetricsRefToVIFMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -682,7 +903,15 @@ func convertVIFMetricsRefToVIFMetricsRecordMapToGo(context string, input interfa
 	return
 }
 
+func convertVLANRefToVLANRecordMapToGo__mock(context string, input interface{}) (goMap map[VLANRef]VLANRecord, err error) {
+	log.Println("convertVLANRefToVLANRecordMapToGo not mocked")
+	return nil, errors.New("convertVLANRefToVLANRecordMapToGo not mocked")
+}
+
 func convertVLANRefToVLANRecordMapToGo(context string, input interface{}) (goMap map[VLANRef]VLANRecord, err error) {
+	if (false) {
+		return convertVLANRefToVLANRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -704,7 +933,15 @@ func convertVLANRefToVLANRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertVMRefToStringToStringMapMapToGo__mock(context string, input interface{}) (goMap map[VMRef]map[string]string, err error) {
+	log.Println("convertVMRefToStringToStringMapMapToGo not mocked")
+	return nil, errors.New("convertVMRefToStringToStringMapMapToGo not mocked")
+}
+
 func convertVMRefToStringToStringMapMapToGo(context string, input interface{}) (goMap map[VMRef]map[string]string, err error) {
+	if (false) {
+		return convertVMRefToStringToStringMapMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -726,7 +963,15 @@ func convertVMRefToStringToStringMapMapToGo(context string, input interface{}) (
 	return
 }
 
+func convertVMRefToVMRecordMapToGo__mock(context string, input interface{}) (goMap map[VMRef]VMRecord, err error) {
+	log.Println("convertVMRefToVMRecordMapToGo not mocked")
+	return nil, errors.New("convertVMRefToVMRecordMapToGo not mocked")
+}
+
 func convertVMRefToVMRecordMapToGo(context string, input interface{}) (goMap map[VMRef]VMRecord, err error) {
+	if (false) {
+		return convertVMRefToVMRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -748,7 +993,15 @@ func convertVMRefToVMRecordMapToGo(context string, input interface{}) (goMap map
 	return
 }
 
+func convertVMRefToStringSetMapToGo__mock(context string, input interface{}) (goMap map[VMRef][]string, err error) {
+	log.Println("convertVMRefToStringSetMapToGo not mocked")
+	return nil, errors.New("convertVMRefToStringSetMapToGo not mocked")
+}
+
 func convertVMRefToStringSetMapToGo(context string, input interface{}) (goMap map[VMRef][]string, err error) {
+	if (false) {
+		return convertVMRefToStringSetMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -787,7 +1040,15 @@ func convertVMRefToStringMapToXen(context string, goMap map[VMRef]string) (xenMa
 	return
 }
 
+func convertVMPPRefToVMPPRecordMapToGo__mock(context string, input interface{}) (goMap map[VMPPRef]VMPPRecord, err error) {
+	log.Println("convertVMPPRefToVMPPRecordMapToGo not mocked")
+	return nil, errors.New("convertVMPPRefToVMPPRecordMapToGo not mocked")
+}
+
 func convertVMPPRefToVMPPRecordMapToGo(context string, input interface{}) (goMap map[VMPPRef]VMPPRecord, err error) {
+	if (false) {
+		return convertVMPPRefToVMPPRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -809,7 +1070,15 @@ func convertVMPPRefToVMPPRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertVMSSRefToVMSSRecordMapToGo__mock(context string, input interface{}) (goMap map[VMSSRef]VMSSRecord, err error) {
+	log.Println("convertVMSSRefToVMSSRecordMapToGo not mocked")
+	return nil, errors.New("convertVMSSRefToVMSSRecordMapToGo not mocked")
+}
+
 func convertVMSSRefToVMSSRecordMapToGo(context string, input interface{}) (goMap map[VMSSRef]VMSSRecord, err error) {
+	if (false) {
+		return convertVMSSRefToVMSSRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -831,7 +1100,15 @@ func convertVMSSRefToVMSSRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertVMApplianceRefToVMApplianceRecordMapToGo__mock(context string, input interface{}) (goMap map[VMApplianceRef]VMApplianceRecord, err error) {
+	log.Println("convertVMApplianceRefToVMApplianceRecordMapToGo not mocked")
+	return nil, errors.New("convertVMApplianceRefToVMApplianceRecordMapToGo not mocked")
+}
+
 func convertVMApplianceRefToVMApplianceRecordMapToGo(context string, input interface{}) (goMap map[VMApplianceRef]VMApplianceRecord, err error) {
+	if (false) {
+		return convertVMApplianceRefToVMApplianceRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -853,7 +1130,15 @@ func convertVMApplianceRefToVMApplianceRecordMapToGo(context string, input inter
 	return
 }
 
+func convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[VMGuestMetricsRef]VMGuestMetricsRecord, err error) {
+	log.Println("convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo not mocked")
+}
+
 func convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo(context string, input interface{}) (goMap map[VMGuestMetricsRef]VMGuestMetricsRecord, err error) {
+	if (false) {
+		return convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -875,7 +1160,15 @@ func convertVMGuestMetricsRefToVMGuestMetricsRecordMapToGo(context string, input
 	return
 }
 
+func convertVMMetricsRefToVMMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[VMMetricsRef]VMMetricsRecord, err error) {
+	log.Println("convertVMMetricsRefToVMMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertVMMetricsRefToVMMetricsRecordMapToGo not mocked")
+}
+
 func convertVMMetricsRefToVMMetricsRecordMapToGo(context string, input interface{}) (goMap map[VMMetricsRef]VMMetricsRecord, err error) {
+	if (false) {
+		return convertVMMetricsRefToVMMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -897,7 +1190,15 @@ func convertVMMetricsRefToVMMetricsRecordMapToGo(context string, input interface
 	return
 }
 
+func convertVUSBRefToVUSBRecordMapToGo__mock(context string, input interface{}) (goMap map[VUSBRef]VUSBRecord, err error) {
+	log.Println("convertVUSBRefToVUSBRecordMapToGo not mocked")
+	return nil, errors.New("convertVUSBRefToVUSBRecordMapToGo not mocked")
+}
+
 func convertVUSBRefToVUSBRecordMapToGo(context string, input interface{}) (goMap map[VUSBRef]VUSBRecord, err error) {
+	if (false) {
+		return convertVUSBRefToVUSBRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -919,7 +1220,15 @@ func convertVUSBRefToVUSBRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertBlobRefToBlobRecordMapToGo__mock(context string, input interface{}) (goMap map[BlobRef]BlobRecord, err error) {
+	log.Println("convertBlobRefToBlobRecordMapToGo not mocked")
+	return nil, errors.New("convertBlobRefToBlobRecordMapToGo not mocked")
+}
+
 func convertBlobRefToBlobRecordMapToGo(context string, input interface{}) (goMap map[BlobRef]BlobRecord, err error) {
+	if (false) {
+		return convertBlobRefToBlobRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -941,7 +1250,15 @@ func convertBlobRefToBlobRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertConsoleRefToConsoleRecordMapToGo__mock(context string, input interface{}) (goMap map[ConsoleRef]ConsoleRecord, err error) {
+	log.Println("convertConsoleRefToConsoleRecordMapToGo not mocked")
+	return nil, errors.New("convertConsoleRefToConsoleRecordMapToGo not mocked")
+}
+
 func convertConsoleRefToConsoleRecordMapToGo(context string, input interface{}) (goMap map[ConsoleRef]ConsoleRecord, err error) {
+	if (false) {
+		return convertConsoleRefToConsoleRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -963,7 +1280,15 @@ func convertConsoleRefToConsoleRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertCrashdumpRefToCrashdumpRecordMapToGo__mock(context string, input interface{}) (goMap map[CrashdumpRef]CrashdumpRecord, err error) {
+	log.Println("convertCrashdumpRefToCrashdumpRecordMapToGo not mocked")
+	return nil, errors.New("convertCrashdumpRefToCrashdumpRecordMapToGo not mocked")
+}
+
 func convertCrashdumpRefToCrashdumpRecordMapToGo(context string, input interface{}) (goMap map[CrashdumpRef]CrashdumpRecord, err error) {
+	if (false) {
+		return convertCrashdumpRefToCrashdumpRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -985,7 +1310,15 @@ func convertCrashdumpRefToCrashdumpRecordMapToGo(context string, input interface
 	return
 }
 
+func convertEnumVMOperationsToStringMapToGo__mock(context string, input interface{}) (goMap map[VMOperations]string, err error) {
+	log.Println("convertEnumVMOperationsToStringMapToGo not mocked")
+	return nil, errors.New("convertEnumVMOperationsToStringMapToGo not mocked")
+}
+
 func convertEnumVMOperationsToStringMapToGo(context string, input interface{}) (goMap map[VMOperations]string, err error) {
+	if (false) {
+		return convertEnumVMOperationsToStringMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1024,7 +1357,15 @@ func convertEnumVMOperationsToStringMapToXen(context string, goMap map[VMOperati
 	return
 }
 
+func convertHostRefToHostRecordMapToGo__mock(context string, input interface{}) (goMap map[HostRef]HostRecord, err error) {
+	log.Println("convertHostRefToHostRecordMapToGo not mocked")
+	return nil, errors.New("convertHostRefToHostRecordMapToGo not mocked")
+}
+
 func convertHostRefToHostRecordMapToGo(context string, input interface{}) (goMap map[HostRef]HostRecord, err error) {
+	if (false) {
+		return convertHostRefToHostRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1046,7 +1387,15 @@ func convertHostRefToHostRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertHostRefToStringSetMapToGo__mock(context string, input interface{}) (goMap map[HostRef][]string, err error) {
+	log.Println("convertHostRefToStringSetMapToGo not mocked")
+	return nil, errors.New("convertHostRefToStringSetMapToGo not mocked")
+}
+
 func convertHostRefToStringSetMapToGo(context string, input interface{}) (goMap map[HostRef][]string, err error) {
+	if (false) {
+		return convertHostRefToStringSetMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1068,7 +1417,15 @@ func convertHostRefToStringSetMapToGo(context string, input interface{}) (goMap 
 	return
 }
 
+func convertHostCPURefToHostCPURecordMapToGo__mock(context string, input interface{}) (goMap map[HostCPURef]HostCPURecord, err error) {
+	log.Println("convertHostCPURefToHostCPURecordMapToGo not mocked")
+	return nil, errors.New("convertHostCPURefToHostCPURecordMapToGo not mocked")
+}
+
 func convertHostCPURefToHostCPURecordMapToGo(context string, input interface{}) (goMap map[HostCPURef]HostCPURecord, err error) {
+	if (false) {
+		return convertHostCPURefToHostCPURecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1090,7 +1447,15 @@ func convertHostCPURefToHostCPURecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertHostCrashdumpRefToHostCrashdumpRecordMapToGo__mock(context string, input interface{}) (goMap map[HostCrashdumpRef]HostCrashdumpRecord, err error) {
+	log.Println("convertHostCrashdumpRefToHostCrashdumpRecordMapToGo not mocked")
+	return nil, errors.New("convertHostCrashdumpRefToHostCrashdumpRecordMapToGo not mocked")
+}
+
 func convertHostCrashdumpRefToHostCrashdumpRecordMapToGo(context string, input interface{}) (goMap map[HostCrashdumpRef]HostCrashdumpRecord, err error) {
+	if (false) {
+		return convertHostCrashdumpRefToHostCrashdumpRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1112,7 +1477,15 @@ func convertHostCrashdumpRefToHostCrashdumpRecordMapToGo(context string, input i
 	return
 }
 
+func convertHostMetricsRefToHostMetricsRecordMapToGo__mock(context string, input interface{}) (goMap map[HostMetricsRef]HostMetricsRecord, err error) {
+	log.Println("convertHostMetricsRefToHostMetricsRecordMapToGo not mocked")
+	return nil, errors.New("convertHostMetricsRefToHostMetricsRecordMapToGo not mocked")
+}
+
 func convertHostMetricsRefToHostMetricsRecordMapToGo(context string, input interface{}) (goMap map[HostMetricsRef]HostMetricsRecord, err error) {
+	if (false) {
+		return convertHostMetricsRefToHostMetricsRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1134,7 +1507,15 @@ func convertHostMetricsRefToHostMetricsRecordMapToGo(context string, input inter
 	return
 }
 
+func convertHostPatchRefToHostPatchRecordMapToGo__mock(context string, input interface{}) (goMap map[HostPatchRef]HostPatchRecord, err error) {
+	log.Println("convertHostPatchRefToHostPatchRecordMapToGo not mocked")
+	return nil, errors.New("convertHostPatchRefToHostPatchRecordMapToGo not mocked")
+}
+
 func convertHostPatchRefToHostPatchRecordMapToGo(context string, input interface{}) (goMap map[HostPatchRef]HostPatchRecord, err error) {
+	if (false) {
+		return convertHostPatchRefToHostPatchRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1156,7 +1537,15 @@ func convertHostPatchRefToHostPatchRecordMapToGo(context string, input interface
 	return
 }
 
+func convertIntToFloatMapToGo__mock(context string, input interface{}) (goMap map[int]float64, err error) {
+	log.Println("convertIntToFloatMapToGo not mocked")
+	return nil, errors.New("convertIntToFloatMapToGo not mocked")
+}
+
 func convertIntToFloatMapToGo(context string, input interface{}) (goMap map[int]float64, err error) {
+	if (false) {
+		return convertIntToFloatMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1178,7 +1567,15 @@ func convertIntToFloatMapToGo(context string, input interface{}) (goMap map[int]
 	return
 }
 
+func convertIntToIntMapToGo__mock(context string, input interface{}) (goMap map[int]int, err error) {
+	log.Println("convertIntToIntMapToGo not mocked")
+	return nil, errors.New("convertIntToIntMapToGo not mocked")
+}
+
 func convertIntToIntMapToGo(context string, input interface{}) (goMap map[int]int, err error) {
+	if (false) {
+		return convertIntToIntMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1200,7 +1597,15 @@ func convertIntToIntMapToGo(context string, input interface{}) (goMap map[int]in
 	return
 }
 
+func convertIntToStringSetMapToGo__mock(context string, input interface{}) (goMap map[int][]string, err error) {
+	log.Println("convertIntToStringSetMapToGo not mocked")
+	return nil, errors.New("convertIntToStringSetMapToGo not mocked")
+}
+
 func convertIntToStringSetMapToGo(context string, input interface{}) (goMap map[int][]string, err error) {
+	if (false) {
+		return convertIntToStringSetMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1222,7 +1627,15 @@ func convertIntToStringSetMapToGo(context string, input interface{}) (goMap map[
 	return
 }
 
+func convertMessageRefToMessageRecordMapToGo__mock(context string, input interface{}) (goMap map[MessageRef]MessageRecord, err error) {
+	log.Println("convertMessageRefToMessageRecordMapToGo not mocked")
+	return nil, errors.New("convertMessageRefToMessageRecordMapToGo not mocked")
+}
+
 func convertMessageRefToMessageRecordMapToGo(context string, input interface{}) (goMap map[MessageRef]MessageRecord, err error) {
+	if (false) {
+		return convertMessageRefToMessageRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1244,7 +1657,15 @@ func convertMessageRefToMessageRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertNetworkRefToNetworkRecordMapToGo__mock(context string, input interface{}) (goMap map[NetworkRef]NetworkRecord, err error) {
+	log.Println("convertNetworkRefToNetworkRecordMapToGo not mocked")
+	return nil, errors.New("convertNetworkRefToNetworkRecordMapToGo not mocked")
+}
+
 func convertNetworkRefToNetworkRecordMapToGo(context string, input interface{}) (goMap map[NetworkRef]NetworkRecord, err error) {
+	if (false) {
+		return convertNetworkRefToNetworkRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1266,7 +1687,15 @@ func convertNetworkRefToNetworkRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertPoolRefToPoolRecordMapToGo__mock(context string, input interface{}) (goMap map[PoolRef]PoolRecord, err error) {
+	log.Println("convertPoolRefToPoolRecordMapToGo not mocked")
+	return nil, errors.New("convertPoolRefToPoolRecordMapToGo not mocked")
+}
+
 func convertPoolRefToPoolRecordMapToGo(context string, input interface{}) (goMap map[PoolRef]PoolRecord, err error) {
+	if (false) {
+		return convertPoolRefToPoolRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1288,7 +1717,15 @@ func convertPoolRefToPoolRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertPoolPatchRefToPoolPatchRecordMapToGo__mock(context string, input interface{}) (goMap map[PoolPatchRef]PoolPatchRecord, err error) {
+	log.Println("convertPoolPatchRefToPoolPatchRecordMapToGo not mocked")
+	return nil, errors.New("convertPoolPatchRefToPoolPatchRecordMapToGo not mocked")
+}
+
 func convertPoolPatchRefToPoolPatchRecordMapToGo(context string, input interface{}) (goMap map[PoolPatchRef]PoolPatchRecord, err error) {
+	if (false) {
+		return convertPoolPatchRefToPoolPatchRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1310,7 +1747,15 @@ func convertPoolPatchRefToPoolPatchRecordMapToGo(context string, input interface
 	return
 }
 
+func convertPoolUpdateRefToPoolUpdateRecordMapToGo__mock(context string, input interface{}) (goMap map[PoolUpdateRef]PoolUpdateRecord, err error) {
+	log.Println("convertPoolUpdateRefToPoolUpdateRecordMapToGo not mocked")
+	return nil, errors.New("convertPoolUpdateRefToPoolUpdateRecordMapToGo not mocked")
+}
+
 func convertPoolUpdateRefToPoolUpdateRecordMapToGo(context string, input interface{}) (goMap map[PoolUpdateRef]PoolUpdateRecord, err error) {
+	if (false) {
+		return convertPoolUpdateRefToPoolUpdateRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1332,7 +1777,15 @@ func convertPoolUpdateRefToPoolUpdateRecordMapToGo(context string, input interfa
 	return
 }
 
+func convertRoleRefToRoleRecordMapToGo__mock(context string, input interface{}) (goMap map[RoleRef]RoleRecord, err error) {
+	log.Println("convertRoleRefToRoleRecordMapToGo not mocked")
+	return nil, errors.New("convertRoleRefToRoleRecordMapToGo not mocked")
+}
+
 func convertRoleRefToRoleRecordMapToGo(context string, input interface{}) (goMap map[RoleRef]RoleRecord, err error) {
+	if (false) {
+		return convertRoleRefToRoleRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1354,7 +1807,15 @@ func convertRoleRefToRoleRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertSecretRefToSecretRecordMapToGo__mock(context string, input interface{}) (goMap map[SecretRef]SecretRecord, err error) {
+	log.Println("convertSecretRefToSecretRecordMapToGo not mocked")
+	return nil, errors.New("convertSecretRefToSecretRecordMapToGo not mocked")
+}
+
 func convertSecretRefToSecretRecordMapToGo(context string, input interface{}) (goMap map[SecretRef]SecretRecord, err error) {
+	if (false) {
+		return convertSecretRefToSecretRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1376,7 +1837,15 @@ func convertSecretRefToSecretRecordMapToGo(context string, input interface{}) (g
 	return
 }
 
+func convertStringToBlobRefMapToGo__mock(context string, input interface{}) (goMap map[string]BlobRef, err error) {
+	log.Println("convertStringToBlobRefMapToGo not mocked")
+	return nil, errors.New("convertStringToBlobRefMapToGo not mocked")
+}
+
 func convertStringToBlobRefMapToGo(context string, input interface{}) (goMap map[string]BlobRef, err error) {
+	if (false) {
+		return convertStringToBlobRefMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1415,7 +1884,15 @@ func convertStringToBlobRefMapToXen(context string, goMap map[string]BlobRef) (x
 	return
 }
 
+func convertStringToEnumHostAllowedOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]HostAllowedOperations, err error) {
+	log.Println("convertStringToEnumHostAllowedOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumHostAllowedOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumHostAllowedOperationsMapToGo(context string, input interface{}) (goMap map[string]HostAllowedOperations, err error) {
+	if (false) {
+		return convertStringToEnumHostAllowedOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1437,7 +1914,15 @@ func convertStringToEnumHostAllowedOperationsMapToGo(context string, input inter
 	return
 }
 
+func convertStringToEnumNetworkOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]NetworkOperations, err error) {
+	log.Println("convertStringToEnumNetworkOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumNetworkOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumNetworkOperationsMapToGo(context string, input interface{}) (goMap map[string]NetworkOperations, err error) {
+	if (false) {
+		return convertStringToEnumNetworkOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1476,7 +1961,15 @@ func convertStringToEnumNetworkOperationsMapToXen(context string, goMap map[stri
 	return
 }
 
+func convertStringToEnumPoolAllowedOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]PoolAllowedOperations, err error) {
+	log.Println("convertStringToEnumPoolAllowedOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumPoolAllowedOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumPoolAllowedOperationsMapToGo(context string, input interface{}) (goMap map[string]PoolAllowedOperations, err error) {
+	if (false) {
+		return convertStringToEnumPoolAllowedOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1498,7 +1991,15 @@ func convertStringToEnumPoolAllowedOperationsMapToGo(context string, input inter
 	return
 }
 
+func convertStringToEnumStorageOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]StorageOperations, err error) {
+	log.Println("convertStringToEnumStorageOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumStorageOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumStorageOperationsMapToGo(context string, input interface{}) (goMap map[string]StorageOperations, err error) {
+	if (false) {
+		return convertStringToEnumStorageOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1520,7 +2021,15 @@ func convertStringToEnumStorageOperationsMapToGo(context string, input interface
 	return
 }
 
+func convertStringToEnumTaskAllowedOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]TaskAllowedOperations, err error) {
+	log.Println("convertStringToEnumTaskAllowedOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumTaskAllowedOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumTaskAllowedOperationsMapToGo(context string, input interface{}) (goMap map[string]TaskAllowedOperations, err error) {
+	if (false) {
+		return convertStringToEnumTaskAllowedOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1542,7 +2051,15 @@ func convertStringToEnumTaskAllowedOperationsMapToGo(context string, input inter
 	return
 }
 
+func convertStringToEnumVbdOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]VbdOperations, err error) {
+	log.Println("convertStringToEnumVbdOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVbdOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumVbdOperationsMapToGo(context string, input interface{}) (goMap map[string]VbdOperations, err error) {
+	if (false) {
+		return convertStringToEnumVbdOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1581,7 +2098,15 @@ func convertStringToEnumVbdOperationsMapToXen(context string, goMap map[string]V
 	return
 }
 
+func convertStringToEnumVdiOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]VdiOperations, err error) {
+	log.Println("convertStringToEnumVdiOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVdiOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumVdiOperationsMapToGo(context string, input interface{}) (goMap map[string]VdiOperations, err error) {
+	if (false) {
+		return convertStringToEnumVdiOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1620,7 +2145,15 @@ func convertStringToEnumVdiOperationsMapToXen(context string, goMap map[string]V
 	return
 }
 
+func convertStringToEnumVifOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]VifOperations, err error) {
+	log.Println("convertStringToEnumVifOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVifOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumVifOperationsMapToGo(context string, input interface{}) (goMap map[string]VifOperations, err error) {
+	if (false) {
+		return convertStringToEnumVifOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1659,7 +2192,15 @@ func convertStringToEnumVifOperationsMapToXen(context string, goMap map[string]V
 	return
 }
 
+func convertStringToEnumVMApplianceOperationMapToGo__mock(context string, input interface{}) (goMap map[string]VMApplianceOperation, err error) {
+	log.Println("convertStringToEnumVMApplianceOperationMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVMApplianceOperationMapToGo not mocked")
+}
+
 func convertStringToEnumVMApplianceOperationMapToGo(context string, input interface{}) (goMap map[string]VMApplianceOperation, err error) {
+	if (false) {
+		return convertStringToEnumVMApplianceOperationMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1698,7 +2239,15 @@ func convertStringToEnumVMApplianceOperationMapToXen(context string, goMap map[s
 	return
 }
 
+func convertStringToEnumVMOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]VMOperations, err error) {
+	log.Println("convertStringToEnumVMOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVMOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumVMOperationsMapToGo(context string, input interface{}) (goMap map[string]VMOperations, err error) {
+	if (false) {
+		return convertStringToEnumVMOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1737,7 +2286,15 @@ func convertStringToEnumVMOperationsMapToXen(context string, goMap map[string]VM
 	return
 }
 
+func convertStringToEnumVusbOperationsMapToGo__mock(context string, input interface{}) (goMap map[string]VusbOperations, err error) {
+	log.Println("convertStringToEnumVusbOperationsMapToGo not mocked")
+	return nil, errors.New("convertStringToEnumVusbOperationsMapToGo not mocked")
+}
+
 func convertStringToEnumVusbOperationsMapToGo(context string, input interface{}) (goMap map[string]VusbOperations, err error) {
+	if (false) {
+		return convertStringToEnumVusbOperationsMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1759,7 +2316,15 @@ func convertStringToEnumVusbOperationsMapToGo(context string, input interface{})
 	return
 }
 
+func convertStringToIntMapToGo__mock(context string, input interface{}) (goMap map[string]int, err error) {
+	log.Println("convertStringToIntMapToGo not mocked")
+	return nil, errors.New("convertStringToIntMapToGo not mocked")
+}
+
 func convertStringToIntMapToGo(context string, input interface{}) (goMap map[string]int, err error) {
+	if (false) {
+		return convertStringToIntMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1781,7 +2346,15 @@ func convertStringToIntMapToGo(context string, input interface{}) (goMap map[str
 	return
 }
 
+func convertStringToStringMapToGo__mock(context string, input interface{}) (goMap map[string]string, err error) {
+	log.Println("convertStringToStringMapToGo not mocked")
+	return nil, errors.New("convertStringToStringMapToGo not mocked")
+}
+
 func convertStringToStringMapToGo(context string, input interface{}) (goMap map[string]string, err error) {
+	if (false) {
+		return convertStringToStringMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1820,7 +2393,15 @@ func convertStringToStringMapToXen(context string, goMap map[string]string) (xen
 	return
 }
 
+func convertSubjectRefToSubjectRecordMapToGo__mock(context string, input interface{}) (goMap map[SubjectRef]SubjectRecord, err error) {
+	log.Println("convertSubjectRefToSubjectRecordMapToGo not mocked")
+	return nil, errors.New("convertSubjectRefToSubjectRecordMapToGo not mocked")
+}
+
 func convertSubjectRefToSubjectRecordMapToGo(context string, input interface{}) (goMap map[SubjectRef]SubjectRecord, err error) {
+	if (false) {
+		return convertSubjectRefToSubjectRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1842,7 +2423,15 @@ func convertSubjectRefToSubjectRecordMapToGo(context string, input interface{}) 
 	return
 }
 
+func convertTaskRefToTaskRecordMapToGo__mock(context string, input interface{}) (goMap map[TaskRef]TaskRecord, err error) {
+	log.Println("convertTaskRefToTaskRecordMapToGo not mocked")
+	return nil, errors.New("convertTaskRefToTaskRecordMapToGo not mocked")
+}
+
 func convertTaskRefToTaskRecordMapToGo(context string, input interface{}) (goMap map[TaskRef]TaskRecord, err error) {
+	if (false) {
+		return convertTaskRefToTaskRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)
@@ -1864,7 +2453,15 @@ func convertTaskRefToTaskRecordMapToGo(context string, input interface{}) (goMap
 	return
 }
 
+func convertTunnelRefToTunnelRecordMapToGo__mock(context string, input interface{}) (goMap map[TunnelRef]TunnelRecord, err error) {
+	log.Println("convertTunnelRefToTunnelRecordMapToGo not mocked")
+	return nil, errors.New("convertTunnelRefToTunnelRecordMapToGo not mocked")
+}
+
 func convertTunnelRefToTunnelRecordMapToGo(context string, input interface{}) (goMap map[TunnelRef]TunnelRecord, err error) {
+	if (false) {
+		return convertTunnelRefToTunnelRecordMapToGo_mock(context, input)
+	}
 	xenMap, ok := input.(xmlrpc.Struct)
 	if !ok {
 		err = fmt.Errorf("Failed to parse XenAPI response: expected Go type %s at %s but got Go type %s with value %v", "xmlrpc.Struct", context, reflect.TypeOf(input), input)

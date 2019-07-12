@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -40,8 +45,16 @@ type PVSServerClass struct {
 	client *Client
 }
 
+func (_class PVSServerClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
+	log.Println("PVSServer.GetAllRecords not mocked")
+	_err = errors.New("PVSServer.GetAllRecords not mocked")
+	return
+}
 // Return a map of PVS_server references to PVS_server records for all PVS_servers known to the system.
 func (_class PVSServerClass) GetAllRecords(sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "PVS_server.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -55,8 +68,16 @@ func (_class PVSServerClass) GetAllRecords(sessionID SessionRef) (_retval map[PV
 	return
 }
 
+func (_class PVSServerClass) GetAll__mock(sessionID SessionRef) (_retval []PVSServerRef, _err error) {
+	log.Println("PVSServer.GetAll not mocked")
+	_err = errors.New("PVSServer.GetAll not mocked")
+	return
+}
 // Return a list of all the PVS_servers known to the system.
 func (_class PVSServerClass) GetAll(sessionID SessionRef) (_retval []PVSServerRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "PVS_server.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -70,8 +91,16 @@ func (_class PVSServerClass) GetAll(sessionID SessionRef) (_retval []PVSServerRe
 	return
 }
 
+func (_class PVSServerClass) Forget__mock(sessionID SessionRef, self PVSServerRef) (_err error) {
+	log.Println("PVSServer.Forget not mocked")
+	_err = errors.New("PVSServer.Forget not mocked")
+	return
+}
 // forget a PVS server
 func (_class PVSServerClass) Forget(sessionID SessionRef, self PVSServerRef) (_err error) {
+	if (IsMock) {
+		return _class.Forget__mock(sessionID, self)
+	}	
 	_method := "PVS_server.forget"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -85,8 +114,16 @@ func (_class PVSServerClass) Forget(sessionID SessionRef, self PVSServerRef) (_e
 	return
 }
 
+func (_class PVSServerClass) Introduce__mock(sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
+	log.Println("PVSServer.Introduce not mocked")
+	_err = errors.New("PVSServer.Introduce not mocked")
+	return
+}
 // introduce new PVS server
 func (_class PVSServerClass) Introduce(sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
+	if (IsMock) {
+		return _class.Introduce__mock(sessionID, addresses, firstPort, lastPort, site)
+	}	
 	_method := "PVS_server.introduce"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -116,8 +153,16 @@ func (_class PVSServerClass) Introduce(sessionID SessionRef, addresses []string,
 	return
 }
 
+func (_class PVSServerClass) GetSite__mock(sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
+	log.Println("PVSServer.GetSite not mocked")
+	_err = errors.New("PVSServer.GetSite not mocked")
+	return
+}
 // Get the site field of the given PVS_server.
 func (_class PVSServerClass) GetSite(sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
+	if (IsMock) {
+		return _class.GetSite__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_site"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -135,8 +180,16 @@ func (_class PVSServerClass) GetSite(sessionID SessionRef, self PVSServerRef) (_
 	return
 }
 
+func (_class PVSServerClass) GetLastPort__mock(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+	log.Println("PVSServer.GetLastPort not mocked")
+	_err = errors.New("PVSServer.GetLastPort not mocked")
+	return
+}
 // Get the last_port field of the given PVS_server.
 func (_class PVSServerClass) GetLastPort(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+	if (IsMock) {
+		return _class.GetLastPort__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_last_port"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -154,8 +207,16 @@ func (_class PVSServerClass) GetLastPort(sessionID SessionRef, self PVSServerRef
 	return
 }
 
+func (_class PVSServerClass) GetFirstPort__mock(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+	log.Println("PVSServer.GetFirstPort not mocked")
+	_err = errors.New("PVSServer.GetFirstPort not mocked")
+	return
+}
 // Get the first_port field of the given PVS_server.
 func (_class PVSServerClass) GetFirstPort(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+	if (IsMock) {
+		return _class.GetFirstPort__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_first_port"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -173,8 +234,16 @@ func (_class PVSServerClass) GetFirstPort(sessionID SessionRef, self PVSServerRe
 	return
 }
 
+func (_class PVSServerClass) GetAddresses__mock(sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
+	log.Println("PVSServer.GetAddresses not mocked")
+	_err = errors.New("PVSServer.GetAddresses not mocked")
+	return
+}
 // Get the addresses field of the given PVS_server.
 func (_class PVSServerClass) GetAddresses(sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
+	if (IsMock) {
+		return _class.GetAddresses__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_addresses"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -192,8 +261,16 @@ func (_class PVSServerClass) GetAddresses(sessionID SessionRef, self PVSServerRe
 	return
 }
 
+func (_class PVSServerClass) GetUUID__mock(sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
+	log.Println("PVSServer.GetUUID not mocked")
+	_err = errors.New("PVSServer.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given PVS_server.
 func (_class PVSServerClass) GetUUID(sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -211,8 +288,16 @@ func (_class PVSServerClass) GetUUID(sessionID SessionRef, self PVSServerRef) (_
 	return
 }
 
+func (_class PVSServerClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
+	log.Println("PVSServer.GetByUUID not mocked")
+	_err = errors.New("PVSServer.GetByUUID not mocked")
+	return
+}
 // Get a reference to the PVS_server instance with the specified UUID.
 func (_class PVSServerClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "PVS_server.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -230,8 +315,16 @@ func (_class PVSServerClass) GetByUUID(sessionID SessionRef, uuid string) (_retv
 	return
 }
 
+func (_class PVSServerClass) GetRecord__mock(sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
+	log.Println("PVSServer.GetRecord not mocked")
+	_err = errors.New("PVSServer.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given PVS_server.
 func (_class PVSServerClass) GetRecord(sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "PVS_server.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -44,8 +49,16 @@ type PVSSiteClass struct {
 	client *Client
 }
 
+func (_class PVSSiteClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[PVSSiteRef]PVSSiteRecord, _err error) {
+	log.Println("PVSSite.GetAllRecords not mocked")
+	_err = errors.New("PVSSite.GetAllRecords not mocked")
+	return
+}
 // Return a map of PVS_site references to PVS_site records for all PVS_sites known to the system.
 func (_class PVSSiteClass) GetAllRecords(sessionID SessionRef) (_retval map[PVSSiteRef]PVSSiteRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "PVS_site.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -59,8 +72,16 @@ func (_class PVSSiteClass) GetAllRecords(sessionID SessionRef) (_retval map[PVSS
 	return
 }
 
+func (_class PVSSiteClass) GetAll__mock(sessionID SessionRef) (_retval []PVSSiteRef, _err error) {
+	log.Println("PVSSite.GetAll not mocked")
+	_err = errors.New("PVSSite.GetAll not mocked")
+	return
+}
 // Return a list of all the PVS_sites known to the system.
 func (_class PVSSiteClass) GetAll(sessionID SessionRef) (_retval []PVSSiteRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "PVS_site.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -74,8 +95,16 @@ func (_class PVSSiteClass) GetAll(sessionID SessionRef) (_retval []PVSSiteRef, _
 	return
 }
 
+func (_class PVSSiteClass) SetPVSUUID__mock(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	log.Println("PVSSite.SetPVSUUID not mocked")
+	_err = errors.New("PVSSite.SetPVSUUID not mocked")
+	return
+}
 // Update the PVS UUID of the PVS site
 func (_class PVSSiteClass) SetPVSUUID(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.SetPVSUUID__mock(sessionID, self, value)
+	}	
 	_method := "PVS_site.set_PVS_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -93,12 +122,20 @@ func (_class PVSSiteClass) SetPVSUUID(sessionID SessionRef, self PVSSiteRef, val
 	return
 }
 
+func (_class PVSSiteClass) Forget__mock(sessionID SessionRef, self PVSSiteRef) (_err error) {
+	log.Println("PVSSite.Forget not mocked")
+	_err = errors.New("PVSSite.Forget not mocked")
+	return
+}
 // Remove a site's meta data
 //
 // Errors:
 //  PVS_SITE_CONTAINS_RUNNING_PROXIES - The PVS site contains running proxies.
 //  PVS_SITE_CONTAINS_SERVERS - The PVS site contains servers and cannot be forgotten.
 func (_class PVSSiteClass) Forget(sessionID SessionRef, self PVSSiteRef) (_err error) {
+	if (IsMock) {
+		return _class.Forget__mock(sessionID, self)
+	}	
 	_method := "PVS_site.forget"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -112,8 +149,16 @@ func (_class PVSSiteClass) Forget(sessionID SessionRef, self PVSSiteRef) (_err e
 	return
 }
 
+func (_class PVSSiteClass) Introduce__mock(sessionID SessionRef, nameLabel string, nameDescription string, pvsUUID string) (_retval PVSSiteRef, _err error) {
+	log.Println("PVSSite.Introduce not mocked")
+	_err = errors.New("PVSSite.Introduce not mocked")
+	return
+}
 // Introduce new PVS site
 func (_class PVSSiteClass) Introduce(sessionID SessionRef, nameLabel string, nameDescription string, pvsUUID string) (_retval PVSSiteRef, _err error) {
+	if (IsMock) {
+		return _class.Introduce__mock(sessionID, nameLabel, nameDescription, pvsUUID)
+	}	
 	_method := "PVS_site.introduce"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -139,8 +184,16 @@ func (_class PVSSiteClass) Introduce(sessionID SessionRef, nameLabel string, nam
 	return
 }
 
+func (_class PVSSiteClass) SetNameDescription__mock(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	log.Println("PVSSite.SetNameDescription not mocked")
+	_err = errors.New("PVSSite.SetNameDescription not mocked")
+	return
+}
 // Set the name/description field of the given PVS_site.
 func (_class PVSSiteClass) SetNameDescription(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.SetNameDescription__mock(sessionID, self, value)
+	}	
 	_method := "PVS_site.set_name_description"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -158,8 +211,16 @@ func (_class PVSSiteClass) SetNameDescription(sessionID SessionRef, self PVSSite
 	return
 }
 
+func (_class PVSSiteClass) SetNameLabel__mock(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	log.Println("PVSSite.SetNameLabel not mocked")
+	_err = errors.New("PVSSite.SetNameLabel not mocked")
+	return
+}
 // Set the name/label field of the given PVS_site.
 func (_class PVSSiteClass) SetNameLabel(sessionID SessionRef, self PVSSiteRef, value string) (_err error) {
+	if (IsMock) {
+		return _class.SetNameLabel__mock(sessionID, self, value)
+	}	
 	_method := "PVS_site.set_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -177,8 +238,16 @@ func (_class PVSSiteClass) SetNameLabel(sessionID SessionRef, self PVSSiteRef, v
 	return
 }
 
+func (_class PVSSiteClass) GetProxies__mock(sessionID SessionRef, self PVSSiteRef) (_retval []PVSProxyRef, _err error) {
+	log.Println("PVSSite.GetProxies not mocked")
+	_err = errors.New("PVSSite.GetProxies not mocked")
+	return
+}
 // Get the proxies field of the given PVS_site.
 func (_class PVSSiteClass) GetProxies(sessionID SessionRef, self PVSSiteRef) (_retval []PVSProxyRef, _err error) {
+	if (IsMock) {
+		return _class.GetProxies__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_proxies"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -196,8 +265,16 @@ func (_class PVSSiteClass) GetProxies(sessionID SessionRef, self PVSSiteRef) (_r
 	return
 }
 
+func (_class PVSSiteClass) GetServers__mock(sessionID SessionRef, self PVSSiteRef) (_retval []PVSServerRef, _err error) {
+	log.Println("PVSSite.GetServers not mocked")
+	_err = errors.New("PVSSite.GetServers not mocked")
+	return
+}
 // Get the servers field of the given PVS_site.
 func (_class PVSSiteClass) GetServers(sessionID SessionRef, self PVSSiteRef) (_retval []PVSServerRef, _err error) {
+	if (IsMock) {
+		return _class.GetServers__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_servers"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -215,8 +292,16 @@ func (_class PVSSiteClass) GetServers(sessionID SessionRef, self PVSSiteRef) (_r
 	return
 }
 
+func (_class PVSSiteClass) GetCacheStorage__mock(sessionID SessionRef, self PVSSiteRef) (_retval []PVSCacheStorageRef, _err error) {
+	log.Println("PVSSite.GetCacheStorage not mocked")
+	_err = errors.New("PVSSite.GetCacheStorage not mocked")
+	return
+}
 // Get the cache_storage field of the given PVS_site.
 func (_class PVSSiteClass) GetCacheStorage(sessionID SessionRef, self PVSSiteRef) (_retval []PVSCacheStorageRef, _err error) {
+	if (IsMock) {
+		return _class.GetCacheStorage__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_cache_storage"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -234,8 +319,16 @@ func (_class PVSSiteClass) GetCacheStorage(sessionID SessionRef, self PVSSiteRef
 	return
 }
 
+func (_class PVSSiteClass) GetPVSUUID__mock(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	log.Println("PVSSite.GetPVSUUID not mocked")
+	_err = errors.New("PVSSite.GetPVSUUID not mocked")
+	return
+}
 // Get the PVS_uuid field of the given PVS_site.
 func (_class PVSSiteClass) GetPVSUUID(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetPVSUUID__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_PVS_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -253,8 +346,16 @@ func (_class PVSSiteClass) GetPVSUUID(sessionID SessionRef, self PVSSiteRef) (_r
 	return
 }
 
+func (_class PVSSiteClass) GetNameDescription__mock(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	log.Println("PVSSite.GetNameDescription not mocked")
+	_err = errors.New("PVSSite.GetNameDescription not mocked")
+	return
+}
 // Get the name/description field of the given PVS_site.
 func (_class PVSSiteClass) GetNameDescription(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetNameDescription__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_name_description"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -272,8 +373,16 @@ func (_class PVSSiteClass) GetNameDescription(sessionID SessionRef, self PVSSite
 	return
 }
 
+func (_class PVSSiteClass) GetNameLabel__mock(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	log.Println("PVSSite.GetNameLabel not mocked")
+	_err = errors.New("PVSSite.GetNameLabel not mocked")
+	return
+}
 // Get the name/label field of the given PVS_site.
 func (_class PVSSiteClass) GetNameLabel(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetNameLabel__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -291,8 +400,16 @@ func (_class PVSSiteClass) GetNameLabel(sessionID SessionRef, self PVSSiteRef) (
 	return
 }
 
+func (_class PVSSiteClass) GetUUID__mock(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	log.Println("PVSSite.GetUUID not mocked")
+	_err = errors.New("PVSSite.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given PVS_site.
 func (_class PVSSiteClass) GetUUID(sessionID SessionRef, self PVSSiteRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -310,8 +427,16 @@ func (_class PVSSiteClass) GetUUID(sessionID SessionRef, self PVSSiteRef) (_retv
 	return
 }
 
+func (_class PVSSiteClass) GetByNameLabel__mock(sessionID SessionRef, label string) (_retval []PVSSiteRef, _err error) {
+	log.Println("PVSSite.GetByNameLabel not mocked")
+	_err = errors.New("PVSSite.GetByNameLabel not mocked")
+	return
+}
 // Get all the PVS_site instances with the given label.
 func (_class PVSSiteClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []PVSSiteRef, _err error) {
+	if (IsMock) {
+		return _class.GetByNameLabel__mock(sessionID, label)
+	}	
 	_method := "PVS_site.get_by_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -329,8 +454,16 @@ func (_class PVSSiteClass) GetByNameLabel(sessionID SessionRef, label string) (_
 	return
 }
 
+func (_class PVSSiteClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval PVSSiteRef, _err error) {
+	log.Println("PVSSite.GetByUUID not mocked")
+	_err = errors.New("PVSSite.GetByUUID not mocked")
+	return
+}
 // Get a reference to the PVS_site instance with the specified UUID.
 func (_class PVSSiteClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PVSSiteRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "PVS_site.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -348,8 +481,16 @@ func (_class PVSSiteClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 	return
 }
 
+func (_class PVSSiteClass) GetRecord__mock(sessionID SessionRef, self PVSSiteRef) (_retval PVSSiteRecord, _err error) {
+	log.Println("PVSSite.GetRecord not mocked")
+	_err = errors.New("PVSSite.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given PVS_site.
 func (_class PVSSiteClass) GetRecord(sessionID SessionRef, self PVSSiteRef) (_retval PVSSiteRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "PVS_site.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

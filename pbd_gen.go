@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -42,8 +47,16 @@ type PBDClass struct {
 	client *Client
 }
 
+func (_class PBDClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[PBDRef]PBDRecord, _err error) {
+	log.Println("PBD.GetAllRecords not mocked")
+	_err = errors.New("PBD.GetAllRecords not mocked")
+	return
+}
 // Return a map of PBD references to PBD records for all PBDs known to the system.
 func (_class PBDClass) GetAllRecords(sessionID SessionRef) (_retval map[PBDRef]PBDRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "PBD.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -57,8 +70,16 @@ func (_class PBDClass) GetAllRecords(sessionID SessionRef) (_retval map[PBDRef]P
 	return
 }
 
+func (_class PBDClass) GetAll__mock(sessionID SessionRef) (_retval []PBDRef, _err error) {
+	log.Println("PBD.GetAll not mocked")
+	_err = errors.New("PBD.GetAll not mocked")
+	return
+}
 // Return a list of all the PBDs known to the system.
 func (_class PBDClass) GetAll(sessionID SessionRef) (_retval []PBDRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "PBD.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -72,8 +93,16 @@ func (_class PBDClass) GetAll(sessionID SessionRef) (_retval []PBDRef, _err erro
 	return
 }
 
+func (_class PBDClass) SetDeviceConfig__mock(sessionID SessionRef, self PBDRef, value map[string]string) (_err error) {
+	log.Println("PBD.SetDeviceConfig not mocked")
+	_err = errors.New("PBD.SetDeviceConfig not mocked")
+	return
+}
 // Sets the PBD's device_config field
 func (_class PBDClass) SetDeviceConfig(sessionID SessionRef, self PBDRef, value map[string]string) (_err error) {
+	if (IsMock) {
+		return _class.SetDeviceConfig__mock(sessionID, self, value)
+	}	
 	_method := "PBD.set_device_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -91,8 +120,16 @@ func (_class PBDClass) SetDeviceConfig(sessionID SessionRef, self PBDRef, value 
 	return
 }
 
+func (_class PBDClass) Unplug__mock(sessionID SessionRef, self PBDRef) (_err error) {
+	log.Println("PBD.Unplug not mocked")
+	_err = errors.New("PBD.Unplug not mocked")
+	return
+}
 // Deactivate the specified PBD, causing the referenced SR to be detached and nolonger scanned
 func (_class PBDClass) Unplug(sessionID SessionRef, self PBDRef) (_err error) {
+	if (IsMock) {
+		return _class.Unplug__mock(sessionID, self)
+	}	
 	_method := "PBD.unplug"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -106,11 +143,19 @@ func (_class PBDClass) Unplug(sessionID SessionRef, self PBDRef) (_err error) {
 	return
 }
 
+func (_class PBDClass) Plug__mock(sessionID SessionRef, self PBDRef) (_err error) {
+	log.Println("PBD.Plug not mocked")
+	_err = errors.New("PBD.Plug not mocked")
+	return
+}
 // Activate the specified PBD, causing the referenced SR to be attached and scanned
 //
 // Errors:
 //  SR_UNKNOWN_DRIVER - The SR could not be connected because the driver was not recognised.
 func (_class PBDClass) Plug(sessionID SessionRef, self PBDRef) (_err error) {
+	if (IsMock) {
+		return _class.Plug__mock(sessionID, self)
+	}	
 	_method := "PBD.plug"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -124,8 +169,16 @@ func (_class PBDClass) Plug(sessionID SessionRef, self PBDRef) (_err error) {
 	return
 }
 
+func (_class PBDClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self PBDRef, key string) (_err error) {
+	log.Println("PBD.RemoveFromOtherConfig not mocked")
+	_err = errors.New("PBD.RemoveFromOtherConfig not mocked")
+	return
+}
 // Remove the given key and its corresponding value from the other_config field of the given PBD.  If the key is not in that Map, then do nothing.
 func (_class PBDClass) RemoveFromOtherConfig(sessionID SessionRef, self PBDRef, key string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+	}	
 	_method := "PBD.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -143,8 +196,16 @@ func (_class PBDClass) RemoveFromOtherConfig(sessionID SessionRef, self PBDRef, 
 	return
 }
 
+func (_class PBDClass) AddToOtherConfig__mock(sessionID SessionRef, self PBDRef, key string, value string) (_err error) {
+	log.Println("PBD.AddToOtherConfig not mocked")
+	_err = errors.New("PBD.AddToOtherConfig not mocked")
+	return
+}
 // Add the given key-value pair to the other_config field of the given PBD.
 func (_class PBDClass) AddToOtherConfig(sessionID SessionRef, self PBDRef, key string, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+	}	
 	_method := "PBD.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -166,8 +227,16 @@ func (_class PBDClass) AddToOtherConfig(sessionID SessionRef, self PBDRef, key s
 	return
 }
 
+func (_class PBDClass) SetOtherConfig__mock(sessionID SessionRef, self PBDRef, value map[string]string) (_err error) {
+	log.Println("PBD.SetOtherConfig not mocked")
+	_err = errors.New("PBD.SetOtherConfig not mocked")
+	return
+}
 // Set the other_config field of the given PBD.
 func (_class PBDClass) SetOtherConfig(sessionID SessionRef, self PBDRef, value map[string]string) (_err error) {
+	if (IsMock) {
+		return _class.SetOtherConfig__mock(sessionID, self, value)
+	}	
 	_method := "PBD.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -185,8 +254,16 @@ func (_class PBDClass) SetOtherConfig(sessionID SessionRef, self PBDRef, value m
 	return
 }
 
+func (_class PBDClass) GetOtherConfig__mock(sessionID SessionRef, self PBDRef) (_retval map[string]string, _err error) {
+	log.Println("PBD.GetOtherConfig not mocked")
+	_err = errors.New("PBD.GetOtherConfig not mocked")
+	return
+}
 // Get the other_config field of the given PBD.
 func (_class PBDClass) GetOtherConfig(sessionID SessionRef, self PBDRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetOtherConfig__mock(sessionID, self)
+	}	
 	_method := "PBD.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -204,8 +281,16 @@ func (_class PBDClass) GetOtherConfig(sessionID SessionRef, self PBDRef) (_retva
 	return
 }
 
+func (_class PBDClass) GetCurrentlyAttached__mock(sessionID SessionRef, self PBDRef) (_retval bool, _err error) {
+	log.Println("PBD.GetCurrentlyAttached not mocked")
+	_err = errors.New("PBD.GetCurrentlyAttached not mocked")
+	return
+}
 // Get the currently_attached field of the given PBD.
 func (_class PBDClass) GetCurrentlyAttached(sessionID SessionRef, self PBDRef) (_retval bool, _err error) {
+	if (IsMock) {
+		return _class.GetCurrentlyAttached__mock(sessionID, self)
+	}	
 	_method := "PBD.get_currently_attached"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -223,8 +308,16 @@ func (_class PBDClass) GetCurrentlyAttached(sessionID SessionRef, self PBDRef) (
 	return
 }
 
+func (_class PBDClass) GetDeviceConfig__mock(sessionID SessionRef, self PBDRef) (_retval map[string]string, _err error) {
+	log.Println("PBD.GetDeviceConfig not mocked")
+	_err = errors.New("PBD.GetDeviceConfig not mocked")
+	return
+}
 // Get the device_config field of the given PBD.
 func (_class PBDClass) GetDeviceConfig(sessionID SessionRef, self PBDRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetDeviceConfig__mock(sessionID, self)
+	}	
 	_method := "PBD.get_device_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -242,8 +335,16 @@ func (_class PBDClass) GetDeviceConfig(sessionID SessionRef, self PBDRef) (_retv
 	return
 }
 
+func (_class PBDClass) GetSR__mock(sessionID SessionRef, self PBDRef) (_retval SRRef, _err error) {
+	log.Println("PBD.GetSR not mocked")
+	_err = errors.New("PBD.GetSR not mocked")
+	return
+}
 // Get the SR field of the given PBD.
 func (_class PBDClass) GetSR(sessionID SessionRef, self PBDRef) (_retval SRRef, _err error) {
+	if (IsMock) {
+		return _class.GetSR__mock(sessionID, self)
+	}	
 	_method := "PBD.get_SR"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -261,8 +362,16 @@ func (_class PBDClass) GetSR(sessionID SessionRef, self PBDRef) (_retval SRRef, 
 	return
 }
 
+func (_class PBDClass) GetHost__mock(sessionID SessionRef, self PBDRef) (_retval HostRef, _err error) {
+	log.Println("PBD.GetHost not mocked")
+	_err = errors.New("PBD.GetHost not mocked")
+	return
+}
 // Get the host field of the given PBD.
 func (_class PBDClass) GetHost(sessionID SessionRef, self PBDRef) (_retval HostRef, _err error) {
+	if (IsMock) {
+		return _class.GetHost__mock(sessionID, self)
+	}	
 	_method := "PBD.get_host"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -280,8 +389,16 @@ func (_class PBDClass) GetHost(sessionID SessionRef, self PBDRef) (_retval HostR
 	return
 }
 
+func (_class PBDClass) GetUUID__mock(sessionID SessionRef, self PBDRef) (_retval string, _err error) {
+	log.Println("PBD.GetUUID not mocked")
+	_err = errors.New("PBD.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given PBD.
 func (_class PBDClass) GetUUID(sessionID SessionRef, self PBDRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "PBD.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -299,8 +416,16 @@ func (_class PBDClass) GetUUID(sessionID SessionRef, self PBDRef) (_retval strin
 	return
 }
 
+func (_class PBDClass) Destroy__mock(sessionID SessionRef, self PBDRef) (_err error) {
+	log.Println("PBD.Destroy not mocked")
+	_err = errors.New("PBD.Destroy not mocked")
+	return
+}
 // Destroy the specified PBD instance.
 func (_class PBDClass) Destroy(sessionID SessionRef, self PBDRef) (_err error) {
+	if (IsMock) {
+		return _class.Destroy__mock(sessionID, self)
+	}	
 	_method := "PBD.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -314,9 +439,17 @@ func (_class PBDClass) Destroy(sessionID SessionRef, self PBDRef) (_err error) {
 	return
 }
 
+func (_class PBDClass) Create__mock(sessionID SessionRef, args PBDRecord) (_retval PBDRef, _err error) {
+	log.Println("PBD.Create not mocked")
+	_err = errors.New("PBD.Create not mocked")
+	return
+}
 // Create a new PBD instance, and return its handle.
 // The constructor args are: host*, SR*, device_config*, other_config (* = non-optional).
 func (_class PBDClass) Create(sessionID SessionRef, args PBDRecord) (_retval PBDRef, _err error) {
+	if (IsMock) {
+		return _class.Create__mock(sessionID, args)
+	}	
 	_method := "PBD.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -334,8 +467,16 @@ func (_class PBDClass) Create(sessionID SessionRef, args PBDRecord) (_retval PBD
 	return
 }
 
+func (_class PBDClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval PBDRef, _err error) {
+	log.Println("PBD.GetByUUID not mocked")
+	_err = errors.New("PBD.GetByUUID not mocked")
+	return
+}
 // Get a reference to the PBD instance with the specified UUID.
 func (_class PBDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PBDRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "PBD.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -353,8 +494,16 @@ func (_class PBDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PBD
 	return
 }
 
+func (_class PBDClass) GetRecord__mock(sessionID SessionRef, self PBDRef) (_retval PBDRecord, _err error) {
+	log.Println("PBD.GetRecord not mocked")
+	_err = errors.New("PBD.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given PBD.
 func (_class PBDClass) GetRecord(sessionID SessionRef, self PBDRef) (_retval PBDRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "PBD.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {

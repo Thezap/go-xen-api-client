@@ -7,13 +7,18 @@
 package xenAPI
 
 import (
+	"errors"
 	"fmt"
+	"log"
 	"github.com/amfranz/go-xmlrpc-client"
 	"reflect"
 	"strconv"
 	"time"
 )
 
+
+var _ = errors.New
+var _ = log.Println
 var _ = fmt.Errorf
 var _ = xmlrpc.NewClient
 var _ = reflect.TypeOf
@@ -55,8 +60,16 @@ type VUSBClass struct {
 	client *Client
 }
 
+func (_class VUSBClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[VUSBRef]VUSBRecord, _err error) {
+	log.Println("VUSB.GetAllRecords not mocked")
+	_err = errors.New("VUSB.GetAllRecords not mocked")
+	return
+}
 // Return a map of VUSB references to VUSB records for all VUSBs known to the system.
 func (_class VUSBClass) GetAllRecords(sessionID SessionRef) (_retval map[VUSBRef]VUSBRecord, _err error) {
+	if (IsMock) {
+		return _class.GetAllRecords__mock(sessionID)
+	}	
 	_method := "VUSB.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -70,8 +83,16 @@ func (_class VUSBClass) GetAllRecords(sessionID SessionRef) (_retval map[VUSBRef
 	return
 }
 
+func (_class VUSBClass) GetAll__mock(sessionID SessionRef) (_retval []VUSBRef, _err error) {
+	log.Println("VUSB.GetAll not mocked")
+	_err = errors.New("VUSB.GetAll not mocked")
+	return
+}
 // Return a list of all the VUSBs known to the system.
 func (_class VUSBClass) GetAll(sessionID SessionRef) (_retval []VUSBRef, _err error) {
+	if (IsMock) {
+		return _class.GetAll__mock(sessionID)
+	}	
 	_method := "VUSB.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -85,8 +106,16 @@ func (_class VUSBClass) GetAll(sessionID SessionRef) (_retval []VUSBRef, _err er
 	return
 }
 
+func (_class VUSBClass) Destroy__mock(sessionID SessionRef, self VUSBRef) (_err error) {
+	log.Println("VUSB.Destroy not mocked")
+	_err = errors.New("VUSB.Destroy not mocked")
+	return
+}
 // Removes a VUSB record from the database
 func (_class VUSBClass) Destroy(sessionID SessionRef, self VUSBRef) (_err error) {
+	if (IsMock) {
+		return _class.Destroy__mock(sessionID, self)
+	}	
 	_method := "VUSB.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -100,8 +129,16 @@ func (_class VUSBClass) Destroy(sessionID SessionRef, self VUSBRef) (_err error)
 	return
 }
 
+func (_class VUSBClass) Unplug__mock(sessionID SessionRef, self VUSBRef) (_err error) {
+	log.Println("VUSB.Unplug not mocked")
+	_err = errors.New("VUSB.Unplug not mocked")
+	return
+}
 // Unplug the vusb device from the vm.
 func (_class VUSBClass) Unplug(sessionID SessionRef, self VUSBRef) (_err error) {
+	if (IsMock) {
+		return _class.Unplug__mock(sessionID, self)
+	}	
 	_method := "VUSB.unplug"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -115,8 +152,16 @@ func (_class VUSBClass) Unplug(sessionID SessionRef, self VUSBRef) (_err error) 
 	return
 }
 
+func (_class VUSBClass) Create__mock(sessionID SessionRef, vm VMRef, usbGroup USBGroupRef, otherConfig map[string]string) (_retval VUSBRef, _err error) {
+	log.Println("VUSB.Create not mocked")
+	_err = errors.New("VUSB.Create not mocked")
+	return
+}
 // Create a new VUSB record in the database only
 func (_class VUSBClass) Create(sessionID SessionRef, vm VMRef, usbGroup USBGroupRef, otherConfig map[string]string) (_retval VUSBRef, _err error) {
+	if (IsMock) {
+		return _class.Create__mock(sessionID, vm, usbGroup, otherConfig)
+	}	
 	_method := "VUSB.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -142,8 +187,16 @@ func (_class VUSBClass) Create(sessionID SessionRef, vm VMRef, usbGroup USBGroup
 	return
 }
 
+func (_class VUSBClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self VUSBRef, key string) (_err error) {
+	log.Println("VUSB.RemoveFromOtherConfig not mocked")
+	_err = errors.New("VUSB.RemoveFromOtherConfig not mocked")
+	return
+}
 // Remove the given key and its corresponding value from the other_config field of the given VUSB.  If the key is not in that Map, then do nothing.
 func (_class VUSBClass) RemoveFromOtherConfig(sessionID SessionRef, self VUSBRef, key string) (_err error) {
+	if (IsMock) {
+		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+	}	
 	_method := "VUSB.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -161,8 +214,16 @@ func (_class VUSBClass) RemoveFromOtherConfig(sessionID SessionRef, self VUSBRef
 	return
 }
 
+func (_class VUSBClass) AddToOtherConfig__mock(sessionID SessionRef, self VUSBRef, key string, value string) (_err error) {
+	log.Println("VUSB.AddToOtherConfig not mocked")
+	_err = errors.New("VUSB.AddToOtherConfig not mocked")
+	return
+}
 // Add the given key-value pair to the other_config field of the given VUSB.
 func (_class VUSBClass) AddToOtherConfig(sessionID SessionRef, self VUSBRef, key string, value string) (_err error) {
+	if (IsMock) {
+		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+	}	
 	_method := "VUSB.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -184,8 +245,16 @@ func (_class VUSBClass) AddToOtherConfig(sessionID SessionRef, self VUSBRef, key
 	return
 }
 
+func (_class VUSBClass) SetOtherConfig__mock(sessionID SessionRef, self VUSBRef, value map[string]string) (_err error) {
+	log.Println("VUSB.SetOtherConfig not mocked")
+	_err = errors.New("VUSB.SetOtherConfig not mocked")
+	return
+}
 // Set the other_config field of the given VUSB.
 func (_class VUSBClass) SetOtherConfig(sessionID SessionRef, self VUSBRef, value map[string]string) (_err error) {
+	if (IsMock) {
+		return _class.SetOtherConfig__mock(sessionID, self, value)
+	}	
 	_method := "VUSB.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -203,8 +272,16 @@ func (_class VUSBClass) SetOtherConfig(sessionID SessionRef, self VUSBRef, value
 	return
 }
 
+func (_class VUSBClass) GetCurrentlyAttached__mock(sessionID SessionRef, self VUSBRef) (_retval bool, _err error) {
+	log.Println("VUSB.GetCurrentlyAttached not mocked")
+	_err = errors.New("VUSB.GetCurrentlyAttached not mocked")
+	return
+}
 // Get the currently_attached field of the given VUSB.
 func (_class VUSBClass) GetCurrentlyAttached(sessionID SessionRef, self VUSBRef) (_retval bool, _err error) {
+	if (IsMock) {
+		return _class.GetCurrentlyAttached__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_currently_attached"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -222,8 +299,16 @@ func (_class VUSBClass) GetCurrentlyAttached(sessionID SessionRef, self VUSBRef)
 	return
 }
 
+func (_class VUSBClass) GetOtherConfig__mock(sessionID SessionRef, self VUSBRef) (_retval map[string]string, _err error) {
+	log.Println("VUSB.GetOtherConfig not mocked")
+	_err = errors.New("VUSB.GetOtherConfig not mocked")
+	return
+}
 // Get the other_config field of the given VUSB.
 func (_class VUSBClass) GetOtherConfig(sessionID SessionRef, self VUSBRef) (_retval map[string]string, _err error) {
+	if (IsMock) {
+		return _class.GetOtherConfig__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -241,8 +326,16 @@ func (_class VUSBClass) GetOtherConfig(sessionID SessionRef, self VUSBRef) (_ret
 	return
 }
 
+func (_class VUSBClass) GetUSBGroup__mock(sessionID SessionRef, self VUSBRef) (_retval USBGroupRef, _err error) {
+	log.Println("VUSB.GetUSBGroup not mocked")
+	_err = errors.New("VUSB.GetUSBGroup not mocked")
+	return
+}
 // Get the USB_group field of the given VUSB.
 func (_class VUSBClass) GetUSBGroup(sessionID SessionRef, self VUSBRef) (_retval USBGroupRef, _err error) {
+	if (IsMock) {
+		return _class.GetUSBGroup__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_USB_group"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -260,8 +353,16 @@ func (_class VUSBClass) GetUSBGroup(sessionID SessionRef, self VUSBRef) (_retval
 	return
 }
 
+func (_class VUSBClass) GetVM__mock(sessionID SessionRef, self VUSBRef) (_retval VMRef, _err error) {
+	log.Println("VUSB.GetVM not mocked")
+	_err = errors.New("VUSB.GetVM not mocked")
+	return
+}
 // Get the VM field of the given VUSB.
 func (_class VUSBClass) GetVM(sessionID SessionRef, self VUSBRef) (_retval VMRef, _err error) {
+	if (IsMock) {
+		return _class.GetVM__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_VM"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -279,8 +380,16 @@ func (_class VUSBClass) GetVM(sessionID SessionRef, self VUSBRef) (_retval VMRef
 	return
 }
 
+func (_class VUSBClass) GetCurrentOperations__mock(sessionID SessionRef, self VUSBRef) (_retval map[string]VusbOperations, _err error) {
+	log.Println("VUSB.GetCurrentOperations not mocked")
+	_err = errors.New("VUSB.GetCurrentOperations not mocked")
+	return
+}
 // Get the current_operations field of the given VUSB.
 func (_class VUSBClass) GetCurrentOperations(sessionID SessionRef, self VUSBRef) (_retval map[string]VusbOperations, _err error) {
+	if (IsMock) {
+		return _class.GetCurrentOperations__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_current_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -298,8 +407,16 @@ func (_class VUSBClass) GetCurrentOperations(sessionID SessionRef, self VUSBRef)
 	return
 }
 
+func (_class VUSBClass) GetAllowedOperations__mock(sessionID SessionRef, self VUSBRef) (_retval []VusbOperations, _err error) {
+	log.Println("VUSB.GetAllowedOperations not mocked")
+	_err = errors.New("VUSB.GetAllowedOperations not mocked")
+	return
+}
 // Get the allowed_operations field of the given VUSB.
 func (_class VUSBClass) GetAllowedOperations(sessionID SessionRef, self VUSBRef) (_retval []VusbOperations, _err error) {
+	if (IsMock) {
+		return _class.GetAllowedOperations__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_allowed_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -317,8 +434,16 @@ func (_class VUSBClass) GetAllowedOperations(sessionID SessionRef, self VUSBRef)
 	return
 }
 
+func (_class VUSBClass) GetUUID__mock(sessionID SessionRef, self VUSBRef) (_retval string, _err error) {
+	log.Println("VUSB.GetUUID not mocked")
+	_err = errors.New("VUSB.GetUUID not mocked")
+	return
+}
 // Get the uuid field of the given VUSB.
 func (_class VUSBClass) GetUUID(sessionID SessionRef, self VUSBRef) (_retval string, _err error) {
+	if (IsMock) {
+		return _class.GetUUID__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -336,8 +461,16 @@ func (_class VUSBClass) GetUUID(sessionID SessionRef, self VUSBRef) (_retval str
 	return
 }
 
+func (_class VUSBClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval VUSBRef, _err error) {
+	log.Println("VUSB.GetByUUID not mocked")
+	_err = errors.New("VUSB.GetByUUID not mocked")
+	return
+}
 // Get a reference to the VUSB instance with the specified UUID.
 func (_class VUSBClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VUSBRef, _err error) {
+	if (IsMock) {
+		return _class.GetByUUID__mock(sessionID, uuid)
+	}	
 	_method := "VUSB.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
@@ -355,8 +488,16 @@ func (_class VUSBClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VU
 	return
 }
 
+func (_class VUSBClass) GetRecord__mock(sessionID SessionRef, self VUSBRef) (_retval VUSBRecord, _err error) {
+	log.Println("VUSB.GetRecord not mocked")
+	_err = errors.New("VUSB.GetRecord not mocked")
+	return
+}
 // Get a record containing the current state of the given VUSB.
 func (_class VUSBClass) GetRecord(sessionID SessionRef, self VUSBRef) (_retval VUSBRecord, _err error) {
+	if (IsMock) {
+		return _class.GetRecord__mock(sessionID, self)
+	}	
 	_method := "VUSB.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
 	if _err != nil {
