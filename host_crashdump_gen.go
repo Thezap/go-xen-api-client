@@ -46,18 +46,20 @@ type HostCrashdumpClass struct {
 }
 
 
-var HostCrashdumpClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[HostCrashdumpRef]HostCrashdumpRecord, _err error) {
+func HostCrashdumpClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[HostCrashdumpRef]HostCrashdumpRecord, _err error) {
 	log.Println("HostCrashdump.GetAllRecords not mocked")
 	_err = errors.New("HostCrashdump.GetAllRecords not mocked")
 	return
 }
 
+var HostCrashdumpClassGetAllRecordsMockedCallback = HostCrashdumpClassGetAllRecordsMockDefault
+
 func (_class HostCrashdumpClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[HostCrashdumpRef]HostCrashdumpRecord, _err error) {
-	return HostCrashdumpClass_GetAllRecordsMockedCallback(sessionID)
+	return HostCrashdumpClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of host_crashdump references to host_crashdump records for all host_crashdumps known to the system.
 func (_class HostCrashdumpClass) GetAllRecords(sessionID SessionRef) (_retval map[HostCrashdumpRef]HostCrashdumpRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "host_crashdump.get_all_records"
@@ -74,18 +76,20 @@ func (_class HostCrashdumpClass) GetAllRecords(sessionID SessionRef) (_retval ma
 }
 
 
-var HostCrashdumpClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []HostCrashdumpRef, _err error) {
+func HostCrashdumpClassGetAllMockDefault(sessionID SessionRef) (_retval []HostCrashdumpRef, _err error) {
 	log.Println("HostCrashdump.GetAll not mocked")
 	_err = errors.New("HostCrashdump.GetAll not mocked")
 	return
 }
 
+var HostCrashdumpClassGetAllMockedCallback = HostCrashdumpClassGetAllMockDefault
+
 func (_class HostCrashdumpClass) GetAllMock(sessionID SessionRef) (_retval []HostCrashdumpRef, _err error) {
-	return HostCrashdumpClass_GetAllMockedCallback(sessionID)
+	return HostCrashdumpClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the host_crashdumps known to the system.
 func (_class HostCrashdumpClass) GetAll(sessionID SessionRef) (_retval []HostCrashdumpRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "host_crashdump.get_all"
@@ -102,18 +106,20 @@ func (_class HostCrashdumpClass) GetAll(sessionID SessionRef) (_retval []HostCra
 }
 
 
-var HostCrashdumpClass_UploadMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef, url string, options map[string]string) (_err error) {
+func HostCrashdumpClassUploadMockDefault(sessionID SessionRef, self HostCrashdumpRef, url string, options map[string]string) (_err error) {
 	log.Println("HostCrashdump.Upload not mocked")
 	_err = errors.New("HostCrashdump.Upload not mocked")
 	return
 }
 
+var HostCrashdumpClassUploadMockedCallback = HostCrashdumpClassUploadMockDefault
+
 func (_class HostCrashdumpClass) UploadMock(sessionID SessionRef, self HostCrashdumpRef, url string, options map[string]string) (_err error) {
-	return HostCrashdumpClass_UploadMockedCallback(sessionID, self, url, options)
+	return HostCrashdumpClassUploadMockedCallback(sessionID, self, url, options)
 }
 // Upload the specified host crash dump to a specified URL
 func (_class HostCrashdumpClass) Upload(sessionID SessionRef, self HostCrashdumpRef, url string, options map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.UploadMock(sessionID, self, url, options)
 	}	
 	_method := "host_crashdump.upload"
@@ -138,18 +144,20 @@ func (_class HostCrashdumpClass) Upload(sessionID SessionRef, self HostCrashdump
 }
 
 
-var HostCrashdumpClass_DestroyMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_err error) {
+func HostCrashdumpClassDestroyMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_err error) {
 	log.Println("HostCrashdump.Destroy not mocked")
 	_err = errors.New("HostCrashdump.Destroy not mocked")
 	return
 }
 
+var HostCrashdumpClassDestroyMockedCallback = HostCrashdumpClassDestroyMockDefault
+
 func (_class HostCrashdumpClass) DestroyMock(sessionID SessionRef, self HostCrashdumpRef) (_err error) {
-	return HostCrashdumpClass_DestroyMockedCallback(sessionID, self)
+	return HostCrashdumpClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy specified host crash dump, removing it from the disk.
 func (_class HostCrashdumpClass) Destroy(sessionID SessionRef, self HostCrashdumpRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "host_crashdump.destroy"
@@ -166,18 +174,20 @@ func (_class HostCrashdumpClass) Destroy(sessionID SessionRef, self HostCrashdum
 }
 
 
-var HostCrashdumpClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef, key string) (_err error) {
+func HostCrashdumpClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self HostCrashdumpRef, key string) (_err error) {
 	log.Println("HostCrashdump.RemoveFromOtherConfig not mocked")
 	_err = errors.New("HostCrashdump.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var HostCrashdumpClassRemoveFromOtherConfigMockedCallback = HostCrashdumpClassRemoveFromOtherConfigMockDefault
+
 func (_class HostCrashdumpClass) RemoveFromOtherConfigMock(sessionID SessionRef, self HostCrashdumpRef, key string) (_err error) {
-	return HostCrashdumpClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return HostCrashdumpClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given host_crashdump.  If the key is not in that Map, then do nothing.
 func (_class HostCrashdumpClass) RemoveFromOtherConfig(sessionID SessionRef, self HostCrashdumpRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "host_crashdump.remove_from_other_config"
@@ -198,18 +208,20 @@ func (_class HostCrashdumpClass) RemoveFromOtherConfig(sessionID SessionRef, sel
 }
 
 
-var HostCrashdumpClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef, key string, value string) (_err error) {
+func HostCrashdumpClassAddToOtherConfigMockDefault(sessionID SessionRef, self HostCrashdumpRef, key string, value string) (_err error) {
 	log.Println("HostCrashdump.AddToOtherConfig not mocked")
 	_err = errors.New("HostCrashdump.AddToOtherConfig not mocked")
 	return
 }
 
+var HostCrashdumpClassAddToOtherConfigMockedCallback = HostCrashdumpClassAddToOtherConfigMockDefault
+
 func (_class HostCrashdumpClass) AddToOtherConfigMock(sessionID SessionRef, self HostCrashdumpRef, key string, value string) (_err error) {
-	return HostCrashdumpClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return HostCrashdumpClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given host_crashdump.
 func (_class HostCrashdumpClass) AddToOtherConfig(sessionID SessionRef, self HostCrashdumpRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "host_crashdump.add_to_other_config"
@@ -234,18 +246,20 @@ func (_class HostCrashdumpClass) AddToOtherConfig(sessionID SessionRef, self Hos
 }
 
 
-var HostCrashdumpClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef, value map[string]string) (_err error) {
+func HostCrashdumpClassSetOtherConfigMockDefault(sessionID SessionRef, self HostCrashdumpRef, value map[string]string) (_err error) {
 	log.Println("HostCrashdump.SetOtherConfig not mocked")
 	_err = errors.New("HostCrashdump.SetOtherConfig not mocked")
 	return
 }
 
+var HostCrashdumpClassSetOtherConfigMockedCallback = HostCrashdumpClassSetOtherConfigMockDefault
+
 func (_class HostCrashdumpClass) SetOtherConfigMock(sessionID SessionRef, self HostCrashdumpRef, value map[string]string) (_err error) {
-	return HostCrashdumpClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return HostCrashdumpClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given host_crashdump.
 func (_class HostCrashdumpClass) SetOtherConfig(sessionID SessionRef, self HostCrashdumpRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "host_crashdump.set_other_config"
@@ -266,18 +280,20 @@ func (_class HostCrashdumpClass) SetOtherConfig(sessionID SessionRef, self HostC
 }
 
 
-var HostCrashdumpClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval map[string]string, _err error) {
+func HostCrashdumpClassGetOtherConfigMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval map[string]string, _err error) {
 	log.Println("HostCrashdump.GetOtherConfig not mocked")
 	_err = errors.New("HostCrashdump.GetOtherConfig not mocked")
 	return
 }
 
+var HostCrashdumpClassGetOtherConfigMockedCallback = HostCrashdumpClassGetOtherConfigMockDefault
+
 func (_class HostCrashdumpClass) GetOtherConfigMock(sessionID SessionRef, self HostCrashdumpRef) (_retval map[string]string, _err error) {
-	return HostCrashdumpClass_GetOtherConfigMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given host_crashdump.
 func (_class HostCrashdumpClass) GetOtherConfig(sessionID SessionRef, self HostCrashdumpRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_other_config"
@@ -298,18 +314,20 @@ func (_class HostCrashdumpClass) GetOtherConfig(sessionID SessionRef, self HostC
 }
 
 
-var HostCrashdumpClass_GetSizeMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval int, _err error) {
+func HostCrashdumpClassGetSizeMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval int, _err error) {
 	log.Println("HostCrashdump.GetSize not mocked")
 	_err = errors.New("HostCrashdump.GetSize not mocked")
 	return
 }
 
+var HostCrashdumpClassGetSizeMockedCallback = HostCrashdumpClassGetSizeMockDefault
+
 func (_class HostCrashdumpClass) GetSizeMock(sessionID SessionRef, self HostCrashdumpRef) (_retval int, _err error) {
-	return HostCrashdumpClass_GetSizeMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetSizeMockedCallback(sessionID, self)
 }
 // Get the size field of the given host_crashdump.
 func (_class HostCrashdumpClass) GetSize(sessionID SessionRef, self HostCrashdumpRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSizeMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_size"
@@ -330,18 +348,20 @@ func (_class HostCrashdumpClass) GetSize(sessionID SessionRef, self HostCrashdum
 }
 
 
-var HostCrashdumpClass_GetTimestampMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval time.Time, _err error) {
+func HostCrashdumpClassGetTimestampMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval time.Time, _err error) {
 	log.Println("HostCrashdump.GetTimestamp not mocked")
 	_err = errors.New("HostCrashdump.GetTimestamp not mocked")
 	return
 }
 
+var HostCrashdumpClassGetTimestampMockedCallback = HostCrashdumpClassGetTimestampMockDefault
+
 func (_class HostCrashdumpClass) GetTimestampMock(sessionID SessionRef, self HostCrashdumpRef) (_retval time.Time, _err error) {
-	return HostCrashdumpClass_GetTimestampMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetTimestampMockedCallback(sessionID, self)
 }
 // Get the timestamp field of the given host_crashdump.
 func (_class HostCrashdumpClass) GetTimestamp(sessionID SessionRef, self HostCrashdumpRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTimestampMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_timestamp"
@@ -362,18 +382,20 @@ func (_class HostCrashdumpClass) GetTimestamp(sessionID SessionRef, self HostCra
 }
 
 
-var HostCrashdumpClass_GetHostMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval HostRef, _err error) {
+func HostCrashdumpClassGetHostMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval HostRef, _err error) {
 	log.Println("HostCrashdump.GetHost not mocked")
 	_err = errors.New("HostCrashdump.GetHost not mocked")
 	return
 }
 
+var HostCrashdumpClassGetHostMockedCallback = HostCrashdumpClassGetHostMockDefault
+
 func (_class HostCrashdumpClass) GetHostMock(sessionID SessionRef, self HostCrashdumpRef) (_retval HostRef, _err error) {
-	return HostCrashdumpClass_GetHostMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetHostMockedCallback(sessionID, self)
 }
 // Get the host field of the given host_crashdump.
 func (_class HostCrashdumpClass) GetHost(sessionID SessionRef, self HostCrashdumpRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_host"
@@ -394,18 +416,20 @@ func (_class HostCrashdumpClass) GetHost(sessionID SessionRef, self HostCrashdum
 }
 
 
-var HostCrashdumpClass_GetUUIDMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval string, _err error) {
+func HostCrashdumpClassGetUUIDMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval string, _err error) {
 	log.Println("HostCrashdump.GetUUID not mocked")
 	_err = errors.New("HostCrashdump.GetUUID not mocked")
 	return
 }
 
+var HostCrashdumpClassGetUUIDMockedCallback = HostCrashdumpClassGetUUIDMockDefault
+
 func (_class HostCrashdumpClass) GetUUIDMock(sessionID SessionRef, self HostCrashdumpRef) (_retval string, _err error) {
-	return HostCrashdumpClass_GetUUIDMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given host_crashdump.
 func (_class HostCrashdumpClass) GetUUID(sessionID SessionRef, self HostCrashdumpRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_uuid"
@@ -426,18 +450,20 @@ func (_class HostCrashdumpClass) GetUUID(sessionID SessionRef, self HostCrashdum
 }
 
 
-var HostCrashdumpClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval HostCrashdumpRef, _err error) {
+func HostCrashdumpClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval HostCrashdumpRef, _err error) {
 	log.Println("HostCrashdump.GetByUUID not mocked")
 	_err = errors.New("HostCrashdump.GetByUUID not mocked")
 	return
 }
 
+var HostCrashdumpClassGetByUUIDMockedCallback = HostCrashdumpClassGetByUUIDMockDefault
+
 func (_class HostCrashdumpClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval HostCrashdumpRef, _err error) {
-	return HostCrashdumpClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return HostCrashdumpClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the host_crashdump instance with the specified UUID.
 func (_class HostCrashdumpClass) GetByUUID(sessionID SessionRef, uuid string) (_retval HostCrashdumpRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "host_crashdump.get_by_uuid"
@@ -458,18 +484,20 @@ func (_class HostCrashdumpClass) GetByUUID(sessionID SessionRef, uuid string) (_
 }
 
 
-var HostCrashdumpClass_GetRecordMockedCallback = func (sessionID SessionRef, self HostCrashdumpRef) (_retval HostCrashdumpRecord, _err error) {
+func HostCrashdumpClassGetRecordMockDefault(sessionID SessionRef, self HostCrashdumpRef) (_retval HostCrashdumpRecord, _err error) {
 	log.Println("HostCrashdump.GetRecord not mocked")
 	_err = errors.New("HostCrashdump.GetRecord not mocked")
 	return
 }
 
+var HostCrashdumpClassGetRecordMockedCallback = HostCrashdumpClassGetRecordMockDefault
+
 func (_class HostCrashdumpClass) GetRecordMock(sessionID SessionRef, self HostCrashdumpRef) (_retval HostCrashdumpRecord, _err error) {
-	return HostCrashdumpClass_GetRecordMockedCallback(sessionID, self)
+	return HostCrashdumpClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given host_crashdump.
 func (_class HostCrashdumpClass) GetRecord(sessionID SessionRef, self HostCrashdumpRef) (_retval HostCrashdumpRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "host_crashdump.get_record"

@@ -340,18 +340,20 @@ type VMClass struct {
 }
 
 
-var VMClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VMRef]VMRecord, _err error) {
+func VMClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[VMRef]VMRecord, _err error) {
 	log.Println("VM.GetAllRecords not mocked")
 	_err = errors.New("VM.GetAllRecords not mocked")
 	return
 }
 
+var VMClassGetAllRecordsMockedCallback = VMClassGetAllRecordsMockDefault
+
 func (_class VMClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VMRef]VMRecord, _err error) {
-	return VMClass_GetAllRecordsMockedCallback(sessionID)
+	return VMClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of VM references to VM records for all VMs known to the system.
 func (_class VMClass) GetAllRecords(sessionID SessionRef) (_retval map[VMRef]VMRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VM.get_all_records"
@@ -368,18 +370,20 @@ func (_class VMClass) GetAllRecords(sessionID SessionRef) (_retval map[VMRef]VMR
 }
 
 
-var VMClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VMRef, _err error) {
+func VMClassGetAllMockDefault(sessionID SessionRef) (_retval []VMRef, _err error) {
 	log.Println("VM.GetAll not mocked")
 	_err = errors.New("VM.GetAll not mocked")
 	return
 }
 
+var VMClassGetAllMockedCallback = VMClassGetAllMockDefault
+
 func (_class VMClass) GetAllMock(sessionID SessionRef) (_retval []VMRef, _err error) {
-	return VMClass_GetAllMockedCallback(sessionID)
+	return VMClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the VMs known to the system.
 func (_class VMClass) GetAll(sessionID SessionRef) (_retval []VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VM.get_all"
@@ -396,18 +400,20 @@ func (_class VMClass) GetAll(sessionID SessionRef) (_retval []VMRef, _err error)
 }
 
 
-var VMClass_SetActionsAfterCrashMockedCallback = func (sessionID SessionRef, self VMRef, value OnCrashBehaviour) (_err error) {
+func VMClassSetActionsAfterCrashMockDefault(sessionID SessionRef, self VMRef, value OnCrashBehaviour) (_err error) {
 	log.Println("VM.SetActionsAfterCrash not mocked")
 	_err = errors.New("VM.SetActionsAfterCrash not mocked")
 	return
 }
 
+var VMClassSetActionsAfterCrashMockedCallback = VMClassSetActionsAfterCrashMockDefault
+
 func (_class VMClass) SetActionsAfterCrashMock(sessionID SessionRef, self VMRef, value OnCrashBehaviour) (_err error) {
-	return VMClass_SetActionsAfterCrashMockedCallback(sessionID, self, value)
+	return VMClassSetActionsAfterCrashMockedCallback(sessionID, self, value)
 }
 // Sets the actions_after_crash parameter
 func (_class VMClass) SetActionsAfterCrash(sessionID SessionRef, self VMRef, value OnCrashBehaviour) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetActionsAfterCrashMock(sessionID, self, value)
 	}	
 	_method := "VM.set_actions_after_crash"
@@ -428,18 +434,20 @@ func (_class VMClass) SetActionsAfterCrash(sessionID SessionRef, self VMRef, val
 }
 
 
-var VMClass_ImportMockedCallback = func (sessionID SessionRef, url string, sr SRRef, fullRestore bool, force bool) (_retval []VMRef, _err error) {
+func VMClassImportMockDefault(sessionID SessionRef, url string, sr SRRef, fullRestore bool, force bool) (_retval []VMRef, _err error) {
 	log.Println("VM.Import not mocked")
 	_err = errors.New("VM.Import not mocked")
 	return
 }
 
+var VMClassImportMockedCallback = VMClassImportMockDefault
+
 func (_class VMClass) ImportMock(sessionID SessionRef, url string, sr SRRef, fullRestore bool, force bool) (_retval []VMRef, _err error) {
-	return VMClass_ImportMockedCallback(sessionID, url, sr, fullRestore, force)
+	return VMClassImportMockedCallback(sessionID, url, sr, fullRestore, force)
 }
 // Import an XVA from a URI
 func (_class VMClass) Import(sessionID SessionRef, url string, sr SRRef, fullRestore bool, force bool) (_retval []VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ImportMock(sessionID, url, sr, fullRestore, force)
 	}	
 	_method := "VM.import"
@@ -472,18 +480,20 @@ func (_class VMClass) Import(sessionID SessionRef, url string, sr SRRef, fullRes
 }
 
 
-var VMClass_SetHasVendorDeviceMockedCallback = func (sessionID SessionRef, self VMRef, value bool) (_err error) {
+func VMClassSetHasVendorDeviceMockDefault(sessionID SessionRef, self VMRef, value bool) (_err error) {
 	log.Println("VM.SetHasVendorDevice not mocked")
 	_err = errors.New("VM.SetHasVendorDevice not mocked")
 	return
 }
 
+var VMClassSetHasVendorDeviceMockedCallback = VMClassSetHasVendorDeviceMockDefault
+
 func (_class VMClass) SetHasVendorDeviceMock(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	return VMClass_SetHasVendorDeviceMockedCallback(sessionID, self, value)
+	return VMClassSetHasVendorDeviceMockedCallback(sessionID, self, value)
 }
 // Controls whether, when the VM starts in HVM mode, its virtual hardware will include the emulated PCI device for which drivers may be available through Windows Update. Usually this should never be changed on a VM on which Windows has been installed: changing it on such a VM is likely to lead to a crash on next start.
 func (_class VMClass) SetHasVendorDevice(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHasVendorDeviceMock(sessionID, self, value)
 	}	
 	_method := "VM.set_has_vendor_device"
@@ -504,18 +514,20 @@ func (_class VMClass) SetHasVendorDevice(sessionID SessionRef, self VMRef, value
 }
 
 
-var VMClass_CallPluginMockedCallback = func (sessionID SessionRef, vm VMRef, plugin string, fn string, args map[string]string) (_retval string, _err error) {
+func VMClassCallPluginMockDefault(sessionID SessionRef, vm VMRef, plugin string, fn string, args map[string]string) (_retval string, _err error) {
 	log.Println("VM.CallPlugin not mocked")
 	_err = errors.New("VM.CallPlugin not mocked")
 	return
 }
 
+var VMClassCallPluginMockedCallback = VMClassCallPluginMockDefault
+
 func (_class VMClass) CallPluginMock(sessionID SessionRef, vm VMRef, plugin string, fn string, args map[string]string) (_retval string, _err error) {
-	return VMClass_CallPluginMockedCallback(sessionID, vm, plugin, fn, args)
+	return VMClassCallPluginMockedCallback(sessionID, vm, plugin, fn, args)
 }
 // Call a XenAPI plugin on this vm
 func (_class VMClass) CallPlugin(sessionID SessionRef, vm VMRef, plugin string, fn string, args map[string]string) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CallPluginMock(sessionID, vm, plugin, fn, args)
 	}	
 	_method := "VM.call_plugin"
@@ -548,18 +560,20 @@ func (_class VMClass) CallPlugin(sessionID SessionRef, vm VMRef, plugin string, 
 }
 
 
-var VMClass_QueryServicesMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassQueryServicesMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.QueryServices not mocked")
 	_err = errors.New("VM.QueryServices not mocked")
 	return
 }
 
+var VMClassQueryServicesMockedCallback = VMClassQueryServicesMockDefault
+
 func (_class VMClass) QueryServicesMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_QueryServicesMockedCallback(sessionID, self)
+	return VMClassQueryServicesMockedCallback(sessionID, self)
 }
 // Query the system services advertised by this VM and register them. This can only be applied to a system domain.
 func (_class VMClass) QueryServices(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.QueryServicesMock(sessionID, self)
 	}	
 	_method := "VM.query_services"
@@ -580,18 +594,20 @@ func (_class VMClass) QueryServices(sessionID SessionRef, self VMRef) (_retval m
 }
 
 
-var VMClass_SetApplianceMockedCallback = func (sessionID SessionRef, self VMRef, value VMApplianceRef) (_err error) {
+func VMClassSetApplianceMockDefault(sessionID SessionRef, self VMRef, value VMApplianceRef) (_err error) {
 	log.Println("VM.SetAppliance not mocked")
 	_err = errors.New("VM.SetAppliance not mocked")
 	return
 }
 
+var VMClassSetApplianceMockedCallback = VMClassSetApplianceMockDefault
+
 func (_class VMClass) SetApplianceMock(sessionID SessionRef, self VMRef, value VMApplianceRef) (_err error) {
-	return VMClass_SetApplianceMockedCallback(sessionID, self, value)
+	return VMClassSetApplianceMockedCallback(sessionID, self, value)
 }
 // Assign this VM to an appliance.
 func (_class VMClass) SetAppliance(sessionID SessionRef, self VMRef, value VMApplianceRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetApplianceMock(sessionID, self, value)
 	}	
 	_method := "VM.set_appliance"
@@ -612,18 +628,20 @@ func (_class VMClass) SetAppliance(sessionID SessionRef, self VMRef, value VMApp
 }
 
 
-var VMClass_ImportConvertMockedCallback = func (sessionID SessionRef, atype string, username string, password string, sr SRRef, remoteConfig map[string]string) (_err error) {
+func VMClassImportConvertMockDefault(sessionID SessionRef, atype string, username string, password string, sr SRRef, remoteConfig map[string]string) (_err error) {
 	log.Println("VM.ImportConvert not mocked")
 	_err = errors.New("VM.ImportConvert not mocked")
 	return
 }
 
+var VMClassImportConvertMockedCallback = VMClassImportConvertMockDefault
+
 func (_class VMClass) ImportConvertMock(sessionID SessionRef, atype string, username string, password string, sr SRRef, remoteConfig map[string]string) (_err error) {
-	return VMClass_ImportConvertMockedCallback(sessionID, atype, username, password, sr, remoteConfig)
+	return VMClassImportConvertMockedCallback(sessionID, atype, username, password, sr, remoteConfig)
 }
 // Import using a conversion service.
 func (_class VMClass) ImportConvert(sessionID SessionRef, atype string, username string, password string, sr SRRef, remoteConfig map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ImportConvertMock(sessionID, atype, username, password, sr, remoteConfig)
 	}	
 	_method := "VM.import_convert"
@@ -656,18 +674,20 @@ func (_class VMClass) ImportConvert(sessionID SessionRef, atype string, username
 }
 
 
-var VMClass_RecoverMockedCallback = func (sessionID SessionRef, self VMRef, sessionTo SessionRef, force bool) (_err error) {
+func VMClassRecoverMockDefault(sessionID SessionRef, self VMRef, sessionTo SessionRef, force bool) (_err error) {
 	log.Println("VM.Recover not mocked")
 	_err = errors.New("VM.Recover not mocked")
 	return
 }
 
+var VMClassRecoverMockedCallback = VMClassRecoverMockDefault
+
 func (_class VMClass) RecoverMock(sessionID SessionRef, self VMRef, sessionTo SessionRef, force bool) (_err error) {
-	return VMClass_RecoverMockedCallback(sessionID, self, sessionTo, force)
+	return VMClassRecoverMockedCallback(sessionID, self, sessionTo, force)
 }
 // Recover the VM
 func (_class VMClass) Recover(sessionID SessionRef, self VMRef, sessionTo SessionRef, force bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RecoverMock(sessionID, self, sessionTo, force)
 	}	
 	_method := "VM.recover"
@@ -692,18 +712,20 @@ func (_class VMClass) Recover(sessionID SessionRef, self VMRef, sessionTo Sessio
 }
 
 
-var VMClass_GetSRsRequiredForRecoveryMockedCallback = func (sessionID SessionRef, self VMRef, sessionTo SessionRef) (_retval []SRRef, _err error) {
+func VMClassGetSRsRequiredForRecoveryMockDefault(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_retval []SRRef, _err error) {
 	log.Println("VM.GetSRsRequiredForRecovery not mocked")
 	_err = errors.New("VM.GetSRsRequiredForRecovery not mocked")
 	return
 }
 
+var VMClassGetSRsRequiredForRecoveryMockedCallback = VMClassGetSRsRequiredForRecoveryMockDefault
+
 func (_class VMClass) GetSRsRequiredForRecoveryMock(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_retval []SRRef, _err error) {
-	return VMClass_GetSRsRequiredForRecoveryMockedCallback(sessionID, self, sessionTo)
+	return VMClassGetSRsRequiredForRecoveryMockedCallback(sessionID, self, sessionTo)
 }
 // List all the SR's that are required for the VM to be recovered
 func (_class VMClass) GetSRsRequiredForRecovery(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_retval []SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSRsRequiredForRecoveryMock(sessionID, self, sessionTo)
 	}	
 	_method := "VM.get_SRs_required_for_recovery"
@@ -728,14 +750,16 @@ func (_class VMClass) GetSRsRequiredForRecovery(sessionID SessionRef, self VMRef
 }
 
 
-var VMClass_AssertCanBeRecoveredMockedCallback = func (sessionID SessionRef, self VMRef, sessionTo SessionRef) (_err error) {
+func VMClassAssertCanBeRecoveredMockDefault(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_err error) {
 	log.Println("VM.AssertCanBeRecovered not mocked")
 	_err = errors.New("VM.AssertCanBeRecovered not mocked")
 	return
 }
 
+var VMClassAssertCanBeRecoveredMockedCallback = VMClassAssertCanBeRecoveredMockDefault
+
 func (_class VMClass) AssertCanBeRecoveredMock(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_err error) {
-	return VMClass_AssertCanBeRecoveredMockedCallback(sessionID, self, sessionTo)
+	return VMClassAssertCanBeRecoveredMockedCallback(sessionID, self, sessionTo)
 }
 // Assert whether all SRs required to recover this VM are available.
 //
@@ -743,7 +767,7 @@ func (_class VMClass) AssertCanBeRecoveredMock(sessionID SessionRef, self VMRef,
 //  VM_IS_PART_OF_AN_APPLIANCE - This operation is not allowed as the VM is part of an appliance.
 //  VM_REQUIRES_SR - You attempted to run a VM on a host which doesn't have access to an SR needed by the VM. The VM has at least one VBD attached to a VDI in the SR.
 func (_class VMClass) AssertCanBeRecovered(sessionID SessionRef, self VMRef, sessionTo SessionRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertCanBeRecoveredMock(sessionID, self, sessionTo)
 	}	
 	_method := "VM.assert_can_be_recovered"
@@ -764,18 +788,20 @@ func (_class VMClass) AssertCanBeRecovered(sessionID SessionRef, self VMRef, ses
 }
 
 
-var VMClass_SetSuspendVDIMockedCallback = func (sessionID SessionRef, self VMRef, value VDIRef) (_err error) {
+func VMClassSetSuspendVDIMockDefault(sessionID SessionRef, self VMRef, value VDIRef) (_err error) {
 	log.Println("VM.SetSuspendVDI not mocked")
 	_err = errors.New("VM.SetSuspendVDI not mocked")
 	return
 }
 
+var VMClassSetSuspendVDIMockedCallback = VMClassSetSuspendVDIMockDefault
+
 func (_class VMClass) SetSuspendVDIMock(sessionID SessionRef, self VMRef, value VDIRef) (_err error) {
-	return VMClass_SetSuspendVDIMockedCallback(sessionID, self, value)
+	return VMClassSetSuspendVDIMockedCallback(sessionID, self, value)
 }
 // Set this VM's suspend VDI, which must be indentical to its current one
 func (_class VMClass) SetSuspendVDI(sessionID SessionRef, self VMRef, value VDIRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetSuspendVDIMock(sessionID, self, value)
 	}	
 	_method := "VM.set_suspend_VDI"
@@ -796,18 +822,20 @@ func (_class VMClass) SetSuspendVDI(sessionID SessionRef, self VMRef, value VDIR
 }
 
 
-var VMClass_SetOrderMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetOrderMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetOrder not mocked")
 	_err = errors.New("VM.SetOrder not mocked")
 	return
 }
 
+var VMClassSetOrderMockedCallback = VMClassSetOrderMockDefault
+
 func (_class VMClass) SetOrderMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetOrderMockedCallback(sessionID, self, value)
+	return VMClassSetOrderMockedCallback(sessionID, self, value)
 }
 // Set this VM's boot order
 func (_class VMClass) SetOrder(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOrderMock(sessionID, self, value)
 	}	
 	_method := "VM.set_order"
@@ -828,18 +856,20 @@ func (_class VMClass) SetOrder(sessionID SessionRef, self VMRef, value int) (_er
 }
 
 
-var VMClass_SetShutdownDelayMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetShutdownDelayMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetShutdownDelay not mocked")
 	_err = errors.New("VM.SetShutdownDelay not mocked")
 	return
 }
 
+var VMClassSetShutdownDelayMockedCallback = VMClassSetShutdownDelayMockDefault
+
 func (_class VMClass) SetShutdownDelayMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetShutdownDelayMockedCallback(sessionID, self, value)
+	return VMClassSetShutdownDelayMockedCallback(sessionID, self, value)
 }
 // Set this VM's shutdown delay in seconds
 func (_class VMClass) SetShutdownDelay(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetShutdownDelayMock(sessionID, self, value)
 	}	
 	_method := "VM.set_shutdown_delay"
@@ -860,18 +890,20 @@ func (_class VMClass) SetShutdownDelay(sessionID SessionRef, self VMRef, value i
 }
 
 
-var VMClass_SetStartDelayMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetStartDelayMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetStartDelay not mocked")
 	_err = errors.New("VM.SetStartDelay not mocked")
 	return
 }
 
+var VMClassSetStartDelayMockedCallback = VMClassSetStartDelayMockDefault
+
 func (_class VMClass) SetStartDelayMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetStartDelayMockedCallback(sessionID, self, value)
+	return VMClassSetStartDelayMockedCallback(sessionID, self, value)
 }
 // Set this VM's start delay in seconds
 func (_class VMClass) SetStartDelay(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetStartDelayMock(sessionID, self, value)
 	}	
 	_method := "VM.set_start_delay"
@@ -892,18 +924,20 @@ func (_class VMClass) SetStartDelay(sessionID SessionRef, self VMRef, value int)
 }
 
 
-var VMClass_SetSnapshotScheduleMockedCallback = func (sessionID SessionRef, self VMRef, value VMSSRef) (_err error) {
+func VMClassSetSnapshotScheduleMockDefault(sessionID SessionRef, self VMRef, value VMSSRef) (_err error) {
 	log.Println("VM.SetSnapshotSchedule not mocked")
 	_err = errors.New("VM.SetSnapshotSchedule not mocked")
 	return
 }
 
+var VMClassSetSnapshotScheduleMockedCallback = VMClassSetSnapshotScheduleMockDefault
+
 func (_class VMClass) SetSnapshotScheduleMock(sessionID SessionRef, self VMRef, value VMSSRef) (_err error) {
-	return VMClass_SetSnapshotScheduleMockedCallback(sessionID, self, value)
+	return VMClassSetSnapshotScheduleMockedCallback(sessionID, self, value)
 }
 // Set the value of the snapshot schedule field
 func (_class VMClass) SetSnapshotSchedule(sessionID SessionRef, self VMRef, value VMSSRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetSnapshotScheduleMock(sessionID, self, value)
 	}	
 	_method := "VM.set_snapshot_schedule"
@@ -924,18 +958,20 @@ func (_class VMClass) SetSnapshotSchedule(sessionID SessionRef, self VMRef, valu
 }
 
 
-var VMClass_SetProtectionPolicyMockedCallback = func (sessionID SessionRef, self VMRef, value VMPPRef) (_err error) {
+func VMClassSetProtectionPolicyMockDefault(sessionID SessionRef, self VMRef, value VMPPRef) (_err error) {
 	log.Println("VM.SetProtectionPolicy not mocked")
 	_err = errors.New("VM.SetProtectionPolicy not mocked")
 	return
 }
 
+var VMClassSetProtectionPolicyMockedCallback = VMClassSetProtectionPolicyMockDefault
+
 func (_class VMClass) SetProtectionPolicyMock(sessionID SessionRef, self VMRef, value VMPPRef) (_err error) {
-	return VMClass_SetProtectionPolicyMockedCallback(sessionID, self, value)
+	return VMClassSetProtectionPolicyMockedCallback(sessionID, self, value)
 }
 // Set the value of the protection_policy field
 func (_class VMClass) SetProtectionPolicy(sessionID SessionRef, self VMRef, value VMPPRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetProtectionPolicyMock(sessionID, self, value)
 	}	
 	_method := "VM.set_protection_policy"
@@ -956,18 +992,20 @@ func (_class VMClass) SetProtectionPolicy(sessionID SessionRef, self VMRef, valu
 }
 
 
-var VMClass_CopyBiosStringsMockedCallback = func (sessionID SessionRef, vm VMRef, host HostRef) (_err error) {
+func VMClassCopyBiosStringsMockDefault(sessionID SessionRef, vm VMRef, host HostRef) (_err error) {
 	log.Println("VM.CopyBiosStrings not mocked")
 	_err = errors.New("VM.CopyBiosStrings not mocked")
 	return
 }
 
+var VMClassCopyBiosStringsMockedCallback = VMClassCopyBiosStringsMockDefault
+
 func (_class VMClass) CopyBiosStringsMock(sessionID SessionRef, vm VMRef, host HostRef) (_err error) {
-	return VMClass_CopyBiosStringsMockedCallback(sessionID, vm, host)
+	return VMClassCopyBiosStringsMockedCallback(sessionID, vm, host)
 }
 // Copy the BIOS strings from the given host to this VM
 func (_class VMClass) CopyBiosStrings(sessionID SessionRef, vm VMRef, host HostRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CopyBiosStringsMock(sessionID, vm, host)
 	}	
 	_method := "VM.copy_bios_strings"
@@ -988,14 +1026,16 @@ func (_class VMClass) CopyBiosStrings(sessionID SessionRef, vm VMRef, host HostR
 }
 
 
-var VMClass_SetBiosStringsMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetBiosStringsMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetBiosStrings not mocked")
 	_err = errors.New("VM.SetBiosStrings not mocked")
 	return
 }
 
+var VMClassSetBiosStringsMockedCallback = VMClassSetBiosStringsMockDefault
+
 func (_class VMClass) SetBiosStringsMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetBiosStringsMockedCallback(sessionID, self, value)
+	return VMClassSetBiosStringsMockedCallback(sessionID, self, value)
 }
 // Set custom BIOS strings to this VM. VM will be given a default set of BIOS strings, only some of which can be overridden by the supplied values. Allowed keys are: 'bios-vendor', 'bios-version', 'system-manufacturer', 'system-product-name', 'system-version', 'system-serial-number', 'enclosure-asset-tag'
 //
@@ -1003,7 +1043,7 @@ func (_class VMClass) SetBiosStringsMock(sessionID SessionRef, self VMRef, value
 //  VM_BIOS_STRINGS_ALREADY_SET - The BIOS strings for this VM have already been set and cannot be changed.
 //  INVALID_VALUE - The value given is invalid
 func (_class VMClass) SetBiosStrings(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetBiosStringsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_bios_strings"
@@ -1024,18 +1064,20 @@ func (_class VMClass) SetBiosStrings(sessionID SessionRef, self VMRef, value map
 }
 
 
-var VMClass_RetrieveWlbRecommendationsMockedCallback = func (sessionID SessionRef, vm VMRef) (_retval map[HostRef][]string, _err error) {
+func VMClassRetrieveWlbRecommendationsMockDefault(sessionID SessionRef, vm VMRef) (_retval map[HostRef][]string, _err error) {
 	log.Println("VM.RetrieveWlbRecommendations not mocked")
 	_err = errors.New("VM.RetrieveWlbRecommendations not mocked")
 	return
 }
 
+var VMClassRetrieveWlbRecommendationsMockedCallback = VMClassRetrieveWlbRecommendationsMockDefault
+
 func (_class VMClass) RetrieveWlbRecommendationsMock(sessionID SessionRef, vm VMRef) (_retval map[HostRef][]string, _err error) {
-	return VMClass_RetrieveWlbRecommendationsMockedCallback(sessionID, vm)
+	return VMClassRetrieveWlbRecommendationsMockedCallback(sessionID, vm)
 }
 // Returns mapping of hosts to ratings, indicating the suitability of starting the VM at that location according to wlb. Rating is replaced with an error if the VM cannot boot there.
 func (_class VMClass) RetrieveWlbRecommendations(sessionID SessionRef, vm VMRef) (_retval map[HostRef][]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RetrieveWlbRecommendationsMock(sessionID, vm)
 	}	
 	_method := "VM.retrieve_wlb_recommendations"
@@ -1056,18 +1098,20 @@ func (_class VMClass) RetrieveWlbRecommendations(sessionID SessionRef, vm VMRef)
 }
 
 
-var VMClass_AssertAgileMockedCallback = func (sessionID SessionRef, self VMRef) (_err error) {
+func VMClassAssertAgileMockDefault(sessionID SessionRef, self VMRef) (_err error) {
 	log.Println("VM.AssertAgile not mocked")
 	_err = errors.New("VM.AssertAgile not mocked")
 	return
 }
 
+var VMClassAssertAgileMockedCallback = VMClassAssertAgileMockDefault
+
 func (_class VMClass) AssertAgileMock(sessionID SessionRef, self VMRef) (_err error) {
-	return VMClass_AssertAgileMockedCallback(sessionID, self)
+	return VMClassAssertAgileMockedCallback(sessionID, self)
 }
 // Returns an error if the VM is not considered agile e.g. because it is tied to a resource local to a host
 func (_class VMClass) AssertAgile(sessionID SessionRef, self VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertAgileMock(sessionID, self)
 	}	
 	_method := "VM.assert_agile"
@@ -1084,18 +1128,20 @@ func (_class VMClass) AssertAgile(sessionID SessionRef, self VMRef) (_err error)
 }
 
 
-var VMClass_CreateNewBlobMockedCallback = func (sessionID SessionRef, vm VMRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
+func VMClassCreateNewBlobMockDefault(sessionID SessionRef, vm VMRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
 	log.Println("VM.CreateNewBlob not mocked")
 	_err = errors.New("VM.CreateNewBlob not mocked")
 	return
 }
 
+var VMClassCreateNewBlobMockedCallback = VMClassCreateNewBlobMockDefault
+
 func (_class VMClass) CreateNewBlobMock(sessionID SessionRef, vm VMRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
-	return VMClass_CreateNewBlobMockedCallback(sessionID, vm, name, mimeType, public)
+	return VMClassCreateNewBlobMockedCallback(sessionID, vm, name, mimeType, public)
 }
 // Create a placeholder for a named binary blob of data that is associated with this VM
 func (_class VMClass) CreateNewBlob(sessionID SessionRef, vm VMRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateNewBlobMock(sessionID, vm, name, mimeType, public)
 	}	
 	_method := "VM.create_new_blob"
@@ -1128,14 +1174,16 @@ func (_class VMClass) CreateNewBlob(sessionID SessionRef, vm VMRef, name string,
 }
 
 
-var VMClass_AssertCanBootHereMockedCallback = func (sessionID SessionRef, self VMRef, host HostRef) (_err error) {
+func VMClassAssertCanBootHereMockDefault(sessionID SessionRef, self VMRef, host HostRef) (_err error) {
 	log.Println("VM.AssertCanBootHere not mocked")
 	_err = errors.New("VM.AssertCanBootHere not mocked")
 	return
 }
 
+var VMClassAssertCanBootHereMockedCallback = VMClassAssertCanBootHereMockDefault
+
 func (_class VMClass) AssertCanBootHereMock(sessionID SessionRef, self VMRef, host HostRef) (_err error) {
-	return VMClass_AssertCanBootHereMockedCallback(sessionID, self, host)
+	return VMClassAssertCanBootHereMockedCallback(sessionID, self, host)
 }
 // Returns an error if the VM could not boot on this host for some reason
 //
@@ -1145,7 +1193,7 @@ func (_class VMClass) AssertCanBootHereMock(sessionID SessionRef, self VMRef, ho
 //  VM_HOST_INCOMPATIBLE_VERSION - This VM operation cannot be performed on an older-versioned host during an upgrade.
 //  VM_HOST_INCOMPATIBLE_VIRTUAL_HARDWARE_PLATFORM_VERSION - You attempted to run a VM on a host that cannot provide the VM's required Virtual Hardware Platform version.
 func (_class VMClass) AssertCanBootHere(sessionID SessionRef, self VMRef, host HostRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertCanBootHereMock(sessionID, self, host)
 	}	
 	_method := "VM.assert_can_boot_here"
@@ -1166,18 +1214,20 @@ func (_class VMClass) AssertCanBootHere(sessionID SessionRef, self VMRef, host H
 }
 
 
-var VMClass_GetPossibleHostsMockedCallback = func (sessionID SessionRef, vm VMRef) (_retval []HostRef, _err error) {
+func VMClassGetPossibleHostsMockDefault(sessionID SessionRef, vm VMRef) (_retval []HostRef, _err error) {
 	log.Println("VM.GetPossibleHosts not mocked")
 	_err = errors.New("VM.GetPossibleHosts not mocked")
 	return
 }
 
+var VMClassGetPossibleHostsMockedCallback = VMClassGetPossibleHostsMockDefault
+
 func (_class VMClass) GetPossibleHostsMock(sessionID SessionRef, vm VMRef) (_retval []HostRef, _err error) {
-	return VMClass_GetPossibleHostsMockedCallback(sessionID, vm)
+	return VMClassGetPossibleHostsMockedCallback(sessionID, vm)
 }
 // Return the list of hosts on which this VM may run.
 func (_class VMClass) GetPossibleHosts(sessionID SessionRef, vm VMRef) (_retval []HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPossibleHostsMock(sessionID, vm)
 	}	
 	_method := "VM.get_possible_hosts"
@@ -1198,18 +1248,20 @@ func (_class VMClass) GetPossibleHosts(sessionID SessionRef, vm VMRef) (_retval 
 }
 
 
-var VMClass_GetAllowedVIFDevicesMockedCallback = func (sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
+func VMClassGetAllowedVIFDevicesMockDefault(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
 	log.Println("VM.GetAllowedVIFDevices not mocked")
 	_err = errors.New("VM.GetAllowedVIFDevices not mocked")
 	return
 }
 
+var VMClassGetAllowedVIFDevicesMockedCallback = VMClassGetAllowedVIFDevicesMockDefault
+
 func (_class VMClass) GetAllowedVIFDevicesMock(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
-	return VMClass_GetAllowedVIFDevicesMockedCallback(sessionID, vm)
+	return VMClassGetAllowedVIFDevicesMockedCallback(sessionID, vm)
 }
 // Returns a list of the allowed values that a VIF device field can take
 func (_class VMClass) GetAllowedVIFDevices(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllowedVIFDevicesMock(sessionID, vm)
 	}	
 	_method := "VM.get_allowed_VIF_devices"
@@ -1230,18 +1282,20 @@ func (_class VMClass) GetAllowedVIFDevices(sessionID SessionRef, vm VMRef) (_ret
 }
 
 
-var VMClass_GetAllowedVBDDevicesMockedCallback = func (sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
+func VMClassGetAllowedVBDDevicesMockDefault(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
 	log.Println("VM.GetAllowedVBDDevices not mocked")
 	_err = errors.New("VM.GetAllowedVBDDevices not mocked")
 	return
 }
 
+var VMClassGetAllowedVBDDevicesMockedCallback = VMClassGetAllowedVBDDevicesMockDefault
+
 func (_class VMClass) GetAllowedVBDDevicesMock(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
-	return VMClass_GetAllowedVBDDevicesMockedCallback(sessionID, vm)
+	return VMClassGetAllowedVBDDevicesMockedCallback(sessionID, vm)
 }
 // Returns a list of the allowed values that a VBD device field can take
 func (_class VMClass) GetAllowedVBDDevices(sessionID SessionRef, vm VMRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllowedVBDDevicesMock(sessionID, vm)
 	}	
 	_method := "VM.get_allowed_VBD_devices"
@@ -1262,18 +1316,20 @@ func (_class VMClass) GetAllowedVBDDevices(sessionID SessionRef, vm VMRef) (_ret
 }
 
 
-var VMClass_UpdateAllowedOperationsMockedCallback = func (sessionID SessionRef, self VMRef) (_err error) {
+func VMClassUpdateAllowedOperationsMockDefault(sessionID SessionRef, self VMRef) (_err error) {
 	log.Println("VM.UpdateAllowedOperations not mocked")
 	_err = errors.New("VM.UpdateAllowedOperations not mocked")
 	return
 }
 
+var VMClassUpdateAllowedOperationsMockedCallback = VMClassUpdateAllowedOperationsMockDefault
+
 func (_class VMClass) UpdateAllowedOperationsMock(sessionID SessionRef, self VMRef) (_err error) {
-	return VMClass_UpdateAllowedOperationsMockedCallback(sessionID, self)
+	return VMClassUpdateAllowedOperationsMockedCallback(sessionID, self)
 }
 // Recomputes the list of acceptable operations
 func (_class VMClass) UpdateAllowedOperations(sessionID SessionRef, self VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.UpdateAllowedOperationsMock(sessionID, self)
 	}	
 	_method := "VM.update_allowed_operations"
@@ -1290,18 +1346,20 @@ func (_class VMClass) UpdateAllowedOperations(sessionID SessionRef, self VMRef) 
 }
 
 
-var VMClass_AssertOperationValidMockedCallback = func (sessionID SessionRef, self VMRef, op VMOperations) (_err error) {
+func VMClassAssertOperationValidMockDefault(sessionID SessionRef, self VMRef, op VMOperations) (_err error) {
 	log.Println("VM.AssertOperationValid not mocked")
 	_err = errors.New("VM.AssertOperationValid not mocked")
 	return
 }
 
+var VMClassAssertOperationValidMockedCallback = VMClassAssertOperationValidMockDefault
+
 func (_class VMClass) AssertOperationValidMock(sessionID SessionRef, self VMRef, op VMOperations) (_err error) {
-	return VMClass_AssertOperationValidMockedCallback(sessionID, self, op)
+	return VMClassAssertOperationValidMockedCallback(sessionID, self, op)
 }
 // Check to see whether this operation is acceptable in the current state of the system, raising an error if the operation is invalid for some reason
 func (_class VMClass) AssertOperationValid(sessionID SessionRef, self VMRef, op VMOperations) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertOperationValidMock(sessionID, self, op)
 	}	
 	_method := "VM.assert_operation_valid"
@@ -1322,18 +1380,20 @@ func (_class VMClass) AssertOperationValid(sessionID SessionRef, self VMRef, op 
 }
 
 
-var VMClass_ForgetDataSourceArchivesMockedCallback = func (sessionID SessionRef, self VMRef, dataSource string) (_err error) {
+func VMClassForgetDataSourceArchivesMockDefault(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
 	log.Println("VM.ForgetDataSourceArchives not mocked")
 	_err = errors.New("VM.ForgetDataSourceArchives not mocked")
 	return
 }
 
+var VMClassForgetDataSourceArchivesMockedCallback = VMClassForgetDataSourceArchivesMockDefault
+
 func (_class VMClass) ForgetDataSourceArchivesMock(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
-	return VMClass_ForgetDataSourceArchivesMockedCallback(sessionID, self, dataSource)
+	return VMClassForgetDataSourceArchivesMockedCallback(sessionID, self, dataSource)
 }
 // Forget the recorded statistics related to the specified data source
 func (_class VMClass) ForgetDataSourceArchives(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetDataSourceArchivesMock(sessionID, self, dataSource)
 	}	
 	_method := "VM.forget_data_source_archives"
@@ -1354,18 +1414,20 @@ func (_class VMClass) ForgetDataSourceArchives(sessionID SessionRef, self VMRef,
 }
 
 
-var VMClass_QueryDataSourceMockedCallback = func (sessionID SessionRef, self VMRef, dataSource string) (_retval float64, _err error) {
+func VMClassQueryDataSourceMockDefault(sessionID SessionRef, self VMRef, dataSource string) (_retval float64, _err error) {
 	log.Println("VM.QueryDataSource not mocked")
 	_err = errors.New("VM.QueryDataSource not mocked")
 	return
 }
 
+var VMClassQueryDataSourceMockedCallback = VMClassQueryDataSourceMockDefault
+
 func (_class VMClass) QueryDataSourceMock(sessionID SessionRef, self VMRef, dataSource string) (_retval float64, _err error) {
-	return VMClass_QueryDataSourceMockedCallback(sessionID, self, dataSource)
+	return VMClassQueryDataSourceMockedCallback(sessionID, self, dataSource)
 }
 // Query the latest value of the specified data source
 func (_class VMClass) QueryDataSource(sessionID SessionRef, self VMRef, dataSource string) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.QueryDataSourceMock(sessionID, self, dataSource)
 	}	
 	_method := "VM.query_data_source"
@@ -1390,18 +1452,20 @@ func (_class VMClass) QueryDataSource(sessionID SessionRef, self VMRef, dataSour
 }
 
 
-var VMClass_RecordDataSourceMockedCallback = func (sessionID SessionRef, self VMRef, dataSource string) (_err error) {
+func VMClassRecordDataSourceMockDefault(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
 	log.Println("VM.RecordDataSource not mocked")
 	_err = errors.New("VM.RecordDataSource not mocked")
 	return
 }
 
+var VMClassRecordDataSourceMockedCallback = VMClassRecordDataSourceMockDefault
+
 func (_class VMClass) RecordDataSourceMock(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
-	return VMClass_RecordDataSourceMockedCallback(sessionID, self, dataSource)
+	return VMClassRecordDataSourceMockedCallback(sessionID, self, dataSource)
 }
 // Start recording the specified data source
 func (_class VMClass) RecordDataSource(sessionID SessionRef, self VMRef, dataSource string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RecordDataSourceMock(sessionID, self, dataSource)
 	}	
 	_method := "VM.record_data_source"
@@ -1422,18 +1486,20 @@ func (_class VMClass) RecordDataSource(sessionID SessionRef, self VMRef, dataSou
 }
 
 
-var VMClass_GetDataSourcesMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []DataSourceRecord, _err error) {
+func VMClassGetDataSourcesMockDefault(sessionID SessionRef, self VMRef) (_retval []DataSourceRecord, _err error) {
 	log.Println("VM.GetDataSources not mocked")
 	_err = errors.New("VM.GetDataSources not mocked")
 	return
 }
 
+var VMClassGetDataSourcesMockedCallback = VMClassGetDataSourcesMockDefault
+
 func (_class VMClass) GetDataSourcesMock(sessionID SessionRef, self VMRef) (_retval []DataSourceRecord, _err error) {
-	return VMClass_GetDataSourcesMockedCallback(sessionID, self)
+	return VMClassGetDataSourcesMockedCallback(sessionID, self)
 }
 // 
 func (_class VMClass) GetDataSources(sessionID SessionRef, self VMRef) (_retval []DataSourceRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDataSourcesMock(sessionID, self)
 	}	
 	_method := "VM.get_data_sources"
@@ -1454,18 +1520,20 @@ func (_class VMClass) GetDataSources(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetBootRecordMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
+func VMClassGetBootRecordMockDefault(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
 	log.Println("VM.GetBootRecord not mocked")
 	_err = errors.New("VM.GetBootRecord not mocked")
 	return
 }
 
+var VMClassGetBootRecordMockedCallback = VMClassGetBootRecordMockDefault
+
 func (_class VMClass) GetBootRecordMock(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
-	return VMClass_GetBootRecordMockedCallback(sessionID, self)
+	return VMClassGetBootRecordMockedCallback(sessionID, self)
 }
 // Returns a record describing the VM's dynamic state, initialised when the VM boots and updated to reflect runtime configuration changes e.g. CPU hotplug
 func (_class VMClass) GetBootRecord(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBootRecordMock(sessionID, self)
 	}	
 	_method := "VM.get_boot_record"
@@ -1486,21 +1554,23 @@ func (_class VMClass) GetBootRecord(sessionID SessionRef, self VMRef) (_retval V
 }
 
 
-var VMClass_AssertCanMigrateMockedCallback = func (sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_err error) {
+func VMClassAssertCanMigrateMockDefault(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_err error) {
 	log.Println("VM.AssertCanMigrate not mocked")
 	_err = errors.New("VM.AssertCanMigrate not mocked")
 	return
 }
 
+var VMClassAssertCanMigrateMockedCallback = VMClassAssertCanMigrateMockDefault
+
 func (_class VMClass) AssertCanMigrateMock(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_err error) {
-	return VMClass_AssertCanMigrateMockedCallback(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
+	return VMClassAssertCanMigrateMockedCallback(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
 }
 // Assert whether a VM can be migrated to the specified destination.
 //
 // Errors:
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) AssertCanMigrate(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertCanMigrateMock(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
 	}	
 	_method := "VM.assert_can_migrate"
@@ -1541,14 +1611,16 @@ func (_class VMClass) AssertCanMigrate(sessionID SessionRef, vm VMRef, dest map[
 }
 
 
-var VMClass_MigrateSendMockedCallback = func (sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_retval VMRef, _err error) {
+func VMClassMigrateSendMockDefault(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_retval VMRef, _err error) {
 	log.Println("VM.MigrateSend not mocked")
 	_err = errors.New("VM.MigrateSend not mocked")
 	return
 }
 
+var VMClassMigrateSendMockedCallback = VMClassMigrateSendMockDefault
+
 func (_class VMClass) MigrateSendMock(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_retval VMRef, _err error) {
-	return VMClass_MigrateSendMockedCallback(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
+	return VMClassMigrateSendMockedCallback(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
 }
 // Migrate the VM to another host.  This can only be called when the specified VM is in the Running state.
 //
@@ -1556,7 +1628,7 @@ func (_class VMClass) MigrateSendMock(sessionID SessionRef, vm VMRef, dest map[s
 //  VM_BAD_POWER_STATE - You attempted an operation on a VM that was not in an appropriate power state at the time; for example, you attempted to start a VM that was already running.  The parameters returned are the VM's handle, and the expected and actual VM state at the time of the call.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) MigrateSend(sessionID SessionRef, vm VMRef, dest map[string]string, live bool, vdiMap map[VDIRef]SRRef, vifMap map[VIFRef]NetworkRef, options map[string]string, vgpuMap map[VGPURef]GPUGroupRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.MigrateSendMock(sessionID, vm, dest, live, vdiMap, vifMap, options, vgpuMap)
 	}	
 	_method := "VM.migrate_send"
@@ -1601,18 +1673,20 @@ func (_class VMClass) MigrateSend(sessionID SessionRef, vm VMRef, dest map[strin
 }
 
 
-var VMClass_MaximiseMemoryMockedCallback = func (sessionID SessionRef, self VMRef, total int, approximate bool) (_retval int, _err error) {
+func VMClassMaximiseMemoryMockDefault(sessionID SessionRef, self VMRef, total int, approximate bool) (_retval int, _err error) {
 	log.Println("VM.MaximiseMemory not mocked")
 	_err = errors.New("VM.MaximiseMemory not mocked")
 	return
 }
 
+var VMClassMaximiseMemoryMockedCallback = VMClassMaximiseMemoryMockDefault
+
 func (_class VMClass) MaximiseMemoryMock(sessionID SessionRef, self VMRef, total int, approximate bool) (_retval int, _err error) {
-	return VMClass_MaximiseMemoryMockedCallback(sessionID, self, total, approximate)
+	return VMClassMaximiseMemoryMockedCallback(sessionID, self, total, approximate)
 }
 // Returns the maximum amount of guest memory which will fit, together with overheads, in the supplied amount of physical memory. If 'exact' is true then an exact calculation is performed using the VM's current settings. If 'exact' is false then a more conservative approximation is used
 func (_class VMClass) MaximiseMemory(sessionID SessionRef, self VMRef, total int, approximate bool) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.MaximiseMemoryMock(sessionID, self, total, approximate)
 	}	
 	_method := "VM.maximise_memory"
@@ -1641,21 +1715,23 @@ func (_class VMClass) MaximiseMemory(sessionID SessionRef, self VMRef, total int
 }
 
 
-var VMClass_SendTriggerMockedCallback = func (sessionID SessionRef, vm VMRef, trigger string) (_err error) {
+func VMClassSendTriggerMockDefault(sessionID SessionRef, vm VMRef, trigger string) (_err error) {
 	log.Println("VM.SendTrigger not mocked")
 	_err = errors.New("VM.SendTrigger not mocked")
 	return
 }
 
+var VMClassSendTriggerMockedCallback = VMClassSendTriggerMockDefault
+
 func (_class VMClass) SendTriggerMock(sessionID SessionRef, vm VMRef, trigger string) (_err error) {
-	return VMClass_SendTriggerMockedCallback(sessionID, vm, trigger)
+	return VMClassSendTriggerMockedCallback(sessionID, vm, trigger)
 }
 // Send the named trigger to this VM.  This can only be called when the specified VM is in the Running state.
 //
 // Errors:
 //  VM_BAD_POWER_STATE - You attempted an operation on a VM that was not in an appropriate power state at the time; for example, you attempted to start a VM that was already running.  The parameters returned are the VM's handle, and the expected and actual VM state at the time of the call.
 func (_class VMClass) SendTrigger(sessionID SessionRef, vm VMRef, trigger string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SendTriggerMock(sessionID, vm, trigger)
 	}	
 	_method := "VM.send_trigger"
@@ -1676,21 +1752,23 @@ func (_class VMClass) SendTrigger(sessionID SessionRef, vm VMRef, trigger string
 }
 
 
-var VMClass_SendSysrqMockedCallback = func (sessionID SessionRef, vm VMRef, key string) (_err error) {
+func VMClassSendSysrqMockDefault(sessionID SessionRef, vm VMRef, key string) (_err error) {
 	log.Println("VM.SendSysrq not mocked")
 	_err = errors.New("VM.SendSysrq not mocked")
 	return
 }
 
+var VMClassSendSysrqMockedCallback = VMClassSendSysrqMockDefault
+
 func (_class VMClass) SendSysrqMock(sessionID SessionRef, vm VMRef, key string) (_err error) {
-	return VMClass_SendSysrqMockedCallback(sessionID, vm, key)
+	return VMClassSendSysrqMockedCallback(sessionID, vm, key)
 }
 // Send the given key as a sysrq to this VM.  The key is specified as a single character (a String of length 1).  This can only be called when the specified VM is in the Running state.
 //
 // Errors:
 //  VM_BAD_POWER_STATE - You attempted an operation on a VM that was not in an appropriate power state at the time; for example, you attempted to start a VM that was already running.  The parameters returned are the VM's handle, and the expected and actual VM state at the time of the call.
 func (_class VMClass) SendSysrq(sessionID SessionRef, vm VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SendSysrqMock(sessionID, vm, key)
 	}	
 	_method := "VM.send_sysrq"
@@ -1711,18 +1789,20 @@ func (_class VMClass) SendSysrq(sessionID SessionRef, vm VMRef, key string) (_er
 }
 
 
-var VMClass_SetVCPUsAtStartupMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetVCPUsAtStartupMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetVCPUsAtStartup not mocked")
 	_err = errors.New("VM.SetVCPUsAtStartup not mocked")
 	return
 }
 
+var VMClassSetVCPUsAtStartupMockedCallback = VMClassSetVCPUsAtStartupMockDefault
+
 func (_class VMClass) SetVCPUsAtStartupMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetVCPUsAtStartupMockedCallback(sessionID, self, value)
+	return VMClassSetVCPUsAtStartupMockedCallback(sessionID, self, value)
 }
 // Set the number of startup VCPUs for a halted VM
 func (_class VMClass) SetVCPUsAtStartup(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetVCPUsAtStartupMock(sessionID, self, value)
 	}	
 	_method := "VM.set_VCPUs_at_startup"
@@ -1743,18 +1823,20 @@ func (_class VMClass) SetVCPUsAtStartup(sessionID SessionRef, self VMRef, value 
 }
 
 
-var VMClass_SetVCPUsMaxMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetVCPUsMaxMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetVCPUsMax not mocked")
 	_err = errors.New("VM.SetVCPUsMax not mocked")
 	return
 }
 
+var VMClassSetVCPUsMaxMockedCallback = VMClassSetVCPUsMaxMockDefault
+
 func (_class VMClass) SetVCPUsMaxMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetVCPUsMaxMockedCallback(sessionID, self, value)
+	return VMClassSetVCPUsMaxMockedCallback(sessionID, self, value)
 }
 // Set the maximum number of VCPUs for a halted VM
 func (_class VMClass) SetVCPUsMax(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetVCPUsMaxMock(sessionID, self, value)
 	}	
 	_method := "VM.set_VCPUs_max"
@@ -1775,18 +1857,20 @@ func (_class VMClass) SetVCPUsMax(sessionID SessionRef, self VMRef, value int) (
 }
 
 
-var VMClass_SetShadowMultiplierLiveMockedCallback = func (sessionID SessionRef, self VMRef, multiplier float64) (_err error) {
+func VMClassSetShadowMultiplierLiveMockDefault(sessionID SessionRef, self VMRef, multiplier float64) (_err error) {
 	log.Println("VM.SetShadowMultiplierLive not mocked")
 	_err = errors.New("VM.SetShadowMultiplierLive not mocked")
 	return
 }
 
+var VMClassSetShadowMultiplierLiveMockedCallback = VMClassSetShadowMultiplierLiveMockDefault
+
 func (_class VMClass) SetShadowMultiplierLiveMock(sessionID SessionRef, self VMRef, multiplier float64) (_err error) {
-	return VMClass_SetShadowMultiplierLiveMockedCallback(sessionID, self, multiplier)
+	return VMClassSetShadowMultiplierLiveMockedCallback(sessionID, self, multiplier)
 }
 // Set the shadow memory multiplier on a running VM
 func (_class VMClass) SetShadowMultiplierLive(sessionID SessionRef, self VMRef, multiplier float64) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetShadowMultiplierLiveMock(sessionID, self, multiplier)
 	}	
 	_method := "VM.set_shadow_multiplier_live"
@@ -1807,18 +1891,20 @@ func (_class VMClass) SetShadowMultiplierLive(sessionID SessionRef, self VMRef, 
 }
 
 
-var VMClass_SetHVMShadowMultiplierMockedCallback = func (sessionID SessionRef, self VMRef, value float64) (_err error) {
+func VMClassSetHVMShadowMultiplierMockDefault(sessionID SessionRef, self VMRef, value float64) (_err error) {
 	log.Println("VM.SetHVMShadowMultiplier not mocked")
 	_err = errors.New("VM.SetHVMShadowMultiplier not mocked")
 	return
 }
 
+var VMClassSetHVMShadowMultiplierMockedCallback = VMClassSetHVMShadowMultiplierMockDefault
+
 func (_class VMClass) SetHVMShadowMultiplierMock(sessionID SessionRef, self VMRef, value float64) (_err error) {
-	return VMClass_SetHVMShadowMultiplierMockedCallback(sessionID, self, value)
+	return VMClassSetHVMShadowMultiplierMockedCallback(sessionID, self, value)
 }
 // Set the shadow memory multiplier on a halted VM
 func (_class VMClass) SetHVMShadowMultiplier(sessionID SessionRef, self VMRef, value float64) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHVMShadowMultiplierMock(sessionID, self, value)
 	}	
 	_method := "VM.set_HVM_shadow_multiplier"
@@ -1839,18 +1925,20 @@ func (_class VMClass) SetHVMShadowMultiplier(sessionID SessionRef, self VMRef, v
 }
 
 
-var VMClass_GetCooperativeMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetCooperativeMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetCooperative not mocked")
 	_err = errors.New("VM.GetCooperative not mocked")
 	return
 }
 
+var VMClassGetCooperativeMockedCallback = VMClassGetCooperativeMockDefault
+
 func (_class VMClass) GetCooperativeMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetCooperativeMockedCallback(sessionID, self)
+	return VMClassGetCooperativeMockedCallback(sessionID, self)
 }
 // Return true if the VM is currently 'co-operative' i.e. is expected to reach a balloon target and actually has done
 func (_class VMClass) GetCooperative(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCooperativeMock(sessionID, self)
 	}	
 	_method := "VM.get_cooperative"
@@ -1871,18 +1959,20 @@ func (_class VMClass) GetCooperative(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_WaitMemoryTargetLiveMockedCallback = func (sessionID SessionRef, self VMRef) (_err error) {
+func VMClassWaitMemoryTargetLiveMockDefault(sessionID SessionRef, self VMRef) (_err error) {
 	log.Println("VM.WaitMemoryTargetLive not mocked")
 	_err = errors.New("VM.WaitMemoryTargetLive not mocked")
 	return
 }
 
+var VMClassWaitMemoryTargetLiveMockedCallback = VMClassWaitMemoryTargetLiveMockDefault
+
 func (_class VMClass) WaitMemoryTargetLiveMock(sessionID SessionRef, self VMRef) (_err error) {
-	return VMClass_WaitMemoryTargetLiveMockedCallback(sessionID, self)
+	return VMClassWaitMemoryTargetLiveMockedCallback(sessionID, self)
 }
 // Wait for a running VM to reach its current memory target
 func (_class VMClass) WaitMemoryTargetLive(sessionID SessionRef, self VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.WaitMemoryTargetLiveMock(sessionID, self)
 	}	
 	_method := "VM.wait_memory_target_live"
@@ -1899,18 +1989,20 @@ func (_class VMClass) WaitMemoryTargetLive(sessionID SessionRef, self VMRef) (_e
 }
 
 
-var VMClass_SetMemoryTargetLiveMockedCallback = func (sessionID SessionRef, self VMRef, target int) (_err error) {
+func VMClassSetMemoryTargetLiveMockDefault(sessionID SessionRef, self VMRef, target int) (_err error) {
 	log.Println("VM.SetMemoryTargetLive not mocked")
 	_err = errors.New("VM.SetMemoryTargetLive not mocked")
 	return
 }
 
+var VMClassSetMemoryTargetLiveMockedCallback = VMClassSetMemoryTargetLiveMockDefault
+
 func (_class VMClass) SetMemoryTargetLiveMock(sessionID SessionRef, self VMRef, target int) (_err error) {
-	return VMClass_SetMemoryTargetLiveMockedCallback(sessionID, self, target)
+	return VMClassSetMemoryTargetLiveMockedCallback(sessionID, self, target)
 }
 // Set the memory target for a running VM
 func (_class VMClass) SetMemoryTargetLive(sessionID SessionRef, self VMRef, target int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryTargetLiveMock(sessionID, self, target)
 	}	
 	_method := "VM.set_memory_target_live"
@@ -1931,18 +2023,20 @@ func (_class VMClass) SetMemoryTargetLive(sessionID SessionRef, self VMRef, targ
 }
 
 
-var VMClass_SetMemoryMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetMemoryMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetMemory not mocked")
 	_err = errors.New("VM.SetMemory not mocked")
 	return
 }
 
+var VMClassSetMemoryMockedCallback = VMClassSetMemoryMockDefault
+
 func (_class VMClass) SetMemoryMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetMemoryMockedCallback(sessionID, self, value)
+	return VMClassSetMemoryMockedCallback(sessionID, self, value)
 }
 // Set the memory allocation of this VM. Sets all of memory_static_max, memory_dynamic_min, and memory_dynamic_max to the given value, and leaves memory_static_min untouched.
 func (_class VMClass) SetMemory(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryMock(sessionID, self, value)
 	}	
 	_method := "VM.set_memory"
@@ -1963,18 +2057,20 @@ func (_class VMClass) SetMemory(sessionID SessionRef, self VMRef, value int) (_e
 }
 
 
-var VMClass_SetMemoryLimitsMockedCallback = func (sessionID SessionRef, self VMRef, staticMin int, staticMax int, dynamicMin int, dynamicMax int) (_err error) {
+func VMClassSetMemoryLimitsMockDefault(sessionID SessionRef, self VMRef, staticMin int, staticMax int, dynamicMin int, dynamicMax int) (_err error) {
 	log.Println("VM.SetMemoryLimits not mocked")
 	_err = errors.New("VM.SetMemoryLimits not mocked")
 	return
 }
 
+var VMClassSetMemoryLimitsMockedCallback = VMClassSetMemoryLimitsMockDefault
+
 func (_class VMClass) SetMemoryLimitsMock(sessionID SessionRef, self VMRef, staticMin int, staticMax int, dynamicMin int, dynamicMax int) (_err error) {
-	return VMClass_SetMemoryLimitsMockedCallback(sessionID, self, staticMin, staticMax, dynamicMin, dynamicMax)
+	return VMClassSetMemoryLimitsMockedCallback(sessionID, self, staticMin, staticMax, dynamicMin, dynamicMax)
 }
 // Set the memory limits of this VM.
 func (_class VMClass) SetMemoryLimits(sessionID SessionRef, self VMRef, staticMin int, staticMax int, dynamicMin int, dynamicMax int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryLimitsMock(sessionID, self, staticMin, staticMax, dynamicMin, dynamicMax)
 	}	
 	_method := "VM.set_memory_limits"
@@ -2007,18 +2103,20 @@ func (_class VMClass) SetMemoryLimits(sessionID SessionRef, self VMRef, staticMi
 }
 
 
-var VMClass_SetMemoryStaticRangeMockedCallback = func (sessionID SessionRef, self VMRef, min int, max int) (_err error) {
+func VMClassSetMemoryStaticRangeMockDefault(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
 	log.Println("VM.SetMemoryStaticRange not mocked")
 	_err = errors.New("VM.SetMemoryStaticRange not mocked")
 	return
 }
 
+var VMClassSetMemoryStaticRangeMockedCallback = VMClassSetMemoryStaticRangeMockDefault
+
 func (_class VMClass) SetMemoryStaticRangeMock(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
-	return VMClass_SetMemoryStaticRangeMockedCallback(sessionID, self, min, max)
+	return VMClassSetMemoryStaticRangeMockedCallback(sessionID, self, min, max)
 }
 // Set the static (ie boot-time) range of virtual memory that the VM is allowed to use.
 func (_class VMClass) SetMemoryStaticRange(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryStaticRangeMock(sessionID, self, min, max)
 	}	
 	_method := "VM.set_memory_static_range"
@@ -2043,18 +2141,20 @@ func (_class VMClass) SetMemoryStaticRange(sessionID SessionRef, self VMRef, min
 }
 
 
-var VMClass_SetMemoryStaticMinMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetMemoryStaticMinMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetMemoryStaticMin not mocked")
 	_err = errors.New("VM.SetMemoryStaticMin not mocked")
 	return
 }
 
+var VMClassSetMemoryStaticMinMockedCallback = VMClassSetMemoryStaticMinMockDefault
+
 func (_class VMClass) SetMemoryStaticMinMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetMemoryStaticMinMockedCallback(sessionID, self, value)
+	return VMClassSetMemoryStaticMinMockedCallback(sessionID, self, value)
 }
 // Set the value of the memory_static_min field
 func (_class VMClass) SetMemoryStaticMin(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryStaticMinMock(sessionID, self, value)
 	}	
 	_method := "VM.set_memory_static_min"
@@ -2075,21 +2175,23 @@ func (_class VMClass) SetMemoryStaticMin(sessionID SessionRef, self VMRef, value
 }
 
 
-var VMClass_SetMemoryStaticMaxMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetMemoryStaticMaxMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetMemoryStaticMax not mocked")
 	_err = errors.New("VM.SetMemoryStaticMax not mocked")
 	return
 }
 
+var VMClassSetMemoryStaticMaxMockedCallback = VMClassSetMemoryStaticMaxMockDefault
+
 func (_class VMClass) SetMemoryStaticMaxMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetMemoryStaticMaxMockedCallback(sessionID, self, value)
+	return VMClassSetMemoryStaticMaxMockedCallback(sessionID, self, value)
 }
 // Set the value of the memory_static_max field
 //
 // Errors:
 //  HA_OPERATION_WOULD_BREAK_FAILOVER_PLAN - This operation cannot be performed because it would invalidate VM failover planning such that the system would be unable to guarantee to restart protected VMs after a Host failure.
 func (_class VMClass) SetMemoryStaticMax(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryStaticMaxMock(sessionID, self, value)
 	}	
 	_method := "VM.set_memory_static_max"
@@ -2110,18 +2212,20 @@ func (_class VMClass) SetMemoryStaticMax(sessionID SessionRef, self VMRef, value
 }
 
 
-var VMClass_SetMemoryDynamicRangeMockedCallback = func (sessionID SessionRef, self VMRef, min int, max int) (_err error) {
+func VMClassSetMemoryDynamicRangeMockDefault(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
 	log.Println("VM.SetMemoryDynamicRange not mocked")
 	_err = errors.New("VM.SetMemoryDynamicRange not mocked")
 	return
 }
 
+var VMClassSetMemoryDynamicRangeMockedCallback = VMClassSetMemoryDynamicRangeMockDefault
+
 func (_class VMClass) SetMemoryDynamicRangeMock(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
-	return VMClass_SetMemoryDynamicRangeMockedCallback(sessionID, self, min, max)
+	return VMClassSetMemoryDynamicRangeMockedCallback(sessionID, self, min, max)
 }
 // Set the minimum and maximum amounts of physical memory the VM is allowed to use.
 func (_class VMClass) SetMemoryDynamicRange(sessionID SessionRef, self VMRef, min int, max int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryDynamicRangeMock(sessionID, self, min, max)
 	}	
 	_method := "VM.set_memory_dynamic_range"
@@ -2146,18 +2250,20 @@ func (_class VMClass) SetMemoryDynamicRange(sessionID SessionRef, self VMRef, mi
 }
 
 
-var VMClass_SetMemoryDynamicMinMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetMemoryDynamicMinMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetMemoryDynamicMin not mocked")
 	_err = errors.New("VM.SetMemoryDynamicMin not mocked")
 	return
 }
 
+var VMClassSetMemoryDynamicMinMockedCallback = VMClassSetMemoryDynamicMinMockDefault
+
 func (_class VMClass) SetMemoryDynamicMinMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetMemoryDynamicMinMockedCallback(sessionID, self, value)
+	return VMClassSetMemoryDynamicMinMockedCallback(sessionID, self, value)
 }
 // Set the value of the memory_dynamic_min field
 func (_class VMClass) SetMemoryDynamicMin(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryDynamicMinMock(sessionID, self, value)
 	}	
 	_method := "VM.set_memory_dynamic_min"
@@ -2178,18 +2284,20 @@ func (_class VMClass) SetMemoryDynamicMin(sessionID SessionRef, self VMRef, valu
 }
 
 
-var VMClass_SetMemoryDynamicMaxMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetMemoryDynamicMaxMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetMemoryDynamicMax not mocked")
 	_err = errors.New("VM.SetMemoryDynamicMax not mocked")
 	return
 }
 
+var VMClassSetMemoryDynamicMaxMockedCallback = VMClassSetMemoryDynamicMaxMockDefault
+
 func (_class VMClass) SetMemoryDynamicMaxMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetMemoryDynamicMaxMockedCallback(sessionID, self, value)
+	return VMClassSetMemoryDynamicMaxMockedCallback(sessionID, self, value)
 }
 // Set the value of the memory_dynamic_max field
 func (_class VMClass) SetMemoryDynamicMax(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetMemoryDynamicMaxMock(sessionID, self, value)
 	}	
 	_method := "VM.set_memory_dynamic_max"
@@ -2210,18 +2318,20 @@ func (_class VMClass) SetMemoryDynamicMax(sessionID SessionRef, self VMRef, valu
 }
 
 
-var VMClass_ComputeMemoryOverheadMockedCallback = func (sessionID SessionRef, vm VMRef) (_retval int, _err error) {
+func VMClassComputeMemoryOverheadMockDefault(sessionID SessionRef, vm VMRef) (_retval int, _err error) {
 	log.Println("VM.ComputeMemoryOverhead not mocked")
 	_err = errors.New("VM.ComputeMemoryOverhead not mocked")
 	return
 }
 
+var VMClassComputeMemoryOverheadMockedCallback = VMClassComputeMemoryOverheadMockDefault
+
 func (_class VMClass) ComputeMemoryOverheadMock(sessionID SessionRef, vm VMRef) (_retval int, _err error) {
-	return VMClass_ComputeMemoryOverheadMockedCallback(sessionID, vm)
+	return VMClassComputeMemoryOverheadMockedCallback(sessionID, vm)
 }
 // Computes the virtualization memory overhead of a VM.
 func (_class VMClass) ComputeMemoryOverhead(sessionID SessionRef, vm VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ComputeMemoryOverheadMock(sessionID, vm)
 	}	
 	_method := "VM.compute_memory_overhead"
@@ -2242,18 +2352,20 @@ func (_class VMClass) ComputeMemoryOverhead(sessionID SessionRef, vm VMRef) (_re
 }
 
 
-var VMClass_SetHaAlwaysRunMockedCallback = func (sessionID SessionRef, self VMRef, value bool) (_err error) {
+func VMClassSetHaAlwaysRunMockDefault(sessionID SessionRef, self VMRef, value bool) (_err error) {
 	log.Println("VM.SetHaAlwaysRun not mocked")
 	_err = errors.New("VM.SetHaAlwaysRun not mocked")
 	return
 }
 
+var VMClassSetHaAlwaysRunMockedCallback = VMClassSetHaAlwaysRunMockDefault
+
 func (_class VMClass) SetHaAlwaysRunMock(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	return VMClass_SetHaAlwaysRunMockedCallback(sessionID, self, value)
+	return VMClassSetHaAlwaysRunMockedCallback(sessionID, self, value)
 }
 // Set the value of the ha_always_run
 func (_class VMClass) SetHaAlwaysRun(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHaAlwaysRunMock(sessionID, self, value)
 	}	
 	_method := "VM.set_ha_always_run"
@@ -2274,18 +2386,20 @@ func (_class VMClass) SetHaAlwaysRun(sessionID SessionRef, self VMRef, value boo
 }
 
 
-var VMClass_SetHaRestartPriorityMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetHaRestartPriorityMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetHaRestartPriority not mocked")
 	_err = errors.New("VM.SetHaRestartPriority not mocked")
 	return
 }
 
+var VMClassSetHaRestartPriorityMockedCallback = VMClassSetHaRestartPriorityMockDefault
+
 func (_class VMClass) SetHaRestartPriorityMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetHaRestartPriorityMockedCallback(sessionID, self, value)
+	return VMClassSetHaRestartPriorityMockedCallback(sessionID, self, value)
 }
 // Set the value of the ha_restart_priority field
 func (_class VMClass) SetHaRestartPriority(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHaRestartPriorityMock(sessionID, self, value)
 	}	
 	_method := "VM.set_ha_restart_priority"
@@ -2306,18 +2420,20 @@ func (_class VMClass) SetHaRestartPriority(sessionID SessionRef, self VMRef, val
 }
 
 
-var VMClass_AddToVCPUsParamsLiveMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToVCPUsParamsLiveMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToVCPUsParamsLive not mocked")
 	_err = errors.New("VM.AddToVCPUsParamsLive not mocked")
 	return
 }
 
+var VMClassAddToVCPUsParamsLiveMockedCallback = VMClassAddToVCPUsParamsLiveMockDefault
+
 func (_class VMClass) AddToVCPUsParamsLiveMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToVCPUsParamsLiveMockedCallback(sessionID, self, key, value)
+	return VMClassAddToVCPUsParamsLiveMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to VM.VCPUs_params, and apply that value on the running VM
 func (_class VMClass) AddToVCPUsParamsLive(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToVCPUsParamsLiveMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_VCPUs_params_live"
@@ -2342,14 +2458,16 @@ func (_class VMClass) AddToVCPUsParamsLive(sessionID SessionRef, self VMRef, key
 }
 
 
-var VMClass_SetVCPUsNumberLiveMockedCallback = func (sessionID SessionRef, self VMRef, nvcpu int) (_err error) {
+func VMClassSetVCPUsNumberLiveMockDefault(sessionID SessionRef, self VMRef, nvcpu int) (_err error) {
 	log.Println("VM.SetVCPUsNumberLive not mocked")
 	_err = errors.New("VM.SetVCPUsNumberLive not mocked")
 	return
 }
 
+var VMClassSetVCPUsNumberLiveMockedCallback = VMClassSetVCPUsNumberLiveMockDefault
+
 func (_class VMClass) SetVCPUsNumberLiveMock(sessionID SessionRef, self VMRef, nvcpu int) (_err error) {
-	return VMClass_SetVCPUsNumberLiveMockedCallback(sessionID, self, nvcpu)
+	return VMClassSetVCPUsNumberLiveMockedCallback(sessionID, self, nvcpu)
 }
 // Set the number of VCPUs for a running VM
 //
@@ -2357,7 +2475,7 @@ func (_class VMClass) SetVCPUsNumberLiveMock(sessionID SessionRef, self VMRef, n
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) SetVCPUsNumberLive(sessionID SessionRef, self VMRef, nvcpu int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetVCPUsNumberLiveMock(sessionID, self, nvcpu)
 	}	
 	_method := "VM.set_VCPUs_number_live"
@@ -2378,14 +2496,16 @@ func (_class VMClass) SetVCPUsNumberLive(sessionID SessionRef, self VMRef, nvcpu
 }
 
 
-var VMClass_PoolMigrateMockedCallback = func (sessionID SessionRef, vm VMRef, host HostRef, options map[string]string) (_err error) {
+func VMClassPoolMigrateMockDefault(sessionID SessionRef, vm VMRef, host HostRef, options map[string]string) (_err error) {
 	log.Println("VM.PoolMigrate not mocked")
 	_err = errors.New("VM.PoolMigrate not mocked")
 	return
 }
 
+var VMClassPoolMigrateMockedCallback = VMClassPoolMigrateMockDefault
+
 func (_class VMClass) PoolMigrateMock(sessionID SessionRef, vm VMRef, host HostRef, options map[string]string) (_err error) {
-	return VMClass_PoolMigrateMockedCallback(sessionID, vm, host, options)
+	return VMClassPoolMigrateMockedCallback(sessionID, vm, host, options)
 }
 // Migrate a VM to another Host.
 //
@@ -2396,7 +2516,7 @@ func (_class VMClass) PoolMigrateMock(sessionID SessionRef, vm VMRef, host HostR
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_MIGRATE_FAILED - An error occurred during the migration process.
 func (_class VMClass) PoolMigrate(sessionID SessionRef, vm VMRef, host HostRef, options map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PoolMigrateMock(sessionID, vm, host, options)
 	}	
 	_method := "VM.pool_migrate"
@@ -2421,14 +2541,16 @@ func (_class VMClass) PoolMigrate(sessionID SessionRef, vm VMRef, host HostRef, 
 }
 
 
-var VMClass_ResumeOnMockedCallback = func (sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
+func VMClassResumeOnMockDefault(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
 	log.Println("VM.ResumeOn not mocked")
 	_err = errors.New("VM.ResumeOn not mocked")
 	return
 }
 
+var VMClassResumeOnMockedCallback = VMClassResumeOnMockDefault
+
 func (_class VMClass) ResumeOnMock(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
-	return VMClass_ResumeOnMockedCallback(sessionID, vm, host, startPaused, force)
+	return VMClassResumeOnMockedCallback(sessionID, vm, host, startPaused, force)
 }
 // Awaken the specified VM and resume it on a particular Host.  This can only be called when the specified VM is in the Suspended state.
 //
@@ -2437,7 +2559,7 @@ func (_class VMClass) ResumeOnMock(sessionID SessionRef, vm VMRef, host HostRef,
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) ResumeOn(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ResumeOnMock(sessionID, vm, host, startPaused, force)
 	}	
 	_method := "VM.resume_on"
@@ -2466,14 +2588,16 @@ func (_class VMClass) ResumeOn(sessionID SessionRef, vm VMRef, host HostRef, sta
 }
 
 
-var VMClass_ResumeMockedCallback = func (sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
+func VMClassResumeMockDefault(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
 	log.Println("VM.Resume not mocked")
 	_err = errors.New("VM.Resume not mocked")
 	return
 }
 
+var VMClassResumeMockedCallback = VMClassResumeMockDefault
+
 func (_class VMClass) ResumeMock(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
-	return VMClass_ResumeMockedCallback(sessionID, vm, startPaused, force)
+	return VMClassResumeMockedCallback(sessionID, vm, startPaused, force)
 }
 // Awaken the specified VM and resume it.  This can only be called when the specified VM is in the Suspended state.
 //
@@ -2482,7 +2606,7 @@ func (_class VMClass) ResumeMock(sessionID SessionRef, vm VMRef, startPaused boo
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) Resume(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ResumeMock(sessionID, vm, startPaused, force)
 	}	
 	_method := "VM.resume"
@@ -2507,14 +2631,16 @@ func (_class VMClass) Resume(sessionID SessionRef, vm VMRef, startPaused bool, f
 }
 
 
-var VMClass_SuspendMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassSuspendMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.Suspend not mocked")
 	_err = errors.New("VM.Suspend not mocked")
 	return
 }
 
+var VMClassSuspendMockedCallback = VMClassSuspendMockDefault
+
 func (_class VMClass) SuspendMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_SuspendMockedCallback(sessionID, vm)
+	return VMClassSuspendMockedCallback(sessionID, vm)
 }
 // Suspend the specified VM to disk.  This can only be called when the specified VM is in the Running state.
 //
@@ -2524,7 +2650,7 @@ func (_class VMClass) SuspendMock(sessionID SessionRef, vm VMRef) (_err error) {
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) Suspend(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SuspendMock(sessionID, vm)
 	}	
 	_method := "VM.suspend"
@@ -2541,14 +2667,16 @@ func (_class VMClass) Suspend(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_HardRebootMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassHardRebootMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.HardReboot not mocked")
 	_err = errors.New("VM.HardReboot not mocked")
 	return
 }
 
+var VMClassHardRebootMockedCallback = VMClassHardRebootMockDefault
+
 func (_class VMClass) HardRebootMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_HardRebootMockedCallback(sessionID, vm)
+	return VMClassHardRebootMockedCallback(sessionID, vm)
 }
 // Stop executing the specified VM without attempting a clean shutdown and immediately restart the VM.
 //
@@ -2558,7 +2686,7 @@ func (_class VMClass) HardRebootMock(sessionID SessionRef, vm VMRef) (_err error
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) HardReboot(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.HardRebootMock(sessionID, vm)
 	}	
 	_method := "VM.hard_reboot"
@@ -2575,18 +2703,20 @@ func (_class VMClass) HardReboot(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_PowerStateResetMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassPowerStateResetMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.PowerStateReset not mocked")
 	_err = errors.New("VM.PowerStateReset not mocked")
 	return
 }
 
+var VMClassPowerStateResetMockedCallback = VMClassPowerStateResetMockDefault
+
 func (_class VMClass) PowerStateResetMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_PowerStateResetMockedCallback(sessionID, vm)
+	return VMClassPowerStateResetMockedCallback(sessionID, vm)
 }
 // Reset the power-state of the VM to halted in the database only. (Used to recover from slave failures in pooling scenarios by resetting the power-states of VMs running on dead slaves to halted.) This is a potentially dangerous operation; use with care.
 func (_class VMClass) PowerStateReset(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PowerStateResetMock(sessionID, vm)
 	}	
 	_method := "VM.power_state_reset"
@@ -2603,14 +2733,16 @@ func (_class VMClass) PowerStateReset(sessionID SessionRef, vm VMRef) (_err erro
 }
 
 
-var VMClass_HardShutdownMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassHardShutdownMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.HardShutdown not mocked")
 	_err = errors.New("VM.HardShutdown not mocked")
 	return
 }
 
+var VMClassHardShutdownMockedCallback = VMClassHardShutdownMockDefault
+
 func (_class VMClass) HardShutdownMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_HardShutdownMockedCallback(sessionID, vm)
+	return VMClassHardShutdownMockedCallback(sessionID, vm)
 }
 // Stop executing the specified VM without attempting a clean shutdown.
 //
@@ -2620,7 +2752,7 @@ func (_class VMClass) HardShutdownMock(sessionID SessionRef, vm VMRef) (_err err
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) HardShutdown(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.HardShutdownMock(sessionID, vm)
 	}	
 	_method := "VM.hard_shutdown"
@@ -2637,14 +2769,16 @@ func (_class VMClass) HardShutdown(sessionID SessionRef, vm VMRef) (_err error) 
 }
 
 
-var VMClass_CleanRebootMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassCleanRebootMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.CleanReboot not mocked")
 	_err = errors.New("VM.CleanReboot not mocked")
 	return
 }
 
+var VMClassCleanRebootMockedCallback = VMClassCleanRebootMockDefault
+
 func (_class VMClass) CleanRebootMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_CleanRebootMockedCallback(sessionID, vm)
+	return VMClassCleanRebootMockedCallback(sessionID, vm)
 }
 // Attempt to cleanly shutdown the specified VM (Note: this may not be supported---e.g. if a guest agent is not installed). This can only be called when the specified VM is in the Running state.
 //
@@ -2654,7 +2788,7 @@ func (_class VMClass) CleanRebootMock(sessionID SessionRef, vm VMRef) (_err erro
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) CleanReboot(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CleanRebootMock(sessionID, vm)
 	}	
 	_method := "VM.clean_reboot"
@@ -2671,14 +2805,16 @@ func (_class VMClass) CleanReboot(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_ShutdownMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassShutdownMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.Shutdown not mocked")
 	_err = errors.New("VM.Shutdown not mocked")
 	return
 }
 
+var VMClassShutdownMockedCallback = VMClassShutdownMockDefault
+
 func (_class VMClass) ShutdownMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_ShutdownMockedCallback(sessionID, vm)
+	return VMClassShutdownMockedCallback(sessionID, vm)
 }
 // Attempts to first clean shutdown a VM and if it should fail then perform a hard shutdown on it.
 //
@@ -2688,7 +2824,7 @@ func (_class VMClass) ShutdownMock(sessionID SessionRef, vm VMRef) (_err error) 
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) Shutdown(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ShutdownMock(sessionID, vm)
 	}	
 	_method := "VM.shutdown"
@@ -2705,14 +2841,16 @@ func (_class VMClass) Shutdown(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_CleanShutdownMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassCleanShutdownMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.CleanShutdown not mocked")
 	_err = errors.New("VM.CleanShutdown not mocked")
 	return
 }
 
+var VMClassCleanShutdownMockedCallback = VMClassCleanShutdownMockDefault
+
 func (_class VMClass) CleanShutdownMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_CleanShutdownMockedCallback(sessionID, vm)
+	return VMClassCleanShutdownMockedCallback(sessionID, vm)
 }
 // Attempt to cleanly shutdown the specified VM. (Note: this may not be supported---e.g. if a guest agent is not installed). This can only be called when the specified VM is in the Running state.
 //
@@ -2722,7 +2860,7 @@ func (_class VMClass) CleanShutdownMock(sessionID SessionRef, vm VMRef) (_err er
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) CleanShutdown(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CleanShutdownMock(sessionID, vm)
 	}	
 	_method := "VM.clean_shutdown"
@@ -2739,14 +2877,16 @@ func (_class VMClass) CleanShutdown(sessionID SessionRef, vm VMRef) (_err error)
 }
 
 
-var VMClass_UnpauseMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassUnpauseMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.Unpause not mocked")
 	_err = errors.New("VM.Unpause not mocked")
 	return
 }
 
+var VMClassUnpauseMockedCallback = VMClassUnpauseMockDefault
+
 func (_class VMClass) UnpauseMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_UnpauseMockedCallback(sessionID, vm)
+	return VMClassUnpauseMockedCallback(sessionID, vm)
 }
 // Resume the specified VM. This can only be called when the specified VM is in the Paused state.
 //
@@ -2755,7 +2895,7 @@ func (_class VMClass) UnpauseMock(sessionID SessionRef, vm VMRef) (_err error) {
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) Unpause(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.UnpauseMock(sessionID, vm)
 	}	
 	_method := "VM.unpause"
@@ -2772,14 +2912,16 @@ func (_class VMClass) Unpause(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_PauseMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassPauseMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.Pause not mocked")
 	_err = errors.New("VM.Pause not mocked")
 	return
 }
 
+var VMClassPauseMockedCallback = VMClassPauseMockDefault
+
 func (_class VMClass) PauseMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_PauseMockedCallback(sessionID, vm)
+	return VMClassPauseMockedCallback(sessionID, vm)
 }
 // Pause the specified VM. This can only be called when the specified VM is in the Running state.
 //
@@ -2789,7 +2931,7 @@ func (_class VMClass) PauseMock(sessionID SessionRef, vm VMRef) (_err error) {
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  VM_IS_TEMPLATE - The operation attempted is not valid for a template VM
 func (_class VMClass) Pause(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PauseMock(sessionID, vm)
 	}	
 	_method := "VM.pause"
@@ -2806,14 +2948,16 @@ func (_class VMClass) Pause(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_StartOnMockedCallback = func (sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
+func VMClassStartOnMockDefault(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
 	log.Println("VM.StartOn not mocked")
 	_err = errors.New("VM.StartOn not mocked")
 	return
 }
 
+var VMClassStartOnMockedCallback = VMClassStartOnMockDefault
+
 func (_class VMClass) StartOnMock(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
-	return VMClass_StartOnMockedCallback(sessionID, vm, host, startPaused, force)
+	return VMClassStartOnMockedCallback(sessionID, vm, host, startPaused, force)
 }
 // Start the specified VM on a particular host.  This function can only be called with the VM is in the Halted State.
 //
@@ -2825,7 +2969,7 @@ func (_class VMClass) StartOnMock(sessionID SessionRef, vm VMRef, host HostRef, 
 //  BOOTLOADER_FAILED - The bootloader returned an error
 //  UNKNOWN_BOOTLOADER - The requested bootloader is unknown
 func (_class VMClass) StartOn(sessionID SessionRef, vm VMRef, host HostRef, startPaused bool, force bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.StartOnMock(sessionID, vm, host, startPaused, force)
 	}	
 	_method := "VM.start_on"
@@ -2854,14 +2998,16 @@ func (_class VMClass) StartOn(sessionID SessionRef, vm VMRef, host HostRef, star
 }
 
 
-var VMClass_StartMockedCallback = func (sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
+func VMClassStartMockDefault(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
 	log.Println("VM.Start not mocked")
 	_err = errors.New("VM.Start not mocked")
 	return
 }
 
+var VMClassStartMockedCallback = VMClassStartMockDefault
+
 func (_class VMClass) StartMock(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
-	return VMClass_StartMockedCallback(sessionID, vm, startPaused, force)
+	return VMClassStartMockedCallback(sessionID, vm, startPaused, force)
 }
 // Start the specified VM.  This function can only be called with the VM is in the Halted State.
 //
@@ -2876,7 +3022,7 @@ func (_class VMClass) StartMock(sessionID SessionRef, vm VMRef, startPaused bool
 //  NO_HOSTS_AVAILABLE - There were no hosts available to complete the specified operation.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) Start(sessionID SessionRef, vm VMRef, startPaused bool, force bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.StartMock(sessionID, vm, startPaused, force)
 	}	
 	_method := "VM.start"
@@ -2901,14 +3047,16 @@ func (_class VMClass) Start(sessionID SessionRef, vm VMRef, startPaused bool, fo
 }
 
 
-var VMClass_ProvisionMockedCallback = func (sessionID SessionRef, vm VMRef) (_err error) {
+func VMClassProvisionMockDefault(sessionID SessionRef, vm VMRef) (_err error) {
 	log.Println("VM.Provision not mocked")
 	_err = errors.New("VM.Provision not mocked")
 	return
 }
 
+var VMClassProvisionMockedCallback = VMClassProvisionMockDefault
+
 func (_class VMClass) ProvisionMock(sessionID SessionRef, vm VMRef) (_err error) {
-	return VMClass_ProvisionMockedCallback(sessionID, vm)
+	return VMClassProvisionMockedCallback(sessionID, vm)
 }
 // Inspects the disk configuration contained within the VM's other_config, creates VDIs and VBDs and then executes any applicable post-install script.
 //
@@ -2918,7 +3066,7 @@ func (_class VMClass) ProvisionMock(sessionID SessionRef, vm VMRef) (_err error)
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) Provision(sessionID SessionRef, vm VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ProvisionMock(sessionID, vm)
 	}	
 	_method := "VM.provision"
@@ -2935,14 +3083,16 @@ func (_class VMClass) Provision(sessionID SessionRef, vm VMRef) (_err error) {
 }
 
 
-var VMClass_CheckpointMockedCallback = func (sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
+func VMClassCheckpointMockDefault(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
 	log.Println("VM.Checkpoint not mocked")
 	_err = errors.New("VM.Checkpoint not mocked")
 	return
 }
 
+var VMClassCheckpointMockedCallback = VMClassCheckpointMockDefault
+
 func (_class VMClass) CheckpointMock(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	return VMClass_CheckpointMockedCallback(sessionID, vm, newName)
+	return VMClassCheckpointMockedCallback(sessionID, vm, newName)
 }
 // Checkpoints the specified VM, making a new VM. Checkpoint automatically exploits the capabilities of the underlying storage repository in which the VM's disk images are stored (e.g. Copy on Write) and saves the memory image as well.
 //
@@ -2953,7 +3103,7 @@ func (_class VMClass) CheckpointMock(sessionID SessionRef, vm VMRef, newName str
 //  VM_CHECKPOINT_SUSPEND_FAILED - An error occured while saving the memory image of the specified virtual machine
 //  VM_CHECKPOINT_RESUME_FAILED - An error occured while restoring the memory image of the specified virtual machine
 func (_class VMClass) Checkpoint(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CheckpointMock(sessionID, vm, newName)
 	}	
 	_method := "VM.checkpoint"
@@ -2978,14 +3128,16 @@ func (_class VMClass) Checkpoint(sessionID SessionRef, vm VMRef, newName string)
 }
 
 
-var VMClass_RevertMockedCallback = func (sessionID SessionRef, snapshot VMRef) (_err error) {
+func VMClassRevertMockDefault(sessionID SessionRef, snapshot VMRef) (_err error) {
 	log.Println("VM.Revert not mocked")
 	_err = errors.New("VM.Revert not mocked")
 	return
 }
 
+var VMClassRevertMockedCallback = VMClassRevertMockDefault
+
 func (_class VMClass) RevertMock(sessionID SessionRef, snapshot VMRef) (_err error) {
-	return VMClass_RevertMockedCallback(sessionID, snapshot)
+	return VMClassRevertMockedCallback(sessionID, snapshot)
 }
 // Reverts the specified VM to a previous state.
 //
@@ -2995,7 +3147,7 @@ func (_class VMClass) RevertMock(sessionID SessionRef, snapshot VMRef) (_err err
 //  SR_FULL - The SR is full. Requested new size exceeds the maximum size
 //  VM_REVERT_FAILED - An error occured while reverting the specified virtual machine to the specified snapshot
 func (_class VMClass) Revert(sessionID SessionRef, snapshot VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RevertMock(sessionID, snapshot)
 	}	
 	_method := "VM.revert"
@@ -3012,14 +3164,16 @@ func (_class VMClass) Revert(sessionID SessionRef, snapshot VMRef) (_err error) 
 }
 
 
-var VMClass_CopyMockedCallback = func (sessionID SessionRef, vm VMRef, newName string, sr SRRef) (_retval VMRef, _err error) {
+func VMClassCopyMockDefault(sessionID SessionRef, vm VMRef, newName string, sr SRRef) (_retval VMRef, _err error) {
 	log.Println("VM.Copy not mocked")
 	_err = errors.New("VM.Copy not mocked")
 	return
 }
 
+var VMClassCopyMockedCallback = VMClassCopyMockDefault
+
 func (_class VMClass) CopyMock(sessionID SessionRef, vm VMRef, newName string, sr SRRef) (_retval VMRef, _err error) {
-	return VMClass_CopyMockedCallback(sessionID, vm, newName, sr)
+	return VMClassCopyMockedCallback(sessionID, vm, newName, sr)
 }
 // Copied the specified VM, making a new VM. Unlike clone, copy does not exploits the capabilities of the underlying storage repository in which the VM's disk images are stored. Instead, copy guarantees that the disk images of the newly created VM will be 'full disks' - i.e. not part of a CoW chain.  This function can only be called when the VM is in the Halted State.
 //
@@ -3029,7 +3183,7 @@ func (_class VMClass) CopyMock(sessionID SessionRef, vm VMRef, newName string, s
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) Copy(sessionID SessionRef, vm VMRef, newName string, sr SRRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CopyMock(sessionID, vm, newName, sr)
 	}	
 	_method := "VM.copy"
@@ -3058,14 +3212,16 @@ func (_class VMClass) Copy(sessionID SessionRef, vm VMRef, newName string, sr SR
 }
 
 
-var VMClass_CloneMockedCallback = func (sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
+func VMClassCloneMockDefault(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
 	log.Println("VM.Clone not mocked")
 	_err = errors.New("VM.Clone not mocked")
 	return
 }
 
+var VMClassCloneMockedCallback = VMClassCloneMockDefault
+
 func (_class VMClass) CloneMock(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	return VMClass_CloneMockedCallback(sessionID, vm, newName)
+	return VMClassCloneMockedCallback(sessionID, vm, newName)
 }
 // Clones the specified VM, making a new VM. Clone automatically exploits the capabilities of the underlying storage repository in which the VM's disk images are stored (e.g. Copy on Write).   This function can only be called when the VM is in the Halted State.
 //
@@ -3075,7 +3231,7 @@ func (_class VMClass) CloneMock(sessionID SessionRef, vm VMRef, newName string) 
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 //  LICENCE_RESTRICTION - This operation is not allowed because your license lacks a needed feature.  Please contact your support representative.
 func (_class VMClass) Clone(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CloneMock(sessionID, vm, newName)
 	}	
 	_method := "VM.clone"
@@ -3100,14 +3256,16 @@ func (_class VMClass) Clone(sessionID SessionRef, vm VMRef, newName string) (_re
 }
 
 
-var VMClass_SnapshotWithQuiesceMockedCallback = func (sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
+func VMClassSnapshotWithQuiesceMockDefault(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
 	log.Println("VM.SnapshotWithQuiesce not mocked")
 	_err = errors.New("VM.SnapshotWithQuiesce not mocked")
 	return
 }
 
+var VMClassSnapshotWithQuiesceMockedCallback = VMClassSnapshotWithQuiesceMockDefault
+
 func (_class VMClass) SnapshotWithQuiesceMock(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	return VMClass_SnapshotWithQuiesceMockedCallback(sessionID, vm, newName)
+	return VMClassSnapshotWithQuiesceMockedCallback(sessionID, vm, newName)
 }
 // Snapshots the specified VM with quiesce, making a new VM. Snapshot automatically exploits the capabilities of the underlying storage repository in which the VM's disk images are stored (e.g. Copy on Write).
 //
@@ -3120,7 +3278,7 @@ func (_class VMClass) SnapshotWithQuiesceMock(sessionID SessionRef, vm VMRef, ne
 //  VM_SNAPSHOT_WITH_QUIESCE_PLUGIN_DEOS_NOT_RESPOND - The VSS plug-in cannot be contacted
 //  VM_SNAPSHOT_WITH_QUIESCE_NOT_SUPPORTED - The VSS plug-in is not installed on this virtual machine
 func (_class VMClass) SnapshotWithQuiesce(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SnapshotWithQuiesceMock(sessionID, vm, newName)
 	}	
 	_method := "VM.snapshot_with_quiesce"
@@ -3145,14 +3303,16 @@ func (_class VMClass) SnapshotWithQuiesce(sessionID SessionRef, vm VMRef, newNam
 }
 
 
-var VMClass_SnapshotMockedCallback = func (sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
+func VMClassSnapshotMockDefault(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
 	log.Println("VM.Snapshot not mocked")
 	_err = errors.New("VM.Snapshot not mocked")
 	return
 }
 
+var VMClassSnapshotMockedCallback = VMClassSnapshotMockDefault
+
 func (_class VMClass) SnapshotMock(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	return VMClass_SnapshotMockedCallback(sessionID, vm, newName)
+	return VMClassSnapshotMockedCallback(sessionID, vm, newName)
 }
 // Snapshots the specified VM, making a new VM. Snapshot automatically exploits the capabilities of the underlying storage repository in which the VM's disk images are stored (e.g. Copy on Write).
 //
@@ -3161,7 +3321,7 @@ func (_class VMClass) SnapshotMock(sessionID SessionRef, vm VMRef, newName strin
 //  SR_FULL - The SR is full. Requested new size exceeds the maximum size
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 func (_class VMClass) Snapshot(sessionID SessionRef, vm VMRef, newName string) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SnapshotMock(sessionID, vm, newName)
 	}	
 	_method := "VM.snapshot"
@@ -3186,18 +3346,20 @@ func (_class VMClass) Snapshot(sessionID SessionRef, vm VMRef, newName string) (
 }
 
 
-var VMClass_SetHardwarePlatformVersionMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetHardwarePlatformVersionMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetHardwarePlatformVersion not mocked")
 	_err = errors.New("VM.SetHardwarePlatformVersion not mocked")
 	return
 }
 
+var VMClassSetHardwarePlatformVersionMockedCallback = VMClassSetHardwarePlatformVersionMockDefault
+
 func (_class VMClass) SetHardwarePlatformVersionMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetHardwarePlatformVersionMockedCallback(sessionID, self, value)
+	return VMClassSetHardwarePlatformVersionMockedCallback(sessionID, self, value)
 }
 // Set the hardware_platform_version field of the given VM.
 func (_class VMClass) SetHardwarePlatformVersion(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHardwarePlatformVersionMock(sessionID, self, value)
 	}	
 	_method := "VM.set_hardware_platform_version"
@@ -3218,18 +3380,20 @@ func (_class VMClass) SetHardwarePlatformVersion(sessionID SessionRef, self VMRe
 }
 
 
-var VMClass_SetSuspendSRMockedCallback = func (sessionID SessionRef, self VMRef, value SRRef) (_err error) {
+func VMClassSetSuspendSRMockDefault(sessionID SessionRef, self VMRef, value SRRef) (_err error) {
 	log.Println("VM.SetSuspendSR not mocked")
 	_err = errors.New("VM.SetSuspendSR not mocked")
 	return
 }
 
+var VMClassSetSuspendSRMockedCallback = VMClassSetSuspendSRMockDefault
+
 func (_class VMClass) SetSuspendSRMock(sessionID SessionRef, self VMRef, value SRRef) (_err error) {
-	return VMClass_SetSuspendSRMockedCallback(sessionID, self, value)
+	return VMClassSetSuspendSRMockedCallback(sessionID, self, value)
 }
 // Set the suspend_SR field of the given VM.
 func (_class VMClass) SetSuspendSR(sessionID SessionRef, self VMRef, value SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetSuspendSRMock(sessionID, self, value)
 	}	
 	_method := "VM.set_suspend_SR"
@@ -3250,18 +3414,20 @@ func (_class VMClass) SetSuspendSR(sessionID SessionRef, self VMRef, value SRRef
 }
 
 
-var VMClass_RemoveFromBlockedOperationsMockedCallback = func (sessionID SessionRef, self VMRef, key VMOperations) (_err error) {
+func VMClassRemoveFromBlockedOperationsMockDefault(sessionID SessionRef, self VMRef, key VMOperations) (_err error) {
 	log.Println("VM.RemoveFromBlockedOperations not mocked")
 	_err = errors.New("VM.RemoveFromBlockedOperations not mocked")
 	return
 }
 
+var VMClassRemoveFromBlockedOperationsMockedCallback = VMClassRemoveFromBlockedOperationsMockDefault
+
 func (_class VMClass) RemoveFromBlockedOperationsMock(sessionID SessionRef, self VMRef, key VMOperations) (_err error) {
-	return VMClass_RemoveFromBlockedOperationsMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromBlockedOperationsMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the blocked_operations field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromBlockedOperations(sessionID SessionRef, self VMRef, key VMOperations) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromBlockedOperationsMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_blocked_operations"
@@ -3282,18 +3448,20 @@ func (_class VMClass) RemoveFromBlockedOperations(sessionID SessionRef, self VMR
 }
 
 
-var VMClass_AddToBlockedOperationsMockedCallback = func (sessionID SessionRef, self VMRef, key VMOperations, value string) (_err error) {
+func VMClassAddToBlockedOperationsMockDefault(sessionID SessionRef, self VMRef, key VMOperations, value string) (_err error) {
 	log.Println("VM.AddToBlockedOperations not mocked")
 	_err = errors.New("VM.AddToBlockedOperations not mocked")
 	return
 }
 
+var VMClassAddToBlockedOperationsMockedCallback = VMClassAddToBlockedOperationsMockDefault
+
 func (_class VMClass) AddToBlockedOperationsMock(sessionID SessionRef, self VMRef, key VMOperations, value string) (_err error) {
-	return VMClass_AddToBlockedOperationsMockedCallback(sessionID, self, key, value)
+	return VMClassAddToBlockedOperationsMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the blocked_operations field of the given VM.
 func (_class VMClass) AddToBlockedOperations(sessionID SessionRef, self VMRef, key VMOperations, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToBlockedOperationsMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_blocked_operations"
@@ -3318,18 +3486,20 @@ func (_class VMClass) AddToBlockedOperations(sessionID SessionRef, self VMRef, k
 }
 
 
-var VMClass_SetBlockedOperationsMockedCallback = func (sessionID SessionRef, self VMRef, value map[VMOperations]string) (_err error) {
+func VMClassSetBlockedOperationsMockDefault(sessionID SessionRef, self VMRef, value map[VMOperations]string) (_err error) {
 	log.Println("VM.SetBlockedOperations not mocked")
 	_err = errors.New("VM.SetBlockedOperations not mocked")
 	return
 }
 
+var VMClassSetBlockedOperationsMockedCallback = VMClassSetBlockedOperationsMockDefault
+
 func (_class VMClass) SetBlockedOperationsMock(sessionID SessionRef, self VMRef, value map[VMOperations]string) (_err error) {
-	return VMClass_SetBlockedOperationsMockedCallback(sessionID, self, value)
+	return VMClassSetBlockedOperationsMockedCallback(sessionID, self, value)
 }
 // Set the blocked_operations field of the given VM.
 func (_class VMClass) SetBlockedOperations(sessionID SessionRef, self VMRef, value map[VMOperations]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetBlockedOperationsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_blocked_operations"
@@ -3350,18 +3520,20 @@ func (_class VMClass) SetBlockedOperations(sessionID SessionRef, self VMRef, val
 }
 
 
-var VMClass_RemoveTagsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassRemoveTagsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.RemoveTags not mocked")
 	_err = errors.New("VM.RemoveTags not mocked")
 	return
 }
 
+var VMClassRemoveTagsMockedCallback = VMClassRemoveTagsMockDefault
+
 func (_class VMClass) RemoveTagsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_RemoveTagsMockedCallback(sessionID, self, value)
+	return VMClassRemoveTagsMockedCallback(sessionID, self, value)
 }
 // Remove the given value from the tags field of the given VM.  If the value is not in that Set, then do nothing.
 func (_class VMClass) RemoveTags(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveTagsMock(sessionID, self, value)
 	}	
 	_method := "VM.remove_tags"
@@ -3382,18 +3554,20 @@ func (_class VMClass) RemoveTags(sessionID SessionRef, self VMRef, value string)
 }
 
 
-var VMClass_AddTagsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassAddTagsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.AddTags not mocked")
 	_err = errors.New("VM.AddTags not mocked")
 	return
 }
 
+var VMClassAddTagsMockedCallback = VMClassAddTagsMockDefault
+
 func (_class VMClass) AddTagsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_AddTagsMockedCallback(sessionID, self, value)
+	return VMClassAddTagsMockedCallback(sessionID, self, value)
 }
 // Add the given value to the tags field of the given VM.  If the value is already in that Set, then do nothing.
 func (_class VMClass) AddTags(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddTagsMock(sessionID, self, value)
 	}	
 	_method := "VM.add_tags"
@@ -3414,18 +3588,20 @@ func (_class VMClass) AddTags(sessionID SessionRef, self VMRef, value string) (_
 }
 
 
-var VMClass_SetTagsMockedCallback = func (sessionID SessionRef, self VMRef, value []string) (_err error) {
+func VMClassSetTagsMockDefault(sessionID SessionRef, self VMRef, value []string) (_err error) {
 	log.Println("VM.SetTags not mocked")
 	_err = errors.New("VM.SetTags not mocked")
 	return
 }
 
+var VMClassSetTagsMockedCallback = VMClassSetTagsMockDefault
+
 func (_class VMClass) SetTagsMock(sessionID SessionRef, self VMRef, value []string) (_err error) {
-	return VMClass_SetTagsMockedCallback(sessionID, self, value)
+	return VMClassSetTagsMockedCallback(sessionID, self, value)
 }
 // Set the tags field of the given VM.
 func (_class VMClass) SetTags(sessionID SessionRef, self VMRef, value []string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetTagsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_tags"
@@ -3446,18 +3622,20 @@ func (_class VMClass) SetTags(sessionID SessionRef, self VMRef, value []string) 
 }
 
 
-var VMClass_RemoveFromXenstoreDataMockedCallback = func (sessionID SessionRef, self VMRef, key string) (_err error) {
+func VMClassRemoveFromXenstoreDataMockDefault(sessionID SessionRef, self VMRef, key string) (_err error) {
 	log.Println("VM.RemoveFromXenstoreData not mocked")
 	_err = errors.New("VM.RemoveFromXenstoreData not mocked")
 	return
 }
 
+var VMClassRemoveFromXenstoreDataMockedCallback = VMClassRemoveFromXenstoreDataMockDefault
+
 func (_class VMClass) RemoveFromXenstoreDataMock(sessionID SessionRef, self VMRef, key string) (_err error) {
-	return VMClass_RemoveFromXenstoreDataMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromXenstoreDataMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the xenstore_data field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromXenstoreData(sessionID SessionRef, self VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromXenstoreDataMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_xenstore_data"
@@ -3478,18 +3656,20 @@ func (_class VMClass) RemoveFromXenstoreData(sessionID SessionRef, self VMRef, k
 }
 
 
-var VMClass_AddToXenstoreDataMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToXenstoreDataMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToXenstoreData not mocked")
 	_err = errors.New("VM.AddToXenstoreData not mocked")
 	return
 }
 
+var VMClassAddToXenstoreDataMockedCallback = VMClassAddToXenstoreDataMockDefault
+
 func (_class VMClass) AddToXenstoreDataMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToXenstoreDataMockedCallback(sessionID, self, key, value)
+	return VMClassAddToXenstoreDataMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the xenstore_data field of the given VM.
 func (_class VMClass) AddToXenstoreData(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToXenstoreDataMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_xenstore_data"
@@ -3514,18 +3694,20 @@ func (_class VMClass) AddToXenstoreData(sessionID SessionRef, self VMRef, key st
 }
 
 
-var VMClass_SetXenstoreDataMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetXenstoreDataMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetXenstoreData not mocked")
 	_err = errors.New("VM.SetXenstoreData not mocked")
 	return
 }
 
+var VMClassSetXenstoreDataMockedCallback = VMClassSetXenstoreDataMockDefault
+
 func (_class VMClass) SetXenstoreDataMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetXenstoreDataMockedCallback(sessionID, self, value)
+	return VMClassSetXenstoreDataMockedCallback(sessionID, self, value)
 }
 // Set the xenstore_data field of the given VM.
 func (_class VMClass) SetXenstoreData(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetXenstoreDataMock(sessionID, self, value)
 	}	
 	_method := "VM.set_xenstore_data"
@@ -3546,18 +3728,20 @@ func (_class VMClass) SetXenstoreData(sessionID SessionRef, self VMRef, value ma
 }
 
 
-var VMClass_SetRecommendationsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetRecommendationsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetRecommendations not mocked")
 	_err = errors.New("VM.SetRecommendations not mocked")
 	return
 }
 
+var VMClassSetRecommendationsMockedCallback = VMClassSetRecommendationsMockDefault
+
 func (_class VMClass) SetRecommendationsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetRecommendationsMockedCallback(sessionID, self, value)
+	return VMClassSetRecommendationsMockedCallback(sessionID, self, value)
 }
 // Set the recommendations field of the given VM.
 func (_class VMClass) SetRecommendations(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetRecommendationsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_recommendations"
@@ -3578,18 +3762,20 @@ func (_class VMClass) SetRecommendations(sessionID SessionRef, self VMRef, value
 }
 
 
-var VMClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VMRef, key string) (_err error) {
+func VMClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self VMRef, key string) (_err error) {
 	log.Println("VM.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VM.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var VMClassRemoveFromOtherConfigMockedCallback = VMClassRemoveFromOtherConfigMockDefault
+
 func (_class VMClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VMRef, key string) (_err error) {
-	return VMClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromOtherConfig(sessionID SessionRef, self VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_other_config"
@@ -3610,18 +3796,20 @@ func (_class VMClass) RemoveFromOtherConfig(sessionID SessionRef, self VMRef, ke
 }
 
 
-var VMClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToOtherConfigMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToOtherConfig not mocked")
 	_err = errors.New("VM.AddToOtherConfig not mocked")
 	return
 }
 
+var VMClassAddToOtherConfigMockedCallback = VMClassAddToOtherConfigMockDefault
+
 func (_class VMClass) AddToOtherConfigMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return VMClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given VM.
 func (_class VMClass) AddToOtherConfig(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_other_config"
@@ -3646,18 +3834,20 @@ func (_class VMClass) AddToOtherConfig(sessionID SessionRef, self VMRef, key str
 }
 
 
-var VMClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetOtherConfigMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetOtherConfig not mocked")
 	_err = errors.New("VM.SetOtherConfig not mocked")
 	return
 }
 
+var VMClassSetOtherConfigMockedCallback = VMClassSetOtherConfigMockDefault
+
 func (_class VMClass) SetOtherConfigMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return VMClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given VM.
 func (_class VMClass) SetOtherConfig(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VM.set_other_config"
@@ -3678,18 +3868,20 @@ func (_class VMClass) SetOtherConfig(sessionID SessionRef, self VMRef, value map
 }
 
 
-var VMClass_SetPCIBusMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPCIBusMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPCIBus not mocked")
 	_err = errors.New("VM.SetPCIBus not mocked")
 	return
 }
 
+var VMClassSetPCIBusMockedCallback = VMClassSetPCIBusMockDefault
+
 func (_class VMClass) SetPCIBusMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPCIBusMockedCallback(sessionID, self, value)
+	return VMClassSetPCIBusMockedCallback(sessionID, self, value)
 }
 // Set the PCI_bus field of the given VM.
 func (_class VMClass) SetPCIBus(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPCIBusMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PCI_bus"
@@ -3710,18 +3902,20 @@ func (_class VMClass) SetPCIBus(sessionID SessionRef, self VMRef, value string) 
 }
 
 
-var VMClass_RemoveFromPlatformMockedCallback = func (sessionID SessionRef, self VMRef, key string) (_err error) {
+func VMClassRemoveFromPlatformMockDefault(sessionID SessionRef, self VMRef, key string) (_err error) {
 	log.Println("VM.RemoveFromPlatform not mocked")
 	_err = errors.New("VM.RemoveFromPlatform not mocked")
 	return
 }
 
+var VMClassRemoveFromPlatformMockedCallback = VMClassRemoveFromPlatformMockDefault
+
 func (_class VMClass) RemoveFromPlatformMock(sessionID SessionRef, self VMRef, key string) (_err error) {
-	return VMClass_RemoveFromPlatformMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromPlatformMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the platform field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromPlatform(sessionID SessionRef, self VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromPlatformMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_platform"
@@ -3742,18 +3936,20 @@ func (_class VMClass) RemoveFromPlatform(sessionID SessionRef, self VMRef, key s
 }
 
 
-var VMClass_AddToPlatformMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToPlatformMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToPlatform not mocked")
 	_err = errors.New("VM.AddToPlatform not mocked")
 	return
 }
 
+var VMClassAddToPlatformMockedCallback = VMClassAddToPlatformMockDefault
+
 func (_class VMClass) AddToPlatformMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToPlatformMockedCallback(sessionID, self, key, value)
+	return VMClassAddToPlatformMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the platform field of the given VM.
 func (_class VMClass) AddToPlatform(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToPlatformMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_platform"
@@ -3778,18 +3974,20 @@ func (_class VMClass) AddToPlatform(sessionID SessionRef, self VMRef, key string
 }
 
 
-var VMClass_SetPlatformMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetPlatformMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetPlatform not mocked")
 	_err = errors.New("VM.SetPlatform not mocked")
 	return
 }
 
+var VMClassSetPlatformMockedCallback = VMClassSetPlatformMockDefault
+
 func (_class VMClass) SetPlatformMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetPlatformMockedCallback(sessionID, self, value)
+	return VMClassSetPlatformMockedCallback(sessionID, self, value)
 }
 // Set the platform field of the given VM.
 func (_class VMClass) SetPlatform(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPlatformMock(sessionID, self, value)
 	}	
 	_method := "VM.set_platform"
@@ -3810,18 +4008,20 @@ func (_class VMClass) SetPlatform(sessionID SessionRef, self VMRef, value map[st
 }
 
 
-var VMClass_RemoveFromHVMBootParamsMockedCallback = func (sessionID SessionRef, self VMRef, key string) (_err error) {
+func VMClassRemoveFromHVMBootParamsMockDefault(sessionID SessionRef, self VMRef, key string) (_err error) {
 	log.Println("VM.RemoveFromHVMBootParams not mocked")
 	_err = errors.New("VM.RemoveFromHVMBootParams not mocked")
 	return
 }
 
+var VMClassRemoveFromHVMBootParamsMockedCallback = VMClassRemoveFromHVMBootParamsMockDefault
+
 func (_class VMClass) RemoveFromHVMBootParamsMock(sessionID SessionRef, self VMRef, key string) (_err error) {
-	return VMClass_RemoveFromHVMBootParamsMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromHVMBootParamsMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the HVM/boot_params field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromHVMBootParams(sessionID SessionRef, self VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromHVMBootParamsMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_HVM_boot_params"
@@ -3842,18 +4042,20 @@ func (_class VMClass) RemoveFromHVMBootParams(sessionID SessionRef, self VMRef, 
 }
 
 
-var VMClass_AddToHVMBootParamsMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToHVMBootParamsMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToHVMBootParams not mocked")
 	_err = errors.New("VM.AddToHVMBootParams not mocked")
 	return
 }
 
+var VMClassAddToHVMBootParamsMockedCallback = VMClassAddToHVMBootParamsMockDefault
+
 func (_class VMClass) AddToHVMBootParamsMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToHVMBootParamsMockedCallback(sessionID, self, key, value)
+	return VMClassAddToHVMBootParamsMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the HVM/boot_params field of the given VM.
 func (_class VMClass) AddToHVMBootParams(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToHVMBootParamsMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_HVM_boot_params"
@@ -3878,18 +4080,20 @@ func (_class VMClass) AddToHVMBootParams(sessionID SessionRef, self VMRef, key s
 }
 
 
-var VMClass_SetHVMBootParamsMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetHVMBootParamsMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetHVMBootParams not mocked")
 	_err = errors.New("VM.SetHVMBootParams not mocked")
 	return
 }
 
+var VMClassSetHVMBootParamsMockedCallback = VMClassSetHVMBootParamsMockDefault
+
 func (_class VMClass) SetHVMBootParamsMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetHVMBootParamsMockedCallback(sessionID, self, value)
+	return VMClassSetHVMBootParamsMockedCallback(sessionID, self, value)
 }
 // Set the HVM/boot_params field of the given VM.
 func (_class VMClass) SetHVMBootParams(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHVMBootParamsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_HVM_boot_params"
@@ -3910,18 +4114,20 @@ func (_class VMClass) SetHVMBootParams(sessionID SessionRef, self VMRef, value m
 }
 
 
-var VMClass_SetHVMBootPolicyMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetHVMBootPolicyMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetHVMBootPolicy not mocked")
 	_err = errors.New("VM.SetHVMBootPolicy not mocked")
 	return
 }
 
+var VMClassSetHVMBootPolicyMockedCallback = VMClassSetHVMBootPolicyMockDefault
+
 func (_class VMClass) SetHVMBootPolicyMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetHVMBootPolicyMockedCallback(sessionID, self, value)
+	return VMClassSetHVMBootPolicyMockedCallback(sessionID, self, value)
 }
 // Set the HVM/boot_policy field of the given VM.
 func (_class VMClass) SetHVMBootPolicy(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetHVMBootPolicyMock(sessionID, self, value)
 	}	
 	_method := "VM.set_HVM_boot_policy"
@@ -3942,18 +4148,20 @@ func (_class VMClass) SetHVMBootPolicy(sessionID SessionRef, self VMRef, value s
 }
 
 
-var VMClass_SetPVLegacyArgsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVLegacyArgsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVLegacyArgs not mocked")
 	_err = errors.New("VM.SetPVLegacyArgs not mocked")
 	return
 }
 
+var VMClassSetPVLegacyArgsMockedCallback = VMClassSetPVLegacyArgsMockDefault
+
 func (_class VMClass) SetPVLegacyArgsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVLegacyArgsMockedCallback(sessionID, self, value)
+	return VMClassSetPVLegacyArgsMockedCallback(sessionID, self, value)
 }
 // Set the PV/legacy_args field of the given VM.
 func (_class VMClass) SetPVLegacyArgs(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVLegacyArgsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_legacy_args"
@@ -3974,18 +4182,20 @@ func (_class VMClass) SetPVLegacyArgs(sessionID SessionRef, self VMRef, value st
 }
 
 
-var VMClass_SetPVBootloaderArgsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVBootloaderArgsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVBootloaderArgs not mocked")
 	_err = errors.New("VM.SetPVBootloaderArgs not mocked")
 	return
 }
 
+var VMClassSetPVBootloaderArgsMockedCallback = VMClassSetPVBootloaderArgsMockDefault
+
 func (_class VMClass) SetPVBootloaderArgsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVBootloaderArgsMockedCallback(sessionID, self, value)
+	return VMClassSetPVBootloaderArgsMockedCallback(sessionID, self, value)
 }
 // Set the PV/bootloader_args field of the given VM.
 func (_class VMClass) SetPVBootloaderArgs(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVBootloaderArgsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_bootloader_args"
@@ -4006,18 +4216,20 @@ func (_class VMClass) SetPVBootloaderArgs(sessionID SessionRef, self VMRef, valu
 }
 
 
-var VMClass_SetPVArgsMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVArgsMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVArgs not mocked")
 	_err = errors.New("VM.SetPVArgs not mocked")
 	return
 }
 
+var VMClassSetPVArgsMockedCallback = VMClassSetPVArgsMockDefault
+
 func (_class VMClass) SetPVArgsMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVArgsMockedCallback(sessionID, self, value)
+	return VMClassSetPVArgsMockedCallback(sessionID, self, value)
 }
 // Set the PV/args field of the given VM.
 func (_class VMClass) SetPVArgs(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVArgsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_args"
@@ -4038,18 +4250,20 @@ func (_class VMClass) SetPVArgs(sessionID SessionRef, self VMRef, value string) 
 }
 
 
-var VMClass_SetPVRamdiskMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVRamdiskMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVRamdisk not mocked")
 	_err = errors.New("VM.SetPVRamdisk not mocked")
 	return
 }
 
+var VMClassSetPVRamdiskMockedCallback = VMClassSetPVRamdiskMockDefault
+
 func (_class VMClass) SetPVRamdiskMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVRamdiskMockedCallback(sessionID, self, value)
+	return VMClassSetPVRamdiskMockedCallback(sessionID, self, value)
 }
 // Set the PV/ramdisk field of the given VM.
 func (_class VMClass) SetPVRamdisk(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVRamdiskMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_ramdisk"
@@ -4070,18 +4284,20 @@ func (_class VMClass) SetPVRamdisk(sessionID SessionRef, self VMRef, value strin
 }
 
 
-var VMClass_SetPVKernelMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVKernelMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVKernel not mocked")
 	_err = errors.New("VM.SetPVKernel not mocked")
 	return
 }
 
+var VMClassSetPVKernelMockedCallback = VMClassSetPVKernelMockDefault
+
 func (_class VMClass) SetPVKernelMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVKernelMockedCallback(sessionID, self, value)
+	return VMClassSetPVKernelMockedCallback(sessionID, self, value)
 }
 // Set the PV/kernel field of the given VM.
 func (_class VMClass) SetPVKernel(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVKernelMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_kernel"
@@ -4102,18 +4318,20 @@ func (_class VMClass) SetPVKernel(sessionID SessionRef, self VMRef, value string
 }
 
 
-var VMClass_SetPVBootloaderMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetPVBootloaderMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetPVBootloader not mocked")
 	_err = errors.New("VM.SetPVBootloader not mocked")
 	return
 }
 
+var VMClassSetPVBootloaderMockedCallback = VMClassSetPVBootloaderMockDefault
+
 func (_class VMClass) SetPVBootloaderMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetPVBootloaderMockedCallback(sessionID, self, value)
+	return VMClassSetPVBootloaderMockedCallback(sessionID, self, value)
 }
 // Set the PV/bootloader field of the given VM.
 func (_class VMClass) SetPVBootloader(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPVBootloaderMock(sessionID, self, value)
 	}	
 	_method := "VM.set_PV_bootloader"
@@ -4134,18 +4352,20 @@ func (_class VMClass) SetPVBootloader(sessionID SessionRef, self VMRef, value st
 }
 
 
-var VMClass_SetActionsAfterRebootMockedCallback = func (sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
+func VMClassSetActionsAfterRebootMockDefault(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
 	log.Println("VM.SetActionsAfterReboot not mocked")
 	_err = errors.New("VM.SetActionsAfterReboot not mocked")
 	return
 }
 
+var VMClassSetActionsAfterRebootMockedCallback = VMClassSetActionsAfterRebootMockDefault
+
 func (_class VMClass) SetActionsAfterRebootMock(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
-	return VMClass_SetActionsAfterRebootMockedCallback(sessionID, self, value)
+	return VMClassSetActionsAfterRebootMockedCallback(sessionID, self, value)
 }
 // Set the actions/after_reboot field of the given VM.
 func (_class VMClass) SetActionsAfterReboot(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetActionsAfterRebootMock(sessionID, self, value)
 	}	
 	_method := "VM.set_actions_after_reboot"
@@ -4166,18 +4386,20 @@ func (_class VMClass) SetActionsAfterReboot(sessionID SessionRef, self VMRef, va
 }
 
 
-var VMClass_SetActionsAfterShutdownMockedCallback = func (sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
+func VMClassSetActionsAfterShutdownMockDefault(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
 	log.Println("VM.SetActionsAfterShutdown not mocked")
 	_err = errors.New("VM.SetActionsAfterShutdown not mocked")
 	return
 }
 
+var VMClassSetActionsAfterShutdownMockedCallback = VMClassSetActionsAfterShutdownMockDefault
+
 func (_class VMClass) SetActionsAfterShutdownMock(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
-	return VMClass_SetActionsAfterShutdownMockedCallback(sessionID, self, value)
+	return VMClassSetActionsAfterShutdownMockedCallback(sessionID, self, value)
 }
 // Set the actions/after_shutdown field of the given VM.
 func (_class VMClass) SetActionsAfterShutdown(sessionID SessionRef, self VMRef, value OnNormalExit) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetActionsAfterShutdownMock(sessionID, self, value)
 	}	
 	_method := "VM.set_actions_after_shutdown"
@@ -4198,18 +4420,20 @@ func (_class VMClass) SetActionsAfterShutdown(sessionID SessionRef, self VMRef, 
 }
 
 
-var VMClass_RemoveFromVCPUsParamsMockedCallback = func (sessionID SessionRef, self VMRef, key string) (_err error) {
+func VMClassRemoveFromVCPUsParamsMockDefault(sessionID SessionRef, self VMRef, key string) (_err error) {
 	log.Println("VM.RemoveFromVCPUsParams not mocked")
 	_err = errors.New("VM.RemoveFromVCPUsParams not mocked")
 	return
 }
 
+var VMClassRemoveFromVCPUsParamsMockedCallback = VMClassRemoveFromVCPUsParamsMockDefault
+
 func (_class VMClass) RemoveFromVCPUsParamsMock(sessionID SessionRef, self VMRef, key string) (_err error) {
-	return VMClass_RemoveFromVCPUsParamsMockedCallback(sessionID, self, key)
+	return VMClassRemoveFromVCPUsParamsMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the VCPUs/params field of the given VM.  If the key is not in that Map, then do nothing.
 func (_class VMClass) RemoveFromVCPUsParams(sessionID SessionRef, self VMRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromVCPUsParamsMock(sessionID, self, key)
 	}	
 	_method := "VM.remove_from_VCPUs_params"
@@ -4230,18 +4454,20 @@ func (_class VMClass) RemoveFromVCPUsParams(sessionID SessionRef, self VMRef, ke
 }
 
 
-var VMClass_AddToVCPUsParamsMockedCallback = func (sessionID SessionRef, self VMRef, key string, value string) (_err error) {
+func VMClassAddToVCPUsParamsMockDefault(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
 	log.Println("VM.AddToVCPUsParams not mocked")
 	_err = errors.New("VM.AddToVCPUsParams not mocked")
 	return
 }
 
+var VMClassAddToVCPUsParamsMockedCallback = VMClassAddToVCPUsParamsMockDefault
+
 func (_class VMClass) AddToVCPUsParamsMock(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	return VMClass_AddToVCPUsParamsMockedCallback(sessionID, self, key, value)
+	return VMClassAddToVCPUsParamsMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the VCPUs/params field of the given VM.
 func (_class VMClass) AddToVCPUsParams(sessionID SessionRef, self VMRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToVCPUsParamsMock(sessionID, self, key, value)
 	}	
 	_method := "VM.add_to_VCPUs_params"
@@ -4266,18 +4492,20 @@ func (_class VMClass) AddToVCPUsParams(sessionID SessionRef, self VMRef, key str
 }
 
 
-var VMClass_SetVCPUsParamsMockedCallback = func (sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
+func VMClassSetVCPUsParamsMockDefault(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
 	log.Println("VM.SetVCPUsParams not mocked")
 	_err = errors.New("VM.SetVCPUsParams not mocked")
 	return
 }
 
+var VMClassSetVCPUsParamsMockedCallback = VMClassSetVCPUsParamsMockDefault
+
 func (_class VMClass) SetVCPUsParamsMock(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	return VMClass_SetVCPUsParamsMockedCallback(sessionID, self, value)
+	return VMClassSetVCPUsParamsMockedCallback(sessionID, self, value)
 }
 // Set the VCPUs/params field of the given VM.
 func (_class VMClass) SetVCPUsParams(sessionID SessionRef, self VMRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetVCPUsParamsMock(sessionID, self, value)
 	}	
 	_method := "VM.set_VCPUs_params"
@@ -4298,18 +4526,20 @@ func (_class VMClass) SetVCPUsParams(sessionID SessionRef, self VMRef, value map
 }
 
 
-var VMClass_SetAffinityMockedCallback = func (sessionID SessionRef, self VMRef, value HostRef) (_err error) {
+func VMClassSetAffinityMockDefault(sessionID SessionRef, self VMRef, value HostRef) (_err error) {
 	log.Println("VM.SetAffinity not mocked")
 	_err = errors.New("VM.SetAffinity not mocked")
 	return
 }
 
+var VMClassSetAffinityMockedCallback = VMClassSetAffinityMockDefault
+
 func (_class VMClass) SetAffinityMock(sessionID SessionRef, self VMRef, value HostRef) (_err error) {
-	return VMClass_SetAffinityMockedCallback(sessionID, self, value)
+	return VMClassSetAffinityMockedCallback(sessionID, self, value)
 }
 // Set the affinity field of the given VM.
 func (_class VMClass) SetAffinity(sessionID SessionRef, self VMRef, value HostRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetAffinityMock(sessionID, self, value)
 	}	
 	_method := "VM.set_affinity"
@@ -4330,18 +4560,20 @@ func (_class VMClass) SetAffinity(sessionID SessionRef, self VMRef, value HostRe
 }
 
 
-var VMClass_SetIsATemplateMockedCallback = func (sessionID SessionRef, self VMRef, value bool) (_err error) {
+func VMClassSetIsATemplateMockDefault(sessionID SessionRef, self VMRef, value bool) (_err error) {
 	log.Println("VM.SetIsATemplate not mocked")
 	_err = errors.New("VM.SetIsATemplate not mocked")
 	return
 }
 
+var VMClassSetIsATemplateMockedCallback = VMClassSetIsATemplateMockDefault
+
 func (_class VMClass) SetIsATemplateMock(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	return VMClass_SetIsATemplateMockedCallback(sessionID, self, value)
+	return VMClassSetIsATemplateMockedCallback(sessionID, self, value)
 }
 // Set the is_a_template field of the given VM.
 func (_class VMClass) SetIsATemplate(sessionID SessionRef, self VMRef, value bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetIsATemplateMock(sessionID, self, value)
 	}	
 	_method := "VM.set_is_a_template"
@@ -4362,18 +4594,20 @@ func (_class VMClass) SetIsATemplate(sessionID SessionRef, self VMRef, value boo
 }
 
 
-var VMClass_SetUserVersionMockedCallback = func (sessionID SessionRef, self VMRef, value int) (_err error) {
+func VMClassSetUserVersionMockDefault(sessionID SessionRef, self VMRef, value int) (_err error) {
 	log.Println("VM.SetUserVersion not mocked")
 	_err = errors.New("VM.SetUserVersion not mocked")
 	return
 }
 
+var VMClassSetUserVersionMockedCallback = VMClassSetUserVersionMockDefault
+
 func (_class VMClass) SetUserVersionMock(sessionID SessionRef, self VMRef, value int) (_err error) {
-	return VMClass_SetUserVersionMockedCallback(sessionID, self, value)
+	return VMClassSetUserVersionMockedCallback(sessionID, self, value)
 }
 // Set the user_version field of the given VM.
 func (_class VMClass) SetUserVersion(sessionID SessionRef, self VMRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetUserVersionMock(sessionID, self, value)
 	}	
 	_method := "VM.set_user_version"
@@ -4394,18 +4628,20 @@ func (_class VMClass) SetUserVersion(sessionID SessionRef, self VMRef, value int
 }
 
 
-var VMClass_SetNameDescriptionMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetNameDescriptionMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetNameDescription not mocked")
 	_err = errors.New("VM.SetNameDescription not mocked")
 	return
 }
 
+var VMClassSetNameDescriptionMockedCallback = VMClassSetNameDescriptionMockDefault
+
 func (_class VMClass) SetNameDescriptionMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetNameDescriptionMockedCallback(sessionID, self, value)
+	return VMClassSetNameDescriptionMockedCallback(sessionID, self, value)
 }
 // Set the name/description field of the given VM.
 func (_class VMClass) SetNameDescription(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameDescriptionMock(sessionID, self, value)
 	}	
 	_method := "VM.set_name_description"
@@ -4426,18 +4662,20 @@ func (_class VMClass) SetNameDescription(sessionID SessionRef, self VMRef, value
 }
 
 
-var VMClass_SetNameLabelMockedCallback = func (sessionID SessionRef, self VMRef, value string) (_err error) {
+func VMClassSetNameLabelMockDefault(sessionID SessionRef, self VMRef, value string) (_err error) {
 	log.Println("VM.SetNameLabel not mocked")
 	_err = errors.New("VM.SetNameLabel not mocked")
 	return
 }
 
+var VMClassSetNameLabelMockedCallback = VMClassSetNameLabelMockDefault
+
 func (_class VMClass) SetNameLabelMock(sessionID SessionRef, self VMRef, value string) (_err error) {
-	return VMClass_SetNameLabelMockedCallback(sessionID, self, value)
+	return VMClassSetNameLabelMockedCallback(sessionID, self, value)
 }
 // Set the name/label field of the given VM.
 func (_class VMClass) SetNameLabel(sessionID SessionRef, self VMRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameLabelMock(sessionID, self, value)
 	}	
 	_method := "VM.set_name_label"
@@ -4458,18 +4696,20 @@ func (_class VMClass) SetNameLabel(sessionID SessionRef, self VMRef, value strin
 }
 
 
-var VMClass_GetReferenceLabelMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetReferenceLabelMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetReferenceLabel not mocked")
 	_err = errors.New("VM.GetReferenceLabel not mocked")
 	return
 }
 
+var VMClassGetReferenceLabelMockedCallback = VMClassGetReferenceLabelMockDefault
+
 func (_class VMClass) GetReferenceLabelMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetReferenceLabelMockedCallback(sessionID, self)
+	return VMClassGetReferenceLabelMockedCallback(sessionID, self)
 }
 // Get the reference_label field of the given VM.
 func (_class VMClass) GetReferenceLabel(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetReferenceLabelMock(sessionID, self)
 	}	
 	_method := "VM.get_reference_label"
@@ -4490,18 +4730,20 @@ func (_class VMClass) GetReferenceLabel(sessionID SessionRef, self VMRef) (_retv
 }
 
 
-var VMClass_GetRequiresRebootMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetRequiresRebootMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetRequiresReboot not mocked")
 	_err = errors.New("VM.GetRequiresReboot not mocked")
 	return
 }
 
+var VMClassGetRequiresRebootMockedCallback = VMClassGetRequiresRebootMockDefault
+
 func (_class VMClass) GetRequiresRebootMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetRequiresRebootMockedCallback(sessionID, self)
+	return VMClassGetRequiresRebootMockedCallback(sessionID, self)
 }
 // Get the requires_reboot field of the given VM.
 func (_class VMClass) GetRequiresReboot(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRequiresRebootMock(sessionID, self)
 	}	
 	_method := "VM.get_requires_reboot"
@@ -4522,18 +4764,20 @@ func (_class VMClass) GetRequiresReboot(sessionID SessionRef, self VMRef) (_retv
 }
 
 
-var VMClass_GetHasVendorDeviceMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetHasVendorDeviceMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetHasVendorDevice not mocked")
 	_err = errors.New("VM.GetHasVendorDevice not mocked")
 	return
 }
 
+var VMClassGetHasVendorDeviceMockedCallback = VMClassGetHasVendorDeviceMockDefault
+
 func (_class VMClass) GetHasVendorDeviceMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetHasVendorDeviceMockedCallback(sessionID, self)
+	return VMClassGetHasVendorDeviceMockedCallback(sessionID, self)
 }
 // Get the has_vendor_device field of the given VM.
 func (_class VMClass) GetHasVendorDevice(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHasVendorDeviceMock(sessionID, self)
 	}	
 	_method := "VM.get_has_vendor_device"
@@ -4554,18 +4798,20 @@ func (_class VMClass) GetHasVendorDevice(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetHardwarePlatformVersionMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetHardwarePlatformVersionMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetHardwarePlatformVersion not mocked")
 	_err = errors.New("VM.GetHardwarePlatformVersion not mocked")
 	return
 }
 
+var VMClassGetHardwarePlatformVersionMockedCallback = VMClassGetHardwarePlatformVersionMockDefault
+
 func (_class VMClass) GetHardwarePlatformVersionMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetHardwarePlatformVersionMockedCallback(sessionID, self)
+	return VMClassGetHardwarePlatformVersionMockedCallback(sessionID, self)
 }
 // Get the hardware_platform_version field of the given VM.
 func (_class VMClass) GetHardwarePlatformVersion(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHardwarePlatformVersionMock(sessionID, self)
 	}	
 	_method := "VM.get_hardware_platform_version"
@@ -4586,18 +4832,20 @@ func (_class VMClass) GetHardwarePlatformVersion(sessionID SessionRef, self VMRe
 }
 
 
-var VMClass_GetGenerationIDMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetGenerationIDMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetGenerationID not mocked")
 	_err = errors.New("VM.GetGenerationID not mocked")
 	return
 }
 
+var VMClassGetGenerationIDMockedCallback = VMClassGetGenerationIDMockDefault
+
 func (_class VMClass) GetGenerationIDMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetGenerationIDMockedCallback(sessionID, self)
+	return VMClassGetGenerationIDMockedCallback(sessionID, self)
 }
 // Get the generation_id field of the given VM.
 func (_class VMClass) GetGenerationID(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetGenerationIDMock(sessionID, self)
 	}	
 	_method := "VM.get_generation_id"
@@ -4618,18 +4866,20 @@ func (_class VMClass) GetGenerationID(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetVersionMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetVersionMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetVersion not mocked")
 	_err = errors.New("VM.GetVersion not mocked")
 	return
 }
 
+var VMClassGetVersionMockedCallback = VMClassGetVersionMockDefault
+
 func (_class VMClass) GetVersionMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetVersionMockedCallback(sessionID, self)
+	return VMClassGetVersionMockedCallback(sessionID, self)
 }
 // Get the version field of the given VM.
 func (_class VMClass) GetVersion(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVersionMock(sessionID, self)
 	}	
 	_method := "VM.get_version"
@@ -4650,18 +4900,20 @@ func (_class VMClass) GetVersion(sessionID SessionRef, self VMRef) (_retval int,
 }
 
 
-var VMClass_GetSuspendSRMockedCallback = func (sessionID SessionRef, self VMRef) (_retval SRRef, _err error) {
+func VMClassGetSuspendSRMockDefault(sessionID SessionRef, self VMRef) (_retval SRRef, _err error) {
 	log.Println("VM.GetSuspendSR not mocked")
 	_err = errors.New("VM.GetSuspendSR not mocked")
 	return
 }
 
+var VMClassGetSuspendSRMockedCallback = VMClassGetSuspendSRMockDefault
+
 func (_class VMClass) GetSuspendSRMock(sessionID SessionRef, self VMRef) (_retval SRRef, _err error) {
-	return VMClass_GetSuspendSRMockedCallback(sessionID, self)
+	return VMClassGetSuspendSRMockedCallback(sessionID, self)
 }
 // Get the suspend_SR field of the given VM.
 func (_class VMClass) GetSuspendSR(sessionID SessionRef, self VMRef) (_retval SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSuspendSRMock(sessionID, self)
 	}	
 	_method := "VM.get_suspend_SR"
@@ -4682,18 +4934,20 @@ func (_class VMClass) GetSuspendSR(sessionID SessionRef, self VMRef) (_retval SR
 }
 
 
-var VMClass_GetAttachedPCIsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []PCIRef, _err error) {
+func VMClassGetAttachedPCIsMockDefault(sessionID SessionRef, self VMRef) (_retval []PCIRef, _err error) {
 	log.Println("VM.GetAttachedPCIs not mocked")
 	_err = errors.New("VM.GetAttachedPCIs not mocked")
 	return
 }
 
+var VMClassGetAttachedPCIsMockedCallback = VMClassGetAttachedPCIsMockDefault
+
 func (_class VMClass) GetAttachedPCIsMock(sessionID SessionRef, self VMRef) (_retval []PCIRef, _err error) {
-	return VMClass_GetAttachedPCIsMockedCallback(sessionID, self)
+	return VMClassGetAttachedPCIsMockedCallback(sessionID, self)
 }
 // Get the attached_PCIs field of the given VM.
 func (_class VMClass) GetAttachedPCIs(sessionID SessionRef, self VMRef) (_retval []PCIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAttachedPCIsMock(sessionID, self)
 	}	
 	_method := "VM.get_attached_PCIs"
@@ -4714,18 +4968,20 @@ func (_class VMClass) GetAttachedPCIs(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetVGPUsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VGPURef, _err error) {
+func VMClassGetVGPUsMockDefault(sessionID SessionRef, self VMRef) (_retval []VGPURef, _err error) {
 	log.Println("VM.GetVGPUs not mocked")
 	_err = errors.New("VM.GetVGPUs not mocked")
 	return
 }
 
+var VMClassGetVGPUsMockedCallback = VMClassGetVGPUsMockDefault
+
 func (_class VMClass) GetVGPUsMock(sessionID SessionRef, self VMRef) (_retval []VGPURef, _err error) {
-	return VMClass_GetVGPUsMockedCallback(sessionID, self)
+	return VMClassGetVGPUsMockedCallback(sessionID, self)
 }
 // Get the VGPUs field of the given VM.
 func (_class VMClass) GetVGPUs(sessionID SessionRef, self VMRef) (_retval []VGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVGPUsMock(sessionID, self)
 	}	
 	_method := "VM.get_VGPUs"
@@ -4746,18 +5002,20 @@ func (_class VMClass) GetVGPUs(sessionID SessionRef, self VMRef) (_retval []VGPU
 }
 
 
-var VMClass_GetOrderMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetOrderMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetOrder not mocked")
 	_err = errors.New("VM.GetOrder not mocked")
 	return
 }
 
+var VMClassGetOrderMockedCallback = VMClassGetOrderMockDefault
+
 func (_class VMClass) GetOrderMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetOrderMockedCallback(sessionID, self)
+	return VMClassGetOrderMockedCallback(sessionID, self)
 }
 // Get the order field of the given VM.
 func (_class VMClass) GetOrder(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOrderMock(sessionID, self)
 	}	
 	_method := "VM.get_order"
@@ -4778,18 +5036,20 @@ func (_class VMClass) GetOrder(sessionID SessionRef, self VMRef) (_retval int, _
 }
 
 
-var VMClass_GetShutdownDelayMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetShutdownDelayMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetShutdownDelay not mocked")
 	_err = errors.New("VM.GetShutdownDelay not mocked")
 	return
 }
 
+var VMClassGetShutdownDelayMockedCallback = VMClassGetShutdownDelayMockDefault
+
 func (_class VMClass) GetShutdownDelayMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetShutdownDelayMockedCallback(sessionID, self)
+	return VMClassGetShutdownDelayMockedCallback(sessionID, self)
 }
 // Get the shutdown_delay field of the given VM.
 func (_class VMClass) GetShutdownDelay(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetShutdownDelayMock(sessionID, self)
 	}	
 	_method := "VM.get_shutdown_delay"
@@ -4810,18 +5070,20 @@ func (_class VMClass) GetShutdownDelay(sessionID SessionRef, self VMRef) (_retva
 }
 
 
-var VMClass_GetStartDelayMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetStartDelayMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetStartDelay not mocked")
 	_err = errors.New("VM.GetStartDelay not mocked")
 	return
 }
 
+var VMClassGetStartDelayMockedCallback = VMClassGetStartDelayMockDefault
+
 func (_class VMClass) GetStartDelayMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetStartDelayMockedCallback(sessionID, self)
+	return VMClassGetStartDelayMockedCallback(sessionID, self)
 }
 // Get the start_delay field of the given VM.
 func (_class VMClass) GetStartDelay(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetStartDelayMock(sessionID, self)
 	}	
 	_method := "VM.get_start_delay"
@@ -4842,18 +5104,20 @@ func (_class VMClass) GetStartDelay(sessionID SessionRef, self VMRef) (_retval i
 }
 
 
-var VMClass_GetApplianceMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMApplianceRef, _err error) {
+func VMClassGetApplianceMockDefault(sessionID SessionRef, self VMRef) (_retval VMApplianceRef, _err error) {
 	log.Println("VM.GetAppliance not mocked")
 	_err = errors.New("VM.GetAppliance not mocked")
 	return
 }
 
+var VMClassGetApplianceMockedCallback = VMClassGetApplianceMockDefault
+
 func (_class VMClass) GetApplianceMock(sessionID SessionRef, self VMRef) (_retval VMApplianceRef, _err error) {
-	return VMClass_GetApplianceMockedCallback(sessionID, self)
+	return VMClassGetApplianceMockedCallback(sessionID, self)
 }
 // Get the appliance field of the given VM.
 func (_class VMClass) GetAppliance(sessionID SessionRef, self VMRef) (_retval VMApplianceRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetApplianceMock(sessionID, self)
 	}	
 	_method := "VM.get_appliance"
@@ -4874,18 +5138,20 @@ func (_class VMClass) GetAppliance(sessionID SessionRef, self VMRef) (_retval VM
 }
 
 
-var VMClass_GetIsVmssSnapshotMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsVmssSnapshotMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsVmssSnapshot not mocked")
 	_err = errors.New("VM.GetIsVmssSnapshot not mocked")
 	return
 }
 
+var VMClassGetIsVmssSnapshotMockedCallback = VMClassGetIsVmssSnapshotMockDefault
+
 func (_class VMClass) GetIsVmssSnapshotMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsVmssSnapshotMockedCallback(sessionID, self)
+	return VMClassGetIsVmssSnapshotMockedCallback(sessionID, self)
 }
 // Get the is_vmss_snapshot field of the given VM.
 func (_class VMClass) GetIsVmssSnapshot(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsVmssSnapshotMock(sessionID, self)
 	}	
 	_method := "VM.get_is_vmss_snapshot"
@@ -4906,18 +5172,20 @@ func (_class VMClass) GetIsVmssSnapshot(sessionID SessionRef, self VMRef) (_retv
 }
 
 
-var VMClass_GetSnapshotScheduleMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMSSRef, _err error) {
+func VMClassGetSnapshotScheduleMockDefault(sessionID SessionRef, self VMRef) (_retval VMSSRef, _err error) {
 	log.Println("VM.GetSnapshotSchedule not mocked")
 	_err = errors.New("VM.GetSnapshotSchedule not mocked")
 	return
 }
 
+var VMClassGetSnapshotScheduleMockedCallback = VMClassGetSnapshotScheduleMockDefault
+
 func (_class VMClass) GetSnapshotScheduleMock(sessionID SessionRef, self VMRef) (_retval VMSSRef, _err error) {
-	return VMClass_GetSnapshotScheduleMockedCallback(sessionID, self)
+	return VMClassGetSnapshotScheduleMockedCallback(sessionID, self)
 }
 // Get the snapshot_schedule field of the given VM.
 func (_class VMClass) GetSnapshotSchedule(sessionID SessionRef, self VMRef) (_retval VMSSRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotScheduleMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshot_schedule"
@@ -4938,18 +5206,20 @@ func (_class VMClass) GetSnapshotSchedule(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetIsSnapshotFromVmppMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsSnapshotFromVmppMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsSnapshotFromVmpp not mocked")
 	_err = errors.New("VM.GetIsSnapshotFromVmpp not mocked")
 	return
 }
 
+var VMClassGetIsSnapshotFromVmppMockedCallback = VMClassGetIsSnapshotFromVmppMockDefault
+
 func (_class VMClass) GetIsSnapshotFromVmppMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsSnapshotFromVmppMockedCallback(sessionID, self)
+	return VMClassGetIsSnapshotFromVmppMockedCallback(sessionID, self)
 }
 // Get the is_snapshot_from_vmpp field of the given VM.
 func (_class VMClass) GetIsSnapshotFromVmpp(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsSnapshotFromVmppMock(sessionID, self)
 	}	
 	_method := "VM.get_is_snapshot_from_vmpp"
@@ -4970,18 +5240,20 @@ func (_class VMClass) GetIsSnapshotFromVmpp(sessionID SessionRef, self VMRef) (_
 }
 
 
-var VMClass_GetProtectionPolicyMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMPPRef, _err error) {
+func VMClassGetProtectionPolicyMockDefault(sessionID SessionRef, self VMRef) (_retval VMPPRef, _err error) {
 	log.Println("VM.GetProtectionPolicy not mocked")
 	_err = errors.New("VM.GetProtectionPolicy not mocked")
 	return
 }
 
+var VMClassGetProtectionPolicyMockedCallback = VMClassGetProtectionPolicyMockDefault
+
 func (_class VMClass) GetProtectionPolicyMock(sessionID SessionRef, self VMRef) (_retval VMPPRef, _err error) {
-	return VMClass_GetProtectionPolicyMockedCallback(sessionID, self)
+	return VMClassGetProtectionPolicyMockedCallback(sessionID, self)
 }
 // Get the protection_policy field of the given VM.
 func (_class VMClass) GetProtectionPolicy(sessionID SessionRef, self VMRef) (_retval VMPPRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetProtectionPolicyMock(sessionID, self)
 	}	
 	_method := "VM.get_protection_policy"
@@ -5002,18 +5274,20 @@ func (_class VMClass) GetProtectionPolicy(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetBiosStringsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetBiosStringsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetBiosStrings not mocked")
 	_err = errors.New("VM.GetBiosStrings not mocked")
 	return
 }
 
+var VMClassGetBiosStringsMockedCallback = VMClassGetBiosStringsMockDefault
+
 func (_class VMClass) GetBiosStringsMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetBiosStringsMockedCallback(sessionID, self)
+	return VMClassGetBiosStringsMockedCallback(sessionID, self)
 }
 // Get the bios_strings field of the given VM.
 func (_class VMClass) GetBiosStrings(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBiosStringsMock(sessionID, self)
 	}	
 	_method := "VM.get_bios_strings"
@@ -5034,18 +5308,20 @@ func (_class VMClass) GetBiosStrings(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetChildrenMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
+func VMClassGetChildrenMockDefault(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
 	log.Println("VM.GetChildren not mocked")
 	_err = errors.New("VM.GetChildren not mocked")
 	return
 }
 
+var VMClassGetChildrenMockedCallback = VMClassGetChildrenMockDefault
+
 func (_class VMClass) GetChildrenMock(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
-	return VMClass_GetChildrenMockedCallback(sessionID, self)
+	return VMClassGetChildrenMockedCallback(sessionID, self)
 }
 // Get the children field of the given VM.
 func (_class VMClass) GetChildren(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetChildrenMock(sessionID, self)
 	}	
 	_method := "VM.get_children"
@@ -5066,18 +5342,20 @@ func (_class VMClass) GetChildren(sessionID SessionRef, self VMRef) (_retval []V
 }
 
 
-var VMClass_GetParentMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
+func VMClassGetParentMockDefault(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
 	log.Println("VM.GetParent not mocked")
 	_err = errors.New("VM.GetParent not mocked")
 	return
 }
 
+var VMClassGetParentMockedCallback = VMClassGetParentMockDefault
+
 func (_class VMClass) GetParentMock(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
-	return VMClass_GetParentMockedCallback(sessionID, self)
+	return VMClassGetParentMockedCallback(sessionID, self)
 }
 // Get the parent field of the given VM.
 func (_class VMClass) GetParent(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetParentMock(sessionID, self)
 	}	
 	_method := "VM.get_parent"
@@ -5098,18 +5376,20 @@ func (_class VMClass) GetParent(sessionID SessionRef, self VMRef) (_retval VMRef
 }
 
 
-var VMClass_GetSnapshotMetadataMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetSnapshotMetadataMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetSnapshotMetadata not mocked")
 	_err = errors.New("VM.GetSnapshotMetadata not mocked")
 	return
 }
 
+var VMClassGetSnapshotMetadataMockedCallback = VMClassGetSnapshotMetadataMockDefault
+
 func (_class VMClass) GetSnapshotMetadataMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetSnapshotMetadataMockedCallback(sessionID, self)
+	return VMClassGetSnapshotMetadataMockedCallback(sessionID, self)
 }
 // Get the snapshot_metadata field of the given VM.
 func (_class VMClass) GetSnapshotMetadata(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotMetadataMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshot_metadata"
@@ -5130,18 +5410,20 @@ func (_class VMClass) GetSnapshotMetadata(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetSnapshotInfoMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetSnapshotInfoMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetSnapshotInfo not mocked")
 	_err = errors.New("VM.GetSnapshotInfo not mocked")
 	return
 }
 
+var VMClassGetSnapshotInfoMockedCallback = VMClassGetSnapshotInfoMockDefault
+
 func (_class VMClass) GetSnapshotInfoMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetSnapshotInfoMockedCallback(sessionID, self)
+	return VMClassGetSnapshotInfoMockedCallback(sessionID, self)
 }
 // Get the snapshot_info field of the given VM.
 func (_class VMClass) GetSnapshotInfo(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotInfoMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshot_info"
@@ -5162,18 +5444,20 @@ func (_class VMClass) GetSnapshotInfo(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetBlockedOperationsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[VMOperations]string, _err error) {
+func VMClassGetBlockedOperationsMockDefault(sessionID SessionRef, self VMRef) (_retval map[VMOperations]string, _err error) {
 	log.Println("VM.GetBlockedOperations not mocked")
 	_err = errors.New("VM.GetBlockedOperations not mocked")
 	return
 }
 
+var VMClassGetBlockedOperationsMockedCallback = VMClassGetBlockedOperationsMockDefault
+
 func (_class VMClass) GetBlockedOperationsMock(sessionID SessionRef, self VMRef) (_retval map[VMOperations]string, _err error) {
-	return VMClass_GetBlockedOperationsMockedCallback(sessionID, self)
+	return VMClassGetBlockedOperationsMockedCallback(sessionID, self)
 }
 // Get the blocked_operations field of the given VM.
 func (_class VMClass) GetBlockedOperations(sessionID SessionRef, self VMRef) (_retval map[VMOperations]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBlockedOperationsMock(sessionID, self)
 	}	
 	_method := "VM.get_blocked_operations"
@@ -5194,18 +5478,20 @@ func (_class VMClass) GetBlockedOperations(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetTagsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []string, _err error) {
+func VMClassGetTagsMockDefault(sessionID SessionRef, self VMRef) (_retval []string, _err error) {
 	log.Println("VM.GetTags not mocked")
 	_err = errors.New("VM.GetTags not mocked")
 	return
 }
 
+var VMClassGetTagsMockedCallback = VMClassGetTagsMockDefault
+
 func (_class VMClass) GetTagsMock(sessionID SessionRef, self VMRef) (_retval []string, _err error) {
-	return VMClass_GetTagsMockedCallback(sessionID, self)
+	return VMClassGetTagsMockedCallback(sessionID, self)
 }
 // Get the tags field of the given VM.
 func (_class VMClass) GetTags(sessionID SessionRef, self VMRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTagsMock(sessionID, self)
 	}	
 	_method := "VM.get_tags"
@@ -5226,18 +5512,20 @@ func (_class VMClass) GetTags(sessionID SessionRef, self VMRef) (_retval []strin
 }
 
 
-var VMClass_GetBlobsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]BlobRef, _err error) {
+func VMClassGetBlobsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]BlobRef, _err error) {
 	log.Println("VM.GetBlobs not mocked")
 	_err = errors.New("VM.GetBlobs not mocked")
 	return
 }
 
+var VMClassGetBlobsMockedCallback = VMClassGetBlobsMockDefault
+
 func (_class VMClass) GetBlobsMock(sessionID SessionRef, self VMRef) (_retval map[string]BlobRef, _err error) {
-	return VMClass_GetBlobsMockedCallback(sessionID, self)
+	return VMClassGetBlobsMockedCallback(sessionID, self)
 }
 // Get the blobs field of the given VM.
 func (_class VMClass) GetBlobs(sessionID SessionRef, self VMRef) (_retval map[string]BlobRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBlobsMock(sessionID, self)
 	}	
 	_method := "VM.get_blobs"
@@ -5258,18 +5546,20 @@ func (_class VMClass) GetBlobs(sessionID SessionRef, self VMRef) (_retval map[st
 }
 
 
-var VMClass_GetTransportableSnapshotIDMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetTransportableSnapshotIDMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetTransportableSnapshotID not mocked")
 	_err = errors.New("VM.GetTransportableSnapshotID not mocked")
 	return
 }
 
+var VMClassGetTransportableSnapshotIDMockedCallback = VMClassGetTransportableSnapshotIDMockDefault
+
 func (_class VMClass) GetTransportableSnapshotIDMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetTransportableSnapshotIDMockedCallback(sessionID, self)
+	return VMClassGetTransportableSnapshotIDMockedCallback(sessionID, self)
 }
 // Get the transportable_snapshot_id field of the given VM.
 func (_class VMClass) GetTransportableSnapshotID(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTransportableSnapshotIDMock(sessionID, self)
 	}	
 	_method := "VM.get_transportable_snapshot_id"
@@ -5290,18 +5580,20 @@ func (_class VMClass) GetTransportableSnapshotID(sessionID SessionRef, self VMRe
 }
 
 
-var VMClass_GetSnapshotTimeMockedCallback = func (sessionID SessionRef, self VMRef) (_retval time.Time, _err error) {
+func VMClassGetSnapshotTimeMockDefault(sessionID SessionRef, self VMRef) (_retval time.Time, _err error) {
 	log.Println("VM.GetSnapshotTime not mocked")
 	_err = errors.New("VM.GetSnapshotTime not mocked")
 	return
 }
 
+var VMClassGetSnapshotTimeMockedCallback = VMClassGetSnapshotTimeMockDefault
+
 func (_class VMClass) GetSnapshotTimeMock(sessionID SessionRef, self VMRef) (_retval time.Time, _err error) {
-	return VMClass_GetSnapshotTimeMockedCallback(sessionID, self)
+	return VMClassGetSnapshotTimeMockedCallback(sessionID, self)
 }
 // Get the snapshot_time field of the given VM.
 func (_class VMClass) GetSnapshotTime(sessionID SessionRef, self VMRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotTimeMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshot_time"
@@ -5322,18 +5614,20 @@ func (_class VMClass) GetSnapshotTime(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetSnapshotsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
+func VMClassGetSnapshotsMockDefault(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
 	log.Println("VM.GetSnapshots not mocked")
 	_err = errors.New("VM.GetSnapshots not mocked")
 	return
 }
 
+var VMClassGetSnapshotsMockedCallback = VMClassGetSnapshotsMockDefault
+
 func (_class VMClass) GetSnapshotsMock(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
-	return VMClass_GetSnapshotsMockedCallback(sessionID, self)
+	return VMClassGetSnapshotsMockedCallback(sessionID, self)
 }
 // Get the snapshots field of the given VM.
 func (_class VMClass) GetSnapshots(sessionID SessionRef, self VMRef) (_retval []VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotsMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshots"
@@ -5354,18 +5648,20 @@ func (_class VMClass) GetSnapshots(sessionID SessionRef, self VMRef) (_retval []
 }
 
 
-var VMClass_GetSnapshotOfMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
+func VMClassGetSnapshotOfMockDefault(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
 	log.Println("VM.GetSnapshotOf not mocked")
 	_err = errors.New("VM.GetSnapshotOf not mocked")
 	return
 }
 
+var VMClassGetSnapshotOfMockedCallback = VMClassGetSnapshotOfMockDefault
+
 func (_class VMClass) GetSnapshotOfMock(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
-	return VMClass_GetSnapshotOfMockedCallback(sessionID, self)
+	return VMClassGetSnapshotOfMockedCallback(sessionID, self)
 }
 // Get the snapshot_of field of the given VM.
 func (_class VMClass) GetSnapshotOf(sessionID SessionRef, self VMRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSnapshotOfMock(sessionID, self)
 	}	
 	_method := "VM.get_snapshot_of"
@@ -5386,18 +5682,20 @@ func (_class VMClass) GetSnapshotOf(sessionID SessionRef, self VMRef) (_retval V
 }
 
 
-var VMClass_GetIsASnapshotMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsASnapshotMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsASnapshot not mocked")
 	_err = errors.New("VM.GetIsASnapshot not mocked")
 	return
 }
 
+var VMClassGetIsASnapshotMockedCallback = VMClassGetIsASnapshotMockDefault
+
 func (_class VMClass) GetIsASnapshotMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsASnapshotMockedCallback(sessionID, self)
+	return VMClassGetIsASnapshotMockedCallback(sessionID, self)
 }
 // Get the is_a_snapshot field of the given VM.
 func (_class VMClass) GetIsASnapshot(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsASnapshotMock(sessionID, self)
 	}	
 	_method := "VM.get_is_a_snapshot"
@@ -5418,18 +5716,20 @@ func (_class VMClass) GetIsASnapshot(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetHaRestartPriorityMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetHaRestartPriorityMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetHaRestartPriority not mocked")
 	_err = errors.New("VM.GetHaRestartPriority not mocked")
 	return
 }
 
+var VMClassGetHaRestartPriorityMockedCallback = VMClassGetHaRestartPriorityMockDefault
+
 func (_class VMClass) GetHaRestartPriorityMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetHaRestartPriorityMockedCallback(sessionID, self)
+	return VMClassGetHaRestartPriorityMockedCallback(sessionID, self)
 }
 // Get the ha_restart_priority field of the given VM.
 func (_class VMClass) GetHaRestartPriority(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHaRestartPriorityMock(sessionID, self)
 	}	
 	_method := "VM.get_ha_restart_priority"
@@ -5450,18 +5750,20 @@ func (_class VMClass) GetHaRestartPriority(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetHaAlwaysRunMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetHaAlwaysRunMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetHaAlwaysRun not mocked")
 	_err = errors.New("VM.GetHaAlwaysRun not mocked")
 	return
 }
 
+var VMClassGetHaAlwaysRunMockedCallback = VMClassGetHaAlwaysRunMockDefault
+
 func (_class VMClass) GetHaAlwaysRunMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetHaAlwaysRunMockedCallback(sessionID, self)
+	return VMClassGetHaAlwaysRunMockedCallback(sessionID, self)
 }
 // Get the ha_always_run field of the given VM.
 func (_class VMClass) GetHaAlwaysRun(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHaAlwaysRunMock(sessionID, self)
 	}	
 	_method := "VM.get_ha_always_run"
@@ -5482,18 +5784,20 @@ func (_class VMClass) GetHaAlwaysRun(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetXenstoreDataMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetXenstoreDataMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetXenstoreData not mocked")
 	_err = errors.New("VM.GetXenstoreData not mocked")
 	return
 }
 
+var VMClassGetXenstoreDataMockedCallback = VMClassGetXenstoreDataMockDefault
+
 func (_class VMClass) GetXenstoreDataMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetXenstoreDataMockedCallback(sessionID, self)
+	return VMClassGetXenstoreDataMockedCallback(sessionID, self)
 }
 // Get the xenstore_data field of the given VM.
 func (_class VMClass) GetXenstoreData(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetXenstoreDataMock(sessionID, self)
 	}	
 	_method := "VM.get_xenstore_data"
@@ -5514,18 +5818,20 @@ func (_class VMClass) GetXenstoreData(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetRecommendationsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetRecommendationsMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetRecommendations not mocked")
 	_err = errors.New("VM.GetRecommendations not mocked")
 	return
 }
 
+var VMClassGetRecommendationsMockedCallback = VMClassGetRecommendationsMockDefault
+
 func (_class VMClass) GetRecommendationsMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetRecommendationsMockedCallback(sessionID, self)
+	return VMClassGetRecommendationsMockedCallback(sessionID, self)
 }
 // Get the recommendations field of the given VM.
 func (_class VMClass) GetRecommendations(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecommendationsMock(sessionID, self)
 	}	
 	_method := "VM.get_recommendations"
@@ -5546,18 +5852,20 @@ func (_class VMClass) GetRecommendations(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetLastBootedRecordMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetLastBootedRecordMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetLastBootedRecord not mocked")
 	_err = errors.New("VM.GetLastBootedRecord not mocked")
 	return
 }
 
+var VMClassGetLastBootedRecordMockedCallback = VMClassGetLastBootedRecordMockDefault
+
 func (_class VMClass) GetLastBootedRecordMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetLastBootedRecordMockedCallback(sessionID, self)
+	return VMClassGetLastBootedRecordMockedCallback(sessionID, self)
 }
 // Get the last_booted_record field of the given VM.
 func (_class VMClass) GetLastBootedRecord(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastBootedRecordMock(sessionID, self)
 	}	
 	_method := "VM.get_last_booted_record"
@@ -5578,18 +5886,20 @@ func (_class VMClass) GetLastBootedRecord(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetGuestMetricsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMGuestMetricsRef, _err error) {
+func VMClassGetGuestMetricsMockDefault(sessionID SessionRef, self VMRef) (_retval VMGuestMetricsRef, _err error) {
 	log.Println("VM.GetGuestMetrics not mocked")
 	_err = errors.New("VM.GetGuestMetrics not mocked")
 	return
 }
 
+var VMClassGetGuestMetricsMockedCallback = VMClassGetGuestMetricsMockDefault
+
 func (_class VMClass) GetGuestMetricsMock(sessionID SessionRef, self VMRef) (_retval VMGuestMetricsRef, _err error) {
-	return VMClass_GetGuestMetricsMockedCallback(sessionID, self)
+	return VMClassGetGuestMetricsMockedCallback(sessionID, self)
 }
 // Get the guest_metrics field of the given VM.
 func (_class VMClass) GetGuestMetrics(sessionID SessionRef, self VMRef) (_retval VMGuestMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetGuestMetricsMock(sessionID, self)
 	}	
 	_method := "VM.get_guest_metrics"
@@ -5610,18 +5920,20 @@ func (_class VMClass) GetGuestMetrics(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetMetricsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMMetricsRef, _err error) {
+func VMClassGetMetricsMockDefault(sessionID SessionRef, self VMRef) (_retval VMMetricsRef, _err error) {
 	log.Println("VM.GetMetrics not mocked")
 	_err = errors.New("VM.GetMetrics not mocked")
 	return
 }
 
+var VMClassGetMetricsMockedCallback = VMClassGetMetricsMockDefault
+
 func (_class VMClass) GetMetricsMock(sessionID SessionRef, self VMRef) (_retval VMMetricsRef, _err error) {
-	return VMClass_GetMetricsMockedCallback(sessionID, self)
+	return VMClassGetMetricsMockedCallback(sessionID, self)
 }
 // Get the metrics field of the given VM.
 func (_class VMClass) GetMetrics(sessionID SessionRef, self VMRef) (_retval VMMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMetricsMock(sessionID, self)
 	}	
 	_method := "VM.get_metrics"
@@ -5642,18 +5954,20 @@ func (_class VMClass) GetMetrics(sessionID SessionRef, self VMRef) (_retval VMMe
 }
 
 
-var VMClass_GetIsControlDomainMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsControlDomainMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsControlDomain not mocked")
 	_err = errors.New("VM.GetIsControlDomain not mocked")
 	return
 }
 
+var VMClassGetIsControlDomainMockedCallback = VMClassGetIsControlDomainMockDefault
+
 func (_class VMClass) GetIsControlDomainMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsControlDomainMockedCallback(sessionID, self)
+	return VMClassGetIsControlDomainMockedCallback(sessionID, self)
 }
 // Get the is_control_domain field of the given VM.
 func (_class VMClass) GetIsControlDomain(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsControlDomainMock(sessionID, self)
 	}	
 	_method := "VM.get_is_control_domain"
@@ -5674,18 +5988,20 @@ func (_class VMClass) GetIsControlDomain(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetLastBootCPUFlagsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetLastBootCPUFlagsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetLastBootCPUFlags not mocked")
 	_err = errors.New("VM.GetLastBootCPUFlags not mocked")
 	return
 }
 
+var VMClassGetLastBootCPUFlagsMockedCallback = VMClassGetLastBootCPUFlagsMockDefault
+
 func (_class VMClass) GetLastBootCPUFlagsMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetLastBootCPUFlagsMockedCallback(sessionID, self)
+	return VMClassGetLastBootCPUFlagsMockedCallback(sessionID, self)
 }
 // Get the last_boot_CPU_flags field of the given VM.
 func (_class VMClass) GetLastBootCPUFlags(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastBootCPUFlagsMock(sessionID, self)
 	}	
 	_method := "VM.get_last_boot_CPU_flags"
@@ -5706,18 +6022,20 @@ func (_class VMClass) GetLastBootCPUFlags(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetDomarchMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetDomarchMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetDomarch not mocked")
 	_err = errors.New("VM.GetDomarch not mocked")
 	return
 }
 
+var VMClassGetDomarchMockedCallback = VMClassGetDomarchMockDefault
+
 func (_class VMClass) GetDomarchMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetDomarchMockedCallback(sessionID, self)
+	return VMClassGetDomarchMockedCallback(sessionID, self)
 }
 // Get the domarch field of the given VM.
 func (_class VMClass) GetDomarch(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDomarchMock(sessionID, self)
 	}	
 	_method := "VM.get_domarch"
@@ -5738,18 +6056,20 @@ func (_class VMClass) GetDomarch(sessionID SessionRef, self VMRef) (_retval stri
 }
 
 
-var VMClass_GetDomidMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetDomidMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetDomid not mocked")
 	_err = errors.New("VM.GetDomid not mocked")
 	return
 }
 
+var VMClassGetDomidMockedCallback = VMClassGetDomidMockDefault
+
 func (_class VMClass) GetDomidMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetDomidMockedCallback(sessionID, self)
+	return VMClassGetDomidMockedCallback(sessionID, self)
 }
 // Get the domid field of the given VM.
 func (_class VMClass) GetDomid(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDomidMock(sessionID, self)
 	}	
 	_method := "VM.get_domid"
@@ -5770,18 +6090,20 @@ func (_class VMClass) GetDomid(sessionID SessionRef, self VMRef) (_retval int, _
 }
 
 
-var VMClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetOtherConfigMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetOtherConfig not mocked")
 	_err = errors.New("VM.GetOtherConfig not mocked")
 	return
 }
 
+var VMClassGetOtherConfigMockedCallback = VMClassGetOtherConfigMockDefault
+
 func (_class VMClass) GetOtherConfigMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetOtherConfigMockedCallback(sessionID, self)
+	return VMClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given VM.
 func (_class VMClass) GetOtherConfig(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VM.get_other_config"
@@ -5802,18 +6124,20 @@ func (_class VMClass) GetOtherConfig(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetPCIBusMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPCIBusMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPCIBus not mocked")
 	_err = errors.New("VM.GetPCIBus not mocked")
 	return
 }
 
+var VMClassGetPCIBusMockedCallback = VMClassGetPCIBusMockDefault
+
 func (_class VMClass) GetPCIBusMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPCIBusMockedCallback(sessionID, self)
+	return VMClassGetPCIBusMockedCallback(sessionID, self)
 }
 // Get the PCI_bus field of the given VM.
 func (_class VMClass) GetPCIBus(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPCIBusMock(sessionID, self)
 	}	
 	_method := "VM.get_PCI_bus"
@@ -5834,18 +6158,20 @@ func (_class VMClass) GetPCIBus(sessionID SessionRef, self VMRef) (_retval strin
 }
 
 
-var VMClass_GetPlatformMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetPlatformMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetPlatform not mocked")
 	_err = errors.New("VM.GetPlatform not mocked")
 	return
 }
 
+var VMClassGetPlatformMockedCallback = VMClassGetPlatformMockDefault
+
 func (_class VMClass) GetPlatformMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetPlatformMockedCallback(sessionID, self)
+	return VMClassGetPlatformMockedCallback(sessionID, self)
 }
 // Get the platform field of the given VM.
 func (_class VMClass) GetPlatform(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPlatformMock(sessionID, self)
 	}	
 	_method := "VM.get_platform"
@@ -5866,18 +6192,20 @@ func (_class VMClass) GetPlatform(sessionID SessionRef, self VMRef) (_retval map
 }
 
 
-var VMClass_GetHVMShadowMultiplierMockedCallback = func (sessionID SessionRef, self VMRef) (_retval float64, _err error) {
+func VMClassGetHVMShadowMultiplierMockDefault(sessionID SessionRef, self VMRef) (_retval float64, _err error) {
 	log.Println("VM.GetHVMShadowMultiplier not mocked")
 	_err = errors.New("VM.GetHVMShadowMultiplier not mocked")
 	return
 }
 
+var VMClassGetHVMShadowMultiplierMockedCallback = VMClassGetHVMShadowMultiplierMockDefault
+
 func (_class VMClass) GetHVMShadowMultiplierMock(sessionID SessionRef, self VMRef) (_retval float64, _err error) {
-	return VMClass_GetHVMShadowMultiplierMockedCallback(sessionID, self)
+	return VMClassGetHVMShadowMultiplierMockedCallback(sessionID, self)
 }
 // Get the HVM/shadow_multiplier field of the given VM.
 func (_class VMClass) GetHVMShadowMultiplier(sessionID SessionRef, self VMRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHVMShadowMultiplierMock(sessionID, self)
 	}	
 	_method := "VM.get_HVM_shadow_multiplier"
@@ -5898,18 +6226,20 @@ func (_class VMClass) GetHVMShadowMultiplier(sessionID SessionRef, self VMRef) (
 }
 
 
-var VMClass_GetHVMBootParamsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetHVMBootParamsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetHVMBootParams not mocked")
 	_err = errors.New("VM.GetHVMBootParams not mocked")
 	return
 }
 
+var VMClassGetHVMBootParamsMockedCallback = VMClassGetHVMBootParamsMockDefault
+
 func (_class VMClass) GetHVMBootParamsMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetHVMBootParamsMockedCallback(sessionID, self)
+	return VMClassGetHVMBootParamsMockedCallback(sessionID, self)
 }
 // Get the HVM/boot_params field of the given VM.
 func (_class VMClass) GetHVMBootParams(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHVMBootParamsMock(sessionID, self)
 	}	
 	_method := "VM.get_HVM_boot_params"
@@ -5930,18 +6260,20 @@ func (_class VMClass) GetHVMBootParams(sessionID SessionRef, self VMRef) (_retva
 }
 
 
-var VMClass_GetHVMBootPolicyMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetHVMBootPolicyMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetHVMBootPolicy not mocked")
 	_err = errors.New("VM.GetHVMBootPolicy not mocked")
 	return
 }
 
+var VMClassGetHVMBootPolicyMockedCallback = VMClassGetHVMBootPolicyMockDefault
+
 func (_class VMClass) GetHVMBootPolicyMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetHVMBootPolicyMockedCallback(sessionID, self)
+	return VMClassGetHVMBootPolicyMockedCallback(sessionID, self)
 }
 // Get the HVM/boot_policy field of the given VM.
 func (_class VMClass) GetHVMBootPolicy(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHVMBootPolicyMock(sessionID, self)
 	}	
 	_method := "VM.get_HVM_boot_policy"
@@ -5962,18 +6294,20 @@ func (_class VMClass) GetHVMBootPolicy(sessionID SessionRef, self VMRef) (_retva
 }
 
 
-var VMClass_GetPVLegacyArgsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVLegacyArgsMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVLegacyArgs not mocked")
 	_err = errors.New("VM.GetPVLegacyArgs not mocked")
 	return
 }
 
+var VMClassGetPVLegacyArgsMockedCallback = VMClassGetPVLegacyArgsMockDefault
+
 func (_class VMClass) GetPVLegacyArgsMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVLegacyArgsMockedCallback(sessionID, self)
+	return VMClassGetPVLegacyArgsMockedCallback(sessionID, self)
 }
 // Get the PV/legacy_args field of the given VM.
 func (_class VMClass) GetPVLegacyArgs(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVLegacyArgsMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_legacy_args"
@@ -5994,18 +6328,20 @@ func (_class VMClass) GetPVLegacyArgs(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetPVBootloaderArgsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVBootloaderArgsMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVBootloaderArgs not mocked")
 	_err = errors.New("VM.GetPVBootloaderArgs not mocked")
 	return
 }
 
+var VMClassGetPVBootloaderArgsMockedCallback = VMClassGetPVBootloaderArgsMockDefault
+
 func (_class VMClass) GetPVBootloaderArgsMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVBootloaderArgsMockedCallback(sessionID, self)
+	return VMClassGetPVBootloaderArgsMockedCallback(sessionID, self)
 }
 // Get the PV/bootloader_args field of the given VM.
 func (_class VMClass) GetPVBootloaderArgs(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVBootloaderArgsMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_bootloader_args"
@@ -6026,18 +6362,20 @@ func (_class VMClass) GetPVBootloaderArgs(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetPVArgsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVArgsMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVArgs not mocked")
 	_err = errors.New("VM.GetPVArgs not mocked")
 	return
 }
 
+var VMClassGetPVArgsMockedCallback = VMClassGetPVArgsMockDefault
+
 func (_class VMClass) GetPVArgsMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVArgsMockedCallback(sessionID, self)
+	return VMClassGetPVArgsMockedCallback(sessionID, self)
 }
 // Get the PV/args field of the given VM.
 func (_class VMClass) GetPVArgs(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVArgsMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_args"
@@ -6058,18 +6396,20 @@ func (_class VMClass) GetPVArgs(sessionID SessionRef, self VMRef) (_retval strin
 }
 
 
-var VMClass_GetPVRamdiskMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVRamdiskMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVRamdisk not mocked")
 	_err = errors.New("VM.GetPVRamdisk not mocked")
 	return
 }
 
+var VMClassGetPVRamdiskMockedCallback = VMClassGetPVRamdiskMockDefault
+
 func (_class VMClass) GetPVRamdiskMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVRamdiskMockedCallback(sessionID, self)
+	return VMClassGetPVRamdiskMockedCallback(sessionID, self)
 }
 // Get the PV/ramdisk field of the given VM.
 func (_class VMClass) GetPVRamdisk(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVRamdiskMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_ramdisk"
@@ -6090,18 +6430,20 @@ func (_class VMClass) GetPVRamdisk(sessionID SessionRef, self VMRef) (_retval st
 }
 
 
-var VMClass_GetPVKernelMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVKernelMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVKernel not mocked")
 	_err = errors.New("VM.GetPVKernel not mocked")
 	return
 }
 
+var VMClassGetPVKernelMockedCallback = VMClassGetPVKernelMockDefault
+
 func (_class VMClass) GetPVKernelMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVKernelMockedCallback(sessionID, self)
+	return VMClassGetPVKernelMockedCallback(sessionID, self)
 }
 // Get the PV/kernel field of the given VM.
 func (_class VMClass) GetPVKernel(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVKernelMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_kernel"
@@ -6122,18 +6464,20 @@ func (_class VMClass) GetPVKernel(sessionID SessionRef, self VMRef) (_retval str
 }
 
 
-var VMClass_GetPVBootloaderMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetPVBootloaderMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetPVBootloader not mocked")
 	_err = errors.New("VM.GetPVBootloader not mocked")
 	return
 }
 
+var VMClassGetPVBootloaderMockedCallback = VMClassGetPVBootloaderMockDefault
+
 func (_class VMClass) GetPVBootloaderMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetPVBootloaderMockedCallback(sessionID, self)
+	return VMClassGetPVBootloaderMockedCallback(sessionID, self)
 }
 // Get the PV/bootloader field of the given VM.
 func (_class VMClass) GetPVBootloader(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVBootloaderMock(sessionID, self)
 	}	
 	_method := "VM.get_PV_bootloader"
@@ -6154,18 +6498,20 @@ func (_class VMClass) GetPVBootloader(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetVTPMsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VTPMRef, _err error) {
+func VMClassGetVTPMsMockDefault(sessionID SessionRef, self VMRef) (_retval []VTPMRef, _err error) {
 	log.Println("VM.GetVTPMs not mocked")
 	_err = errors.New("VM.GetVTPMs not mocked")
 	return
 }
 
+var VMClassGetVTPMsMockedCallback = VMClassGetVTPMsMockDefault
+
 func (_class VMClass) GetVTPMsMock(sessionID SessionRef, self VMRef) (_retval []VTPMRef, _err error) {
-	return VMClass_GetVTPMsMockedCallback(sessionID, self)
+	return VMClassGetVTPMsMockedCallback(sessionID, self)
 }
 // Get the VTPMs field of the given VM.
 func (_class VMClass) GetVTPMs(sessionID SessionRef, self VMRef) (_retval []VTPMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVTPMsMock(sessionID, self)
 	}	
 	_method := "VM.get_VTPMs"
@@ -6186,18 +6532,20 @@ func (_class VMClass) GetVTPMs(sessionID SessionRef, self VMRef) (_retval []VTPM
 }
 
 
-var VMClass_GetCrashDumpsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []CrashdumpRef, _err error) {
+func VMClassGetCrashDumpsMockDefault(sessionID SessionRef, self VMRef) (_retval []CrashdumpRef, _err error) {
 	log.Println("VM.GetCrashDumps not mocked")
 	_err = errors.New("VM.GetCrashDumps not mocked")
 	return
 }
 
+var VMClassGetCrashDumpsMockedCallback = VMClassGetCrashDumpsMockDefault
+
 func (_class VMClass) GetCrashDumpsMock(sessionID SessionRef, self VMRef) (_retval []CrashdumpRef, _err error) {
-	return VMClass_GetCrashDumpsMockedCallback(sessionID, self)
+	return VMClassGetCrashDumpsMockedCallback(sessionID, self)
 }
 // Get the crash_dumps field of the given VM.
 func (_class VMClass) GetCrashDumps(sessionID SessionRef, self VMRef) (_retval []CrashdumpRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCrashDumpsMock(sessionID, self)
 	}	
 	_method := "VM.get_crash_dumps"
@@ -6218,18 +6566,20 @@ func (_class VMClass) GetCrashDumps(sessionID SessionRef, self VMRef) (_retval [
 }
 
 
-var VMClass_GetVUSBsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VUSBRef, _err error) {
+func VMClassGetVUSBsMockDefault(sessionID SessionRef, self VMRef) (_retval []VUSBRef, _err error) {
 	log.Println("VM.GetVUSBs not mocked")
 	_err = errors.New("VM.GetVUSBs not mocked")
 	return
 }
 
+var VMClassGetVUSBsMockedCallback = VMClassGetVUSBsMockDefault
+
 func (_class VMClass) GetVUSBsMock(sessionID SessionRef, self VMRef) (_retval []VUSBRef, _err error) {
-	return VMClass_GetVUSBsMockedCallback(sessionID, self)
+	return VMClassGetVUSBsMockedCallback(sessionID, self)
 }
 // Get the VUSBs field of the given VM.
 func (_class VMClass) GetVUSBs(sessionID SessionRef, self VMRef) (_retval []VUSBRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVUSBsMock(sessionID, self)
 	}	
 	_method := "VM.get_VUSBs"
@@ -6250,18 +6600,20 @@ func (_class VMClass) GetVUSBs(sessionID SessionRef, self VMRef) (_retval []VUSB
 }
 
 
-var VMClass_GetVBDsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VBDRef, _err error) {
+func VMClassGetVBDsMockDefault(sessionID SessionRef, self VMRef) (_retval []VBDRef, _err error) {
 	log.Println("VM.GetVBDs not mocked")
 	_err = errors.New("VM.GetVBDs not mocked")
 	return
 }
 
+var VMClassGetVBDsMockedCallback = VMClassGetVBDsMockDefault
+
 func (_class VMClass) GetVBDsMock(sessionID SessionRef, self VMRef) (_retval []VBDRef, _err error) {
-	return VMClass_GetVBDsMockedCallback(sessionID, self)
+	return VMClassGetVBDsMockedCallback(sessionID, self)
 }
 // Get the VBDs field of the given VM.
 func (_class VMClass) GetVBDs(sessionID SessionRef, self VMRef) (_retval []VBDRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVBDsMock(sessionID, self)
 	}	
 	_method := "VM.get_VBDs"
@@ -6282,18 +6634,20 @@ func (_class VMClass) GetVBDs(sessionID SessionRef, self VMRef) (_retval []VBDRe
 }
 
 
-var VMClass_GetVIFsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VIFRef, _err error) {
+func VMClassGetVIFsMockDefault(sessionID SessionRef, self VMRef) (_retval []VIFRef, _err error) {
 	log.Println("VM.GetVIFs not mocked")
 	_err = errors.New("VM.GetVIFs not mocked")
 	return
 }
 
+var VMClassGetVIFsMockedCallback = VMClassGetVIFsMockDefault
+
 func (_class VMClass) GetVIFsMock(sessionID SessionRef, self VMRef) (_retval []VIFRef, _err error) {
-	return VMClass_GetVIFsMockedCallback(sessionID, self)
+	return VMClassGetVIFsMockedCallback(sessionID, self)
 }
 // Get the VIFs field of the given VM.
 func (_class VMClass) GetVIFs(sessionID SessionRef, self VMRef) (_retval []VIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVIFsMock(sessionID, self)
 	}	
 	_method := "VM.get_VIFs"
@@ -6314,18 +6668,20 @@ func (_class VMClass) GetVIFs(sessionID SessionRef, self VMRef) (_retval []VIFRe
 }
 
 
-var VMClass_GetConsolesMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []ConsoleRef, _err error) {
+func VMClassGetConsolesMockDefault(sessionID SessionRef, self VMRef) (_retval []ConsoleRef, _err error) {
 	log.Println("VM.GetConsoles not mocked")
 	_err = errors.New("VM.GetConsoles not mocked")
 	return
 }
 
+var VMClassGetConsolesMockedCallback = VMClassGetConsolesMockDefault
+
 func (_class VMClass) GetConsolesMock(sessionID SessionRef, self VMRef) (_retval []ConsoleRef, _err error) {
-	return VMClass_GetConsolesMockedCallback(sessionID, self)
+	return VMClassGetConsolesMockedCallback(sessionID, self)
 }
 // Get the consoles field of the given VM.
 func (_class VMClass) GetConsoles(sessionID SessionRef, self VMRef) (_retval []ConsoleRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetConsolesMock(sessionID, self)
 	}	
 	_method := "VM.get_consoles"
@@ -6346,18 +6702,20 @@ func (_class VMClass) GetConsoles(sessionID SessionRef, self VMRef) (_retval []C
 }
 
 
-var VMClass_GetActionsAfterCrashMockedCallback = func (sessionID SessionRef, self VMRef) (_retval OnCrashBehaviour, _err error) {
+func VMClassGetActionsAfterCrashMockDefault(sessionID SessionRef, self VMRef) (_retval OnCrashBehaviour, _err error) {
 	log.Println("VM.GetActionsAfterCrash not mocked")
 	_err = errors.New("VM.GetActionsAfterCrash not mocked")
 	return
 }
 
+var VMClassGetActionsAfterCrashMockedCallback = VMClassGetActionsAfterCrashMockDefault
+
 func (_class VMClass) GetActionsAfterCrashMock(sessionID SessionRef, self VMRef) (_retval OnCrashBehaviour, _err error) {
-	return VMClass_GetActionsAfterCrashMockedCallback(sessionID, self)
+	return VMClassGetActionsAfterCrashMockedCallback(sessionID, self)
 }
 // Get the actions/after_crash field of the given VM.
 func (_class VMClass) GetActionsAfterCrash(sessionID SessionRef, self VMRef) (_retval OnCrashBehaviour, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetActionsAfterCrashMock(sessionID, self)
 	}	
 	_method := "VM.get_actions_after_crash"
@@ -6378,18 +6736,20 @@ func (_class VMClass) GetActionsAfterCrash(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetActionsAfterRebootMockedCallback = func (sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
+func VMClassGetActionsAfterRebootMockDefault(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
 	log.Println("VM.GetActionsAfterReboot not mocked")
 	_err = errors.New("VM.GetActionsAfterReboot not mocked")
 	return
 }
 
+var VMClassGetActionsAfterRebootMockedCallback = VMClassGetActionsAfterRebootMockDefault
+
 func (_class VMClass) GetActionsAfterRebootMock(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
-	return VMClass_GetActionsAfterRebootMockedCallback(sessionID, self)
+	return VMClassGetActionsAfterRebootMockedCallback(sessionID, self)
 }
 // Get the actions/after_reboot field of the given VM.
 func (_class VMClass) GetActionsAfterReboot(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetActionsAfterRebootMock(sessionID, self)
 	}	
 	_method := "VM.get_actions_after_reboot"
@@ -6410,18 +6770,20 @@ func (_class VMClass) GetActionsAfterReboot(sessionID SessionRef, self VMRef) (_
 }
 
 
-var VMClass_GetActionsAfterShutdownMockedCallback = func (sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
+func VMClassGetActionsAfterShutdownMockDefault(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
 	log.Println("VM.GetActionsAfterShutdown not mocked")
 	_err = errors.New("VM.GetActionsAfterShutdown not mocked")
 	return
 }
 
+var VMClassGetActionsAfterShutdownMockedCallback = VMClassGetActionsAfterShutdownMockDefault
+
 func (_class VMClass) GetActionsAfterShutdownMock(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
-	return VMClass_GetActionsAfterShutdownMockedCallback(sessionID, self)
+	return VMClassGetActionsAfterShutdownMockedCallback(sessionID, self)
 }
 // Get the actions/after_shutdown field of the given VM.
 func (_class VMClass) GetActionsAfterShutdown(sessionID SessionRef, self VMRef) (_retval OnNormalExit, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetActionsAfterShutdownMock(sessionID, self)
 	}	
 	_method := "VM.get_actions_after_shutdown"
@@ -6442,18 +6804,20 @@ func (_class VMClass) GetActionsAfterShutdown(sessionID SessionRef, self VMRef) 
 }
 
 
-var VMClass_GetVCPUsAtStartupMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetVCPUsAtStartupMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetVCPUsAtStartup not mocked")
 	_err = errors.New("VM.GetVCPUsAtStartup not mocked")
 	return
 }
 
+var VMClassGetVCPUsAtStartupMockedCallback = VMClassGetVCPUsAtStartupMockDefault
+
 func (_class VMClass) GetVCPUsAtStartupMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetVCPUsAtStartupMockedCallback(sessionID, self)
+	return VMClassGetVCPUsAtStartupMockedCallback(sessionID, self)
 }
 // Get the VCPUs/at_startup field of the given VM.
 func (_class VMClass) GetVCPUsAtStartup(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVCPUsAtStartupMock(sessionID, self)
 	}	
 	_method := "VM.get_VCPUs_at_startup"
@@ -6474,18 +6838,20 @@ func (_class VMClass) GetVCPUsAtStartup(sessionID SessionRef, self VMRef) (_retv
 }
 
 
-var VMClass_GetVCPUsMaxMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetVCPUsMaxMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetVCPUsMax not mocked")
 	_err = errors.New("VM.GetVCPUsMax not mocked")
 	return
 }
 
+var VMClassGetVCPUsMaxMockedCallback = VMClassGetVCPUsMaxMockDefault
+
 func (_class VMClass) GetVCPUsMaxMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetVCPUsMaxMockedCallback(sessionID, self)
+	return VMClassGetVCPUsMaxMockedCallback(sessionID, self)
 }
 // Get the VCPUs/max field of the given VM.
 func (_class VMClass) GetVCPUsMax(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVCPUsMaxMock(sessionID, self)
 	}	
 	_method := "VM.get_VCPUs_max"
@@ -6506,18 +6872,20 @@ func (_class VMClass) GetVCPUsMax(sessionID SessionRef, self VMRef) (_retval int
 }
 
 
-var VMClass_GetVCPUsParamsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
+func VMClassGetVCPUsParamsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
 	log.Println("VM.GetVCPUsParams not mocked")
 	_err = errors.New("VM.GetVCPUsParams not mocked")
 	return
 }
 
+var VMClassGetVCPUsParamsMockedCallback = VMClassGetVCPUsParamsMockDefault
+
 func (_class VMClass) GetVCPUsParamsMock(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	return VMClass_GetVCPUsParamsMockedCallback(sessionID, self)
+	return VMClassGetVCPUsParamsMockedCallback(sessionID, self)
 }
 // Get the VCPUs/params field of the given VM.
 func (_class VMClass) GetVCPUsParams(sessionID SessionRef, self VMRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVCPUsParamsMock(sessionID, self)
 	}	
 	_method := "VM.get_VCPUs_params"
@@ -6538,18 +6906,20 @@ func (_class VMClass) GetVCPUsParams(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetMemoryStaticMinMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryStaticMinMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryStaticMin not mocked")
 	_err = errors.New("VM.GetMemoryStaticMin not mocked")
 	return
 }
 
+var VMClassGetMemoryStaticMinMockedCallback = VMClassGetMemoryStaticMinMockDefault
+
 func (_class VMClass) GetMemoryStaticMinMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryStaticMinMockedCallback(sessionID, self)
+	return VMClassGetMemoryStaticMinMockedCallback(sessionID, self)
 }
 // Get the memory/static_min field of the given VM.
 func (_class VMClass) GetMemoryStaticMin(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryStaticMinMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_static_min"
@@ -6570,18 +6940,20 @@ func (_class VMClass) GetMemoryStaticMin(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetMemoryDynamicMinMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryDynamicMinMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryDynamicMin not mocked")
 	_err = errors.New("VM.GetMemoryDynamicMin not mocked")
 	return
 }
 
+var VMClassGetMemoryDynamicMinMockedCallback = VMClassGetMemoryDynamicMinMockDefault
+
 func (_class VMClass) GetMemoryDynamicMinMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryDynamicMinMockedCallback(sessionID, self)
+	return VMClassGetMemoryDynamicMinMockedCallback(sessionID, self)
 }
 // Get the memory/dynamic_min field of the given VM.
 func (_class VMClass) GetMemoryDynamicMin(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryDynamicMinMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_dynamic_min"
@@ -6602,18 +6974,20 @@ func (_class VMClass) GetMemoryDynamicMin(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetMemoryDynamicMaxMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryDynamicMaxMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryDynamicMax not mocked")
 	_err = errors.New("VM.GetMemoryDynamicMax not mocked")
 	return
 }
 
+var VMClassGetMemoryDynamicMaxMockedCallback = VMClassGetMemoryDynamicMaxMockDefault
+
 func (_class VMClass) GetMemoryDynamicMaxMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryDynamicMaxMockedCallback(sessionID, self)
+	return VMClassGetMemoryDynamicMaxMockedCallback(sessionID, self)
 }
 // Get the memory/dynamic_max field of the given VM.
 func (_class VMClass) GetMemoryDynamicMax(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryDynamicMaxMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_dynamic_max"
@@ -6634,18 +7008,20 @@ func (_class VMClass) GetMemoryDynamicMax(sessionID SessionRef, self VMRef) (_re
 }
 
 
-var VMClass_GetMemoryStaticMaxMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryStaticMaxMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryStaticMax not mocked")
 	_err = errors.New("VM.GetMemoryStaticMax not mocked")
 	return
 }
 
+var VMClassGetMemoryStaticMaxMockedCallback = VMClassGetMemoryStaticMaxMockDefault
+
 func (_class VMClass) GetMemoryStaticMaxMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryStaticMaxMockedCallback(sessionID, self)
+	return VMClassGetMemoryStaticMaxMockedCallback(sessionID, self)
 }
 // Get the memory/static_max field of the given VM.
 func (_class VMClass) GetMemoryStaticMax(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryStaticMaxMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_static_max"
@@ -6666,18 +7042,20 @@ func (_class VMClass) GetMemoryStaticMax(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetMemoryTargetMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryTargetMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryTarget not mocked")
 	_err = errors.New("VM.GetMemoryTarget not mocked")
 	return
 }
 
+var VMClassGetMemoryTargetMockedCallback = VMClassGetMemoryTargetMockDefault
+
 func (_class VMClass) GetMemoryTargetMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryTargetMockedCallback(sessionID, self)
+	return VMClassGetMemoryTargetMockedCallback(sessionID, self)
 }
 // Get the memory/target field of the given VM.
 func (_class VMClass) GetMemoryTarget(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryTargetMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_target"
@@ -6698,18 +7076,20 @@ func (_class VMClass) GetMemoryTarget(sessionID SessionRef, self VMRef) (_retval
 }
 
 
-var VMClass_GetMemoryOverheadMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetMemoryOverheadMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetMemoryOverhead not mocked")
 	_err = errors.New("VM.GetMemoryOverhead not mocked")
 	return
 }
 
+var VMClassGetMemoryOverheadMockedCallback = VMClassGetMemoryOverheadMockDefault
+
 func (_class VMClass) GetMemoryOverheadMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetMemoryOverheadMockedCallback(sessionID, self)
+	return VMClassGetMemoryOverheadMockedCallback(sessionID, self)
 }
 // Get the memory/overhead field of the given VM.
 func (_class VMClass) GetMemoryOverhead(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryOverheadMock(sessionID, self)
 	}	
 	_method := "VM.get_memory_overhead"
@@ -6730,18 +7110,20 @@ func (_class VMClass) GetMemoryOverhead(sessionID SessionRef, self VMRef) (_retv
 }
 
 
-var VMClass_GetAffinityMockedCallback = func (sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
+func VMClassGetAffinityMockDefault(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
 	log.Println("VM.GetAffinity not mocked")
 	_err = errors.New("VM.GetAffinity not mocked")
 	return
 }
 
+var VMClassGetAffinityMockedCallback = VMClassGetAffinityMockDefault
+
 func (_class VMClass) GetAffinityMock(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
-	return VMClass_GetAffinityMockedCallback(sessionID, self)
+	return VMClassGetAffinityMockedCallback(sessionID, self)
 }
 // Get the affinity field of the given VM.
 func (_class VMClass) GetAffinity(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAffinityMock(sessionID, self)
 	}	
 	_method := "VM.get_affinity"
@@ -6762,18 +7144,20 @@ func (_class VMClass) GetAffinity(sessionID SessionRef, self VMRef) (_retval Hos
 }
 
 
-var VMClass_GetResidentOnMockedCallback = func (sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
+func VMClassGetResidentOnMockDefault(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
 	log.Println("VM.GetResidentOn not mocked")
 	_err = errors.New("VM.GetResidentOn not mocked")
 	return
 }
 
+var VMClassGetResidentOnMockedCallback = VMClassGetResidentOnMockDefault
+
 func (_class VMClass) GetResidentOnMock(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
-	return VMClass_GetResidentOnMockedCallback(sessionID, self)
+	return VMClassGetResidentOnMockedCallback(sessionID, self)
 }
 // Get the resident_on field of the given VM.
 func (_class VMClass) GetResidentOn(sessionID SessionRef, self VMRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetResidentOnMock(sessionID, self)
 	}	
 	_method := "VM.get_resident_on"
@@ -6794,18 +7178,20 @@ func (_class VMClass) GetResidentOn(sessionID SessionRef, self VMRef) (_retval H
 }
 
 
-var VMClass_GetSuspendVDIMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VDIRef, _err error) {
+func VMClassGetSuspendVDIMockDefault(sessionID SessionRef, self VMRef) (_retval VDIRef, _err error) {
 	log.Println("VM.GetSuspendVDI not mocked")
 	_err = errors.New("VM.GetSuspendVDI not mocked")
 	return
 }
 
+var VMClassGetSuspendVDIMockedCallback = VMClassGetSuspendVDIMockDefault
+
 func (_class VMClass) GetSuspendVDIMock(sessionID SessionRef, self VMRef) (_retval VDIRef, _err error) {
-	return VMClass_GetSuspendVDIMockedCallback(sessionID, self)
+	return VMClassGetSuspendVDIMockedCallback(sessionID, self)
 }
 // Get the suspend_VDI field of the given VM.
 func (_class VMClass) GetSuspendVDI(sessionID SessionRef, self VMRef) (_retval VDIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSuspendVDIMock(sessionID, self)
 	}	
 	_method := "VM.get_suspend_VDI"
@@ -6826,18 +7212,20 @@ func (_class VMClass) GetSuspendVDI(sessionID SessionRef, self VMRef) (_retval V
 }
 
 
-var VMClass_GetIsDefaultTemplateMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsDefaultTemplateMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsDefaultTemplate not mocked")
 	_err = errors.New("VM.GetIsDefaultTemplate not mocked")
 	return
 }
 
+var VMClassGetIsDefaultTemplateMockedCallback = VMClassGetIsDefaultTemplateMockDefault
+
 func (_class VMClass) GetIsDefaultTemplateMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsDefaultTemplateMockedCallback(sessionID, self)
+	return VMClassGetIsDefaultTemplateMockedCallback(sessionID, self)
 }
 // Get the is_default_template field of the given VM.
 func (_class VMClass) GetIsDefaultTemplate(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsDefaultTemplateMock(sessionID, self)
 	}	
 	_method := "VM.get_is_default_template"
@@ -6858,18 +7246,20 @@ func (_class VMClass) GetIsDefaultTemplate(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetIsATemplateMockedCallback = func (sessionID SessionRef, self VMRef) (_retval bool, _err error) {
+func VMClassGetIsATemplateMockDefault(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
 	log.Println("VM.GetIsATemplate not mocked")
 	_err = errors.New("VM.GetIsATemplate not mocked")
 	return
 }
 
+var VMClassGetIsATemplateMockedCallback = VMClassGetIsATemplateMockDefault
+
 func (_class VMClass) GetIsATemplateMock(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	return VMClass_GetIsATemplateMockedCallback(sessionID, self)
+	return VMClassGetIsATemplateMockedCallback(sessionID, self)
 }
 // Get the is_a_template field of the given VM.
 func (_class VMClass) GetIsATemplate(sessionID SessionRef, self VMRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsATemplateMock(sessionID, self)
 	}	
 	_method := "VM.get_is_a_template"
@@ -6890,18 +7280,20 @@ func (_class VMClass) GetIsATemplate(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetUserVersionMockedCallback = func (sessionID SessionRef, self VMRef) (_retval int, _err error) {
+func VMClassGetUserVersionMockDefault(sessionID SessionRef, self VMRef) (_retval int, _err error) {
 	log.Println("VM.GetUserVersion not mocked")
 	_err = errors.New("VM.GetUserVersion not mocked")
 	return
 }
 
+var VMClassGetUserVersionMockedCallback = VMClassGetUserVersionMockDefault
+
 func (_class VMClass) GetUserVersionMock(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	return VMClass_GetUserVersionMockedCallback(sessionID, self)
+	return VMClassGetUserVersionMockedCallback(sessionID, self)
 }
 // Get the user_version field of the given VM.
 func (_class VMClass) GetUserVersion(sessionID SessionRef, self VMRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUserVersionMock(sessionID, self)
 	}	
 	_method := "VM.get_user_version"
@@ -6922,18 +7314,20 @@ func (_class VMClass) GetUserVersion(sessionID SessionRef, self VMRef) (_retval 
 }
 
 
-var VMClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetNameDescriptionMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetNameDescription not mocked")
 	_err = errors.New("VM.GetNameDescription not mocked")
 	return
 }
 
+var VMClassGetNameDescriptionMockedCallback = VMClassGetNameDescriptionMockDefault
+
 func (_class VMClass) GetNameDescriptionMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return VMClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given VM.
 func (_class VMClass) GetNameDescription(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "VM.get_name_description"
@@ -6954,18 +7348,20 @@ func (_class VMClass) GetNameDescription(sessionID SessionRef, self VMRef) (_ret
 }
 
 
-var VMClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetNameLabelMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetNameLabel not mocked")
 	_err = errors.New("VM.GetNameLabel not mocked")
 	return
 }
 
+var VMClassGetNameLabelMockedCallback = VMClassGetNameLabelMockDefault
+
 func (_class VMClass) GetNameLabelMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetNameLabelMockedCallback(sessionID, self)
+	return VMClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given VM.
 func (_class VMClass) GetNameLabel(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "VM.get_name_label"
@@ -6986,18 +7382,20 @@ func (_class VMClass) GetNameLabel(sessionID SessionRef, self VMRef) (_retval st
 }
 
 
-var VMClass_GetPowerStateMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMPowerState, _err error) {
+func VMClassGetPowerStateMockDefault(sessionID SessionRef, self VMRef) (_retval VMPowerState, _err error) {
 	log.Println("VM.GetPowerState not mocked")
 	_err = errors.New("VM.GetPowerState not mocked")
 	return
 }
 
+var VMClassGetPowerStateMockedCallback = VMClassGetPowerStateMockDefault
+
 func (_class VMClass) GetPowerStateMock(sessionID SessionRef, self VMRef) (_retval VMPowerState, _err error) {
-	return VMClass_GetPowerStateMockedCallback(sessionID, self)
+	return VMClassGetPowerStateMockedCallback(sessionID, self)
 }
 // Get the power_state field of the given VM.
 func (_class VMClass) GetPowerState(sessionID SessionRef, self VMRef) (_retval VMPowerState, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPowerStateMock(sessionID, self)
 	}	
 	_method := "VM.get_power_state"
@@ -7018,18 +7416,20 @@ func (_class VMClass) GetPowerState(sessionID SessionRef, self VMRef) (_retval V
 }
 
 
-var VMClass_GetCurrentOperationsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval map[string]VMOperations, _err error) {
+func VMClassGetCurrentOperationsMockDefault(sessionID SessionRef, self VMRef) (_retval map[string]VMOperations, _err error) {
 	log.Println("VM.GetCurrentOperations not mocked")
 	_err = errors.New("VM.GetCurrentOperations not mocked")
 	return
 }
 
+var VMClassGetCurrentOperationsMockedCallback = VMClassGetCurrentOperationsMockDefault
+
 func (_class VMClass) GetCurrentOperationsMock(sessionID SessionRef, self VMRef) (_retval map[string]VMOperations, _err error) {
-	return VMClass_GetCurrentOperationsMockedCallback(sessionID, self)
+	return VMClassGetCurrentOperationsMockedCallback(sessionID, self)
 }
 // Get the current_operations field of the given VM.
 func (_class VMClass) GetCurrentOperations(sessionID SessionRef, self VMRef) (_retval map[string]VMOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCurrentOperationsMock(sessionID, self)
 	}	
 	_method := "VM.get_current_operations"
@@ -7050,18 +7450,20 @@ func (_class VMClass) GetCurrentOperations(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetAllowedOperationsMockedCallback = func (sessionID SessionRef, self VMRef) (_retval []VMOperations, _err error) {
+func VMClassGetAllowedOperationsMockDefault(sessionID SessionRef, self VMRef) (_retval []VMOperations, _err error) {
 	log.Println("VM.GetAllowedOperations not mocked")
 	_err = errors.New("VM.GetAllowedOperations not mocked")
 	return
 }
 
+var VMClassGetAllowedOperationsMockedCallback = VMClassGetAllowedOperationsMockDefault
+
 func (_class VMClass) GetAllowedOperationsMock(sessionID SessionRef, self VMRef) (_retval []VMOperations, _err error) {
-	return VMClass_GetAllowedOperationsMockedCallback(sessionID, self)
+	return VMClassGetAllowedOperationsMockedCallback(sessionID, self)
 }
 // Get the allowed_operations field of the given VM.
 func (_class VMClass) GetAllowedOperations(sessionID SessionRef, self VMRef) (_retval []VMOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllowedOperationsMock(sessionID, self)
 	}	
 	_method := "VM.get_allowed_operations"
@@ -7082,18 +7484,20 @@ func (_class VMClass) GetAllowedOperations(sessionID SessionRef, self VMRef) (_r
 }
 
 
-var VMClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VMRef) (_retval string, _err error) {
+func VMClassGetUUIDMockDefault(sessionID SessionRef, self VMRef) (_retval string, _err error) {
 	log.Println("VM.GetUUID not mocked")
 	_err = errors.New("VM.GetUUID not mocked")
 	return
 }
 
+var VMClassGetUUIDMockedCallback = VMClassGetUUIDMockDefault
+
 func (_class VMClass) GetUUIDMock(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	return VMClass_GetUUIDMockedCallback(sessionID, self)
+	return VMClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given VM.
 func (_class VMClass) GetUUID(sessionID SessionRef, self VMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VM.get_uuid"
@@ -7114,18 +7518,20 @@ func (_class VMClass) GetUUID(sessionID SessionRef, self VMRef) (_retval string,
 }
 
 
-var VMClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []VMRef, _err error) {
+func VMClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []VMRef, _err error) {
 	log.Println("VM.GetByNameLabel not mocked")
 	_err = errors.New("VM.GetByNameLabel not mocked")
 	return
 }
 
+var VMClassGetByNameLabelMockedCallback = VMClassGetByNameLabelMockDefault
+
 func (_class VMClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []VMRef, _err error) {
-	return VMClass_GetByNameLabelMockedCallback(sessionID, label)
+	return VMClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the VM instances with the given label.
 func (_class VMClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "VM.get_by_name_label"
@@ -7146,18 +7552,20 @@ func (_class VMClass) GetByNameLabel(sessionID SessionRef, label string) (_retva
 }
 
 
-var VMClass_DestroyMockedCallback = func (sessionID SessionRef, self VMRef) (_err error) {
+func VMClassDestroyMockDefault(sessionID SessionRef, self VMRef) (_err error) {
 	log.Println("VM.Destroy not mocked")
 	_err = errors.New("VM.Destroy not mocked")
 	return
 }
 
+var VMClassDestroyMockedCallback = VMClassDestroyMockDefault
+
 func (_class VMClass) DestroyMock(sessionID SessionRef, self VMRef) (_err error) {
-	return VMClass_DestroyMockedCallback(sessionID, self)
+	return VMClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the specified VM.  The VM is completely removed from the system.  This function can only be called when the VM is in the Halted State.
 func (_class VMClass) Destroy(sessionID SessionRef, self VMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "VM.destroy"
@@ -7174,19 +7582,21 @@ func (_class VMClass) Destroy(sessionID SessionRef, self VMRef) (_err error) {
 }
 
 
-var VMClass_CreateMockedCallback = func (sessionID SessionRef, args VMRecord) (_retval VMRef, _err error) {
+func VMClassCreateMockDefault(sessionID SessionRef, args VMRecord) (_retval VMRef, _err error) {
 	log.Println("VM.Create not mocked")
 	_err = errors.New("VM.Create not mocked")
 	return
 }
 
+var VMClassCreateMockedCallback = VMClassCreateMockDefault
+
 func (_class VMClass) CreateMock(sessionID SessionRef, args VMRecord) (_retval VMRef, _err error) {
-	return VMClass_CreateMockedCallback(sessionID, args)
+	return VMClassCreateMockedCallback(sessionID, args)
 }
 // NOT RECOMMENDED! VM.clone or VM.copy (or VM.import) is a better choice in almost all situations. The standard way to obtain a new VM is to call VM.clone on a template VM, then call VM.provision on the new clone. Caution: if VM.create is used and then the new VM is attached to a virtual disc that has an operating system already installed, then there is no guarantee that the operating system will boot and run. Any software that calls VM.create on a future version of this API may fail or give unexpected results. For example this could happen if an additional parameter were added to VM.create. VM.create is intended only for use in the automatic creation of the system VM templates. It creates a new VM instance, and returns its handle.
 // The constructor args are: name_label, name_description, user_version*, is_a_template*, affinity*, memory_target, memory_static_max*, memory_dynamic_max*, memory_dynamic_min*, memory_static_min*, VCPUs_params*, VCPUs_max*, VCPUs_at_startup*, actions_after_shutdown*, actions_after_reboot*, actions_after_crash*, PV_bootloader*, PV_kernel*, PV_ramdisk*, PV_args*, PV_bootloader_args*, PV_legacy_args*, HVM_boot_policy*, HVM_boot_params*, HVM_shadow_multiplier, platform*, PCI_bus*, other_config*, recommendations*, xenstore_data, ha_always_run, ha_restart_priority, tags, blocked_operations, protection_policy, is_snapshot_from_vmpp, snapshot_schedule, is_vmss_snapshot, appliance, start_delay, shutdown_delay, order, suspend_SR, version, generation_id, hardware_platform_version, has_vendor_device, reference_label (* = non-optional).
 func (_class VMClass) Create(sessionID SessionRef, args VMRecord) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, args)
 	}	
 	_method := "VM.create"
@@ -7207,18 +7617,20 @@ func (_class VMClass) Create(sessionID SessionRef, args VMRecord) (_retval VMRef
 }
 
 
-var VMClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VMRef, _err error) {
+func VMClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval VMRef, _err error) {
 	log.Println("VM.GetByUUID not mocked")
 	_err = errors.New("VM.GetByUUID not mocked")
 	return
 }
 
+var VMClassGetByUUIDMockedCallback = VMClassGetByUUIDMockDefault
+
 func (_class VMClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VMRef, _err error) {
-	return VMClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return VMClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the VM instance with the specified UUID.
 func (_class VMClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VM.get_by_uuid"
@@ -7239,18 +7651,20 @@ func (_class VMClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VMRe
 }
 
 
-var VMClass_GetRecordMockedCallback = func (sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
+func VMClassGetRecordMockDefault(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
 	log.Println("VM.GetRecord not mocked")
 	_err = errors.New("VM.GetRecord not mocked")
 	return
 }
 
+var VMClassGetRecordMockedCallback = VMClassGetRecordMockDefault
+
 func (_class VMClass) GetRecordMock(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
-	return VMClass_GetRecordMockedCallback(sessionID, self)
+	return VMClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given VM.
 func (_class VMClass) GetRecord(sessionID SessionRef, self VMRef) (_retval VMRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VM.get_record"

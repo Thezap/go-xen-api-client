@@ -48,18 +48,20 @@ type HostMetricsClass struct {
 }
 
 
-var HostMetricsClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[HostMetricsRef]HostMetricsRecord, _err error) {
+func HostMetricsClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[HostMetricsRef]HostMetricsRecord, _err error) {
 	log.Println("HostMetrics.GetAllRecords not mocked")
 	_err = errors.New("HostMetrics.GetAllRecords not mocked")
 	return
 }
 
+var HostMetricsClassGetAllRecordsMockedCallback = HostMetricsClassGetAllRecordsMockDefault
+
 func (_class HostMetricsClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[HostMetricsRef]HostMetricsRecord, _err error) {
-	return HostMetricsClass_GetAllRecordsMockedCallback(sessionID)
+	return HostMetricsClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of host_metrics references to host_metrics records for all host_metrics instances known to the system.
 func (_class HostMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[HostMetricsRef]HostMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "host_metrics.get_all_records"
@@ -76,18 +78,20 @@ func (_class HostMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[
 }
 
 
-var HostMetricsClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []HostMetricsRef, _err error) {
+func HostMetricsClassGetAllMockDefault(sessionID SessionRef) (_retval []HostMetricsRef, _err error) {
 	log.Println("HostMetrics.GetAll not mocked")
 	_err = errors.New("HostMetrics.GetAll not mocked")
 	return
 }
 
+var HostMetricsClassGetAllMockedCallback = HostMetricsClassGetAllMockDefault
+
 func (_class HostMetricsClass) GetAllMock(sessionID SessionRef) (_retval []HostMetricsRef, _err error) {
-	return HostMetricsClass_GetAllMockedCallback(sessionID)
+	return HostMetricsClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the host_metrics instances known to the system.
 func (_class HostMetricsClass) GetAll(sessionID SessionRef) (_retval []HostMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "host_metrics.get_all"
@@ -104,18 +108,20 @@ func (_class HostMetricsClass) GetAll(sessionID SessionRef) (_retval []HostMetri
 }
 
 
-var HostMetricsClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self HostMetricsRef, key string) (_err error) {
+func HostMetricsClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self HostMetricsRef, key string) (_err error) {
 	log.Println("HostMetrics.RemoveFromOtherConfig not mocked")
 	_err = errors.New("HostMetrics.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var HostMetricsClassRemoveFromOtherConfigMockedCallback = HostMetricsClassRemoveFromOtherConfigMockDefault
+
 func (_class HostMetricsClass) RemoveFromOtherConfigMock(sessionID SessionRef, self HostMetricsRef, key string) (_err error) {
-	return HostMetricsClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return HostMetricsClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given host_metrics.  If the key is not in that Map, then do nothing.
 func (_class HostMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self HostMetricsRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "host_metrics.remove_from_other_config"
@@ -136,18 +142,20 @@ func (_class HostMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self 
 }
 
 
-var HostMetricsClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self HostMetricsRef, key string, value string) (_err error) {
+func HostMetricsClassAddToOtherConfigMockDefault(sessionID SessionRef, self HostMetricsRef, key string, value string) (_err error) {
 	log.Println("HostMetrics.AddToOtherConfig not mocked")
 	_err = errors.New("HostMetrics.AddToOtherConfig not mocked")
 	return
 }
 
+var HostMetricsClassAddToOtherConfigMockedCallback = HostMetricsClassAddToOtherConfigMockDefault
+
 func (_class HostMetricsClass) AddToOtherConfigMock(sessionID SessionRef, self HostMetricsRef, key string, value string) (_err error) {
-	return HostMetricsClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return HostMetricsClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given host_metrics.
 func (_class HostMetricsClass) AddToOtherConfig(sessionID SessionRef, self HostMetricsRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "host_metrics.add_to_other_config"
@@ -172,18 +180,20 @@ func (_class HostMetricsClass) AddToOtherConfig(sessionID SessionRef, self HostM
 }
 
 
-var HostMetricsClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self HostMetricsRef, value map[string]string) (_err error) {
+func HostMetricsClassSetOtherConfigMockDefault(sessionID SessionRef, self HostMetricsRef, value map[string]string) (_err error) {
 	log.Println("HostMetrics.SetOtherConfig not mocked")
 	_err = errors.New("HostMetrics.SetOtherConfig not mocked")
 	return
 }
 
+var HostMetricsClassSetOtherConfigMockedCallback = HostMetricsClassSetOtherConfigMockDefault
+
 func (_class HostMetricsClass) SetOtherConfigMock(sessionID SessionRef, self HostMetricsRef, value map[string]string) (_err error) {
-	return HostMetricsClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return HostMetricsClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given host_metrics.
 func (_class HostMetricsClass) SetOtherConfig(sessionID SessionRef, self HostMetricsRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "host_metrics.set_other_config"
@@ -204,18 +214,20 @@ func (_class HostMetricsClass) SetOtherConfig(sessionID SessionRef, self HostMet
 }
 
 
-var HostMetricsClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval map[string]string, _err error) {
+func HostMetricsClassGetOtherConfigMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("HostMetrics.GetOtherConfig not mocked")
 	_err = errors.New("HostMetrics.GetOtherConfig not mocked")
 	return
 }
 
+var HostMetricsClassGetOtherConfigMockedCallback = HostMetricsClassGetOtherConfigMockDefault
+
 func (_class HostMetricsClass) GetOtherConfigMock(sessionID SessionRef, self HostMetricsRef) (_retval map[string]string, _err error) {
-	return HostMetricsClass_GetOtherConfigMockedCallback(sessionID, self)
+	return HostMetricsClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given host_metrics.
 func (_class HostMetricsClass) GetOtherConfig(sessionID SessionRef, self HostMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_other_config"
@@ -236,18 +248,20 @@ func (_class HostMetricsClass) GetOtherConfig(sessionID SessionRef, self HostMet
 }
 
 
-var HostMetricsClass_GetLastUpdatedMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval time.Time, _err error) {
+func HostMetricsClassGetLastUpdatedMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval time.Time, _err error) {
 	log.Println("HostMetrics.GetLastUpdated not mocked")
 	_err = errors.New("HostMetrics.GetLastUpdated not mocked")
 	return
 }
 
+var HostMetricsClassGetLastUpdatedMockedCallback = HostMetricsClassGetLastUpdatedMockDefault
+
 func (_class HostMetricsClass) GetLastUpdatedMock(sessionID SessionRef, self HostMetricsRef) (_retval time.Time, _err error) {
-	return HostMetricsClass_GetLastUpdatedMockedCallback(sessionID, self)
+	return HostMetricsClassGetLastUpdatedMockedCallback(sessionID, self)
 }
 // Get the last_updated field of the given host_metrics.
 func (_class HostMetricsClass) GetLastUpdated(sessionID SessionRef, self HostMetricsRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastUpdatedMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_last_updated"
@@ -268,18 +282,20 @@ func (_class HostMetricsClass) GetLastUpdated(sessionID SessionRef, self HostMet
 }
 
 
-var HostMetricsClass_GetLiveMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval bool, _err error) {
+func HostMetricsClassGetLiveMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval bool, _err error) {
 	log.Println("HostMetrics.GetLive not mocked")
 	_err = errors.New("HostMetrics.GetLive not mocked")
 	return
 }
 
+var HostMetricsClassGetLiveMockedCallback = HostMetricsClassGetLiveMockDefault
+
 func (_class HostMetricsClass) GetLiveMock(sessionID SessionRef, self HostMetricsRef) (_retval bool, _err error) {
-	return HostMetricsClass_GetLiveMockedCallback(sessionID, self)
+	return HostMetricsClassGetLiveMockedCallback(sessionID, self)
 }
 // Get the live field of the given host_metrics.
 func (_class HostMetricsClass) GetLive(sessionID SessionRef, self HostMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLiveMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_live"
@@ -300,18 +316,20 @@ func (_class HostMetricsClass) GetLive(sessionID SessionRef, self HostMetricsRef
 }
 
 
-var HostMetricsClass_GetMemoryFreeMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
+func HostMetricsClassGetMemoryFreeMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
 	log.Println("HostMetrics.GetMemoryFree not mocked")
 	_err = errors.New("HostMetrics.GetMemoryFree not mocked")
 	return
 }
 
+var HostMetricsClassGetMemoryFreeMockedCallback = HostMetricsClassGetMemoryFreeMockDefault
+
 func (_class HostMetricsClass) GetMemoryFreeMock(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
-	return HostMetricsClass_GetMemoryFreeMockedCallback(sessionID, self)
+	return HostMetricsClassGetMemoryFreeMockedCallback(sessionID, self)
 }
 // Get the memory/free field of the given host_metrics.
 func (_class HostMetricsClass) GetMemoryFree(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryFreeMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_memory_free"
@@ -332,18 +350,20 @@ func (_class HostMetricsClass) GetMemoryFree(sessionID SessionRef, self HostMetr
 }
 
 
-var HostMetricsClass_GetMemoryTotalMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
+func HostMetricsClassGetMemoryTotalMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
 	log.Println("HostMetrics.GetMemoryTotal not mocked")
 	_err = errors.New("HostMetrics.GetMemoryTotal not mocked")
 	return
 }
 
+var HostMetricsClassGetMemoryTotalMockedCallback = HostMetricsClassGetMemoryTotalMockDefault
+
 func (_class HostMetricsClass) GetMemoryTotalMock(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
-	return HostMetricsClass_GetMemoryTotalMockedCallback(sessionID, self)
+	return HostMetricsClassGetMemoryTotalMockedCallback(sessionID, self)
 }
 // Get the memory/total field of the given host_metrics.
 func (_class HostMetricsClass) GetMemoryTotal(sessionID SessionRef, self HostMetricsRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryTotalMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_memory_total"
@@ -364,18 +384,20 @@ func (_class HostMetricsClass) GetMemoryTotal(sessionID SessionRef, self HostMet
 }
 
 
-var HostMetricsClass_GetUUIDMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval string, _err error) {
+func HostMetricsClassGetUUIDMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval string, _err error) {
 	log.Println("HostMetrics.GetUUID not mocked")
 	_err = errors.New("HostMetrics.GetUUID not mocked")
 	return
 }
 
+var HostMetricsClassGetUUIDMockedCallback = HostMetricsClassGetUUIDMockDefault
+
 func (_class HostMetricsClass) GetUUIDMock(sessionID SessionRef, self HostMetricsRef) (_retval string, _err error) {
-	return HostMetricsClass_GetUUIDMockedCallback(sessionID, self)
+	return HostMetricsClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given host_metrics.
 func (_class HostMetricsClass) GetUUID(sessionID SessionRef, self HostMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_uuid"
@@ -396,18 +418,20 @@ func (_class HostMetricsClass) GetUUID(sessionID SessionRef, self HostMetricsRef
 }
 
 
-var HostMetricsClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval HostMetricsRef, _err error) {
+func HostMetricsClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval HostMetricsRef, _err error) {
 	log.Println("HostMetrics.GetByUUID not mocked")
 	_err = errors.New("HostMetrics.GetByUUID not mocked")
 	return
 }
 
+var HostMetricsClassGetByUUIDMockedCallback = HostMetricsClassGetByUUIDMockDefault
+
 func (_class HostMetricsClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval HostMetricsRef, _err error) {
-	return HostMetricsClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return HostMetricsClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the host_metrics instance with the specified UUID.
 func (_class HostMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retval HostMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "host_metrics.get_by_uuid"
@@ -428,18 +452,20 @@ func (_class HostMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_re
 }
 
 
-var HostMetricsClass_GetRecordMockedCallback = func (sessionID SessionRef, self HostMetricsRef) (_retval HostMetricsRecord, _err error) {
+func HostMetricsClassGetRecordMockDefault(sessionID SessionRef, self HostMetricsRef) (_retval HostMetricsRecord, _err error) {
 	log.Println("HostMetrics.GetRecord not mocked")
 	_err = errors.New("HostMetrics.GetRecord not mocked")
 	return
 }
 
+var HostMetricsClassGetRecordMockedCallback = HostMetricsClassGetRecordMockDefault
+
 func (_class HostMetricsClass) GetRecordMock(sessionID SessionRef, self HostMetricsRef) (_retval HostMetricsRecord, _err error) {
-	return HostMetricsClass_GetRecordMockedCallback(sessionID, self)
+	return HostMetricsClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given host_metrics.
 func (_class HostMetricsClass) GetRecord(sessionID SessionRef, self HostMetricsRef) (_retval HostMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "host_metrics.get_record"

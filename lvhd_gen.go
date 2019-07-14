@@ -38,18 +38,20 @@ type LVHDClass struct {
 }
 
 
-var LVHDClass_EnableThinProvisioningMockedCallback = func (sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
+func LVHDClassEnableThinProvisioningMockDefault(sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
 	log.Println("LVHD.EnableThinProvisioning not mocked")
 	_err = errors.New("LVHD.EnableThinProvisioning not mocked")
 	return
 }
 
+var LVHDClassEnableThinProvisioningMockedCallback = LVHDClassEnableThinProvisioningMockDefault
+
 func (_class LVHDClass) EnableThinProvisioningMock(sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
-	return LVHDClass_EnableThinProvisioningMockedCallback(sessionID, host, sr, initialAllocation, allocationQuantum)
+	return LVHDClassEnableThinProvisioningMockedCallback(sessionID, host, sr, initialAllocation, allocationQuantum)
 }
 // Upgrades an LVHD SR to enable thin-provisioning. Future VDIs created in this SR will be thinly-provisioned, although existing VDIs will be left alone. Note that the SR must be attached to the SRmaster for upgrade to work.
 func (_class LVHDClass) EnableThinProvisioning(sessionID SessionRef, host HostRef, sr SRRef, initialAllocation int, allocationQuantum int) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.EnableThinProvisioningMock(sessionID, host, sr, initialAllocation, allocationQuantum)
 	}	
 	_method := "LVHD.enable_thin_provisioning"
@@ -82,18 +84,20 @@ func (_class LVHDClass) EnableThinProvisioning(sessionID SessionRef, host HostRe
 }
 
 
-var LVHDClass_GetUUIDMockedCallback = func (sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
+func LVHDClassGetUUIDMockDefault(sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
 	log.Println("LVHD.GetUUID not mocked")
 	_err = errors.New("LVHD.GetUUID not mocked")
 	return
 }
 
+var LVHDClassGetUUIDMockedCallback = LVHDClassGetUUIDMockDefault
+
 func (_class LVHDClass) GetUUIDMock(sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
-	return LVHDClass_GetUUIDMockedCallback(sessionID, self)
+	return LVHDClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given LVHD.
 func (_class LVHDClass) GetUUID(sessionID SessionRef, self LVHDRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "LVHD.get_uuid"
@@ -114,18 +118,20 @@ func (_class LVHDClass) GetUUID(sessionID SessionRef, self LVHDRef) (_retval str
 }
 
 
-var LVHDClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
+func LVHDClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
 	log.Println("LVHD.GetByUUID not mocked")
 	_err = errors.New("LVHD.GetByUUID not mocked")
 	return
 }
 
+var LVHDClassGetByUUIDMockedCallback = LVHDClassGetByUUIDMockDefault
+
 func (_class LVHDClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
-	return LVHDClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return LVHDClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the LVHD instance with the specified UUID.
 func (_class LVHDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval LVHDRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "LVHD.get_by_uuid"
@@ -146,18 +152,20 @@ func (_class LVHDClass) GetByUUID(sessionID SessionRef, uuid string) (_retval LV
 }
 
 
-var LVHDClass_GetRecordMockedCallback = func (sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
+func LVHDClassGetRecordMockDefault(sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
 	log.Println("LVHD.GetRecord not mocked")
 	_err = errors.New("LVHD.GetRecord not mocked")
 	return
 }
 
+var LVHDClassGetRecordMockedCallback = LVHDClassGetRecordMockDefault
+
 func (_class LVHDClass) GetRecordMock(sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
-	return LVHDClass_GetRecordMockedCallback(sessionID, self)
+	return LVHDClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given LVHD.
 func (_class LVHDClass) GetRecord(sessionID SessionRef, self LVHDRef) (_retval LVHDRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "LVHD.get_record"

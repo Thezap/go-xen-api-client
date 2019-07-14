@@ -42,18 +42,20 @@ type VTPMClass struct {
 }
 
 
-var VTPMClass_GetBackendMockedCallback = func (sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
+func VTPMClassGetBackendMockDefault(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
 	log.Println("VTPM.GetBackend not mocked")
 	_err = errors.New("VTPM.GetBackend not mocked")
 	return
 }
 
+var VTPMClassGetBackendMockedCallback = VTPMClassGetBackendMockDefault
+
 func (_class VTPMClass) GetBackendMock(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
-	return VTPMClass_GetBackendMockedCallback(sessionID, self)
+	return VTPMClassGetBackendMockedCallback(sessionID, self)
 }
 // Get the backend field of the given VTPM.
 func (_class VTPMClass) GetBackend(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBackendMock(sessionID, self)
 	}	
 	_method := "VTPM.get_backend"
@@ -74,18 +76,20 @@ func (_class VTPMClass) GetBackend(sessionID SessionRef, self VTPMRef) (_retval 
 }
 
 
-var VTPMClass_GetVMMockedCallback = func (sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
+func VTPMClassGetVMMockDefault(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
 	log.Println("VTPM.GetVM not mocked")
 	_err = errors.New("VTPM.GetVM not mocked")
 	return
 }
 
+var VTPMClassGetVMMockedCallback = VTPMClassGetVMMockDefault
+
 func (_class VTPMClass) GetVMMock(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
-	return VTPMClass_GetVMMockedCallback(sessionID, self)
+	return VTPMClassGetVMMockedCallback(sessionID, self)
 }
 // Get the VM field of the given VTPM.
 func (_class VTPMClass) GetVM(sessionID SessionRef, self VTPMRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVMMock(sessionID, self)
 	}	
 	_method := "VTPM.get_VM"
@@ -106,18 +110,20 @@ func (_class VTPMClass) GetVM(sessionID SessionRef, self VTPMRef) (_retval VMRef
 }
 
 
-var VTPMClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VTPMRef) (_retval string, _err error) {
+func VTPMClassGetUUIDMockDefault(sessionID SessionRef, self VTPMRef) (_retval string, _err error) {
 	log.Println("VTPM.GetUUID not mocked")
 	_err = errors.New("VTPM.GetUUID not mocked")
 	return
 }
 
+var VTPMClassGetUUIDMockedCallback = VTPMClassGetUUIDMockDefault
+
 func (_class VTPMClass) GetUUIDMock(sessionID SessionRef, self VTPMRef) (_retval string, _err error) {
-	return VTPMClass_GetUUIDMockedCallback(sessionID, self)
+	return VTPMClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given VTPM.
 func (_class VTPMClass) GetUUID(sessionID SessionRef, self VTPMRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VTPM.get_uuid"
@@ -138,18 +144,20 @@ func (_class VTPMClass) GetUUID(sessionID SessionRef, self VTPMRef) (_retval str
 }
 
 
-var VTPMClass_DestroyMockedCallback = func (sessionID SessionRef, self VTPMRef) (_err error) {
+func VTPMClassDestroyMockDefault(sessionID SessionRef, self VTPMRef) (_err error) {
 	log.Println("VTPM.Destroy not mocked")
 	_err = errors.New("VTPM.Destroy not mocked")
 	return
 }
 
+var VTPMClassDestroyMockedCallback = VTPMClassDestroyMockDefault
+
 func (_class VTPMClass) DestroyMock(sessionID SessionRef, self VTPMRef) (_err error) {
-	return VTPMClass_DestroyMockedCallback(sessionID, self)
+	return VTPMClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the specified VTPM instance.
 func (_class VTPMClass) Destroy(sessionID SessionRef, self VTPMRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "VTPM.destroy"
@@ -166,19 +174,21 @@ func (_class VTPMClass) Destroy(sessionID SessionRef, self VTPMRef) (_err error)
 }
 
 
-var VTPMClass_CreateMockedCallback = func (sessionID SessionRef, args VTPMRecord) (_retval VTPMRef, _err error) {
+func VTPMClassCreateMockDefault(sessionID SessionRef, args VTPMRecord) (_retval VTPMRef, _err error) {
 	log.Println("VTPM.Create not mocked")
 	_err = errors.New("VTPM.Create not mocked")
 	return
 }
 
+var VTPMClassCreateMockedCallback = VTPMClassCreateMockDefault
+
 func (_class VTPMClass) CreateMock(sessionID SessionRef, args VTPMRecord) (_retval VTPMRef, _err error) {
-	return VTPMClass_CreateMockedCallback(sessionID, args)
+	return VTPMClassCreateMockedCallback(sessionID, args)
 }
 // Create a new VTPM instance, and return its handle.
 // The constructor args are: VM*, backend* (* = non-optional).
 func (_class VTPMClass) Create(sessionID SessionRef, args VTPMRecord) (_retval VTPMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, args)
 	}	
 	_method := "VTPM.create"
@@ -199,18 +209,20 @@ func (_class VTPMClass) Create(sessionID SessionRef, args VTPMRecord) (_retval V
 }
 
 
-var VTPMClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VTPMRef, _err error) {
+func VTPMClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval VTPMRef, _err error) {
 	log.Println("VTPM.GetByUUID not mocked")
 	_err = errors.New("VTPM.GetByUUID not mocked")
 	return
 }
 
+var VTPMClassGetByUUIDMockedCallback = VTPMClassGetByUUIDMockDefault
+
 func (_class VTPMClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VTPMRef, _err error) {
-	return VTPMClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return VTPMClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the VTPM instance with the specified UUID.
 func (_class VTPMClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VTPMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VTPM.get_by_uuid"
@@ -231,18 +243,20 @@ func (_class VTPMClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VT
 }
 
 
-var VTPMClass_GetRecordMockedCallback = func (sessionID SessionRef, self VTPMRef) (_retval VTPMRecord, _err error) {
+func VTPMClassGetRecordMockDefault(sessionID SessionRef, self VTPMRef) (_retval VTPMRecord, _err error) {
 	log.Println("VTPM.GetRecord not mocked")
 	_err = errors.New("VTPM.GetRecord not mocked")
 	return
 }
 
+var VTPMClassGetRecordMockedCallback = VTPMClassGetRecordMockDefault
+
 func (_class VTPMClass) GetRecordMock(sessionID SessionRef, self VTPMRef) (_retval VTPMRecord, _err error) {
-	return VTPMClass_GetRecordMockedCallback(sessionID, self)
+	return VTPMClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given VTPM.
 func (_class VTPMClass) GetRecord(sessionID SessionRef, self VTPMRef) (_retval VTPMRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VTPM.get_record"

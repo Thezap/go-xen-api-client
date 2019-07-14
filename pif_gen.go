@@ -144,18 +144,20 @@ type PIFClass struct {
 }
 
 
-var PIFClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PIFRef]PIFRecord, _err error) {
+func PIFClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[PIFRef]PIFRecord, _err error) {
 	log.Println("PIF.GetAllRecords not mocked")
 	_err = errors.New("PIF.GetAllRecords not mocked")
 	return
 }
 
+var PIFClassGetAllRecordsMockedCallback = PIFClassGetAllRecordsMockDefault
+
 func (_class PIFClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PIFRef]PIFRecord, _err error) {
-	return PIFClass_GetAllRecordsMockedCallback(sessionID)
+	return PIFClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of PIF references to PIF records for all PIFs known to the system.
 func (_class PIFClass) GetAllRecords(sessionID SessionRef) (_retval map[PIFRef]PIFRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "PIF.get_all_records"
@@ -172,18 +174,20 @@ func (_class PIFClass) GetAllRecords(sessionID SessionRef) (_retval map[PIFRef]P
 }
 
 
-var PIFClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PIFRef, _err error) {
+func PIFClassGetAllMockDefault(sessionID SessionRef) (_retval []PIFRef, _err error) {
 	log.Println("PIF.GetAll not mocked")
 	_err = errors.New("PIF.GetAll not mocked")
 	return
 }
 
+var PIFClassGetAllMockedCallback = PIFClassGetAllMockDefault
+
 func (_class PIFClass) GetAllMock(sessionID SessionRef) (_retval []PIFRef, _err error) {
-	return PIFClass_GetAllMockedCallback(sessionID)
+	return PIFClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the PIFs known to the system.
 func (_class PIFClass) GetAll(sessionID SessionRef) (_retval []PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "PIF.get_all"
@@ -200,18 +204,20 @@ func (_class PIFClass) GetAll(sessionID SessionRef) (_retval []PIFRef, _err erro
 }
 
 
-var PIFClass_SetPropertyMockedCallback = func (sessionID SessionRef, self PIFRef, name string, value string) (_err error) {
+func PIFClassSetPropertyMockDefault(sessionID SessionRef, self PIFRef, name string, value string) (_err error) {
 	log.Println("PIF.SetProperty not mocked")
 	_err = errors.New("PIF.SetProperty not mocked")
 	return
 }
 
+var PIFClassSetPropertyMockedCallback = PIFClassSetPropertyMockDefault
+
 func (_class PIFClass) SetPropertyMock(sessionID SessionRef, self PIFRef, name string, value string) (_err error) {
-	return PIFClass_SetPropertyMockedCallback(sessionID, self, name, value)
+	return PIFClassSetPropertyMockedCallback(sessionID, self, name, value)
 }
 // Set the value of a property of the PIF
 func (_class PIFClass) SetProperty(sessionID SessionRef, self PIFRef, name string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPropertyMock(sessionID, self, name, value)
 	}	
 	_method := "PIF.set_property"
@@ -236,18 +242,20 @@ func (_class PIFClass) SetProperty(sessionID SessionRef, self PIFRef, name strin
 }
 
 
-var PIFClass_DbForgetMockedCallback = func (sessionID SessionRef, self PIFRef) (_err error) {
+func PIFClassDbForgetMockDefault(sessionID SessionRef, self PIFRef) (_err error) {
 	log.Println("PIF.DbForget not mocked")
 	_err = errors.New("PIF.DbForget not mocked")
 	return
 }
 
+var PIFClassDbForgetMockedCallback = PIFClassDbForgetMockDefault
+
 func (_class PIFClass) DbForgetMock(sessionID SessionRef, self PIFRef) (_err error) {
-	return PIFClass_DbForgetMockedCallback(sessionID, self)
+	return PIFClassDbForgetMockedCallback(sessionID, self)
 }
 // Destroy a PIF database record.
 func (_class PIFClass) DbForget(sessionID SessionRef, self PIFRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DbForgetMock(sessionID, self)
 	}	
 	_method := "PIF.db_forget"
@@ -264,18 +272,20 @@ func (_class PIFClass) DbForget(sessionID SessionRef, self PIFRef) (_err error) 
 }
 
 
-var PIFClass_DbIntroduceMockedCallback = func (sessionID SessionRef, device string, network NetworkRef, host HostRef, mac string, mtu int, vlan int, physical bool, ipConfigurationMode IPConfigurationMode, ip string, netmask string, gateway string, dns string, bondSlaveOf BondRef, vlanMasterOf VLANRef, management bool, otherConfig map[string]string, disallowUnplug bool, ipv6ConfigurationMode Ipv6ConfigurationMode, ipv6 []string, ipv6Gateway string, primaryAddressType PrimaryAddressType, managed bool, properties map[string]string) (_retval PIFRef, _err error) {
+func PIFClassDbIntroduceMockDefault(sessionID SessionRef, device string, network NetworkRef, host HostRef, mac string, mtu int, vlan int, physical bool, ipConfigurationMode IPConfigurationMode, ip string, netmask string, gateway string, dns string, bondSlaveOf BondRef, vlanMasterOf VLANRef, management bool, otherConfig map[string]string, disallowUnplug bool, ipv6ConfigurationMode Ipv6ConfigurationMode, ipv6 []string, ipv6Gateway string, primaryAddressType PrimaryAddressType, managed bool, properties map[string]string) (_retval PIFRef, _err error) {
 	log.Println("PIF.DbIntroduce not mocked")
 	_err = errors.New("PIF.DbIntroduce not mocked")
 	return
 }
 
+var PIFClassDbIntroduceMockedCallback = PIFClassDbIntroduceMockDefault
+
 func (_class PIFClass) DbIntroduceMock(sessionID SessionRef, device string, network NetworkRef, host HostRef, mac string, mtu int, vlan int, physical bool, ipConfigurationMode IPConfigurationMode, ip string, netmask string, gateway string, dns string, bondSlaveOf BondRef, vlanMasterOf VLANRef, management bool, otherConfig map[string]string, disallowUnplug bool, ipv6ConfigurationMode Ipv6ConfigurationMode, ipv6 []string, ipv6Gateway string, primaryAddressType PrimaryAddressType, managed bool, properties map[string]string) (_retval PIFRef, _err error) {
-	return PIFClass_DbIntroduceMockedCallback(sessionID, device, network, host, mac, mtu, vlan, physical, ipConfigurationMode, ip, netmask, gateway, dns, bondSlaveOf, vlanMasterOf, management, otherConfig, disallowUnplug, ipv6ConfigurationMode, ipv6, ipv6Gateway, primaryAddressType, managed, properties)
+	return PIFClassDbIntroduceMockedCallback(sessionID, device, network, host, mac, mtu, vlan, physical, ipConfigurationMode, ip, netmask, gateway, dns, bondSlaveOf, vlanMasterOf, management, otherConfig, disallowUnplug, ipv6ConfigurationMode, ipv6, ipv6Gateway, primaryAddressType, managed, properties)
 }
 // Create a new PIF record in the database only
 func (_class PIFClass) DbIntroduce(sessionID SessionRef, device string, network NetworkRef, host HostRef, mac string, mtu int, vlan int, physical bool, ipConfigurationMode IPConfigurationMode, ip string, netmask string, gateway string, dns string, bondSlaveOf BondRef, vlanMasterOf VLANRef, management bool, otherConfig map[string]string, disallowUnplug bool, ipv6ConfigurationMode Ipv6ConfigurationMode, ipv6 []string, ipv6Gateway string, primaryAddressType PrimaryAddressType, managed bool, properties map[string]string) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DbIntroduceMock(sessionID, device, network, host, mac, mtu, vlan, physical, ipConfigurationMode, ip, netmask, gateway, dns, bondSlaveOf, vlanMasterOf, management, otherConfig, disallowUnplug, ipv6ConfigurationMode, ipv6, ipv6Gateway, primaryAddressType, managed, properties)
 	}	
 	_method := "PIF.db_introduce"
@@ -384,21 +394,23 @@ func (_class PIFClass) DbIntroduce(sessionID SessionRef, device string, network 
 }
 
 
-var PIFClass_PlugMockedCallback = func (sessionID SessionRef, self PIFRef) (_err error) {
+func PIFClassPlugMockDefault(sessionID SessionRef, self PIFRef) (_err error) {
 	log.Println("PIF.Plug not mocked")
 	_err = errors.New("PIF.Plug not mocked")
 	return
 }
 
+var PIFClassPlugMockedCallback = PIFClassPlugMockDefault
+
 func (_class PIFClass) PlugMock(sessionID SessionRef, self PIFRef) (_err error) {
-	return PIFClass_PlugMockedCallback(sessionID, self)
+	return PIFClassPlugMockedCallback(sessionID, self)
 }
 // Attempt to bring up a physical interface
 //
 // Errors:
 //  TRANSPORT_PIF_NOT_CONFIGURED - The tunnel transport PIF has no IP configuration set.
 func (_class PIFClass) Plug(sessionID SessionRef, self PIFRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PlugMock(sessionID, self)
 	}	
 	_method := "PIF.plug"
@@ -415,14 +427,16 @@ func (_class PIFClass) Plug(sessionID SessionRef, self PIFRef) (_err error) {
 }
 
 
-var PIFClass_UnplugMockedCallback = func (sessionID SessionRef, self PIFRef) (_err error) {
+func PIFClassUnplugMockDefault(sessionID SessionRef, self PIFRef) (_err error) {
 	log.Println("PIF.Unplug not mocked")
 	_err = errors.New("PIF.Unplug not mocked")
 	return
 }
 
+var PIFClassUnplugMockedCallback = PIFClassUnplugMockDefault
+
 func (_class PIFClass) UnplugMock(sessionID SessionRef, self PIFRef) (_err error) {
-	return PIFClass_UnplugMockedCallback(sessionID, self)
+	return PIFClassUnplugMockedCallback(sessionID, self)
 }
 // Attempt to bring down a physical interface
 //
@@ -432,7 +446,7 @@ func (_class PIFClass) UnplugMock(sessionID SessionRef, self PIFRef) (_err error
 //  PIF_DOES_NOT_ALLOW_UNPLUG - The operation you requested cannot be performed because the specified PIF does not allow unplug.
 //  PIF_HAS_FCOE_SR_IN_USE - The operation you requested cannot be performed because the specified PIF has FCoE SR in use.
 func (_class PIFClass) Unplug(sessionID SessionRef, self PIFRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.UnplugMock(sessionID, self)
 	}	
 	_method := "PIF.unplug"
@@ -449,21 +463,23 @@ func (_class PIFClass) Unplug(sessionID SessionRef, self PIFRef) (_err error) {
 }
 
 
-var PIFClass_ForgetMockedCallback = func (sessionID SessionRef, self PIFRef) (_err error) {
+func PIFClassForgetMockDefault(sessionID SessionRef, self PIFRef) (_err error) {
 	log.Println("PIF.Forget not mocked")
 	_err = errors.New("PIF.Forget not mocked")
 	return
 }
 
+var PIFClassForgetMockedCallback = PIFClassForgetMockDefault
+
 func (_class PIFClass) ForgetMock(sessionID SessionRef, self PIFRef) (_err error) {
-	return PIFClass_ForgetMockedCallback(sessionID, self)
+	return PIFClassForgetMockedCallback(sessionID, self)
 }
 // Destroy the PIF object matching a particular network interface
 //
 // Errors:
 //  PIF_TUNNEL_STILL_EXISTS - Operation cannot proceed while a tunnel exists on this interface.
 func (_class PIFClass) Forget(sessionID SessionRef, self PIFRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetMock(sessionID, self)
 	}	
 	_method := "PIF.forget"
@@ -480,18 +496,20 @@ func (_class PIFClass) Forget(sessionID SessionRef, self PIFRef) (_err error) {
 }
 
 
-var PIFClass_IntroduceMockedCallback = func (sessionID SessionRef, host HostRef, mac string, device string, managed bool) (_retval PIFRef, _err error) {
+func PIFClassIntroduceMockDefault(sessionID SessionRef, host HostRef, mac string, device string, managed bool) (_retval PIFRef, _err error) {
 	log.Println("PIF.Introduce not mocked")
 	_err = errors.New("PIF.Introduce not mocked")
 	return
 }
 
+var PIFClassIntroduceMockedCallback = PIFClassIntroduceMockDefault
+
 func (_class PIFClass) IntroduceMock(sessionID SessionRef, host HostRef, mac string, device string, managed bool) (_retval PIFRef, _err error) {
-	return PIFClass_IntroduceMockedCallback(sessionID, host, mac, device, managed)
+	return PIFClassIntroduceMockedCallback(sessionID, host, mac, device, managed)
 }
 // Create a PIF object matching a particular network interface
 func (_class PIFClass) Introduce(sessionID SessionRef, host HostRef, mac string, device string, managed bool) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.IntroduceMock(sessionID, host, mac, device, managed)
 	}	
 	_method := "PIF.introduce"
@@ -524,18 +542,20 @@ func (_class PIFClass) Introduce(sessionID SessionRef, host HostRef, mac string,
 }
 
 
-var PIFClass_ScanMockedCallback = func (sessionID SessionRef, host HostRef) (_err error) {
+func PIFClassScanMockDefault(sessionID SessionRef, host HostRef) (_err error) {
 	log.Println("PIF.Scan not mocked")
 	_err = errors.New("PIF.Scan not mocked")
 	return
 }
 
+var PIFClassScanMockedCallback = PIFClassScanMockDefault
+
 func (_class PIFClass) ScanMock(sessionID SessionRef, host HostRef) (_err error) {
-	return PIFClass_ScanMockedCallback(sessionID, host)
+	return PIFClassScanMockedCallback(sessionID, host)
 }
 // Scan for physical interfaces on a host and create PIF objects to represent them
 func (_class PIFClass) Scan(sessionID SessionRef, host HostRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ScanMock(sessionID, host)
 	}	
 	_method := "PIF.scan"
@@ -552,18 +572,20 @@ func (_class PIFClass) Scan(sessionID SessionRef, host HostRef) (_err error) {
 }
 
 
-var PIFClass_SetPrimaryAddressTypeMockedCallback = func (sessionID SessionRef, self PIFRef, primaryAddressType PrimaryAddressType) (_err error) {
+func PIFClassSetPrimaryAddressTypeMockDefault(sessionID SessionRef, self PIFRef, primaryAddressType PrimaryAddressType) (_err error) {
 	log.Println("PIF.SetPrimaryAddressType not mocked")
 	_err = errors.New("PIF.SetPrimaryAddressType not mocked")
 	return
 }
 
+var PIFClassSetPrimaryAddressTypeMockedCallback = PIFClassSetPrimaryAddressTypeMockDefault
+
 func (_class PIFClass) SetPrimaryAddressTypeMock(sessionID SessionRef, self PIFRef, primaryAddressType PrimaryAddressType) (_err error) {
-	return PIFClass_SetPrimaryAddressTypeMockedCallback(sessionID, self, primaryAddressType)
+	return PIFClassSetPrimaryAddressTypeMockedCallback(sessionID, self, primaryAddressType)
 }
 // Change the primary address type used by this PIF
 func (_class PIFClass) SetPrimaryAddressType(sessionID SessionRef, self PIFRef, primaryAddressType PrimaryAddressType) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPrimaryAddressTypeMock(sessionID, self, primaryAddressType)
 	}	
 	_method := "PIF.set_primary_address_type"
@@ -584,18 +606,20 @@ func (_class PIFClass) SetPrimaryAddressType(sessionID SessionRef, self PIFRef, 
 }
 
 
-var PIFClass_ReconfigureIpv6MockedCallback = func (sessionID SessionRef, self PIFRef, mode Ipv6ConfigurationMode, ipv6 string, gateway string, dns string) (_err error) {
+func PIFClassReconfigureIpv6MockDefault(sessionID SessionRef, self PIFRef, mode Ipv6ConfigurationMode, ipv6 string, gateway string, dns string) (_err error) {
 	log.Println("PIF.ReconfigureIpv6 not mocked")
 	_err = errors.New("PIF.ReconfigureIpv6 not mocked")
 	return
 }
 
+var PIFClassReconfigureIpv6MockedCallback = PIFClassReconfigureIpv6MockDefault
+
 func (_class PIFClass) ReconfigureIpv6Mock(sessionID SessionRef, self PIFRef, mode Ipv6ConfigurationMode, ipv6 string, gateway string, dns string) (_err error) {
-	return PIFClass_ReconfigureIpv6MockedCallback(sessionID, self, mode, ipv6, gateway, dns)
+	return PIFClassReconfigureIpv6MockedCallback(sessionID, self, mode, ipv6, gateway, dns)
 }
 // Reconfigure the IPv6 address settings for this interface
 func (_class PIFClass) ReconfigureIpv6(sessionID SessionRef, self PIFRef, mode Ipv6ConfigurationMode, ipv6 string, gateway string, dns string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ReconfigureIpv6Mock(sessionID, self, mode, ipv6, gateway, dns)
 	}	
 	_method := "PIF.reconfigure_ipv6"
@@ -628,18 +652,20 @@ func (_class PIFClass) ReconfigureIpv6(sessionID SessionRef, self PIFRef, mode I
 }
 
 
-var PIFClass_ReconfigureIPMockedCallback = func (sessionID SessionRef, self PIFRef, mode IPConfigurationMode, ip string, netmask string, gateway string, dns string) (_err error) {
+func PIFClassReconfigureIPMockDefault(sessionID SessionRef, self PIFRef, mode IPConfigurationMode, ip string, netmask string, gateway string, dns string) (_err error) {
 	log.Println("PIF.ReconfigureIP not mocked")
 	_err = errors.New("PIF.ReconfigureIP not mocked")
 	return
 }
 
+var PIFClassReconfigureIPMockedCallback = PIFClassReconfigureIPMockDefault
+
 func (_class PIFClass) ReconfigureIPMock(sessionID SessionRef, self PIFRef, mode IPConfigurationMode, ip string, netmask string, gateway string, dns string) (_err error) {
-	return PIFClass_ReconfigureIPMockedCallback(sessionID, self, mode, ip, netmask, gateway, dns)
+	return PIFClassReconfigureIPMockedCallback(sessionID, self, mode, ip, netmask, gateway, dns)
 }
 // Reconfigure the IP address settings for this interface
 func (_class PIFClass) ReconfigureIP(sessionID SessionRef, self PIFRef, mode IPConfigurationMode, ip string, netmask string, gateway string, dns string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ReconfigureIPMock(sessionID, self, mode, ip, netmask, gateway, dns)
 	}	
 	_method := "PIF.reconfigure_ip"
@@ -676,21 +702,23 @@ func (_class PIFClass) ReconfigureIP(sessionID SessionRef, self PIFRef, mode IPC
 }
 
 
-var PIFClass_DestroyMockedCallback = func (sessionID SessionRef, self PIFRef) (_err error) {
+func PIFClassDestroyMockDefault(sessionID SessionRef, self PIFRef) (_err error) {
 	log.Println("PIF.Destroy not mocked")
 	_err = errors.New("PIF.Destroy not mocked")
 	return
 }
 
+var PIFClassDestroyMockedCallback = PIFClassDestroyMockDefault
+
 func (_class PIFClass) DestroyMock(sessionID SessionRef, self PIFRef) (_err error) {
-	return PIFClass_DestroyMockedCallback(sessionID, self)
+	return PIFClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the PIF object (provided it is a VLAN interface). This call is deprecated: use VLAN.destroy or Bond.destroy instead
 //
 // Errors:
 //  PIF_IS_PHYSICAL - You tried to destroy a PIF, but it represents an aspect of the physical host configuration, and so cannot be destroyed.  The parameter echoes the PIF handle you gave.
 func (_class PIFClass) Destroy(sessionID SessionRef, self PIFRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "PIF.destroy"
@@ -707,21 +735,23 @@ func (_class PIFClass) Destroy(sessionID SessionRef, self PIFRef) (_err error) {
 }
 
 
-var PIFClass_CreateVLANMockedCallback = func (sessionID SessionRef, device string, network NetworkRef, host HostRef, vlan int) (_retval PIFRef, _err error) {
+func PIFClassCreateVLANMockDefault(sessionID SessionRef, device string, network NetworkRef, host HostRef, vlan int) (_retval PIFRef, _err error) {
 	log.Println("PIF.CreateVLAN not mocked")
 	_err = errors.New("PIF.CreateVLAN not mocked")
 	return
 }
 
+var PIFClassCreateVLANMockedCallback = PIFClassCreateVLANMockDefault
+
 func (_class PIFClass) CreateVLANMock(sessionID SessionRef, device string, network NetworkRef, host HostRef, vlan int) (_retval PIFRef, _err error) {
-	return PIFClass_CreateVLANMockedCallback(sessionID, device, network, host, vlan)
+	return PIFClassCreateVLANMockedCallback(sessionID, device, network, host, vlan)
 }
 // Create a VLAN interface from an existing physical interface. This call is deprecated: use VLAN.create instead
 //
 // Errors:
 //  VLAN_TAG_INVALID - You tried to create a VLAN, but the tag you gave was invalid -- it must be between 0 and 4094.  The parameter echoes the VLAN tag you gave.
 func (_class PIFClass) CreateVLAN(sessionID SessionRef, device string, network NetworkRef, host HostRef, vlan int) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateVLANMock(sessionID, device, network, host, vlan)
 	}	
 	_method := "PIF.create_VLAN"
@@ -754,18 +784,20 @@ func (_class PIFClass) CreateVLAN(sessionID SessionRef, device string, network N
 }
 
 
-var PIFClass_SetDisallowUnplugMockedCallback = func (sessionID SessionRef, self PIFRef, value bool) (_err error) {
+func PIFClassSetDisallowUnplugMockDefault(sessionID SessionRef, self PIFRef, value bool) (_err error) {
 	log.Println("PIF.SetDisallowUnplug not mocked")
 	_err = errors.New("PIF.SetDisallowUnplug not mocked")
 	return
 }
 
+var PIFClassSetDisallowUnplugMockedCallback = PIFClassSetDisallowUnplugMockDefault
+
 func (_class PIFClass) SetDisallowUnplugMock(sessionID SessionRef, self PIFRef, value bool) (_err error) {
-	return PIFClass_SetDisallowUnplugMockedCallback(sessionID, self, value)
+	return PIFClassSetDisallowUnplugMockedCallback(sessionID, self, value)
 }
 // Set the disallow_unplug field of the given PIF.
 func (_class PIFClass) SetDisallowUnplug(sessionID SessionRef, self PIFRef, value bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetDisallowUnplugMock(sessionID, self, value)
 	}	
 	_method := "PIF.set_disallow_unplug"
@@ -786,18 +818,20 @@ func (_class PIFClass) SetDisallowUnplug(sessionID SessionRef, self PIFRef, valu
 }
 
 
-var PIFClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self PIFRef, key string) (_err error) {
+func PIFClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self PIFRef, key string) (_err error) {
 	log.Println("PIF.RemoveFromOtherConfig not mocked")
 	_err = errors.New("PIF.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var PIFClassRemoveFromOtherConfigMockedCallback = PIFClassRemoveFromOtherConfigMockDefault
+
 func (_class PIFClass) RemoveFromOtherConfigMock(sessionID SessionRef, self PIFRef, key string) (_err error) {
-	return PIFClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return PIFClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given PIF.  If the key is not in that Map, then do nothing.
 func (_class PIFClass) RemoveFromOtherConfig(sessionID SessionRef, self PIFRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "PIF.remove_from_other_config"
@@ -818,18 +852,20 @@ func (_class PIFClass) RemoveFromOtherConfig(sessionID SessionRef, self PIFRef, 
 }
 
 
-var PIFClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self PIFRef, key string, value string) (_err error) {
+func PIFClassAddToOtherConfigMockDefault(sessionID SessionRef, self PIFRef, key string, value string) (_err error) {
 	log.Println("PIF.AddToOtherConfig not mocked")
 	_err = errors.New("PIF.AddToOtherConfig not mocked")
 	return
 }
 
+var PIFClassAddToOtherConfigMockedCallback = PIFClassAddToOtherConfigMockDefault
+
 func (_class PIFClass) AddToOtherConfigMock(sessionID SessionRef, self PIFRef, key string, value string) (_err error) {
-	return PIFClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return PIFClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given PIF.
 func (_class PIFClass) AddToOtherConfig(sessionID SessionRef, self PIFRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "PIF.add_to_other_config"
@@ -854,18 +890,20 @@ func (_class PIFClass) AddToOtherConfig(sessionID SessionRef, self PIFRef, key s
 }
 
 
-var PIFClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self PIFRef, value map[string]string) (_err error) {
+func PIFClassSetOtherConfigMockDefault(sessionID SessionRef, self PIFRef, value map[string]string) (_err error) {
 	log.Println("PIF.SetOtherConfig not mocked")
 	_err = errors.New("PIF.SetOtherConfig not mocked")
 	return
 }
 
+var PIFClassSetOtherConfigMockedCallback = PIFClassSetOtherConfigMockDefault
+
 func (_class PIFClass) SetOtherConfigMock(sessionID SessionRef, self PIFRef, value map[string]string) (_err error) {
-	return PIFClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return PIFClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given PIF.
 func (_class PIFClass) SetOtherConfig(sessionID SessionRef, self PIFRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "PIF.set_other_config"
@@ -886,18 +924,20 @@ func (_class PIFClass) SetOtherConfig(sessionID SessionRef, self PIFRef, value m
 }
 
 
-var PIFClass_GetIgmpSnoopingStatusMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval PifIgmpStatus, _err error) {
+func PIFClassGetIgmpSnoopingStatusMockDefault(sessionID SessionRef, self PIFRef) (_retval PifIgmpStatus, _err error) {
 	log.Println("PIF.GetIgmpSnoopingStatus not mocked")
 	_err = errors.New("PIF.GetIgmpSnoopingStatus not mocked")
 	return
 }
 
+var PIFClassGetIgmpSnoopingStatusMockedCallback = PIFClassGetIgmpSnoopingStatusMockDefault
+
 func (_class PIFClass) GetIgmpSnoopingStatusMock(sessionID SessionRef, self PIFRef) (_retval PifIgmpStatus, _err error) {
-	return PIFClass_GetIgmpSnoopingStatusMockedCallback(sessionID, self)
+	return PIFClassGetIgmpSnoopingStatusMockedCallback(sessionID, self)
 }
 // Get the igmp_snooping_status field of the given PIF.
 func (_class PIFClass) GetIgmpSnoopingStatus(sessionID SessionRef, self PIFRef) (_retval PifIgmpStatus, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIgmpSnoopingStatusMock(sessionID, self)
 	}	
 	_method := "PIF.get_igmp_snooping_status"
@@ -918,18 +958,20 @@ func (_class PIFClass) GetIgmpSnoopingStatus(sessionID SessionRef, self PIFRef) 
 }
 
 
-var PIFClass_GetCapabilitiesMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
+func PIFClassGetCapabilitiesMockDefault(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
 	log.Println("PIF.GetCapabilities not mocked")
 	_err = errors.New("PIF.GetCapabilities not mocked")
 	return
 }
 
+var PIFClassGetCapabilitiesMockedCallback = PIFClassGetCapabilitiesMockDefault
+
 func (_class PIFClass) GetCapabilitiesMock(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
-	return PIFClass_GetCapabilitiesMockedCallback(sessionID, self)
+	return PIFClassGetCapabilitiesMockedCallback(sessionID, self)
 }
 // Get the capabilities field of the given PIF.
 func (_class PIFClass) GetCapabilities(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCapabilitiesMock(sessionID, self)
 	}	
 	_method := "PIF.get_capabilities"
@@ -950,18 +992,20 @@ func (_class PIFClass) GetCapabilities(sessionID SessionRef, self PIFRef) (_retv
 }
 
 
-var PIFClass_GetPropertiesMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
+func PIFClassGetPropertiesMockDefault(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
 	log.Println("PIF.GetProperties not mocked")
 	_err = errors.New("PIF.GetProperties not mocked")
 	return
 }
 
+var PIFClassGetPropertiesMockedCallback = PIFClassGetPropertiesMockDefault
+
 func (_class PIFClass) GetPropertiesMock(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
-	return PIFClass_GetPropertiesMockedCallback(sessionID, self)
+	return PIFClassGetPropertiesMockedCallback(sessionID, self)
 }
 // Get the properties field of the given PIF.
 func (_class PIFClass) GetProperties(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPropertiesMock(sessionID, self)
 	}	
 	_method := "PIF.get_properties"
@@ -982,18 +1026,20 @@ func (_class PIFClass) GetProperties(sessionID SessionRef, self PIFRef) (_retval
 }
 
 
-var PIFClass_GetManagedMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
+func PIFClassGetManagedMockDefault(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
 	log.Println("PIF.GetManaged not mocked")
 	_err = errors.New("PIF.GetManaged not mocked")
 	return
 }
 
+var PIFClassGetManagedMockedCallback = PIFClassGetManagedMockDefault
+
 func (_class PIFClass) GetManagedMock(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	return PIFClass_GetManagedMockedCallback(sessionID, self)
+	return PIFClassGetManagedMockedCallback(sessionID, self)
 }
 // Get the managed field of the given PIF.
 func (_class PIFClass) GetManaged(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetManagedMock(sessionID, self)
 	}	
 	_method := "PIF.get_managed"
@@ -1014,18 +1060,20 @@ func (_class PIFClass) GetManaged(sessionID SessionRef, self PIFRef) (_retval bo
 }
 
 
-var PIFClass_GetPrimaryAddressTypeMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval PrimaryAddressType, _err error) {
+func PIFClassGetPrimaryAddressTypeMockDefault(sessionID SessionRef, self PIFRef) (_retval PrimaryAddressType, _err error) {
 	log.Println("PIF.GetPrimaryAddressType not mocked")
 	_err = errors.New("PIF.GetPrimaryAddressType not mocked")
 	return
 }
 
+var PIFClassGetPrimaryAddressTypeMockedCallback = PIFClassGetPrimaryAddressTypeMockDefault
+
 func (_class PIFClass) GetPrimaryAddressTypeMock(sessionID SessionRef, self PIFRef) (_retval PrimaryAddressType, _err error) {
-	return PIFClass_GetPrimaryAddressTypeMockedCallback(sessionID, self)
+	return PIFClassGetPrimaryAddressTypeMockedCallback(sessionID, self)
 }
 // Get the primary_address_type field of the given PIF.
 func (_class PIFClass) GetPrimaryAddressType(sessionID SessionRef, self PIFRef) (_retval PrimaryAddressType, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPrimaryAddressTypeMock(sessionID, self)
 	}	
 	_method := "PIF.get_primary_address_type"
@@ -1046,18 +1094,20 @@ func (_class PIFClass) GetPrimaryAddressType(sessionID SessionRef, self PIFRef) 
 }
 
 
-var PIFClass_GetIpv6GatewayMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetIpv6GatewayMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetIpv6Gateway not mocked")
 	_err = errors.New("PIF.GetIpv6Gateway not mocked")
 	return
 }
 
+var PIFClassGetIpv6GatewayMockedCallback = PIFClassGetIpv6GatewayMockDefault
+
 func (_class PIFClass) GetIpv6GatewayMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetIpv6GatewayMockedCallback(sessionID, self)
+	return PIFClassGetIpv6GatewayMockedCallback(sessionID, self)
 }
 // Get the ipv6_gateway field of the given PIF.
 func (_class PIFClass) GetIpv6Gateway(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIpv6GatewayMock(sessionID, self)
 	}	
 	_method := "PIF.get_ipv6_gateway"
@@ -1078,18 +1128,20 @@ func (_class PIFClass) GetIpv6Gateway(sessionID SessionRef, self PIFRef) (_retva
 }
 
 
-var PIFClass_GetIPv6MockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
+func PIFClassGetIPv6MockDefault(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
 	log.Println("PIF.GetIPv6 not mocked")
 	_err = errors.New("PIF.GetIPv6 not mocked")
 	return
 }
 
+var PIFClassGetIPv6MockedCallback = PIFClassGetIPv6MockDefault
+
 func (_class PIFClass) GetIPv6Mock(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
-	return PIFClass_GetIPv6MockedCallback(sessionID, self)
+	return PIFClassGetIPv6MockedCallback(sessionID, self)
 }
 // Get the IPv6 field of the given PIF.
 func (_class PIFClass) GetIPv6(sessionID SessionRef, self PIFRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIPv6Mock(sessionID, self)
 	}	
 	_method := "PIF.get_IPv6"
@@ -1110,18 +1162,20 @@ func (_class PIFClass) GetIPv6(sessionID SessionRef, self PIFRef) (_retval []str
 }
 
 
-var PIFClass_GetIpv6ConfigurationModeMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval Ipv6ConfigurationMode, _err error) {
+func PIFClassGetIpv6ConfigurationModeMockDefault(sessionID SessionRef, self PIFRef) (_retval Ipv6ConfigurationMode, _err error) {
 	log.Println("PIF.GetIpv6ConfigurationMode not mocked")
 	_err = errors.New("PIF.GetIpv6ConfigurationMode not mocked")
 	return
 }
 
+var PIFClassGetIpv6ConfigurationModeMockedCallback = PIFClassGetIpv6ConfigurationModeMockDefault
+
 func (_class PIFClass) GetIpv6ConfigurationModeMock(sessionID SessionRef, self PIFRef) (_retval Ipv6ConfigurationMode, _err error) {
-	return PIFClass_GetIpv6ConfigurationModeMockedCallback(sessionID, self)
+	return PIFClassGetIpv6ConfigurationModeMockedCallback(sessionID, self)
 }
 // Get the ipv6_configuration_mode field of the given PIF.
 func (_class PIFClass) GetIpv6ConfigurationMode(sessionID SessionRef, self PIFRef) (_retval Ipv6ConfigurationMode, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIpv6ConfigurationModeMock(sessionID, self)
 	}	
 	_method := "PIF.get_ipv6_configuration_mode"
@@ -1142,18 +1196,20 @@ func (_class PIFClass) GetIpv6ConfigurationMode(sessionID SessionRef, self PIFRe
 }
 
 
-var PIFClass_GetTunnelTransportPIFOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
+func PIFClassGetTunnelTransportPIFOfMockDefault(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
 	log.Println("PIF.GetTunnelTransportPIFOf not mocked")
 	_err = errors.New("PIF.GetTunnelTransportPIFOf not mocked")
 	return
 }
 
+var PIFClassGetTunnelTransportPIFOfMockedCallback = PIFClassGetTunnelTransportPIFOfMockDefault
+
 func (_class PIFClass) GetTunnelTransportPIFOfMock(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
-	return PIFClass_GetTunnelTransportPIFOfMockedCallback(sessionID, self)
+	return PIFClassGetTunnelTransportPIFOfMockedCallback(sessionID, self)
 }
 // Get the tunnel_transport_PIF_of field of the given PIF.
 func (_class PIFClass) GetTunnelTransportPIFOf(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTunnelTransportPIFOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_tunnel_transport_PIF_of"
@@ -1174,18 +1230,20 @@ func (_class PIFClass) GetTunnelTransportPIFOf(sessionID SessionRef, self PIFRef
 }
 
 
-var PIFClass_GetTunnelAccessPIFOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
+func PIFClassGetTunnelAccessPIFOfMockDefault(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
 	log.Println("PIF.GetTunnelAccessPIFOf not mocked")
 	_err = errors.New("PIF.GetTunnelAccessPIFOf not mocked")
 	return
 }
 
+var PIFClassGetTunnelAccessPIFOfMockedCallback = PIFClassGetTunnelAccessPIFOfMockDefault
+
 func (_class PIFClass) GetTunnelAccessPIFOfMock(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
-	return PIFClass_GetTunnelAccessPIFOfMockedCallback(sessionID, self)
+	return PIFClassGetTunnelAccessPIFOfMockedCallback(sessionID, self)
 }
 // Get the tunnel_access_PIF_of field of the given PIF.
 func (_class PIFClass) GetTunnelAccessPIFOf(sessionID SessionRef, self PIFRef) (_retval []TunnelRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTunnelAccessPIFOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_tunnel_access_PIF_of"
@@ -1206,18 +1264,20 @@ func (_class PIFClass) GetTunnelAccessPIFOf(sessionID SessionRef, self PIFRef) (
 }
 
 
-var PIFClass_GetDisallowUnplugMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
+func PIFClassGetDisallowUnplugMockDefault(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
 	log.Println("PIF.GetDisallowUnplug not mocked")
 	_err = errors.New("PIF.GetDisallowUnplug not mocked")
 	return
 }
 
+var PIFClassGetDisallowUnplugMockedCallback = PIFClassGetDisallowUnplugMockDefault
+
 func (_class PIFClass) GetDisallowUnplugMock(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	return PIFClass_GetDisallowUnplugMockedCallback(sessionID, self)
+	return PIFClassGetDisallowUnplugMockedCallback(sessionID, self)
 }
 // Get the disallow_unplug field of the given PIF.
 func (_class PIFClass) GetDisallowUnplug(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDisallowUnplugMock(sessionID, self)
 	}	
 	_method := "PIF.get_disallow_unplug"
@@ -1238,18 +1298,20 @@ func (_class PIFClass) GetDisallowUnplug(sessionID SessionRef, self PIFRef) (_re
 }
 
 
-var PIFClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
+func PIFClassGetOtherConfigMockDefault(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
 	log.Println("PIF.GetOtherConfig not mocked")
 	_err = errors.New("PIF.GetOtherConfig not mocked")
 	return
 }
 
+var PIFClassGetOtherConfigMockedCallback = PIFClassGetOtherConfigMockDefault
+
 func (_class PIFClass) GetOtherConfigMock(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
-	return PIFClass_GetOtherConfigMockedCallback(sessionID, self)
+	return PIFClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given PIF.
 func (_class PIFClass) GetOtherConfig(sessionID SessionRef, self PIFRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "PIF.get_other_config"
@@ -1270,18 +1332,20 @@ func (_class PIFClass) GetOtherConfig(sessionID SessionRef, self PIFRef) (_retva
 }
 
 
-var PIFClass_GetManagementMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
+func PIFClassGetManagementMockDefault(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
 	log.Println("PIF.GetManagement not mocked")
 	_err = errors.New("PIF.GetManagement not mocked")
 	return
 }
 
+var PIFClassGetManagementMockedCallback = PIFClassGetManagementMockDefault
+
 func (_class PIFClass) GetManagementMock(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	return PIFClass_GetManagementMockedCallback(sessionID, self)
+	return PIFClassGetManagementMockedCallback(sessionID, self)
 }
 // Get the management field of the given PIF.
 func (_class PIFClass) GetManagement(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetManagementMock(sessionID, self)
 	}	
 	_method := "PIF.get_management"
@@ -1302,18 +1366,20 @@ func (_class PIFClass) GetManagement(sessionID SessionRef, self PIFRef) (_retval
 }
 
 
-var PIFClass_GetVLANSlaveOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []VLANRef, _err error) {
+func PIFClassGetVLANSlaveOfMockDefault(sessionID SessionRef, self PIFRef) (_retval []VLANRef, _err error) {
 	log.Println("PIF.GetVLANSlaveOf not mocked")
 	_err = errors.New("PIF.GetVLANSlaveOf not mocked")
 	return
 }
 
+var PIFClassGetVLANSlaveOfMockedCallback = PIFClassGetVLANSlaveOfMockDefault
+
 func (_class PIFClass) GetVLANSlaveOfMock(sessionID SessionRef, self PIFRef) (_retval []VLANRef, _err error) {
-	return PIFClass_GetVLANSlaveOfMockedCallback(sessionID, self)
+	return PIFClassGetVLANSlaveOfMockedCallback(sessionID, self)
 }
 // Get the VLAN_slave_of field of the given PIF.
 func (_class PIFClass) GetVLANSlaveOf(sessionID SessionRef, self PIFRef) (_retval []VLANRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVLANSlaveOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_VLAN_slave_of"
@@ -1334,18 +1400,20 @@ func (_class PIFClass) GetVLANSlaveOf(sessionID SessionRef, self PIFRef) (_retva
 }
 
 
-var PIFClass_GetVLANMasterOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval VLANRef, _err error) {
+func PIFClassGetVLANMasterOfMockDefault(sessionID SessionRef, self PIFRef) (_retval VLANRef, _err error) {
 	log.Println("PIF.GetVLANMasterOf not mocked")
 	_err = errors.New("PIF.GetVLANMasterOf not mocked")
 	return
 }
 
+var PIFClassGetVLANMasterOfMockedCallback = PIFClassGetVLANMasterOfMockDefault
+
 func (_class PIFClass) GetVLANMasterOfMock(sessionID SessionRef, self PIFRef) (_retval VLANRef, _err error) {
-	return PIFClass_GetVLANMasterOfMockedCallback(sessionID, self)
+	return PIFClassGetVLANMasterOfMockedCallback(sessionID, self)
 }
 // Get the VLAN_master_of field of the given PIF.
 func (_class PIFClass) GetVLANMasterOf(sessionID SessionRef, self PIFRef) (_retval VLANRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVLANMasterOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_VLAN_master_of"
@@ -1366,18 +1434,20 @@ func (_class PIFClass) GetVLANMasterOf(sessionID SessionRef, self PIFRef) (_retv
 }
 
 
-var PIFClass_GetBondMasterOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval []BondRef, _err error) {
+func PIFClassGetBondMasterOfMockDefault(sessionID SessionRef, self PIFRef) (_retval []BondRef, _err error) {
 	log.Println("PIF.GetBondMasterOf not mocked")
 	_err = errors.New("PIF.GetBondMasterOf not mocked")
 	return
 }
 
+var PIFClassGetBondMasterOfMockedCallback = PIFClassGetBondMasterOfMockDefault
+
 func (_class PIFClass) GetBondMasterOfMock(sessionID SessionRef, self PIFRef) (_retval []BondRef, _err error) {
-	return PIFClass_GetBondMasterOfMockedCallback(sessionID, self)
+	return PIFClassGetBondMasterOfMockedCallback(sessionID, self)
 }
 // Get the bond_master_of field of the given PIF.
 func (_class PIFClass) GetBondMasterOf(sessionID SessionRef, self PIFRef) (_retval []BondRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBondMasterOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_bond_master_of"
@@ -1398,18 +1468,20 @@ func (_class PIFClass) GetBondMasterOf(sessionID SessionRef, self PIFRef) (_retv
 }
 
 
-var PIFClass_GetBondSlaveOfMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval BondRef, _err error) {
+func PIFClassGetBondSlaveOfMockDefault(sessionID SessionRef, self PIFRef) (_retval BondRef, _err error) {
 	log.Println("PIF.GetBondSlaveOf not mocked")
 	_err = errors.New("PIF.GetBondSlaveOf not mocked")
 	return
 }
 
+var PIFClassGetBondSlaveOfMockedCallback = PIFClassGetBondSlaveOfMockDefault
+
 func (_class PIFClass) GetBondSlaveOfMock(sessionID SessionRef, self PIFRef) (_retval BondRef, _err error) {
-	return PIFClass_GetBondSlaveOfMockedCallback(sessionID, self)
+	return PIFClassGetBondSlaveOfMockedCallback(sessionID, self)
 }
 // Get the bond_slave_of field of the given PIF.
 func (_class PIFClass) GetBondSlaveOf(sessionID SessionRef, self PIFRef) (_retval BondRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBondSlaveOfMock(sessionID, self)
 	}	
 	_method := "PIF.get_bond_slave_of"
@@ -1430,18 +1502,20 @@ func (_class PIFClass) GetBondSlaveOf(sessionID SessionRef, self PIFRef) (_retva
 }
 
 
-var PIFClass_GetDNSMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetDNSMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetDNS not mocked")
 	_err = errors.New("PIF.GetDNS not mocked")
 	return
 }
 
+var PIFClassGetDNSMockedCallback = PIFClassGetDNSMockDefault
+
 func (_class PIFClass) GetDNSMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetDNSMockedCallback(sessionID, self)
+	return PIFClassGetDNSMockedCallback(sessionID, self)
 }
 // Get the DNS field of the given PIF.
 func (_class PIFClass) GetDNS(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDNSMock(sessionID, self)
 	}	
 	_method := "PIF.get_DNS"
@@ -1462,18 +1536,20 @@ func (_class PIFClass) GetDNS(sessionID SessionRef, self PIFRef) (_retval string
 }
 
 
-var PIFClass_GetGatewayMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetGatewayMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetGateway not mocked")
 	_err = errors.New("PIF.GetGateway not mocked")
 	return
 }
 
+var PIFClassGetGatewayMockedCallback = PIFClassGetGatewayMockDefault
+
 func (_class PIFClass) GetGatewayMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetGatewayMockedCallback(sessionID, self)
+	return PIFClassGetGatewayMockedCallback(sessionID, self)
 }
 // Get the gateway field of the given PIF.
 func (_class PIFClass) GetGateway(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetGatewayMock(sessionID, self)
 	}	
 	_method := "PIF.get_gateway"
@@ -1494,18 +1570,20 @@ func (_class PIFClass) GetGateway(sessionID SessionRef, self PIFRef) (_retval st
 }
 
 
-var PIFClass_GetNetmaskMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetNetmaskMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetNetmask not mocked")
 	_err = errors.New("PIF.GetNetmask not mocked")
 	return
 }
 
+var PIFClassGetNetmaskMockedCallback = PIFClassGetNetmaskMockDefault
+
 func (_class PIFClass) GetNetmaskMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetNetmaskMockedCallback(sessionID, self)
+	return PIFClassGetNetmaskMockedCallback(sessionID, self)
 }
 // Get the netmask field of the given PIF.
 func (_class PIFClass) GetNetmask(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNetmaskMock(sessionID, self)
 	}	
 	_method := "PIF.get_netmask"
@@ -1526,18 +1604,20 @@ func (_class PIFClass) GetNetmask(sessionID SessionRef, self PIFRef) (_retval st
 }
 
 
-var PIFClass_GetIPMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetIPMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetIP not mocked")
 	_err = errors.New("PIF.GetIP not mocked")
 	return
 }
 
+var PIFClassGetIPMockedCallback = PIFClassGetIPMockDefault
+
 func (_class PIFClass) GetIPMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetIPMockedCallback(sessionID, self)
+	return PIFClassGetIPMockedCallback(sessionID, self)
 }
 // Get the IP field of the given PIF.
 func (_class PIFClass) GetIP(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIPMock(sessionID, self)
 	}	
 	_method := "PIF.get_IP"
@@ -1558,18 +1638,20 @@ func (_class PIFClass) GetIP(sessionID SessionRef, self PIFRef) (_retval string,
 }
 
 
-var PIFClass_GetIPConfigurationModeMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval IPConfigurationMode, _err error) {
+func PIFClassGetIPConfigurationModeMockDefault(sessionID SessionRef, self PIFRef) (_retval IPConfigurationMode, _err error) {
 	log.Println("PIF.GetIPConfigurationMode not mocked")
 	_err = errors.New("PIF.GetIPConfigurationMode not mocked")
 	return
 }
 
+var PIFClassGetIPConfigurationModeMockedCallback = PIFClassGetIPConfigurationModeMockDefault
+
 func (_class PIFClass) GetIPConfigurationModeMock(sessionID SessionRef, self PIFRef) (_retval IPConfigurationMode, _err error) {
-	return PIFClass_GetIPConfigurationModeMockedCallback(sessionID, self)
+	return PIFClassGetIPConfigurationModeMockedCallback(sessionID, self)
 }
 // Get the ip_configuration_mode field of the given PIF.
 func (_class PIFClass) GetIPConfigurationMode(sessionID SessionRef, self PIFRef) (_retval IPConfigurationMode, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIPConfigurationModeMock(sessionID, self)
 	}	
 	_method := "PIF.get_ip_configuration_mode"
@@ -1590,18 +1672,20 @@ func (_class PIFClass) GetIPConfigurationMode(sessionID SessionRef, self PIFRef)
 }
 
 
-var PIFClass_GetCurrentlyAttachedMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
+func PIFClassGetCurrentlyAttachedMockDefault(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
 	log.Println("PIF.GetCurrentlyAttached not mocked")
 	_err = errors.New("PIF.GetCurrentlyAttached not mocked")
 	return
 }
 
+var PIFClassGetCurrentlyAttachedMockedCallback = PIFClassGetCurrentlyAttachedMockDefault
+
 func (_class PIFClass) GetCurrentlyAttachedMock(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	return PIFClass_GetCurrentlyAttachedMockedCallback(sessionID, self)
+	return PIFClassGetCurrentlyAttachedMockedCallback(sessionID, self)
 }
 // Get the currently_attached field of the given PIF.
 func (_class PIFClass) GetCurrentlyAttached(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCurrentlyAttachedMock(sessionID, self)
 	}	
 	_method := "PIF.get_currently_attached"
@@ -1622,18 +1706,20 @@ func (_class PIFClass) GetCurrentlyAttached(sessionID SessionRef, self PIFRef) (
 }
 
 
-var PIFClass_GetPhysicalMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
+func PIFClassGetPhysicalMockDefault(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
 	log.Println("PIF.GetPhysical not mocked")
 	_err = errors.New("PIF.GetPhysical not mocked")
 	return
 }
 
+var PIFClassGetPhysicalMockedCallback = PIFClassGetPhysicalMockDefault
+
 func (_class PIFClass) GetPhysicalMock(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	return PIFClass_GetPhysicalMockedCallback(sessionID, self)
+	return PIFClassGetPhysicalMockedCallback(sessionID, self)
 }
 // Get the physical field of the given PIF.
 func (_class PIFClass) GetPhysical(sessionID SessionRef, self PIFRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPhysicalMock(sessionID, self)
 	}	
 	_method := "PIF.get_physical"
@@ -1654,18 +1740,20 @@ func (_class PIFClass) GetPhysical(sessionID SessionRef, self PIFRef) (_retval b
 }
 
 
-var PIFClass_GetMetricsMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval PIFMetricsRef, _err error) {
+func PIFClassGetMetricsMockDefault(sessionID SessionRef, self PIFRef) (_retval PIFMetricsRef, _err error) {
 	log.Println("PIF.GetMetrics not mocked")
 	_err = errors.New("PIF.GetMetrics not mocked")
 	return
 }
 
+var PIFClassGetMetricsMockedCallback = PIFClassGetMetricsMockDefault
+
 func (_class PIFClass) GetMetricsMock(sessionID SessionRef, self PIFRef) (_retval PIFMetricsRef, _err error) {
-	return PIFClass_GetMetricsMockedCallback(sessionID, self)
+	return PIFClassGetMetricsMockedCallback(sessionID, self)
 }
 // Get the metrics field of the given PIF.
 func (_class PIFClass) GetMetrics(sessionID SessionRef, self PIFRef) (_retval PIFMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMetricsMock(sessionID, self)
 	}	
 	_method := "PIF.get_metrics"
@@ -1686,18 +1774,20 @@ func (_class PIFClass) GetMetrics(sessionID SessionRef, self PIFRef) (_retval PI
 }
 
 
-var PIFClass_GetVLANMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval int, _err error) {
+func PIFClassGetVLANMockDefault(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
 	log.Println("PIF.GetVLAN not mocked")
 	_err = errors.New("PIF.GetVLAN not mocked")
 	return
 }
 
+var PIFClassGetVLANMockedCallback = PIFClassGetVLANMockDefault
+
 func (_class PIFClass) GetVLANMock(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
-	return PIFClass_GetVLANMockedCallback(sessionID, self)
+	return PIFClassGetVLANMockedCallback(sessionID, self)
 }
 // Get the VLAN field of the given PIF.
 func (_class PIFClass) GetVLAN(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVLANMock(sessionID, self)
 	}	
 	_method := "PIF.get_VLAN"
@@ -1718,18 +1808,20 @@ func (_class PIFClass) GetVLAN(sessionID SessionRef, self PIFRef) (_retval int, 
 }
 
 
-var PIFClass_GetMTUMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval int, _err error) {
+func PIFClassGetMTUMockDefault(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
 	log.Println("PIF.GetMTU not mocked")
 	_err = errors.New("PIF.GetMTU not mocked")
 	return
 }
 
+var PIFClassGetMTUMockedCallback = PIFClassGetMTUMockDefault
+
 func (_class PIFClass) GetMTUMock(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
-	return PIFClass_GetMTUMockedCallback(sessionID, self)
+	return PIFClassGetMTUMockedCallback(sessionID, self)
 }
 // Get the MTU field of the given PIF.
 func (_class PIFClass) GetMTU(sessionID SessionRef, self PIFRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMTUMock(sessionID, self)
 	}	
 	_method := "PIF.get_MTU"
@@ -1750,18 +1842,20 @@ func (_class PIFClass) GetMTU(sessionID SessionRef, self PIFRef) (_retval int, _
 }
 
 
-var PIFClass_GetMACMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetMACMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetMAC not mocked")
 	_err = errors.New("PIF.GetMAC not mocked")
 	return
 }
 
+var PIFClassGetMACMockedCallback = PIFClassGetMACMockDefault
+
 func (_class PIFClass) GetMACMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetMACMockedCallback(sessionID, self)
+	return PIFClassGetMACMockedCallback(sessionID, self)
 }
 // Get the MAC field of the given PIF.
 func (_class PIFClass) GetMAC(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMACMock(sessionID, self)
 	}	
 	_method := "PIF.get_MAC"
@@ -1782,18 +1876,20 @@ func (_class PIFClass) GetMAC(sessionID SessionRef, self PIFRef) (_retval string
 }
 
 
-var PIFClass_GetHostMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval HostRef, _err error) {
+func PIFClassGetHostMockDefault(sessionID SessionRef, self PIFRef) (_retval HostRef, _err error) {
 	log.Println("PIF.GetHost not mocked")
 	_err = errors.New("PIF.GetHost not mocked")
 	return
 }
 
+var PIFClassGetHostMockedCallback = PIFClassGetHostMockDefault
+
 func (_class PIFClass) GetHostMock(sessionID SessionRef, self PIFRef) (_retval HostRef, _err error) {
-	return PIFClass_GetHostMockedCallback(sessionID, self)
+	return PIFClassGetHostMockedCallback(sessionID, self)
 }
 // Get the host field of the given PIF.
 func (_class PIFClass) GetHost(sessionID SessionRef, self PIFRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "PIF.get_host"
@@ -1814,18 +1910,20 @@ func (_class PIFClass) GetHost(sessionID SessionRef, self PIFRef) (_retval HostR
 }
 
 
-var PIFClass_GetNetworkMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval NetworkRef, _err error) {
+func PIFClassGetNetworkMockDefault(sessionID SessionRef, self PIFRef) (_retval NetworkRef, _err error) {
 	log.Println("PIF.GetNetwork not mocked")
 	_err = errors.New("PIF.GetNetwork not mocked")
 	return
 }
 
+var PIFClassGetNetworkMockedCallback = PIFClassGetNetworkMockDefault
+
 func (_class PIFClass) GetNetworkMock(sessionID SessionRef, self PIFRef) (_retval NetworkRef, _err error) {
-	return PIFClass_GetNetworkMockedCallback(sessionID, self)
+	return PIFClassGetNetworkMockedCallback(sessionID, self)
 }
 // Get the network field of the given PIF.
 func (_class PIFClass) GetNetwork(sessionID SessionRef, self PIFRef) (_retval NetworkRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNetworkMock(sessionID, self)
 	}	
 	_method := "PIF.get_network"
@@ -1846,18 +1944,20 @@ func (_class PIFClass) GetNetwork(sessionID SessionRef, self PIFRef) (_retval Ne
 }
 
 
-var PIFClass_GetDeviceMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetDeviceMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetDevice not mocked")
 	_err = errors.New("PIF.GetDevice not mocked")
 	return
 }
 
+var PIFClassGetDeviceMockedCallback = PIFClassGetDeviceMockDefault
+
 func (_class PIFClass) GetDeviceMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetDeviceMockedCallback(sessionID, self)
+	return PIFClassGetDeviceMockedCallback(sessionID, self)
 }
 // Get the device field of the given PIF.
 func (_class PIFClass) GetDevice(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDeviceMock(sessionID, self)
 	}	
 	_method := "PIF.get_device"
@@ -1878,18 +1978,20 @@ func (_class PIFClass) GetDevice(sessionID SessionRef, self PIFRef) (_retval str
 }
 
 
-var PIFClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval string, _err error) {
+func PIFClassGetUUIDMockDefault(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
 	log.Println("PIF.GetUUID not mocked")
 	_err = errors.New("PIF.GetUUID not mocked")
 	return
 }
 
+var PIFClassGetUUIDMockedCallback = PIFClassGetUUIDMockDefault
+
 func (_class PIFClass) GetUUIDMock(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	return PIFClass_GetUUIDMockedCallback(sessionID, self)
+	return PIFClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given PIF.
 func (_class PIFClass) GetUUID(sessionID SessionRef, self PIFRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "PIF.get_uuid"
@@ -1910,18 +2012,20 @@ func (_class PIFClass) GetUUID(sessionID SessionRef, self PIFRef) (_retval strin
 }
 
 
-var PIFClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PIFRef, _err error) {
+func PIFClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval PIFRef, _err error) {
 	log.Println("PIF.GetByUUID not mocked")
 	_err = errors.New("PIF.GetByUUID not mocked")
 	return
 }
 
+var PIFClassGetByUUIDMockedCallback = PIFClassGetByUUIDMockDefault
+
 func (_class PIFClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PIFRef, _err error) {
-	return PIFClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return PIFClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the PIF instance with the specified UUID.
 func (_class PIFClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "PIF.get_by_uuid"
@@ -1942,18 +2046,20 @@ func (_class PIFClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PIF
 }
 
 
-var PIFClass_GetRecordMockedCallback = func (sessionID SessionRef, self PIFRef) (_retval PIFRecord, _err error) {
+func PIFClassGetRecordMockDefault(sessionID SessionRef, self PIFRef) (_retval PIFRecord, _err error) {
 	log.Println("PIF.GetRecord not mocked")
 	_err = errors.New("PIF.GetRecord not mocked")
 	return
 }
 
+var PIFClassGetRecordMockedCallback = PIFClassGetRecordMockDefault
+
 func (_class PIFClass) GetRecordMock(sessionID SessionRef, self PIFRef) (_retval PIFRecord, _err error) {
-	return PIFClass_GetRecordMockedCallback(sessionID, self)
+	return PIFClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given PIF.
 func (_class PIFClass) GetRecord(sessionID SessionRef, self PIFRef) (_retval PIFRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "PIF.get_record"

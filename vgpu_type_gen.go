@@ -79,18 +79,20 @@ type VGPUTypeClass struct {
 }
 
 
-var VGPUTypeClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VGPUTypeRef]VGPUTypeRecord, _err error) {
+func VGPUTypeClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[VGPUTypeRef]VGPUTypeRecord, _err error) {
 	log.Println("VGPUType.GetAllRecords not mocked")
 	_err = errors.New("VGPUType.GetAllRecords not mocked")
 	return
 }
 
+var VGPUTypeClassGetAllRecordsMockedCallback = VGPUTypeClassGetAllRecordsMockDefault
+
 func (_class VGPUTypeClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VGPUTypeRef]VGPUTypeRecord, _err error) {
-	return VGPUTypeClass_GetAllRecordsMockedCallback(sessionID)
+	return VGPUTypeClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of VGPU_type references to VGPU_type records for all VGPU_types known to the system.
 func (_class VGPUTypeClass) GetAllRecords(sessionID SessionRef) (_retval map[VGPUTypeRef]VGPUTypeRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VGPU_type.get_all_records"
@@ -107,18 +109,20 @@ func (_class VGPUTypeClass) GetAllRecords(sessionID SessionRef) (_retval map[VGP
 }
 
 
-var VGPUTypeClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VGPUTypeRef, _err error) {
+func VGPUTypeClassGetAllMockDefault(sessionID SessionRef) (_retval []VGPUTypeRef, _err error) {
 	log.Println("VGPUType.GetAll not mocked")
 	_err = errors.New("VGPUType.GetAll not mocked")
 	return
 }
 
+var VGPUTypeClassGetAllMockedCallback = VGPUTypeClassGetAllMockDefault
+
 func (_class VGPUTypeClass) GetAllMock(sessionID SessionRef) (_retval []VGPUTypeRef, _err error) {
-	return VGPUTypeClass_GetAllMockedCallback(sessionID)
+	return VGPUTypeClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the VGPU_types known to the system.
 func (_class VGPUTypeClass) GetAll(sessionID SessionRef) (_retval []VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VGPU_type.get_all"
@@ -135,18 +139,20 @@ func (_class VGPUTypeClass) GetAll(sessionID SessionRef) (_retval []VGPUTypeRef,
 }
 
 
-var VGPUTypeClass_GetExperimentalMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval bool, _err error) {
+func VGPUTypeClassGetExperimentalMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval bool, _err error) {
 	log.Println("VGPUType.GetExperimental not mocked")
 	_err = errors.New("VGPUType.GetExperimental not mocked")
 	return
 }
 
+var VGPUTypeClassGetExperimentalMockedCallback = VGPUTypeClassGetExperimentalMockDefault
+
 func (_class VGPUTypeClass) GetExperimentalMock(sessionID SessionRef, self VGPUTypeRef) (_retval bool, _err error) {
-	return VGPUTypeClass_GetExperimentalMockedCallback(sessionID, self)
+	return VGPUTypeClassGetExperimentalMockedCallback(sessionID, self)
 }
 // Get the experimental field of the given VGPU_type.
 func (_class VGPUTypeClass) GetExperimental(sessionID SessionRef, self VGPUTypeRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetExperimentalMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_experimental"
@@ -167,18 +173,20 @@ func (_class VGPUTypeClass) GetExperimental(sessionID SessionRef, self VGPUTypeR
 }
 
 
-var VGPUTypeClass_GetIdentifierMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
+func VGPUTypeClassGetIdentifierMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
 	log.Println("VGPUType.GetIdentifier not mocked")
 	_err = errors.New("VGPUType.GetIdentifier not mocked")
 	return
 }
 
+var VGPUTypeClassGetIdentifierMockedCallback = VGPUTypeClassGetIdentifierMockDefault
+
 func (_class VGPUTypeClass) GetIdentifierMock(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	return VGPUTypeClass_GetIdentifierMockedCallback(sessionID, self)
+	return VGPUTypeClassGetIdentifierMockedCallback(sessionID, self)
 }
 // Get the identifier field of the given VGPU_type.
 func (_class VGPUTypeClass) GetIdentifier(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIdentifierMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_identifier"
@@ -199,18 +207,20 @@ func (_class VGPUTypeClass) GetIdentifier(sessionID SessionRef, self VGPUTypeRef
 }
 
 
-var VGPUTypeClass_GetImplementationMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval VgpuTypeImplementation, _err error) {
+func VGPUTypeClassGetImplementationMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval VgpuTypeImplementation, _err error) {
 	log.Println("VGPUType.GetImplementation not mocked")
 	_err = errors.New("VGPUType.GetImplementation not mocked")
 	return
 }
 
+var VGPUTypeClassGetImplementationMockedCallback = VGPUTypeClassGetImplementationMockDefault
+
 func (_class VGPUTypeClass) GetImplementationMock(sessionID SessionRef, self VGPUTypeRef) (_retval VgpuTypeImplementation, _err error) {
-	return VGPUTypeClass_GetImplementationMockedCallback(sessionID, self)
+	return VGPUTypeClassGetImplementationMockedCallback(sessionID, self)
 }
 // Get the implementation field of the given VGPU_type.
 func (_class VGPUTypeClass) GetImplementation(sessionID SessionRef, self VGPUTypeRef) (_retval VgpuTypeImplementation, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetImplementationMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_implementation"
@@ -231,18 +241,20 @@ func (_class VGPUTypeClass) GetImplementation(sessionID SessionRef, self VGPUTyp
 }
 
 
-var VGPUTypeClass_GetEnabledOnGPUGroupsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
+func VGPUTypeClassGetEnabledOnGPUGroupsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
 	log.Println("VGPUType.GetEnabledOnGPUGroups not mocked")
 	_err = errors.New("VGPUType.GetEnabledOnGPUGroups not mocked")
 	return
 }
 
+var VGPUTypeClassGetEnabledOnGPUGroupsMockedCallback = VGPUTypeClassGetEnabledOnGPUGroupsMockDefault
+
 func (_class VGPUTypeClass) GetEnabledOnGPUGroupsMock(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
-	return VGPUTypeClass_GetEnabledOnGPUGroupsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetEnabledOnGPUGroupsMockedCallback(sessionID, self)
 }
 // Get the enabled_on_GPU_groups field of the given VGPU_type.
 func (_class VGPUTypeClass) GetEnabledOnGPUGroups(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnabledOnGPUGroupsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_enabled_on_GPU_groups"
@@ -263,18 +275,20 @@ func (_class VGPUTypeClass) GetEnabledOnGPUGroups(sessionID SessionRef, self VGP
 }
 
 
-var VGPUTypeClass_GetSupportedOnGPUGroupsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
+func VGPUTypeClassGetSupportedOnGPUGroupsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
 	log.Println("VGPUType.GetSupportedOnGPUGroups not mocked")
 	_err = errors.New("VGPUType.GetSupportedOnGPUGroups not mocked")
 	return
 }
 
+var VGPUTypeClassGetSupportedOnGPUGroupsMockedCallback = VGPUTypeClassGetSupportedOnGPUGroupsMockDefault
+
 func (_class VGPUTypeClass) GetSupportedOnGPUGroupsMock(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
-	return VGPUTypeClass_GetSupportedOnGPUGroupsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetSupportedOnGPUGroupsMockedCallback(sessionID, self)
 }
 // Get the supported_on_GPU_groups field of the given VGPU_type.
 func (_class VGPUTypeClass) GetSupportedOnGPUGroups(sessionID SessionRef, self VGPUTypeRef) (_retval []GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedOnGPUGroupsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_supported_on_GPU_groups"
@@ -295,18 +309,20 @@ func (_class VGPUTypeClass) GetSupportedOnGPUGroups(sessionID SessionRef, self V
 }
 
 
-var VGPUTypeClass_GetVGPUsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval []VGPURef, _err error) {
+func VGPUTypeClassGetVGPUsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval []VGPURef, _err error) {
 	log.Println("VGPUType.GetVGPUs not mocked")
 	_err = errors.New("VGPUType.GetVGPUs not mocked")
 	return
 }
 
+var VGPUTypeClassGetVGPUsMockedCallback = VGPUTypeClassGetVGPUsMockDefault
+
 func (_class VGPUTypeClass) GetVGPUsMock(sessionID SessionRef, self VGPUTypeRef) (_retval []VGPURef, _err error) {
-	return VGPUTypeClass_GetVGPUsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetVGPUsMockedCallback(sessionID, self)
 }
 // Get the VGPUs field of the given VGPU_type.
 func (_class VGPUTypeClass) GetVGPUs(sessionID SessionRef, self VGPUTypeRef) (_retval []VGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVGPUsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_VGPUs"
@@ -327,18 +343,20 @@ func (_class VGPUTypeClass) GetVGPUs(sessionID SessionRef, self VGPUTypeRef) (_r
 }
 
 
-var VGPUTypeClass_GetEnabledOnPGPUsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
+func VGPUTypeClassGetEnabledOnPGPUsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
 	log.Println("VGPUType.GetEnabledOnPGPUs not mocked")
 	_err = errors.New("VGPUType.GetEnabledOnPGPUs not mocked")
 	return
 }
 
+var VGPUTypeClassGetEnabledOnPGPUsMockedCallback = VGPUTypeClassGetEnabledOnPGPUsMockDefault
+
 func (_class VGPUTypeClass) GetEnabledOnPGPUsMock(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
-	return VGPUTypeClass_GetEnabledOnPGPUsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetEnabledOnPGPUsMockedCallback(sessionID, self)
 }
 // Get the enabled_on_PGPUs field of the given VGPU_type.
 func (_class VGPUTypeClass) GetEnabledOnPGPUs(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnabledOnPGPUsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_enabled_on_PGPUs"
@@ -359,18 +377,20 @@ func (_class VGPUTypeClass) GetEnabledOnPGPUs(sessionID SessionRef, self VGPUTyp
 }
 
 
-var VGPUTypeClass_GetSupportedOnPGPUsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
+func VGPUTypeClassGetSupportedOnPGPUsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
 	log.Println("VGPUType.GetSupportedOnPGPUs not mocked")
 	_err = errors.New("VGPUType.GetSupportedOnPGPUs not mocked")
 	return
 }
 
+var VGPUTypeClassGetSupportedOnPGPUsMockedCallback = VGPUTypeClassGetSupportedOnPGPUsMockDefault
+
 func (_class VGPUTypeClass) GetSupportedOnPGPUsMock(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
-	return VGPUTypeClass_GetSupportedOnPGPUsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetSupportedOnPGPUsMockedCallback(sessionID, self)
 }
 // Get the supported_on_PGPUs field of the given VGPU_type.
 func (_class VGPUTypeClass) GetSupportedOnPGPUs(sessionID SessionRef, self VGPUTypeRef) (_retval []PGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedOnPGPUsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_supported_on_PGPUs"
@@ -391,18 +411,20 @@ func (_class VGPUTypeClass) GetSupportedOnPGPUs(sessionID SessionRef, self VGPUT
 }
 
 
-var VGPUTypeClass_GetMaxResolutionYMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
+func VGPUTypeClassGetMaxResolutionYMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
 	log.Println("VGPUType.GetMaxResolutionY not mocked")
 	_err = errors.New("VGPUType.GetMaxResolutionY not mocked")
 	return
 }
 
+var VGPUTypeClassGetMaxResolutionYMockedCallback = VGPUTypeClassGetMaxResolutionYMockDefault
+
 func (_class VGPUTypeClass) GetMaxResolutionYMock(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	return VGPUTypeClass_GetMaxResolutionYMockedCallback(sessionID, self)
+	return VGPUTypeClassGetMaxResolutionYMockedCallback(sessionID, self)
 }
 // Get the max_resolution_y field of the given VGPU_type.
 func (_class VGPUTypeClass) GetMaxResolutionY(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMaxResolutionYMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_max_resolution_y"
@@ -423,18 +445,20 @@ func (_class VGPUTypeClass) GetMaxResolutionY(sessionID SessionRef, self VGPUTyp
 }
 
 
-var VGPUTypeClass_GetMaxResolutionXMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
+func VGPUTypeClassGetMaxResolutionXMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
 	log.Println("VGPUType.GetMaxResolutionX not mocked")
 	_err = errors.New("VGPUType.GetMaxResolutionX not mocked")
 	return
 }
 
+var VGPUTypeClassGetMaxResolutionXMockedCallback = VGPUTypeClassGetMaxResolutionXMockDefault
+
 func (_class VGPUTypeClass) GetMaxResolutionXMock(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	return VGPUTypeClass_GetMaxResolutionXMockedCallback(sessionID, self)
+	return VGPUTypeClassGetMaxResolutionXMockedCallback(sessionID, self)
 }
 // Get the max_resolution_x field of the given VGPU_type.
 func (_class VGPUTypeClass) GetMaxResolutionX(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMaxResolutionXMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_max_resolution_x"
@@ -455,18 +479,20 @@ func (_class VGPUTypeClass) GetMaxResolutionX(sessionID SessionRef, self VGPUTyp
 }
 
 
-var VGPUTypeClass_GetMaxHeadsMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
+func VGPUTypeClassGetMaxHeadsMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
 	log.Println("VGPUType.GetMaxHeads not mocked")
 	_err = errors.New("VGPUType.GetMaxHeads not mocked")
 	return
 }
 
+var VGPUTypeClassGetMaxHeadsMockedCallback = VGPUTypeClassGetMaxHeadsMockDefault
+
 func (_class VGPUTypeClass) GetMaxHeadsMock(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	return VGPUTypeClass_GetMaxHeadsMockedCallback(sessionID, self)
+	return VGPUTypeClassGetMaxHeadsMockedCallback(sessionID, self)
 }
 // Get the max_heads field of the given VGPU_type.
 func (_class VGPUTypeClass) GetMaxHeads(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMaxHeadsMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_max_heads"
@@ -487,18 +513,20 @@ func (_class VGPUTypeClass) GetMaxHeads(sessionID SessionRef, self VGPUTypeRef) 
 }
 
 
-var VGPUTypeClass_GetFramebufferSizeMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
+func VGPUTypeClassGetFramebufferSizeMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
 	log.Println("VGPUType.GetFramebufferSize not mocked")
 	_err = errors.New("VGPUType.GetFramebufferSize not mocked")
 	return
 }
 
+var VGPUTypeClassGetFramebufferSizeMockedCallback = VGPUTypeClassGetFramebufferSizeMockDefault
+
 func (_class VGPUTypeClass) GetFramebufferSizeMock(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	return VGPUTypeClass_GetFramebufferSizeMockedCallback(sessionID, self)
+	return VGPUTypeClassGetFramebufferSizeMockedCallback(sessionID, self)
 }
 // Get the framebuffer_size field of the given VGPU_type.
 func (_class VGPUTypeClass) GetFramebufferSize(sessionID SessionRef, self VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFramebufferSizeMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_framebuffer_size"
@@ -519,18 +547,20 @@ func (_class VGPUTypeClass) GetFramebufferSize(sessionID SessionRef, self VGPUTy
 }
 
 
-var VGPUTypeClass_GetModelNameMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
+func VGPUTypeClassGetModelNameMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
 	log.Println("VGPUType.GetModelName not mocked")
 	_err = errors.New("VGPUType.GetModelName not mocked")
 	return
 }
 
+var VGPUTypeClassGetModelNameMockedCallback = VGPUTypeClassGetModelNameMockDefault
+
 func (_class VGPUTypeClass) GetModelNameMock(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	return VGPUTypeClass_GetModelNameMockedCallback(sessionID, self)
+	return VGPUTypeClassGetModelNameMockedCallback(sessionID, self)
 }
 // Get the model_name field of the given VGPU_type.
 func (_class VGPUTypeClass) GetModelName(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetModelNameMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_model_name"
@@ -551,18 +581,20 @@ func (_class VGPUTypeClass) GetModelName(sessionID SessionRef, self VGPUTypeRef)
 }
 
 
-var VGPUTypeClass_GetVendorNameMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
+func VGPUTypeClassGetVendorNameMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
 	log.Println("VGPUType.GetVendorName not mocked")
 	_err = errors.New("VGPUType.GetVendorName not mocked")
 	return
 }
 
+var VGPUTypeClassGetVendorNameMockedCallback = VGPUTypeClassGetVendorNameMockDefault
+
 func (_class VGPUTypeClass) GetVendorNameMock(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	return VGPUTypeClass_GetVendorNameMockedCallback(sessionID, self)
+	return VGPUTypeClassGetVendorNameMockedCallback(sessionID, self)
 }
 // Get the vendor_name field of the given VGPU_type.
 func (_class VGPUTypeClass) GetVendorName(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVendorNameMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_vendor_name"
@@ -583,18 +615,20 @@ func (_class VGPUTypeClass) GetVendorName(sessionID SessionRef, self VGPUTypeRef
 }
 
 
-var VGPUTypeClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
+func VGPUTypeClassGetUUIDMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
 	log.Println("VGPUType.GetUUID not mocked")
 	_err = errors.New("VGPUType.GetUUID not mocked")
 	return
 }
 
+var VGPUTypeClassGetUUIDMockedCallback = VGPUTypeClassGetUUIDMockDefault
+
 func (_class VGPUTypeClass) GetUUIDMock(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	return VGPUTypeClass_GetUUIDMockedCallback(sessionID, self)
+	return VGPUTypeClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given VGPU_type.
 func (_class VGPUTypeClass) GetUUID(sessionID SessionRef, self VGPUTypeRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_uuid"
@@ -615,18 +649,20 @@ func (_class VGPUTypeClass) GetUUID(sessionID SessionRef, self VGPUTypeRef) (_re
 }
 
 
-var VGPUTypeClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VGPUTypeRef, _err error) {
+func VGPUTypeClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval VGPUTypeRef, _err error) {
 	log.Println("VGPUType.GetByUUID not mocked")
 	_err = errors.New("VGPUType.GetByUUID not mocked")
 	return
 }
 
+var VGPUTypeClassGetByUUIDMockedCallback = VGPUTypeClassGetByUUIDMockDefault
+
 func (_class VGPUTypeClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VGPUTypeRef, _err error) {
-	return VGPUTypeClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return VGPUTypeClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the VGPU_type instance with the specified UUID.
 func (_class VGPUTypeClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VGPU_type.get_by_uuid"
@@ -647,18 +683,20 @@ func (_class VGPUTypeClass) GetByUUID(sessionID SessionRef, uuid string) (_retva
 }
 
 
-var VGPUTypeClass_GetRecordMockedCallback = func (sessionID SessionRef, self VGPUTypeRef) (_retval VGPUTypeRecord, _err error) {
+func VGPUTypeClassGetRecordMockDefault(sessionID SessionRef, self VGPUTypeRef) (_retval VGPUTypeRecord, _err error) {
 	log.Println("VGPUType.GetRecord not mocked")
 	_err = errors.New("VGPUType.GetRecord not mocked")
 	return
 }
 
+var VGPUTypeClassGetRecordMockedCallback = VGPUTypeClassGetRecordMockDefault
+
 func (_class VGPUTypeClass) GetRecordMock(sessionID SessionRef, self VGPUTypeRef) (_retval VGPUTypeRecord, _err error) {
-	return VGPUTypeClass_GetRecordMockedCallback(sessionID, self)
+	return VGPUTypeClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given VGPU_type.
 func (_class VGPUTypeClass) GetRecord(sessionID SessionRef, self VGPUTypeRef) (_retval VGPUTypeRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VGPU_type.get_record"

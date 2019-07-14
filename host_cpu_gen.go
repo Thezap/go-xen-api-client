@@ -62,18 +62,20 @@ type HostCPUClass struct {
 }
 
 
-var HostCPUClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[HostCPURef]HostCPURecord, _err error) {
+func HostCPUClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[HostCPURef]HostCPURecord, _err error) {
 	log.Println("HostCPU.GetAllRecords not mocked")
 	_err = errors.New("HostCPU.GetAllRecords not mocked")
 	return
 }
 
+var HostCPUClassGetAllRecordsMockedCallback = HostCPUClassGetAllRecordsMockDefault
+
 func (_class HostCPUClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[HostCPURef]HostCPURecord, _err error) {
-	return HostCPUClass_GetAllRecordsMockedCallback(sessionID)
+	return HostCPUClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of host_cpu references to host_cpu records for all host_cpus known to the system.
 func (_class HostCPUClass) GetAllRecords(sessionID SessionRef) (_retval map[HostCPURef]HostCPURecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "host_cpu.get_all_records"
@@ -90,18 +92,20 @@ func (_class HostCPUClass) GetAllRecords(sessionID SessionRef) (_retval map[Host
 }
 
 
-var HostCPUClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []HostCPURef, _err error) {
+func HostCPUClassGetAllMockDefault(sessionID SessionRef) (_retval []HostCPURef, _err error) {
 	log.Println("HostCPU.GetAll not mocked")
 	_err = errors.New("HostCPU.GetAll not mocked")
 	return
 }
 
+var HostCPUClassGetAllMockedCallback = HostCPUClassGetAllMockDefault
+
 func (_class HostCPUClass) GetAllMock(sessionID SessionRef) (_retval []HostCPURef, _err error) {
-	return HostCPUClass_GetAllMockedCallback(sessionID)
+	return HostCPUClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the host_cpus known to the system.
 func (_class HostCPUClass) GetAll(sessionID SessionRef) (_retval []HostCPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "host_cpu.get_all"
@@ -118,18 +122,20 @@ func (_class HostCPUClass) GetAll(sessionID SessionRef) (_retval []HostCPURef, _
 }
 
 
-var HostCPUClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self HostCPURef, key string) (_err error) {
+func HostCPUClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self HostCPURef, key string) (_err error) {
 	log.Println("HostCPU.RemoveFromOtherConfig not mocked")
 	_err = errors.New("HostCPU.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var HostCPUClassRemoveFromOtherConfigMockedCallback = HostCPUClassRemoveFromOtherConfigMockDefault
+
 func (_class HostCPUClass) RemoveFromOtherConfigMock(sessionID SessionRef, self HostCPURef, key string) (_err error) {
-	return HostCPUClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return HostCPUClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given host_cpu.  If the key is not in that Map, then do nothing.
 func (_class HostCPUClass) RemoveFromOtherConfig(sessionID SessionRef, self HostCPURef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "host_cpu.remove_from_other_config"
@@ -150,18 +156,20 @@ func (_class HostCPUClass) RemoveFromOtherConfig(sessionID SessionRef, self Host
 }
 
 
-var HostCPUClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self HostCPURef, key string, value string) (_err error) {
+func HostCPUClassAddToOtherConfigMockDefault(sessionID SessionRef, self HostCPURef, key string, value string) (_err error) {
 	log.Println("HostCPU.AddToOtherConfig not mocked")
 	_err = errors.New("HostCPU.AddToOtherConfig not mocked")
 	return
 }
 
+var HostCPUClassAddToOtherConfigMockedCallback = HostCPUClassAddToOtherConfigMockDefault
+
 func (_class HostCPUClass) AddToOtherConfigMock(sessionID SessionRef, self HostCPURef, key string, value string) (_err error) {
-	return HostCPUClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return HostCPUClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given host_cpu.
 func (_class HostCPUClass) AddToOtherConfig(sessionID SessionRef, self HostCPURef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "host_cpu.add_to_other_config"
@@ -186,18 +194,20 @@ func (_class HostCPUClass) AddToOtherConfig(sessionID SessionRef, self HostCPURe
 }
 
 
-var HostCPUClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self HostCPURef, value map[string]string) (_err error) {
+func HostCPUClassSetOtherConfigMockDefault(sessionID SessionRef, self HostCPURef, value map[string]string) (_err error) {
 	log.Println("HostCPU.SetOtherConfig not mocked")
 	_err = errors.New("HostCPU.SetOtherConfig not mocked")
 	return
 }
 
+var HostCPUClassSetOtherConfigMockedCallback = HostCPUClassSetOtherConfigMockDefault
+
 func (_class HostCPUClass) SetOtherConfigMock(sessionID SessionRef, self HostCPURef, value map[string]string) (_err error) {
-	return HostCPUClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return HostCPUClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given host_cpu.
 func (_class HostCPUClass) SetOtherConfig(sessionID SessionRef, self HostCPURef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "host_cpu.set_other_config"
@@ -218,18 +228,20 @@ func (_class HostCPUClass) SetOtherConfig(sessionID SessionRef, self HostCPURef,
 }
 
 
-var HostCPUClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval map[string]string, _err error) {
+func HostCPUClassGetOtherConfigMockDefault(sessionID SessionRef, self HostCPURef) (_retval map[string]string, _err error) {
 	log.Println("HostCPU.GetOtherConfig not mocked")
 	_err = errors.New("HostCPU.GetOtherConfig not mocked")
 	return
 }
 
+var HostCPUClassGetOtherConfigMockedCallback = HostCPUClassGetOtherConfigMockDefault
+
 func (_class HostCPUClass) GetOtherConfigMock(sessionID SessionRef, self HostCPURef) (_retval map[string]string, _err error) {
-	return HostCPUClass_GetOtherConfigMockedCallback(sessionID, self)
+	return HostCPUClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given host_cpu.
 func (_class HostCPUClass) GetOtherConfig(sessionID SessionRef, self HostCPURef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_other_config"
@@ -250,18 +262,20 @@ func (_class HostCPUClass) GetOtherConfig(sessionID SessionRef, self HostCPURef)
 }
 
 
-var HostCPUClass_GetUtilisationMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval float64, _err error) {
+func HostCPUClassGetUtilisationMockDefault(sessionID SessionRef, self HostCPURef) (_retval float64, _err error) {
 	log.Println("HostCPU.GetUtilisation not mocked")
 	_err = errors.New("HostCPU.GetUtilisation not mocked")
 	return
 }
 
+var HostCPUClassGetUtilisationMockedCallback = HostCPUClassGetUtilisationMockDefault
+
 func (_class HostCPUClass) GetUtilisationMock(sessionID SessionRef, self HostCPURef) (_retval float64, _err error) {
-	return HostCPUClass_GetUtilisationMockedCallback(sessionID, self)
+	return HostCPUClassGetUtilisationMockedCallback(sessionID, self)
 }
 // Get the utilisation field of the given host_cpu.
 func (_class HostCPUClass) GetUtilisation(sessionID SessionRef, self HostCPURef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUtilisationMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_utilisation"
@@ -282,18 +296,20 @@ func (_class HostCPUClass) GetUtilisation(sessionID SessionRef, self HostCPURef)
 }
 
 
-var HostCPUClass_GetFeaturesMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetFeaturesMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetFeatures not mocked")
 	_err = errors.New("HostCPU.GetFeatures not mocked")
 	return
 }
 
+var HostCPUClassGetFeaturesMockedCallback = HostCPUClassGetFeaturesMockDefault
+
 func (_class HostCPUClass) GetFeaturesMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetFeaturesMockedCallback(sessionID, self)
+	return HostCPUClassGetFeaturesMockedCallback(sessionID, self)
 }
 // Get the features field of the given host_cpu.
 func (_class HostCPUClass) GetFeatures(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFeaturesMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_features"
@@ -314,18 +330,20 @@ func (_class HostCPUClass) GetFeatures(sessionID SessionRef, self HostCPURef) (_
 }
 
 
-var HostCPUClass_GetFlagsMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetFlagsMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetFlags not mocked")
 	_err = errors.New("HostCPU.GetFlags not mocked")
 	return
 }
 
+var HostCPUClassGetFlagsMockedCallback = HostCPUClassGetFlagsMockDefault
+
 func (_class HostCPUClass) GetFlagsMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetFlagsMockedCallback(sessionID, self)
+	return HostCPUClassGetFlagsMockedCallback(sessionID, self)
 }
 // Get the flags field of the given host_cpu.
 func (_class HostCPUClass) GetFlags(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFlagsMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_flags"
@@ -346,18 +364,20 @@ func (_class HostCPUClass) GetFlags(sessionID SessionRef, self HostCPURef) (_ret
 }
 
 
-var HostCPUClass_GetSteppingMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetSteppingMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetStepping not mocked")
 	_err = errors.New("HostCPU.GetStepping not mocked")
 	return
 }
 
+var HostCPUClassGetSteppingMockedCallback = HostCPUClassGetSteppingMockDefault
+
 func (_class HostCPUClass) GetSteppingMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetSteppingMockedCallback(sessionID, self)
+	return HostCPUClassGetSteppingMockedCallback(sessionID, self)
 }
 // Get the stepping field of the given host_cpu.
 func (_class HostCPUClass) GetStepping(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSteppingMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_stepping"
@@ -378,18 +398,20 @@ func (_class HostCPUClass) GetStepping(sessionID SessionRef, self HostCPURef) (_
 }
 
 
-var HostCPUClass_GetModelMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
+func HostCPUClassGetModelMockDefault(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
 	log.Println("HostCPU.GetModel not mocked")
 	_err = errors.New("HostCPU.GetModel not mocked")
 	return
 }
 
+var HostCPUClassGetModelMockedCallback = HostCPUClassGetModelMockDefault
+
 func (_class HostCPUClass) GetModelMock(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	return HostCPUClass_GetModelMockedCallback(sessionID, self)
+	return HostCPUClassGetModelMockedCallback(sessionID, self)
 }
 // Get the model field of the given host_cpu.
 func (_class HostCPUClass) GetModel(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetModelMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_model"
@@ -410,18 +432,20 @@ func (_class HostCPUClass) GetModel(sessionID SessionRef, self HostCPURef) (_ret
 }
 
 
-var HostCPUClass_GetFamilyMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
+func HostCPUClassGetFamilyMockDefault(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
 	log.Println("HostCPU.GetFamily not mocked")
 	_err = errors.New("HostCPU.GetFamily not mocked")
 	return
 }
 
+var HostCPUClassGetFamilyMockedCallback = HostCPUClassGetFamilyMockDefault
+
 func (_class HostCPUClass) GetFamilyMock(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	return HostCPUClass_GetFamilyMockedCallback(sessionID, self)
+	return HostCPUClassGetFamilyMockedCallback(sessionID, self)
 }
 // Get the family field of the given host_cpu.
 func (_class HostCPUClass) GetFamily(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFamilyMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_family"
@@ -442,18 +466,20 @@ func (_class HostCPUClass) GetFamily(sessionID SessionRef, self HostCPURef) (_re
 }
 
 
-var HostCPUClass_GetModelnameMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetModelnameMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetModelname not mocked")
 	_err = errors.New("HostCPU.GetModelname not mocked")
 	return
 }
 
+var HostCPUClassGetModelnameMockedCallback = HostCPUClassGetModelnameMockDefault
+
 func (_class HostCPUClass) GetModelnameMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetModelnameMockedCallback(sessionID, self)
+	return HostCPUClassGetModelnameMockedCallback(sessionID, self)
 }
 // Get the modelname field of the given host_cpu.
 func (_class HostCPUClass) GetModelname(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetModelnameMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_modelname"
@@ -474,18 +500,20 @@ func (_class HostCPUClass) GetModelname(sessionID SessionRef, self HostCPURef) (
 }
 
 
-var HostCPUClass_GetSpeedMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
+func HostCPUClassGetSpeedMockDefault(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
 	log.Println("HostCPU.GetSpeed not mocked")
 	_err = errors.New("HostCPU.GetSpeed not mocked")
 	return
 }
 
+var HostCPUClassGetSpeedMockedCallback = HostCPUClassGetSpeedMockDefault
+
 func (_class HostCPUClass) GetSpeedMock(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	return HostCPUClass_GetSpeedMockedCallback(sessionID, self)
+	return HostCPUClassGetSpeedMockedCallback(sessionID, self)
 }
 // Get the speed field of the given host_cpu.
 func (_class HostCPUClass) GetSpeed(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSpeedMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_speed"
@@ -506,18 +534,20 @@ func (_class HostCPUClass) GetSpeed(sessionID SessionRef, self HostCPURef) (_ret
 }
 
 
-var HostCPUClass_GetVendorMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetVendorMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetVendor not mocked")
 	_err = errors.New("HostCPU.GetVendor not mocked")
 	return
 }
 
+var HostCPUClassGetVendorMockedCallback = HostCPUClassGetVendorMockDefault
+
 func (_class HostCPUClass) GetVendorMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetVendorMockedCallback(sessionID, self)
+	return HostCPUClassGetVendorMockedCallback(sessionID, self)
 }
 // Get the vendor field of the given host_cpu.
 func (_class HostCPUClass) GetVendor(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVendorMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_vendor"
@@ -538,18 +568,20 @@ func (_class HostCPUClass) GetVendor(sessionID SessionRef, self HostCPURef) (_re
 }
 
 
-var HostCPUClass_GetNumberMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
+func HostCPUClassGetNumberMockDefault(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
 	log.Println("HostCPU.GetNumber not mocked")
 	_err = errors.New("HostCPU.GetNumber not mocked")
 	return
 }
 
+var HostCPUClassGetNumberMockedCallback = HostCPUClassGetNumberMockDefault
+
 func (_class HostCPUClass) GetNumberMock(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	return HostCPUClass_GetNumberMockedCallback(sessionID, self)
+	return HostCPUClassGetNumberMockedCallback(sessionID, self)
 }
 // Get the number field of the given host_cpu.
 func (_class HostCPUClass) GetNumber(sessionID SessionRef, self HostCPURef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNumberMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_number"
@@ -570,18 +602,20 @@ func (_class HostCPUClass) GetNumber(sessionID SessionRef, self HostCPURef) (_re
 }
 
 
-var HostCPUClass_GetHostMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval HostRef, _err error) {
+func HostCPUClassGetHostMockDefault(sessionID SessionRef, self HostCPURef) (_retval HostRef, _err error) {
 	log.Println("HostCPU.GetHost not mocked")
 	_err = errors.New("HostCPU.GetHost not mocked")
 	return
 }
 
+var HostCPUClassGetHostMockedCallback = HostCPUClassGetHostMockDefault
+
 func (_class HostCPUClass) GetHostMock(sessionID SessionRef, self HostCPURef) (_retval HostRef, _err error) {
-	return HostCPUClass_GetHostMockedCallback(sessionID, self)
+	return HostCPUClassGetHostMockedCallback(sessionID, self)
 }
 // Get the host field of the given host_cpu.
 func (_class HostCPUClass) GetHost(sessionID SessionRef, self HostCPURef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_host"
@@ -602,18 +636,20 @@ func (_class HostCPUClass) GetHost(sessionID SessionRef, self HostCPURef) (_retv
 }
 
 
-var HostCPUClass_GetUUIDMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
+func HostCPUClassGetUUIDMockDefault(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
 	log.Println("HostCPU.GetUUID not mocked")
 	_err = errors.New("HostCPU.GetUUID not mocked")
 	return
 }
 
+var HostCPUClassGetUUIDMockedCallback = HostCPUClassGetUUIDMockDefault
+
 func (_class HostCPUClass) GetUUIDMock(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	return HostCPUClass_GetUUIDMockedCallback(sessionID, self)
+	return HostCPUClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given host_cpu.
 func (_class HostCPUClass) GetUUID(sessionID SessionRef, self HostCPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_uuid"
@@ -634,18 +670,20 @@ func (_class HostCPUClass) GetUUID(sessionID SessionRef, self HostCPURef) (_retv
 }
 
 
-var HostCPUClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval HostCPURef, _err error) {
+func HostCPUClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval HostCPURef, _err error) {
 	log.Println("HostCPU.GetByUUID not mocked")
 	_err = errors.New("HostCPU.GetByUUID not mocked")
 	return
 }
 
+var HostCPUClassGetByUUIDMockedCallback = HostCPUClassGetByUUIDMockDefault
+
 func (_class HostCPUClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval HostCPURef, _err error) {
-	return HostCPUClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return HostCPUClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the host_cpu instance with the specified UUID.
 func (_class HostCPUClass) GetByUUID(sessionID SessionRef, uuid string) (_retval HostCPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "host_cpu.get_by_uuid"
@@ -666,18 +704,20 @@ func (_class HostCPUClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 }
 
 
-var HostCPUClass_GetRecordMockedCallback = func (sessionID SessionRef, self HostCPURef) (_retval HostCPURecord, _err error) {
+func HostCPUClassGetRecordMockDefault(sessionID SessionRef, self HostCPURef) (_retval HostCPURecord, _err error) {
 	log.Println("HostCPU.GetRecord not mocked")
 	_err = errors.New("HostCPU.GetRecord not mocked")
 	return
 }
 
+var HostCPUClassGetRecordMockedCallback = HostCPUClassGetRecordMockDefault
+
 func (_class HostCPUClass) GetRecordMock(sessionID SessionRef, self HostCPURef) (_retval HostCPURecord, _err error) {
-	return HostCPUClass_GetRecordMockedCallback(sessionID, self)
+	return HostCPUClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given host_cpu.
 func (_class HostCPUClass) GetRecord(sessionID SessionRef, self HostCPURef) (_retval HostCPURecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "host_cpu.get_record"

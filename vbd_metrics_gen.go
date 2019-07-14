@@ -46,18 +46,20 @@ type VBDMetricsClass struct {
 }
 
 
-var VBDMetricsClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VBDMetricsRef]VBDMetricsRecord, _err error) {
+func VBDMetricsClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[VBDMetricsRef]VBDMetricsRecord, _err error) {
 	log.Println("VBDMetrics.GetAllRecords not mocked")
 	_err = errors.New("VBDMetrics.GetAllRecords not mocked")
 	return
 }
 
+var VBDMetricsClassGetAllRecordsMockedCallback = VBDMetricsClassGetAllRecordsMockDefault
+
 func (_class VBDMetricsClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VBDMetricsRef]VBDMetricsRecord, _err error) {
-	return VBDMetricsClass_GetAllRecordsMockedCallback(sessionID)
+	return VBDMetricsClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of VBD_metrics references to VBD_metrics records for all VBD_metrics instances known to the system.
 func (_class VBDMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[VBDMetricsRef]VBDMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VBD_metrics.get_all_records"
@@ -74,18 +76,20 @@ func (_class VBDMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[V
 }
 
 
-var VBDMetricsClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VBDMetricsRef, _err error) {
+func VBDMetricsClassGetAllMockDefault(sessionID SessionRef) (_retval []VBDMetricsRef, _err error) {
 	log.Println("VBDMetrics.GetAll not mocked")
 	_err = errors.New("VBDMetrics.GetAll not mocked")
 	return
 }
 
+var VBDMetricsClassGetAllMockedCallback = VBDMetricsClassGetAllMockDefault
+
 func (_class VBDMetricsClass) GetAllMock(sessionID SessionRef) (_retval []VBDMetricsRef, _err error) {
-	return VBDMetricsClass_GetAllMockedCallback(sessionID)
+	return VBDMetricsClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the VBD_metrics instances known to the system.
 func (_class VBDMetricsClass) GetAll(sessionID SessionRef) (_retval []VBDMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VBD_metrics.get_all"
@@ -102,18 +106,20 @@ func (_class VBDMetricsClass) GetAll(sessionID SessionRef) (_retval []VBDMetrics
 }
 
 
-var VBDMetricsClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VBDMetricsRef, key string) (_err error) {
+func VBDMetricsClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self VBDMetricsRef, key string) (_err error) {
 	log.Println("VBDMetrics.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VBDMetrics.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var VBDMetricsClassRemoveFromOtherConfigMockedCallback = VBDMetricsClassRemoveFromOtherConfigMockDefault
+
 func (_class VBDMetricsClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VBDMetricsRef, key string) (_err error) {
-	return VBDMetricsClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return VBDMetricsClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given VBD_metrics.  If the key is not in that Map, then do nothing.
 func (_class VBDMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self VBDMetricsRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VBD_metrics.remove_from_other_config"
@@ -134,18 +140,20 @@ func (_class VBDMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self V
 }
 
 
-var VBDMetricsClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VBDMetricsRef, key string, value string) (_err error) {
+func VBDMetricsClassAddToOtherConfigMockDefault(sessionID SessionRef, self VBDMetricsRef, key string, value string) (_err error) {
 	log.Println("VBDMetrics.AddToOtherConfig not mocked")
 	_err = errors.New("VBDMetrics.AddToOtherConfig not mocked")
 	return
 }
 
+var VBDMetricsClassAddToOtherConfigMockedCallback = VBDMetricsClassAddToOtherConfigMockDefault
+
 func (_class VBDMetricsClass) AddToOtherConfigMock(sessionID SessionRef, self VBDMetricsRef, key string, value string) (_err error) {
-	return VBDMetricsClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return VBDMetricsClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given VBD_metrics.
 func (_class VBDMetricsClass) AddToOtherConfig(sessionID SessionRef, self VBDMetricsRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VBD_metrics.add_to_other_config"
@@ -170,18 +178,20 @@ func (_class VBDMetricsClass) AddToOtherConfig(sessionID SessionRef, self VBDMet
 }
 
 
-var VBDMetricsClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VBDMetricsRef, value map[string]string) (_err error) {
+func VBDMetricsClassSetOtherConfigMockDefault(sessionID SessionRef, self VBDMetricsRef, value map[string]string) (_err error) {
 	log.Println("VBDMetrics.SetOtherConfig not mocked")
 	_err = errors.New("VBDMetrics.SetOtherConfig not mocked")
 	return
 }
 
+var VBDMetricsClassSetOtherConfigMockedCallback = VBDMetricsClassSetOtherConfigMockDefault
+
 func (_class VBDMetricsClass) SetOtherConfigMock(sessionID SessionRef, self VBDMetricsRef, value map[string]string) (_err error) {
-	return VBDMetricsClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return VBDMetricsClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given VBD_metrics.
 func (_class VBDMetricsClass) SetOtherConfig(sessionID SessionRef, self VBDMetricsRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VBD_metrics.set_other_config"
@@ -202,18 +212,20 @@ func (_class VBDMetricsClass) SetOtherConfig(sessionID SessionRef, self VBDMetri
 }
 
 
-var VBDMetricsClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval map[string]string, _err error) {
+func VBDMetricsClassGetOtherConfigMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VBDMetrics.GetOtherConfig not mocked")
 	_err = errors.New("VBDMetrics.GetOtherConfig not mocked")
 	return
 }
 
+var VBDMetricsClassGetOtherConfigMockedCallback = VBDMetricsClassGetOtherConfigMockDefault
+
 func (_class VBDMetricsClass) GetOtherConfigMock(sessionID SessionRef, self VBDMetricsRef) (_retval map[string]string, _err error) {
-	return VBDMetricsClass_GetOtherConfigMockedCallback(sessionID, self)
+	return VBDMetricsClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given VBD_metrics.
 func (_class VBDMetricsClass) GetOtherConfig(sessionID SessionRef, self VBDMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_other_config"
@@ -234,18 +246,20 @@ func (_class VBDMetricsClass) GetOtherConfig(sessionID SessionRef, self VBDMetri
 }
 
 
-var VBDMetricsClass_GetLastUpdatedMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval time.Time, _err error) {
+func VBDMetricsClassGetLastUpdatedMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval time.Time, _err error) {
 	log.Println("VBDMetrics.GetLastUpdated not mocked")
 	_err = errors.New("VBDMetrics.GetLastUpdated not mocked")
 	return
 }
 
+var VBDMetricsClassGetLastUpdatedMockedCallback = VBDMetricsClassGetLastUpdatedMockDefault
+
 func (_class VBDMetricsClass) GetLastUpdatedMock(sessionID SessionRef, self VBDMetricsRef) (_retval time.Time, _err error) {
-	return VBDMetricsClass_GetLastUpdatedMockedCallback(sessionID, self)
+	return VBDMetricsClassGetLastUpdatedMockedCallback(sessionID, self)
 }
 // Get the last_updated field of the given VBD_metrics.
 func (_class VBDMetricsClass) GetLastUpdated(sessionID SessionRef, self VBDMetricsRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastUpdatedMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_last_updated"
@@ -266,18 +280,20 @@ func (_class VBDMetricsClass) GetLastUpdated(sessionID SessionRef, self VBDMetri
 }
 
 
-var VBDMetricsClass_GetIoWriteKbsMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
+func VBDMetricsClassGetIoWriteKbsMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
 	log.Println("VBDMetrics.GetIoWriteKbs not mocked")
 	_err = errors.New("VBDMetrics.GetIoWriteKbs not mocked")
 	return
 }
 
+var VBDMetricsClassGetIoWriteKbsMockedCallback = VBDMetricsClassGetIoWriteKbsMockDefault
+
 func (_class VBDMetricsClass) GetIoWriteKbsMock(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
-	return VBDMetricsClass_GetIoWriteKbsMockedCallback(sessionID, self)
+	return VBDMetricsClassGetIoWriteKbsMockedCallback(sessionID, self)
 }
 // Get the io/write_kbs field of the given VBD_metrics.
 func (_class VBDMetricsClass) GetIoWriteKbs(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIoWriteKbsMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_io_write_kbs"
@@ -298,18 +314,20 @@ func (_class VBDMetricsClass) GetIoWriteKbs(sessionID SessionRef, self VBDMetric
 }
 
 
-var VBDMetricsClass_GetIoReadKbsMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
+func VBDMetricsClassGetIoReadKbsMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
 	log.Println("VBDMetrics.GetIoReadKbs not mocked")
 	_err = errors.New("VBDMetrics.GetIoReadKbs not mocked")
 	return
 }
 
+var VBDMetricsClassGetIoReadKbsMockedCallback = VBDMetricsClassGetIoReadKbsMockDefault
+
 func (_class VBDMetricsClass) GetIoReadKbsMock(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
-	return VBDMetricsClass_GetIoReadKbsMockedCallback(sessionID, self)
+	return VBDMetricsClassGetIoReadKbsMockedCallback(sessionID, self)
 }
 // Get the io/read_kbs field of the given VBD_metrics.
 func (_class VBDMetricsClass) GetIoReadKbs(sessionID SessionRef, self VBDMetricsRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIoReadKbsMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_io_read_kbs"
@@ -330,18 +348,20 @@ func (_class VBDMetricsClass) GetIoReadKbs(sessionID SessionRef, self VBDMetrics
 }
 
 
-var VBDMetricsClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval string, _err error) {
+func VBDMetricsClassGetUUIDMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval string, _err error) {
 	log.Println("VBDMetrics.GetUUID not mocked")
 	_err = errors.New("VBDMetrics.GetUUID not mocked")
 	return
 }
 
+var VBDMetricsClassGetUUIDMockedCallback = VBDMetricsClassGetUUIDMockDefault
+
 func (_class VBDMetricsClass) GetUUIDMock(sessionID SessionRef, self VBDMetricsRef) (_retval string, _err error) {
-	return VBDMetricsClass_GetUUIDMockedCallback(sessionID, self)
+	return VBDMetricsClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given VBD_metrics.
 func (_class VBDMetricsClass) GetUUID(sessionID SessionRef, self VBDMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_uuid"
@@ -362,18 +382,20 @@ func (_class VBDMetricsClass) GetUUID(sessionID SessionRef, self VBDMetricsRef) 
 }
 
 
-var VBDMetricsClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VBDMetricsRef, _err error) {
+func VBDMetricsClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval VBDMetricsRef, _err error) {
 	log.Println("VBDMetrics.GetByUUID not mocked")
 	_err = errors.New("VBDMetrics.GetByUUID not mocked")
 	return
 }
 
+var VBDMetricsClassGetByUUIDMockedCallback = VBDMetricsClassGetByUUIDMockDefault
+
 func (_class VBDMetricsClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VBDMetricsRef, _err error) {
-	return VBDMetricsClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return VBDMetricsClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the VBD_metrics instance with the specified UUID.
 func (_class VBDMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VBDMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VBD_metrics.get_by_uuid"
@@ -394,18 +416,20 @@ func (_class VBDMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_ret
 }
 
 
-var VBDMetricsClass_GetRecordMockedCallback = func (sessionID SessionRef, self VBDMetricsRef) (_retval VBDMetricsRecord, _err error) {
+func VBDMetricsClassGetRecordMockDefault(sessionID SessionRef, self VBDMetricsRef) (_retval VBDMetricsRecord, _err error) {
 	log.Println("VBDMetrics.GetRecord not mocked")
 	_err = errors.New("VBDMetrics.GetRecord not mocked")
 	return
 }
 
+var VBDMetricsClassGetRecordMockedCallback = VBDMetricsClassGetRecordMockDefault
+
 func (_class VBDMetricsClass) GetRecordMock(sessionID SessionRef, self VBDMetricsRef) (_retval VBDMetricsRecord, _err error) {
-	return VBDMetricsClass_GetRecordMockedCallback(sessionID, self)
+	return VBDMetricsClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given VBD_metrics.
 func (_class VBDMetricsClass) GetRecord(sessionID SessionRef, self VBDMetricsRef) (_retval VBDMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VBD_metrics.get_record"

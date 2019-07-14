@@ -42,18 +42,20 @@ type SecretClass struct {
 }
 
 
-var SecretClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[SecretRef]SecretRecord, _err error) {
+func SecretClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[SecretRef]SecretRecord, _err error) {
 	log.Println("Secret.GetAllRecords not mocked")
 	_err = errors.New("Secret.GetAllRecords not mocked")
 	return
 }
 
+var SecretClassGetAllRecordsMockedCallback = SecretClassGetAllRecordsMockDefault
+
 func (_class SecretClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[SecretRef]SecretRecord, _err error) {
-	return SecretClass_GetAllRecordsMockedCallback(sessionID)
+	return SecretClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of secret references to secret records for all secrets known to the system.
 func (_class SecretClass) GetAllRecords(sessionID SessionRef) (_retval map[SecretRef]SecretRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "secret.get_all_records"
@@ -70,18 +72,20 @@ func (_class SecretClass) GetAllRecords(sessionID SessionRef) (_retval map[Secre
 }
 
 
-var SecretClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []SecretRef, _err error) {
+func SecretClassGetAllMockDefault(sessionID SessionRef) (_retval []SecretRef, _err error) {
 	log.Println("Secret.GetAll not mocked")
 	_err = errors.New("Secret.GetAll not mocked")
 	return
 }
 
+var SecretClassGetAllMockedCallback = SecretClassGetAllMockDefault
+
 func (_class SecretClass) GetAllMock(sessionID SessionRef) (_retval []SecretRef, _err error) {
-	return SecretClass_GetAllMockedCallback(sessionID)
+	return SecretClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the secrets known to the system.
 func (_class SecretClass) GetAll(sessionID SessionRef) (_retval []SecretRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "secret.get_all"
@@ -98,18 +102,20 @@ func (_class SecretClass) GetAll(sessionID SessionRef) (_retval []SecretRef, _er
 }
 
 
-var SecretClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self SecretRef, key string) (_err error) {
+func SecretClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self SecretRef, key string) (_err error) {
 	log.Println("Secret.RemoveFromOtherConfig not mocked")
 	_err = errors.New("Secret.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var SecretClassRemoveFromOtherConfigMockedCallback = SecretClassRemoveFromOtherConfigMockDefault
+
 func (_class SecretClass) RemoveFromOtherConfigMock(sessionID SessionRef, self SecretRef, key string) (_err error) {
-	return SecretClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return SecretClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given secret.  If the key is not in that Map, then do nothing.
 func (_class SecretClass) RemoveFromOtherConfig(sessionID SessionRef, self SecretRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "secret.remove_from_other_config"
@@ -130,18 +136,20 @@ func (_class SecretClass) RemoveFromOtherConfig(sessionID SessionRef, self Secre
 }
 
 
-var SecretClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self SecretRef, key string, value string) (_err error) {
+func SecretClassAddToOtherConfigMockDefault(sessionID SessionRef, self SecretRef, key string, value string) (_err error) {
 	log.Println("Secret.AddToOtherConfig not mocked")
 	_err = errors.New("Secret.AddToOtherConfig not mocked")
 	return
 }
 
+var SecretClassAddToOtherConfigMockedCallback = SecretClassAddToOtherConfigMockDefault
+
 func (_class SecretClass) AddToOtherConfigMock(sessionID SessionRef, self SecretRef, key string, value string) (_err error) {
-	return SecretClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return SecretClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given secret.
 func (_class SecretClass) AddToOtherConfig(sessionID SessionRef, self SecretRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "secret.add_to_other_config"
@@ -166,18 +174,20 @@ func (_class SecretClass) AddToOtherConfig(sessionID SessionRef, self SecretRef,
 }
 
 
-var SecretClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self SecretRef, value map[string]string) (_err error) {
+func SecretClassSetOtherConfigMockDefault(sessionID SessionRef, self SecretRef, value map[string]string) (_err error) {
 	log.Println("Secret.SetOtherConfig not mocked")
 	_err = errors.New("Secret.SetOtherConfig not mocked")
 	return
 }
 
+var SecretClassSetOtherConfigMockedCallback = SecretClassSetOtherConfigMockDefault
+
 func (_class SecretClass) SetOtherConfigMock(sessionID SessionRef, self SecretRef, value map[string]string) (_err error) {
-	return SecretClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return SecretClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given secret.
 func (_class SecretClass) SetOtherConfig(sessionID SessionRef, self SecretRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "secret.set_other_config"
@@ -198,18 +208,20 @@ func (_class SecretClass) SetOtherConfig(sessionID SessionRef, self SecretRef, v
 }
 
 
-var SecretClass_SetValueMockedCallback = func (sessionID SessionRef, self SecretRef, value string) (_err error) {
+func SecretClassSetValueMockDefault(sessionID SessionRef, self SecretRef, value string) (_err error) {
 	log.Println("Secret.SetValue not mocked")
 	_err = errors.New("Secret.SetValue not mocked")
 	return
 }
 
+var SecretClassSetValueMockedCallback = SecretClassSetValueMockDefault
+
 func (_class SecretClass) SetValueMock(sessionID SessionRef, self SecretRef, value string) (_err error) {
-	return SecretClass_SetValueMockedCallback(sessionID, self, value)
+	return SecretClassSetValueMockedCallback(sessionID, self, value)
 }
 // Set the value field of the given secret.
 func (_class SecretClass) SetValue(sessionID SessionRef, self SecretRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetValueMock(sessionID, self, value)
 	}	
 	_method := "secret.set_value"
@@ -230,18 +242,20 @@ func (_class SecretClass) SetValue(sessionID SessionRef, self SecretRef, value s
 }
 
 
-var SecretClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self SecretRef) (_retval map[string]string, _err error) {
+func SecretClassGetOtherConfigMockDefault(sessionID SessionRef, self SecretRef) (_retval map[string]string, _err error) {
 	log.Println("Secret.GetOtherConfig not mocked")
 	_err = errors.New("Secret.GetOtherConfig not mocked")
 	return
 }
 
+var SecretClassGetOtherConfigMockedCallback = SecretClassGetOtherConfigMockDefault
+
 func (_class SecretClass) GetOtherConfigMock(sessionID SessionRef, self SecretRef) (_retval map[string]string, _err error) {
-	return SecretClass_GetOtherConfigMockedCallback(sessionID, self)
+	return SecretClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given secret.
 func (_class SecretClass) GetOtherConfig(sessionID SessionRef, self SecretRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "secret.get_other_config"
@@ -262,18 +276,20 @@ func (_class SecretClass) GetOtherConfig(sessionID SessionRef, self SecretRef) (
 }
 
 
-var SecretClass_GetValueMockedCallback = func (sessionID SessionRef, self SecretRef) (_retval string, _err error) {
+func SecretClassGetValueMockDefault(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
 	log.Println("Secret.GetValue not mocked")
 	_err = errors.New("Secret.GetValue not mocked")
 	return
 }
 
+var SecretClassGetValueMockedCallback = SecretClassGetValueMockDefault
+
 func (_class SecretClass) GetValueMock(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
-	return SecretClass_GetValueMockedCallback(sessionID, self)
+	return SecretClassGetValueMockedCallback(sessionID, self)
 }
 // Get the value field of the given secret.
 func (_class SecretClass) GetValue(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetValueMock(sessionID, self)
 	}	
 	_method := "secret.get_value"
@@ -294,18 +310,20 @@ func (_class SecretClass) GetValue(sessionID SessionRef, self SecretRef) (_retva
 }
 
 
-var SecretClass_GetUUIDMockedCallback = func (sessionID SessionRef, self SecretRef) (_retval string, _err error) {
+func SecretClassGetUUIDMockDefault(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
 	log.Println("Secret.GetUUID not mocked")
 	_err = errors.New("Secret.GetUUID not mocked")
 	return
 }
 
+var SecretClassGetUUIDMockedCallback = SecretClassGetUUIDMockDefault
+
 func (_class SecretClass) GetUUIDMock(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
-	return SecretClass_GetUUIDMockedCallback(sessionID, self)
+	return SecretClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given secret.
 func (_class SecretClass) GetUUID(sessionID SessionRef, self SecretRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "secret.get_uuid"
@@ -326,18 +344,20 @@ func (_class SecretClass) GetUUID(sessionID SessionRef, self SecretRef) (_retval
 }
 
 
-var SecretClass_DestroyMockedCallback = func (sessionID SessionRef, self SecretRef) (_err error) {
+func SecretClassDestroyMockDefault(sessionID SessionRef, self SecretRef) (_err error) {
 	log.Println("Secret.Destroy not mocked")
 	_err = errors.New("Secret.Destroy not mocked")
 	return
 }
 
+var SecretClassDestroyMockedCallback = SecretClassDestroyMockDefault
+
 func (_class SecretClass) DestroyMock(sessionID SessionRef, self SecretRef) (_err error) {
-	return SecretClass_DestroyMockedCallback(sessionID, self)
+	return SecretClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the specified secret instance.
 func (_class SecretClass) Destroy(sessionID SessionRef, self SecretRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "secret.destroy"
@@ -354,19 +374,21 @@ func (_class SecretClass) Destroy(sessionID SessionRef, self SecretRef) (_err er
 }
 
 
-var SecretClass_CreateMockedCallback = func (sessionID SessionRef, args SecretRecord) (_retval SecretRef, _err error) {
+func SecretClassCreateMockDefault(sessionID SessionRef, args SecretRecord) (_retval SecretRef, _err error) {
 	log.Println("Secret.Create not mocked")
 	_err = errors.New("Secret.Create not mocked")
 	return
 }
 
+var SecretClassCreateMockedCallback = SecretClassCreateMockDefault
+
 func (_class SecretClass) CreateMock(sessionID SessionRef, args SecretRecord) (_retval SecretRef, _err error) {
-	return SecretClass_CreateMockedCallback(sessionID, args)
+	return SecretClassCreateMockedCallback(sessionID, args)
 }
 // Create a new secret instance, and return its handle.
 // The constructor args are: value*, other_config (* = non-optional).
 func (_class SecretClass) Create(sessionID SessionRef, args SecretRecord) (_retval SecretRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, args)
 	}	
 	_method := "secret.create"
@@ -387,18 +409,20 @@ func (_class SecretClass) Create(sessionID SessionRef, args SecretRecord) (_retv
 }
 
 
-var SecretClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval SecretRef, _err error) {
+func SecretClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval SecretRef, _err error) {
 	log.Println("Secret.GetByUUID not mocked")
 	_err = errors.New("Secret.GetByUUID not mocked")
 	return
 }
 
+var SecretClassGetByUUIDMockedCallback = SecretClassGetByUUIDMockDefault
+
 func (_class SecretClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval SecretRef, _err error) {
-	return SecretClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return SecretClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the secret instance with the specified UUID.
 func (_class SecretClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SecretRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "secret.get_by_uuid"
@@ -419,18 +443,20 @@ func (_class SecretClass) GetByUUID(sessionID SessionRef, uuid string) (_retval 
 }
 
 
-var SecretClass_GetRecordMockedCallback = func (sessionID SessionRef, self SecretRef) (_retval SecretRecord, _err error) {
+func SecretClassGetRecordMockDefault(sessionID SessionRef, self SecretRef) (_retval SecretRecord, _err error) {
 	log.Println("Secret.GetRecord not mocked")
 	_err = errors.New("Secret.GetRecord not mocked")
 	return
 }
 
+var SecretClassGetRecordMockedCallback = SecretClassGetRecordMockDefault
+
 func (_class SecretClass) GetRecordMock(sessionID SessionRef, self SecretRef) (_retval SecretRecord, _err error) {
-	return SecretClass_GetRecordMockedCallback(sessionID, self)
+	return SecretClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given secret.
 func (_class SecretClass) GetRecord(sessionID SessionRef, self SecretRef) (_retval SecretRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "secret.get_record"

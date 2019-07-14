@@ -53,18 +53,20 @@ type SDNControllerClass struct {
 }
 
 
-var SDNControllerClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[SDNControllerRef]SDNControllerRecord, _err error) {
+func SDNControllerClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[SDNControllerRef]SDNControllerRecord, _err error) {
 	log.Println("SDNController.GetAllRecords not mocked")
 	_err = errors.New("SDNController.GetAllRecords not mocked")
 	return
 }
 
+var SDNControllerClassGetAllRecordsMockedCallback = SDNControllerClassGetAllRecordsMockDefault
+
 func (_class SDNControllerClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[SDNControllerRef]SDNControllerRecord, _err error) {
-	return SDNControllerClass_GetAllRecordsMockedCallback(sessionID)
+	return SDNControllerClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of SDN_controller references to SDN_controller records for all SDN_controllers known to the system.
 func (_class SDNControllerClass) GetAllRecords(sessionID SessionRef) (_retval map[SDNControllerRef]SDNControllerRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "SDN_controller.get_all_records"
@@ -81,18 +83,20 @@ func (_class SDNControllerClass) GetAllRecords(sessionID SessionRef) (_retval ma
 }
 
 
-var SDNControllerClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []SDNControllerRef, _err error) {
+func SDNControllerClassGetAllMockDefault(sessionID SessionRef) (_retval []SDNControllerRef, _err error) {
 	log.Println("SDNController.GetAll not mocked")
 	_err = errors.New("SDNController.GetAll not mocked")
 	return
 }
 
+var SDNControllerClassGetAllMockedCallback = SDNControllerClassGetAllMockDefault
+
 func (_class SDNControllerClass) GetAllMock(sessionID SessionRef) (_retval []SDNControllerRef, _err error) {
-	return SDNControllerClass_GetAllMockedCallback(sessionID)
+	return SDNControllerClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the SDN_controllers known to the system.
 func (_class SDNControllerClass) GetAll(sessionID SessionRef) (_retval []SDNControllerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "SDN_controller.get_all"
@@ -109,18 +113,20 @@ func (_class SDNControllerClass) GetAll(sessionID SessionRef) (_retval []SDNCont
 }
 
 
-var SDNControllerClass_ForgetMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_err error) {
+func SDNControllerClassForgetMockDefault(sessionID SessionRef, self SDNControllerRef) (_err error) {
 	log.Println("SDNController.Forget not mocked")
 	_err = errors.New("SDNController.Forget not mocked")
 	return
 }
 
+var SDNControllerClassForgetMockedCallback = SDNControllerClassForgetMockDefault
+
 func (_class SDNControllerClass) ForgetMock(sessionID SessionRef, self SDNControllerRef) (_err error) {
-	return SDNControllerClass_ForgetMockedCallback(sessionID, self)
+	return SDNControllerClassForgetMockedCallback(sessionID, self)
 }
 // Remove the OVS manager of the pool and destroy the db record.
 func (_class SDNControllerClass) Forget(sessionID SessionRef, self SDNControllerRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetMock(sessionID, self)
 	}	
 	_method := "SDN_controller.forget"
@@ -137,18 +143,20 @@ func (_class SDNControllerClass) Forget(sessionID SessionRef, self SDNController
 }
 
 
-var SDNControllerClass_IntroduceMockedCallback = func (sessionID SessionRef, protocol SdnControllerProtocol, address string, port int) (_retval SDNControllerRef, _err error) {
+func SDNControllerClassIntroduceMockDefault(sessionID SessionRef, protocol SdnControllerProtocol, address string, port int) (_retval SDNControllerRef, _err error) {
 	log.Println("SDNController.Introduce not mocked")
 	_err = errors.New("SDNController.Introduce not mocked")
 	return
 }
 
+var SDNControllerClassIntroduceMockedCallback = SDNControllerClassIntroduceMockDefault
+
 func (_class SDNControllerClass) IntroduceMock(sessionID SessionRef, protocol SdnControllerProtocol, address string, port int) (_retval SDNControllerRef, _err error) {
-	return SDNControllerClass_IntroduceMockedCallback(sessionID, protocol, address, port)
+	return SDNControllerClassIntroduceMockedCallback(sessionID, protocol, address, port)
 }
 // Introduce an SDN controller to the pool.
 func (_class SDNControllerClass) Introduce(sessionID SessionRef, protocol SdnControllerProtocol, address string, port int) (_retval SDNControllerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.IntroduceMock(sessionID, protocol, address, port)
 	}	
 	_method := "SDN_controller.introduce"
@@ -177,18 +185,20 @@ func (_class SDNControllerClass) Introduce(sessionID SessionRef, protocol SdnCon
 }
 
 
-var SDNControllerClass_GetPortMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_retval int, _err error) {
+func SDNControllerClassGetPortMockDefault(sessionID SessionRef, self SDNControllerRef) (_retval int, _err error) {
 	log.Println("SDNController.GetPort not mocked")
 	_err = errors.New("SDNController.GetPort not mocked")
 	return
 }
 
+var SDNControllerClassGetPortMockedCallback = SDNControllerClassGetPortMockDefault
+
 func (_class SDNControllerClass) GetPortMock(sessionID SessionRef, self SDNControllerRef) (_retval int, _err error) {
-	return SDNControllerClass_GetPortMockedCallback(sessionID, self)
+	return SDNControllerClassGetPortMockedCallback(sessionID, self)
 }
 // Get the port field of the given SDN_controller.
 func (_class SDNControllerClass) GetPort(sessionID SessionRef, self SDNControllerRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPortMock(sessionID, self)
 	}	
 	_method := "SDN_controller.get_port"
@@ -209,18 +219,20 @@ func (_class SDNControllerClass) GetPort(sessionID SessionRef, self SDNControlle
 }
 
 
-var SDNControllerClass_GetAddressMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
+func SDNControllerClassGetAddressMockDefault(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
 	log.Println("SDNController.GetAddress not mocked")
 	_err = errors.New("SDNController.GetAddress not mocked")
 	return
 }
 
+var SDNControllerClassGetAddressMockedCallback = SDNControllerClassGetAddressMockDefault
+
 func (_class SDNControllerClass) GetAddressMock(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
-	return SDNControllerClass_GetAddressMockedCallback(sessionID, self)
+	return SDNControllerClassGetAddressMockedCallback(sessionID, self)
 }
 // Get the address field of the given SDN_controller.
 func (_class SDNControllerClass) GetAddress(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAddressMock(sessionID, self)
 	}	
 	_method := "SDN_controller.get_address"
@@ -241,18 +253,20 @@ func (_class SDNControllerClass) GetAddress(sessionID SessionRef, self SDNContro
 }
 
 
-var SDNControllerClass_GetProtocolMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_retval SdnControllerProtocol, _err error) {
+func SDNControllerClassGetProtocolMockDefault(sessionID SessionRef, self SDNControllerRef) (_retval SdnControllerProtocol, _err error) {
 	log.Println("SDNController.GetProtocol not mocked")
 	_err = errors.New("SDNController.GetProtocol not mocked")
 	return
 }
 
+var SDNControllerClassGetProtocolMockedCallback = SDNControllerClassGetProtocolMockDefault
+
 func (_class SDNControllerClass) GetProtocolMock(sessionID SessionRef, self SDNControllerRef) (_retval SdnControllerProtocol, _err error) {
-	return SDNControllerClass_GetProtocolMockedCallback(sessionID, self)
+	return SDNControllerClassGetProtocolMockedCallback(sessionID, self)
 }
 // Get the protocol field of the given SDN_controller.
 func (_class SDNControllerClass) GetProtocol(sessionID SessionRef, self SDNControllerRef) (_retval SdnControllerProtocol, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetProtocolMock(sessionID, self)
 	}	
 	_method := "SDN_controller.get_protocol"
@@ -273,18 +287,20 @@ func (_class SDNControllerClass) GetProtocol(sessionID SessionRef, self SDNContr
 }
 
 
-var SDNControllerClass_GetUUIDMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
+func SDNControllerClassGetUUIDMockDefault(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
 	log.Println("SDNController.GetUUID not mocked")
 	_err = errors.New("SDNController.GetUUID not mocked")
 	return
 }
 
+var SDNControllerClassGetUUIDMockedCallback = SDNControllerClassGetUUIDMockDefault
+
 func (_class SDNControllerClass) GetUUIDMock(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
-	return SDNControllerClass_GetUUIDMockedCallback(sessionID, self)
+	return SDNControllerClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given SDN_controller.
 func (_class SDNControllerClass) GetUUID(sessionID SessionRef, self SDNControllerRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "SDN_controller.get_uuid"
@@ -305,18 +321,20 @@ func (_class SDNControllerClass) GetUUID(sessionID SessionRef, self SDNControlle
 }
 
 
-var SDNControllerClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval SDNControllerRef, _err error) {
+func SDNControllerClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval SDNControllerRef, _err error) {
 	log.Println("SDNController.GetByUUID not mocked")
 	_err = errors.New("SDNController.GetByUUID not mocked")
 	return
 }
 
+var SDNControllerClassGetByUUIDMockedCallback = SDNControllerClassGetByUUIDMockDefault
+
 func (_class SDNControllerClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval SDNControllerRef, _err error) {
-	return SDNControllerClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return SDNControllerClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the SDN_controller instance with the specified UUID.
 func (_class SDNControllerClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SDNControllerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "SDN_controller.get_by_uuid"
@@ -337,18 +355,20 @@ func (_class SDNControllerClass) GetByUUID(sessionID SessionRef, uuid string) (_
 }
 
 
-var SDNControllerClass_GetRecordMockedCallback = func (sessionID SessionRef, self SDNControllerRef) (_retval SDNControllerRecord, _err error) {
+func SDNControllerClassGetRecordMockDefault(sessionID SessionRef, self SDNControllerRef) (_retval SDNControllerRecord, _err error) {
 	log.Println("SDNController.GetRecord not mocked")
 	_err = errors.New("SDNController.GetRecord not mocked")
 	return
 }
 
+var SDNControllerClassGetRecordMockedCallback = SDNControllerClassGetRecordMockDefault
+
 func (_class SDNControllerClass) GetRecordMock(sessionID SessionRef, self SDNControllerRef) (_retval SDNControllerRecord, _err error) {
-	return SDNControllerClass_GetRecordMockedCallback(sessionID, self)
+	return SDNControllerClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given SDN_controller.
 func (_class SDNControllerClass) GetRecord(sessionID SessionRef, self SDNControllerRef) (_retval SDNControllerRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "SDN_controller.get_record"

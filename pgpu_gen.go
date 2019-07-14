@@ -73,18 +73,20 @@ type PGPUClass struct {
 }
 
 
-var PGPUClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PGPURef]PGPURecord, _err error) {
+func PGPUClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[PGPURef]PGPURecord, _err error) {
 	log.Println("PGPU.GetAllRecords not mocked")
 	_err = errors.New("PGPU.GetAllRecords not mocked")
 	return
 }
 
+var PGPUClassGetAllRecordsMockedCallback = PGPUClassGetAllRecordsMockDefault
+
 func (_class PGPUClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PGPURef]PGPURecord, _err error) {
-	return PGPUClass_GetAllRecordsMockedCallback(sessionID)
+	return PGPUClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of PGPU references to PGPU records for all PGPUs known to the system.
 func (_class PGPUClass) GetAllRecords(sessionID SessionRef) (_retval map[PGPURef]PGPURecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "PGPU.get_all_records"
@@ -101,18 +103,20 @@ func (_class PGPUClass) GetAllRecords(sessionID SessionRef) (_retval map[PGPURef
 }
 
 
-var PGPUClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PGPURef, _err error) {
+func PGPUClassGetAllMockDefault(sessionID SessionRef) (_retval []PGPURef, _err error) {
 	log.Println("PGPU.GetAll not mocked")
 	_err = errors.New("PGPU.GetAll not mocked")
 	return
 }
 
+var PGPUClassGetAllMockedCallback = PGPUClassGetAllMockDefault
+
 func (_class PGPUClass) GetAllMock(sessionID SessionRef) (_retval []PGPURef, _err error) {
-	return PGPUClass_GetAllMockedCallback(sessionID)
+	return PGPUClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the PGPUs known to the system.
 func (_class PGPUClass) GetAll(sessionID SessionRef) (_retval []PGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "PGPU.get_all"
@@ -129,18 +133,20 @@ func (_class PGPUClass) GetAll(sessionID SessionRef) (_retval []PGPURef, _err er
 }
 
 
-var PGPUClass_DisableDom0AccessMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
+func PGPUClassDisableDom0AccessMockDefault(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
 	log.Println("PGPU.DisableDom0Access not mocked")
 	_err = errors.New("PGPU.DisableDom0Access not mocked")
 	return
 }
 
+var PGPUClassDisableDom0AccessMockedCallback = PGPUClassDisableDom0AccessMockDefault
+
 func (_class PGPUClass) DisableDom0AccessMock(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	return PGPUClass_DisableDom0AccessMockedCallback(sessionID, self)
+	return PGPUClassDisableDom0AccessMockedCallback(sessionID, self)
 }
 // 
 func (_class PGPUClass) DisableDom0Access(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DisableDom0AccessMock(sessionID, self)
 	}	
 	_method := "PGPU.disable_dom0_access"
@@ -161,18 +167,20 @@ func (_class PGPUClass) DisableDom0Access(sessionID SessionRef, self PGPURef) (_
 }
 
 
-var PGPUClass_EnableDom0AccessMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
+func PGPUClassEnableDom0AccessMockDefault(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
 	log.Println("PGPU.EnableDom0Access not mocked")
 	_err = errors.New("PGPU.EnableDom0Access not mocked")
 	return
 }
 
+var PGPUClassEnableDom0AccessMockedCallback = PGPUClassEnableDom0AccessMockDefault
+
 func (_class PGPUClass) EnableDom0AccessMock(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	return PGPUClass_EnableDom0AccessMockedCallback(sessionID, self)
+	return PGPUClassEnableDom0AccessMockedCallback(sessionID, self)
 }
 // 
 func (_class PGPUClass) EnableDom0Access(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.EnableDom0AccessMock(sessionID, self)
 	}	
 	_method := "PGPU.enable_dom0_access"
@@ -193,18 +201,20 @@ func (_class PGPUClass) EnableDom0Access(sessionID SessionRef, self PGPURef) (_r
 }
 
 
-var PGPUClass_GetRemainingCapacityMockedCallback = func (sessionID SessionRef, self PGPURef, vgpuType VGPUTypeRef) (_retval int, _err error) {
+func PGPUClassGetRemainingCapacityMockDefault(sessionID SessionRef, self PGPURef, vgpuType VGPUTypeRef) (_retval int, _err error) {
 	log.Println("PGPU.GetRemainingCapacity not mocked")
 	_err = errors.New("PGPU.GetRemainingCapacity not mocked")
 	return
 }
 
+var PGPUClassGetRemainingCapacityMockedCallback = PGPUClassGetRemainingCapacityMockDefault
+
 func (_class PGPUClass) GetRemainingCapacityMock(sessionID SessionRef, self PGPURef, vgpuType VGPUTypeRef) (_retval int, _err error) {
-	return PGPUClass_GetRemainingCapacityMockedCallback(sessionID, self, vgpuType)
+	return PGPUClassGetRemainingCapacityMockedCallback(sessionID, self, vgpuType)
 }
 // 
 func (_class PGPUClass) GetRemainingCapacity(sessionID SessionRef, self PGPURef, vgpuType VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRemainingCapacityMock(sessionID, self, vgpuType)
 	}	
 	_method := "PGPU.get_remaining_capacity"
@@ -229,18 +239,20 @@ func (_class PGPUClass) GetRemainingCapacity(sessionID SessionRef, self PGPURef,
 }
 
 
-var PGPUClass_SetGPUGroupMockedCallback = func (sessionID SessionRef, self PGPURef, value GPUGroupRef) (_err error) {
+func PGPUClassSetGPUGroupMockDefault(sessionID SessionRef, self PGPURef, value GPUGroupRef) (_err error) {
 	log.Println("PGPU.SetGPUGroup not mocked")
 	_err = errors.New("PGPU.SetGPUGroup not mocked")
 	return
 }
 
+var PGPUClassSetGPUGroupMockedCallback = PGPUClassSetGPUGroupMockDefault
+
 func (_class PGPUClass) SetGPUGroupMock(sessionID SessionRef, self PGPURef, value GPUGroupRef) (_err error) {
-	return PGPUClass_SetGPUGroupMockedCallback(sessionID, self, value)
+	return PGPUClassSetGPUGroupMockedCallback(sessionID, self, value)
 }
 // 
 func (_class PGPUClass) SetGPUGroup(sessionID SessionRef, self PGPURef, value GPUGroupRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetGPUGroupMock(sessionID, self, value)
 	}	
 	_method := "PGPU.set_GPU_group"
@@ -261,18 +273,20 @@ func (_class PGPUClass) SetGPUGroup(sessionID SessionRef, self PGPURef, value GP
 }
 
 
-var PGPUClass_SetEnabledVGPUTypesMockedCallback = func (sessionID SessionRef, self PGPURef, value []VGPUTypeRef) (_err error) {
+func PGPUClassSetEnabledVGPUTypesMockDefault(sessionID SessionRef, self PGPURef, value []VGPUTypeRef) (_err error) {
 	log.Println("PGPU.SetEnabledVGPUTypes not mocked")
 	_err = errors.New("PGPU.SetEnabledVGPUTypes not mocked")
 	return
 }
 
+var PGPUClassSetEnabledVGPUTypesMockedCallback = PGPUClassSetEnabledVGPUTypesMockDefault
+
 func (_class PGPUClass) SetEnabledVGPUTypesMock(sessionID SessionRef, self PGPURef, value []VGPUTypeRef) (_err error) {
-	return PGPUClass_SetEnabledVGPUTypesMockedCallback(sessionID, self, value)
+	return PGPUClassSetEnabledVGPUTypesMockedCallback(sessionID, self, value)
 }
 // 
 func (_class PGPUClass) SetEnabledVGPUTypes(sessionID SessionRef, self PGPURef, value []VGPUTypeRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetEnabledVGPUTypesMock(sessionID, self, value)
 	}	
 	_method := "PGPU.set_enabled_VGPU_types"
@@ -293,18 +307,20 @@ func (_class PGPUClass) SetEnabledVGPUTypes(sessionID SessionRef, self PGPURef, 
 }
 
 
-var PGPUClass_RemoveEnabledVGPUTypesMockedCallback = func (sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
+func PGPUClassRemoveEnabledVGPUTypesMockDefault(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
 	log.Println("PGPU.RemoveEnabledVGPUTypes not mocked")
 	_err = errors.New("PGPU.RemoveEnabledVGPUTypes not mocked")
 	return
 }
 
+var PGPUClassRemoveEnabledVGPUTypesMockedCallback = PGPUClassRemoveEnabledVGPUTypesMockDefault
+
 func (_class PGPUClass) RemoveEnabledVGPUTypesMock(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
-	return PGPUClass_RemoveEnabledVGPUTypesMockedCallback(sessionID, self, value)
+	return PGPUClassRemoveEnabledVGPUTypesMockedCallback(sessionID, self, value)
 }
 // 
 func (_class PGPUClass) RemoveEnabledVGPUTypes(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveEnabledVGPUTypesMock(sessionID, self, value)
 	}	
 	_method := "PGPU.remove_enabled_VGPU_types"
@@ -325,18 +341,20 @@ func (_class PGPUClass) RemoveEnabledVGPUTypes(sessionID SessionRef, self PGPURe
 }
 
 
-var PGPUClass_AddEnabledVGPUTypesMockedCallback = func (sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
+func PGPUClassAddEnabledVGPUTypesMockDefault(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
 	log.Println("PGPU.AddEnabledVGPUTypes not mocked")
 	_err = errors.New("PGPU.AddEnabledVGPUTypes not mocked")
 	return
 }
 
+var PGPUClassAddEnabledVGPUTypesMockedCallback = PGPUClassAddEnabledVGPUTypesMockDefault
+
 func (_class PGPUClass) AddEnabledVGPUTypesMock(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
-	return PGPUClass_AddEnabledVGPUTypesMockedCallback(sessionID, self, value)
+	return PGPUClassAddEnabledVGPUTypesMockedCallback(sessionID, self, value)
 }
 // 
 func (_class PGPUClass) AddEnabledVGPUTypes(sessionID SessionRef, self PGPURef, value VGPUTypeRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddEnabledVGPUTypesMock(sessionID, self, value)
 	}	
 	_method := "PGPU.add_enabled_VGPU_types"
@@ -357,18 +375,20 @@ func (_class PGPUClass) AddEnabledVGPUTypes(sessionID SessionRef, self PGPURef, 
 }
 
 
-var PGPUClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self PGPURef, key string) (_err error) {
+func PGPUClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self PGPURef, key string) (_err error) {
 	log.Println("PGPU.RemoveFromOtherConfig not mocked")
 	_err = errors.New("PGPU.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var PGPUClassRemoveFromOtherConfigMockedCallback = PGPUClassRemoveFromOtherConfigMockDefault
+
 func (_class PGPUClass) RemoveFromOtherConfigMock(sessionID SessionRef, self PGPURef, key string) (_err error) {
-	return PGPUClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return PGPUClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given PGPU.  If the key is not in that Map, then do nothing.
 func (_class PGPUClass) RemoveFromOtherConfig(sessionID SessionRef, self PGPURef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "PGPU.remove_from_other_config"
@@ -389,18 +409,20 @@ func (_class PGPUClass) RemoveFromOtherConfig(sessionID SessionRef, self PGPURef
 }
 
 
-var PGPUClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self PGPURef, key string, value string) (_err error) {
+func PGPUClassAddToOtherConfigMockDefault(sessionID SessionRef, self PGPURef, key string, value string) (_err error) {
 	log.Println("PGPU.AddToOtherConfig not mocked")
 	_err = errors.New("PGPU.AddToOtherConfig not mocked")
 	return
 }
 
+var PGPUClassAddToOtherConfigMockedCallback = PGPUClassAddToOtherConfigMockDefault
+
 func (_class PGPUClass) AddToOtherConfigMock(sessionID SessionRef, self PGPURef, key string, value string) (_err error) {
-	return PGPUClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return PGPUClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given PGPU.
 func (_class PGPUClass) AddToOtherConfig(sessionID SessionRef, self PGPURef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "PGPU.add_to_other_config"
@@ -425,18 +447,20 @@ func (_class PGPUClass) AddToOtherConfig(sessionID SessionRef, self PGPURef, key
 }
 
 
-var PGPUClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self PGPURef, value map[string]string) (_err error) {
+func PGPUClassSetOtherConfigMockDefault(sessionID SessionRef, self PGPURef, value map[string]string) (_err error) {
 	log.Println("PGPU.SetOtherConfig not mocked")
 	_err = errors.New("PGPU.SetOtherConfig not mocked")
 	return
 }
 
+var PGPUClassSetOtherConfigMockedCallback = PGPUClassSetOtherConfigMockDefault
+
 func (_class PGPUClass) SetOtherConfigMock(sessionID SessionRef, self PGPURef, value map[string]string) (_err error) {
-	return PGPUClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return PGPUClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given PGPU.
 func (_class PGPUClass) SetOtherConfig(sessionID SessionRef, self PGPURef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "PGPU.set_other_config"
@@ -457,18 +481,20 @@ func (_class PGPUClass) SetOtherConfig(sessionID SessionRef, self PGPURef, value
 }
 
 
-var PGPUClass_GetCompatibilityMetadataMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
+func PGPUClassGetCompatibilityMetadataMockDefault(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
 	log.Println("PGPU.GetCompatibilityMetadata not mocked")
 	_err = errors.New("PGPU.GetCompatibilityMetadata not mocked")
 	return
 }
 
+var PGPUClassGetCompatibilityMetadataMockedCallback = PGPUClassGetCompatibilityMetadataMockDefault
+
 func (_class PGPUClass) GetCompatibilityMetadataMock(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
-	return PGPUClass_GetCompatibilityMetadataMockedCallback(sessionID, self)
+	return PGPUClassGetCompatibilityMetadataMockedCallback(sessionID, self)
 }
 // Get the compatibility_metadata field of the given PGPU.
 func (_class PGPUClass) GetCompatibilityMetadata(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCompatibilityMetadataMock(sessionID, self)
 	}	
 	_method := "PGPU.get_compatibility_metadata"
@@ -489,18 +515,20 @@ func (_class PGPUClass) GetCompatibilityMetadata(sessionID SessionRef, self PGPU
 }
 
 
-var PGPUClass_GetIsSystemDisplayDeviceMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval bool, _err error) {
+func PGPUClassGetIsSystemDisplayDeviceMockDefault(sessionID SessionRef, self PGPURef) (_retval bool, _err error) {
 	log.Println("PGPU.GetIsSystemDisplayDevice not mocked")
 	_err = errors.New("PGPU.GetIsSystemDisplayDevice not mocked")
 	return
 }
 
+var PGPUClassGetIsSystemDisplayDeviceMockedCallback = PGPUClassGetIsSystemDisplayDeviceMockDefault
+
 func (_class PGPUClass) GetIsSystemDisplayDeviceMock(sessionID SessionRef, self PGPURef) (_retval bool, _err error) {
-	return PGPUClass_GetIsSystemDisplayDeviceMockedCallback(sessionID, self)
+	return PGPUClassGetIsSystemDisplayDeviceMockedCallback(sessionID, self)
 }
 // Get the is_system_display_device field of the given PGPU.
 func (_class PGPUClass) GetIsSystemDisplayDevice(sessionID SessionRef, self PGPURef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsSystemDisplayDeviceMock(sessionID, self)
 	}	
 	_method := "PGPU.get_is_system_display_device"
@@ -521,18 +549,20 @@ func (_class PGPUClass) GetIsSystemDisplayDevice(sessionID SessionRef, self PGPU
 }
 
 
-var PGPUClass_GetDom0AccessMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
+func PGPUClassGetDom0AccessMockDefault(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
 	log.Println("PGPU.GetDom0Access not mocked")
 	_err = errors.New("PGPU.GetDom0Access not mocked")
 	return
 }
 
+var PGPUClassGetDom0AccessMockedCallback = PGPUClassGetDom0AccessMockDefault
+
 func (_class PGPUClass) GetDom0AccessMock(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	return PGPUClass_GetDom0AccessMockedCallback(sessionID, self)
+	return PGPUClassGetDom0AccessMockedCallback(sessionID, self)
 }
 // Get the dom0_access field of the given PGPU.
 func (_class PGPUClass) GetDom0Access(sessionID SessionRef, self PGPURef) (_retval PgpuDom0Access, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDom0AccessMock(sessionID, self)
 	}	
 	_method := "PGPU.get_dom0_access"
@@ -553,18 +583,20 @@ func (_class PGPUClass) GetDom0Access(sessionID SessionRef, self PGPURef) (_retv
 }
 
 
-var PGPUClass_GetSupportedVGPUMaxCapacitiesMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval map[VGPUTypeRef]int, _err error) {
+func PGPUClassGetSupportedVGPUMaxCapacitiesMockDefault(sessionID SessionRef, self PGPURef) (_retval map[VGPUTypeRef]int, _err error) {
 	log.Println("PGPU.GetSupportedVGPUMaxCapacities not mocked")
 	_err = errors.New("PGPU.GetSupportedVGPUMaxCapacities not mocked")
 	return
 }
 
+var PGPUClassGetSupportedVGPUMaxCapacitiesMockedCallback = PGPUClassGetSupportedVGPUMaxCapacitiesMockDefault
+
 func (_class PGPUClass) GetSupportedVGPUMaxCapacitiesMock(sessionID SessionRef, self PGPURef) (_retval map[VGPUTypeRef]int, _err error) {
-	return PGPUClass_GetSupportedVGPUMaxCapacitiesMockedCallback(sessionID, self)
+	return PGPUClassGetSupportedVGPUMaxCapacitiesMockedCallback(sessionID, self)
 }
 // Get the supported_VGPU_max_capacities field of the given PGPU.
 func (_class PGPUClass) GetSupportedVGPUMaxCapacities(sessionID SessionRef, self PGPURef) (_retval map[VGPUTypeRef]int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedVGPUMaxCapacitiesMock(sessionID, self)
 	}	
 	_method := "PGPU.get_supported_VGPU_max_capacities"
@@ -585,18 +617,20 @@ func (_class PGPUClass) GetSupportedVGPUMaxCapacities(sessionID SessionRef, self
 }
 
 
-var PGPUClass_GetResidentVGPUsMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval []VGPURef, _err error) {
+func PGPUClassGetResidentVGPUsMockDefault(sessionID SessionRef, self PGPURef) (_retval []VGPURef, _err error) {
 	log.Println("PGPU.GetResidentVGPUs not mocked")
 	_err = errors.New("PGPU.GetResidentVGPUs not mocked")
 	return
 }
 
+var PGPUClassGetResidentVGPUsMockedCallback = PGPUClassGetResidentVGPUsMockDefault
+
 func (_class PGPUClass) GetResidentVGPUsMock(sessionID SessionRef, self PGPURef) (_retval []VGPURef, _err error) {
-	return PGPUClass_GetResidentVGPUsMockedCallback(sessionID, self)
+	return PGPUClassGetResidentVGPUsMockedCallback(sessionID, self)
 }
 // Get the resident_VGPUs field of the given PGPU.
 func (_class PGPUClass) GetResidentVGPUs(sessionID SessionRef, self PGPURef) (_retval []VGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetResidentVGPUsMock(sessionID, self)
 	}	
 	_method := "PGPU.get_resident_VGPUs"
@@ -617,18 +651,20 @@ func (_class PGPUClass) GetResidentVGPUs(sessionID SessionRef, self PGPURef) (_r
 }
 
 
-var PGPUClass_GetEnabledVGPUTypesMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
+func PGPUClassGetEnabledVGPUTypesMockDefault(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
 	log.Println("PGPU.GetEnabledVGPUTypes not mocked")
 	_err = errors.New("PGPU.GetEnabledVGPUTypes not mocked")
 	return
 }
 
+var PGPUClassGetEnabledVGPUTypesMockedCallback = PGPUClassGetEnabledVGPUTypesMockDefault
+
 func (_class PGPUClass) GetEnabledVGPUTypesMock(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
-	return PGPUClass_GetEnabledVGPUTypesMockedCallback(sessionID, self)
+	return PGPUClassGetEnabledVGPUTypesMockedCallback(sessionID, self)
 }
 // Get the enabled_VGPU_types field of the given PGPU.
 func (_class PGPUClass) GetEnabledVGPUTypes(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnabledVGPUTypesMock(sessionID, self)
 	}	
 	_method := "PGPU.get_enabled_VGPU_types"
@@ -649,18 +685,20 @@ func (_class PGPUClass) GetEnabledVGPUTypes(sessionID SessionRef, self PGPURef) 
 }
 
 
-var PGPUClass_GetSupportedVGPUTypesMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
+func PGPUClassGetSupportedVGPUTypesMockDefault(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
 	log.Println("PGPU.GetSupportedVGPUTypes not mocked")
 	_err = errors.New("PGPU.GetSupportedVGPUTypes not mocked")
 	return
 }
 
+var PGPUClassGetSupportedVGPUTypesMockedCallback = PGPUClassGetSupportedVGPUTypesMockDefault
+
 func (_class PGPUClass) GetSupportedVGPUTypesMock(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
-	return PGPUClass_GetSupportedVGPUTypesMockedCallback(sessionID, self)
+	return PGPUClassGetSupportedVGPUTypesMockedCallback(sessionID, self)
 }
 // Get the supported_VGPU_types field of the given PGPU.
 func (_class PGPUClass) GetSupportedVGPUTypes(sessionID SessionRef, self PGPURef) (_retval []VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedVGPUTypesMock(sessionID, self)
 	}	
 	_method := "PGPU.get_supported_VGPU_types"
@@ -681,18 +719,20 @@ func (_class PGPUClass) GetSupportedVGPUTypes(sessionID SessionRef, self PGPURef
 }
 
 
-var PGPUClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
+func PGPUClassGetOtherConfigMockDefault(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
 	log.Println("PGPU.GetOtherConfig not mocked")
 	_err = errors.New("PGPU.GetOtherConfig not mocked")
 	return
 }
 
+var PGPUClassGetOtherConfigMockedCallback = PGPUClassGetOtherConfigMockDefault
+
 func (_class PGPUClass) GetOtherConfigMock(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
-	return PGPUClass_GetOtherConfigMockedCallback(sessionID, self)
+	return PGPUClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given PGPU.
 func (_class PGPUClass) GetOtherConfig(sessionID SessionRef, self PGPURef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "PGPU.get_other_config"
@@ -713,18 +753,20 @@ func (_class PGPUClass) GetOtherConfig(sessionID SessionRef, self PGPURef) (_ret
 }
 
 
-var PGPUClass_GetHostMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval HostRef, _err error) {
+func PGPUClassGetHostMockDefault(sessionID SessionRef, self PGPURef) (_retval HostRef, _err error) {
 	log.Println("PGPU.GetHost not mocked")
 	_err = errors.New("PGPU.GetHost not mocked")
 	return
 }
 
+var PGPUClassGetHostMockedCallback = PGPUClassGetHostMockDefault
+
 func (_class PGPUClass) GetHostMock(sessionID SessionRef, self PGPURef) (_retval HostRef, _err error) {
-	return PGPUClass_GetHostMockedCallback(sessionID, self)
+	return PGPUClassGetHostMockedCallback(sessionID, self)
 }
 // Get the host field of the given PGPU.
 func (_class PGPUClass) GetHost(sessionID SessionRef, self PGPURef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "PGPU.get_host"
@@ -745,18 +787,20 @@ func (_class PGPUClass) GetHost(sessionID SessionRef, self PGPURef) (_retval Hos
 }
 
 
-var PGPUClass_GetGPUGroupMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval GPUGroupRef, _err error) {
+func PGPUClassGetGPUGroupMockDefault(sessionID SessionRef, self PGPURef) (_retval GPUGroupRef, _err error) {
 	log.Println("PGPU.GetGPUGroup not mocked")
 	_err = errors.New("PGPU.GetGPUGroup not mocked")
 	return
 }
 
+var PGPUClassGetGPUGroupMockedCallback = PGPUClassGetGPUGroupMockDefault
+
 func (_class PGPUClass) GetGPUGroupMock(sessionID SessionRef, self PGPURef) (_retval GPUGroupRef, _err error) {
-	return PGPUClass_GetGPUGroupMockedCallback(sessionID, self)
+	return PGPUClassGetGPUGroupMockedCallback(sessionID, self)
 }
 // Get the GPU_group field of the given PGPU.
 func (_class PGPUClass) GetGPUGroup(sessionID SessionRef, self PGPURef) (_retval GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetGPUGroupMock(sessionID, self)
 	}	
 	_method := "PGPU.get_GPU_group"
@@ -777,18 +821,20 @@ func (_class PGPUClass) GetGPUGroup(sessionID SessionRef, self PGPURef) (_retval
 }
 
 
-var PGPUClass_GetPCIMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval PCIRef, _err error) {
+func PGPUClassGetPCIMockDefault(sessionID SessionRef, self PGPURef) (_retval PCIRef, _err error) {
 	log.Println("PGPU.GetPCI not mocked")
 	_err = errors.New("PGPU.GetPCI not mocked")
 	return
 }
 
+var PGPUClassGetPCIMockedCallback = PGPUClassGetPCIMockDefault
+
 func (_class PGPUClass) GetPCIMock(sessionID SessionRef, self PGPURef) (_retval PCIRef, _err error) {
-	return PGPUClass_GetPCIMockedCallback(sessionID, self)
+	return PGPUClassGetPCIMockedCallback(sessionID, self)
 }
 // Get the PCI field of the given PGPU.
 func (_class PGPUClass) GetPCI(sessionID SessionRef, self PGPURef) (_retval PCIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPCIMock(sessionID, self)
 	}	
 	_method := "PGPU.get_PCI"
@@ -809,18 +855,20 @@ func (_class PGPUClass) GetPCI(sessionID SessionRef, self PGPURef) (_retval PCIR
 }
 
 
-var PGPUClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval string, _err error) {
+func PGPUClassGetUUIDMockDefault(sessionID SessionRef, self PGPURef) (_retval string, _err error) {
 	log.Println("PGPU.GetUUID not mocked")
 	_err = errors.New("PGPU.GetUUID not mocked")
 	return
 }
 
+var PGPUClassGetUUIDMockedCallback = PGPUClassGetUUIDMockDefault
+
 func (_class PGPUClass) GetUUIDMock(sessionID SessionRef, self PGPURef) (_retval string, _err error) {
-	return PGPUClass_GetUUIDMockedCallback(sessionID, self)
+	return PGPUClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given PGPU.
 func (_class PGPUClass) GetUUID(sessionID SessionRef, self PGPURef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "PGPU.get_uuid"
@@ -841,18 +889,20 @@ func (_class PGPUClass) GetUUID(sessionID SessionRef, self PGPURef) (_retval str
 }
 
 
-var PGPUClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PGPURef, _err error) {
+func PGPUClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval PGPURef, _err error) {
 	log.Println("PGPU.GetByUUID not mocked")
 	_err = errors.New("PGPU.GetByUUID not mocked")
 	return
 }
 
+var PGPUClassGetByUUIDMockedCallback = PGPUClassGetByUUIDMockDefault
+
 func (_class PGPUClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PGPURef, _err error) {
-	return PGPUClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return PGPUClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the PGPU instance with the specified UUID.
 func (_class PGPUClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "PGPU.get_by_uuid"
@@ -873,18 +923,20 @@ func (_class PGPUClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PG
 }
 
 
-var PGPUClass_GetRecordMockedCallback = func (sessionID SessionRef, self PGPURef) (_retval PGPURecord, _err error) {
+func PGPUClassGetRecordMockDefault(sessionID SessionRef, self PGPURef) (_retval PGPURecord, _err error) {
 	log.Println("PGPU.GetRecord not mocked")
 	_err = errors.New("PGPU.GetRecord not mocked")
 	return
 }
 
+var PGPUClassGetRecordMockedCallback = PGPUClassGetRecordMockDefault
+
 func (_class PGPUClass) GetRecordMock(sessionID SessionRef, self PGPURef) (_retval PGPURecord, _err error) {
-	return PGPUClass_GetRecordMockedCallback(sessionID, self)
+	return PGPUClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given PGPU.
 func (_class PGPUClass) GetRecord(sessionID SessionRef, self PGPURef) (_retval PGPURecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "PGPU.get_record"

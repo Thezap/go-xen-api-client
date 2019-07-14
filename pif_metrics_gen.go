@@ -62,18 +62,20 @@ type PIFMetricsClass struct {
 }
 
 
-var PIFMetricsClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PIFMetricsRef]PIFMetricsRecord, _err error) {
+func PIFMetricsClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[PIFMetricsRef]PIFMetricsRecord, _err error) {
 	log.Println("PIFMetrics.GetAllRecords not mocked")
 	_err = errors.New("PIFMetrics.GetAllRecords not mocked")
 	return
 }
 
+var PIFMetricsClassGetAllRecordsMockedCallback = PIFMetricsClassGetAllRecordsMockDefault
+
 func (_class PIFMetricsClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PIFMetricsRef]PIFMetricsRecord, _err error) {
-	return PIFMetricsClass_GetAllRecordsMockedCallback(sessionID)
+	return PIFMetricsClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of PIF_metrics references to PIF_metrics records for all PIF_metrics instances known to the system.
 func (_class PIFMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[PIFMetricsRef]PIFMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "PIF_metrics.get_all_records"
@@ -90,18 +92,20 @@ func (_class PIFMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[P
 }
 
 
-var PIFMetricsClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PIFMetricsRef, _err error) {
+func PIFMetricsClassGetAllMockDefault(sessionID SessionRef) (_retval []PIFMetricsRef, _err error) {
 	log.Println("PIFMetrics.GetAll not mocked")
 	_err = errors.New("PIFMetrics.GetAll not mocked")
 	return
 }
 
+var PIFMetricsClassGetAllMockedCallback = PIFMetricsClassGetAllMockDefault
+
 func (_class PIFMetricsClass) GetAllMock(sessionID SessionRef) (_retval []PIFMetricsRef, _err error) {
-	return PIFMetricsClass_GetAllMockedCallback(sessionID)
+	return PIFMetricsClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the PIF_metrics instances known to the system.
 func (_class PIFMetricsClass) GetAll(sessionID SessionRef) (_retval []PIFMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "PIF_metrics.get_all"
@@ -118,18 +122,20 @@ func (_class PIFMetricsClass) GetAll(sessionID SessionRef) (_retval []PIFMetrics
 }
 
 
-var PIFMetricsClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self PIFMetricsRef, key string) (_err error) {
+func PIFMetricsClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self PIFMetricsRef, key string) (_err error) {
 	log.Println("PIFMetrics.RemoveFromOtherConfig not mocked")
 	_err = errors.New("PIFMetrics.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var PIFMetricsClassRemoveFromOtherConfigMockedCallback = PIFMetricsClassRemoveFromOtherConfigMockDefault
+
 func (_class PIFMetricsClass) RemoveFromOtherConfigMock(sessionID SessionRef, self PIFMetricsRef, key string) (_err error) {
-	return PIFMetricsClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return PIFMetricsClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given PIF_metrics.  If the key is not in that Map, then do nothing.
 func (_class PIFMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self PIFMetricsRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "PIF_metrics.remove_from_other_config"
@@ -150,18 +156,20 @@ func (_class PIFMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self P
 }
 
 
-var PIFMetricsClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self PIFMetricsRef, key string, value string) (_err error) {
+func PIFMetricsClassAddToOtherConfigMockDefault(sessionID SessionRef, self PIFMetricsRef, key string, value string) (_err error) {
 	log.Println("PIFMetrics.AddToOtherConfig not mocked")
 	_err = errors.New("PIFMetrics.AddToOtherConfig not mocked")
 	return
 }
 
+var PIFMetricsClassAddToOtherConfigMockedCallback = PIFMetricsClassAddToOtherConfigMockDefault
+
 func (_class PIFMetricsClass) AddToOtherConfigMock(sessionID SessionRef, self PIFMetricsRef, key string, value string) (_err error) {
-	return PIFMetricsClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return PIFMetricsClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given PIF_metrics.
 func (_class PIFMetricsClass) AddToOtherConfig(sessionID SessionRef, self PIFMetricsRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "PIF_metrics.add_to_other_config"
@@ -186,18 +194,20 @@ func (_class PIFMetricsClass) AddToOtherConfig(sessionID SessionRef, self PIFMet
 }
 
 
-var PIFMetricsClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self PIFMetricsRef, value map[string]string) (_err error) {
+func PIFMetricsClassSetOtherConfigMockDefault(sessionID SessionRef, self PIFMetricsRef, value map[string]string) (_err error) {
 	log.Println("PIFMetrics.SetOtherConfig not mocked")
 	_err = errors.New("PIFMetrics.SetOtherConfig not mocked")
 	return
 }
 
+var PIFMetricsClassSetOtherConfigMockedCallback = PIFMetricsClassSetOtherConfigMockDefault
+
 func (_class PIFMetricsClass) SetOtherConfigMock(sessionID SessionRef, self PIFMetricsRef, value map[string]string) (_err error) {
-	return PIFMetricsClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return PIFMetricsClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given PIF_metrics.
 func (_class PIFMetricsClass) SetOtherConfig(sessionID SessionRef, self PIFMetricsRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "PIF_metrics.set_other_config"
@@ -218,18 +228,20 @@ func (_class PIFMetricsClass) SetOtherConfig(sessionID SessionRef, self PIFMetri
 }
 
 
-var PIFMetricsClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval map[string]string, _err error) {
+func PIFMetricsClassGetOtherConfigMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("PIFMetrics.GetOtherConfig not mocked")
 	_err = errors.New("PIFMetrics.GetOtherConfig not mocked")
 	return
 }
 
+var PIFMetricsClassGetOtherConfigMockedCallback = PIFMetricsClassGetOtherConfigMockDefault
+
 func (_class PIFMetricsClass) GetOtherConfigMock(sessionID SessionRef, self PIFMetricsRef) (_retval map[string]string, _err error) {
-	return PIFMetricsClass_GetOtherConfigMockedCallback(sessionID, self)
+	return PIFMetricsClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetOtherConfig(sessionID SessionRef, self PIFMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_other_config"
@@ -250,18 +262,20 @@ func (_class PIFMetricsClass) GetOtherConfig(sessionID SessionRef, self PIFMetri
 }
 
 
-var PIFMetricsClass_GetLastUpdatedMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval time.Time, _err error) {
+func PIFMetricsClassGetLastUpdatedMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval time.Time, _err error) {
 	log.Println("PIFMetrics.GetLastUpdated not mocked")
 	_err = errors.New("PIFMetrics.GetLastUpdated not mocked")
 	return
 }
 
+var PIFMetricsClassGetLastUpdatedMockedCallback = PIFMetricsClassGetLastUpdatedMockDefault
+
 func (_class PIFMetricsClass) GetLastUpdatedMock(sessionID SessionRef, self PIFMetricsRef) (_retval time.Time, _err error) {
-	return PIFMetricsClass_GetLastUpdatedMockedCallback(sessionID, self)
+	return PIFMetricsClassGetLastUpdatedMockedCallback(sessionID, self)
 }
 // Get the last_updated field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetLastUpdated(sessionID SessionRef, self PIFMetricsRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastUpdatedMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_last_updated"
@@ -282,18 +296,20 @@ func (_class PIFMetricsClass) GetLastUpdated(sessionID SessionRef, self PIFMetri
 }
 
 
-var PIFMetricsClass_GetPciBusPathMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetPciBusPathMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetPciBusPath not mocked")
 	_err = errors.New("PIFMetrics.GetPciBusPath not mocked")
 	return
 }
 
+var PIFMetricsClassGetPciBusPathMockedCallback = PIFMetricsClassGetPciBusPathMockDefault
+
 func (_class PIFMetricsClass) GetPciBusPathMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetPciBusPathMockedCallback(sessionID, self)
+	return PIFMetricsClassGetPciBusPathMockedCallback(sessionID, self)
 }
 // Get the pci_bus_path field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetPciBusPath(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPciBusPathMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_pci_bus_path"
@@ -314,18 +330,20 @@ func (_class PIFMetricsClass) GetPciBusPath(sessionID SessionRef, self PIFMetric
 }
 
 
-var PIFMetricsClass_GetDuplexMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
+func PIFMetricsClassGetDuplexMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
 	log.Println("PIFMetrics.GetDuplex not mocked")
 	_err = errors.New("PIFMetrics.GetDuplex not mocked")
 	return
 }
 
+var PIFMetricsClassGetDuplexMockedCallback = PIFMetricsClassGetDuplexMockDefault
+
 func (_class PIFMetricsClass) GetDuplexMock(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
-	return PIFMetricsClass_GetDuplexMockedCallback(sessionID, self)
+	return PIFMetricsClassGetDuplexMockedCallback(sessionID, self)
 }
 // Get the duplex field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetDuplex(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDuplexMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_duplex"
@@ -346,18 +364,20 @@ func (_class PIFMetricsClass) GetDuplex(sessionID SessionRef, self PIFMetricsRef
 }
 
 
-var PIFMetricsClass_GetSpeedMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval int, _err error) {
+func PIFMetricsClassGetSpeedMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval int, _err error) {
 	log.Println("PIFMetrics.GetSpeed not mocked")
 	_err = errors.New("PIFMetrics.GetSpeed not mocked")
 	return
 }
 
+var PIFMetricsClassGetSpeedMockedCallback = PIFMetricsClassGetSpeedMockDefault
+
 func (_class PIFMetricsClass) GetSpeedMock(sessionID SessionRef, self PIFMetricsRef) (_retval int, _err error) {
-	return PIFMetricsClass_GetSpeedMockedCallback(sessionID, self)
+	return PIFMetricsClassGetSpeedMockedCallback(sessionID, self)
 }
 // Get the speed field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetSpeed(sessionID SessionRef, self PIFMetricsRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSpeedMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_speed"
@@ -378,18 +398,20 @@ func (_class PIFMetricsClass) GetSpeed(sessionID SessionRef, self PIFMetricsRef)
 }
 
 
-var PIFMetricsClass_GetDeviceNameMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetDeviceNameMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetDeviceName not mocked")
 	_err = errors.New("PIFMetrics.GetDeviceName not mocked")
 	return
 }
 
+var PIFMetricsClassGetDeviceNameMockedCallback = PIFMetricsClassGetDeviceNameMockDefault
+
 func (_class PIFMetricsClass) GetDeviceNameMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetDeviceNameMockedCallback(sessionID, self)
+	return PIFMetricsClassGetDeviceNameMockedCallback(sessionID, self)
 }
 // Get the device_name field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetDeviceName(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDeviceNameMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_device_name"
@@ -410,18 +432,20 @@ func (_class PIFMetricsClass) GetDeviceName(sessionID SessionRef, self PIFMetric
 }
 
 
-var PIFMetricsClass_GetDeviceIDMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetDeviceIDMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetDeviceID not mocked")
 	_err = errors.New("PIFMetrics.GetDeviceID not mocked")
 	return
 }
 
+var PIFMetricsClassGetDeviceIDMockedCallback = PIFMetricsClassGetDeviceIDMockDefault
+
 func (_class PIFMetricsClass) GetDeviceIDMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetDeviceIDMockedCallback(sessionID, self)
+	return PIFMetricsClassGetDeviceIDMockedCallback(sessionID, self)
 }
 // Get the device_id field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetDeviceID(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDeviceIDMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_device_id"
@@ -442,18 +466,20 @@ func (_class PIFMetricsClass) GetDeviceID(sessionID SessionRef, self PIFMetricsR
 }
 
 
-var PIFMetricsClass_GetVendorNameMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetVendorNameMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetVendorName not mocked")
 	_err = errors.New("PIFMetrics.GetVendorName not mocked")
 	return
 }
 
+var PIFMetricsClassGetVendorNameMockedCallback = PIFMetricsClassGetVendorNameMockDefault
+
 func (_class PIFMetricsClass) GetVendorNameMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetVendorNameMockedCallback(sessionID, self)
+	return PIFMetricsClassGetVendorNameMockedCallback(sessionID, self)
 }
 // Get the vendor_name field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetVendorName(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVendorNameMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_vendor_name"
@@ -474,18 +500,20 @@ func (_class PIFMetricsClass) GetVendorName(sessionID SessionRef, self PIFMetric
 }
 
 
-var PIFMetricsClass_GetVendorIDMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetVendorIDMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetVendorID not mocked")
 	_err = errors.New("PIFMetrics.GetVendorID not mocked")
 	return
 }
 
+var PIFMetricsClassGetVendorIDMockedCallback = PIFMetricsClassGetVendorIDMockDefault
+
 func (_class PIFMetricsClass) GetVendorIDMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetVendorIDMockedCallback(sessionID, self)
+	return PIFMetricsClassGetVendorIDMockedCallback(sessionID, self)
 }
 // Get the vendor_id field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetVendorID(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVendorIDMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_vendor_id"
@@ -506,18 +534,20 @@ func (_class PIFMetricsClass) GetVendorID(sessionID SessionRef, self PIFMetricsR
 }
 
 
-var PIFMetricsClass_GetCarrierMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
+func PIFMetricsClassGetCarrierMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
 	log.Println("PIFMetrics.GetCarrier not mocked")
 	_err = errors.New("PIFMetrics.GetCarrier not mocked")
 	return
 }
 
+var PIFMetricsClassGetCarrierMockedCallback = PIFMetricsClassGetCarrierMockDefault
+
 func (_class PIFMetricsClass) GetCarrierMock(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
-	return PIFMetricsClass_GetCarrierMockedCallback(sessionID, self)
+	return PIFMetricsClassGetCarrierMockedCallback(sessionID, self)
 }
 // Get the carrier field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetCarrier(sessionID SessionRef, self PIFMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCarrierMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_carrier"
@@ -538,18 +568,20 @@ func (_class PIFMetricsClass) GetCarrier(sessionID SessionRef, self PIFMetricsRe
 }
 
 
-var PIFMetricsClass_GetIoWriteKbsMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
+func PIFMetricsClassGetIoWriteKbsMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
 	log.Println("PIFMetrics.GetIoWriteKbs not mocked")
 	_err = errors.New("PIFMetrics.GetIoWriteKbs not mocked")
 	return
 }
 
+var PIFMetricsClassGetIoWriteKbsMockedCallback = PIFMetricsClassGetIoWriteKbsMockDefault
+
 func (_class PIFMetricsClass) GetIoWriteKbsMock(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
-	return PIFMetricsClass_GetIoWriteKbsMockedCallback(sessionID, self)
+	return PIFMetricsClassGetIoWriteKbsMockedCallback(sessionID, self)
 }
 // Get the io/write_kbs field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetIoWriteKbs(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIoWriteKbsMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_io_write_kbs"
@@ -570,18 +602,20 @@ func (_class PIFMetricsClass) GetIoWriteKbs(sessionID SessionRef, self PIFMetric
 }
 
 
-var PIFMetricsClass_GetIoReadKbsMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
+func PIFMetricsClassGetIoReadKbsMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
 	log.Println("PIFMetrics.GetIoReadKbs not mocked")
 	_err = errors.New("PIFMetrics.GetIoReadKbs not mocked")
 	return
 }
 
+var PIFMetricsClassGetIoReadKbsMockedCallback = PIFMetricsClassGetIoReadKbsMockDefault
+
 func (_class PIFMetricsClass) GetIoReadKbsMock(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
-	return PIFMetricsClass_GetIoReadKbsMockedCallback(sessionID, self)
+	return PIFMetricsClassGetIoReadKbsMockedCallback(sessionID, self)
 }
 // Get the io/read_kbs field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetIoReadKbs(sessionID SessionRef, self PIFMetricsRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIoReadKbsMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_io_read_kbs"
@@ -602,18 +636,20 @@ func (_class PIFMetricsClass) GetIoReadKbs(sessionID SessionRef, self PIFMetrics
 }
 
 
-var PIFMetricsClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
+func PIFMetricsClassGetUUIDMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
 	log.Println("PIFMetrics.GetUUID not mocked")
 	_err = errors.New("PIFMetrics.GetUUID not mocked")
 	return
 }
 
+var PIFMetricsClassGetUUIDMockedCallback = PIFMetricsClassGetUUIDMockDefault
+
 func (_class PIFMetricsClass) GetUUIDMock(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	return PIFMetricsClass_GetUUIDMockedCallback(sessionID, self)
+	return PIFMetricsClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given PIF_metrics.
 func (_class PIFMetricsClass) GetUUID(sessionID SessionRef, self PIFMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_uuid"
@@ -634,18 +670,20 @@ func (_class PIFMetricsClass) GetUUID(sessionID SessionRef, self PIFMetricsRef) 
 }
 
 
-var PIFMetricsClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PIFMetricsRef, _err error) {
+func PIFMetricsClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval PIFMetricsRef, _err error) {
 	log.Println("PIFMetrics.GetByUUID not mocked")
 	_err = errors.New("PIFMetrics.GetByUUID not mocked")
 	return
 }
 
+var PIFMetricsClassGetByUUIDMockedCallback = PIFMetricsClassGetByUUIDMockDefault
+
 func (_class PIFMetricsClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PIFMetricsRef, _err error) {
-	return PIFMetricsClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return PIFMetricsClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the PIF_metrics instance with the specified UUID.
 func (_class PIFMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PIFMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "PIF_metrics.get_by_uuid"
@@ -666,18 +704,20 @@ func (_class PIFMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_ret
 }
 
 
-var PIFMetricsClass_GetRecordMockedCallback = func (sessionID SessionRef, self PIFMetricsRef) (_retval PIFMetricsRecord, _err error) {
+func PIFMetricsClassGetRecordMockDefault(sessionID SessionRef, self PIFMetricsRef) (_retval PIFMetricsRecord, _err error) {
 	log.Println("PIFMetrics.GetRecord not mocked")
 	_err = errors.New("PIFMetrics.GetRecord not mocked")
 	return
 }
 
+var PIFMetricsClassGetRecordMockedCallback = PIFMetricsClassGetRecordMockDefault
+
 func (_class PIFMetricsClass) GetRecordMock(sessionID SessionRef, self PIFMetricsRef) (_retval PIFMetricsRecord, _err error) {
-	return PIFMetricsClass_GetRecordMockedCallback(sessionID, self)
+	return PIFMetricsClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given PIF_metrics.
 func (_class PIFMetricsClass) GetRecord(sessionID SessionRef, self PIFMetricsRef) (_retval PIFMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "PIF_metrics.get_record"

@@ -82,18 +82,20 @@ type PoolUpdateClass struct {
 }
 
 
-var PoolUpdateClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PoolUpdateRef]PoolUpdateRecord, _err error) {
+func PoolUpdateClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[PoolUpdateRef]PoolUpdateRecord, _err error) {
 	log.Println("PoolUpdate.GetAllRecords not mocked")
 	_err = errors.New("PoolUpdate.GetAllRecords not mocked")
 	return
 }
 
+var PoolUpdateClassGetAllRecordsMockedCallback = PoolUpdateClassGetAllRecordsMockDefault
+
 func (_class PoolUpdateClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PoolUpdateRef]PoolUpdateRecord, _err error) {
-	return PoolUpdateClass_GetAllRecordsMockedCallback(sessionID)
+	return PoolUpdateClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of pool_update references to pool_update records for all pool_updates known to the system.
 func (_class PoolUpdateClass) GetAllRecords(sessionID SessionRef) (_retval map[PoolUpdateRef]PoolUpdateRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "pool_update.get_all_records"
@@ -110,18 +112,20 @@ func (_class PoolUpdateClass) GetAllRecords(sessionID SessionRef) (_retval map[P
 }
 
 
-var PoolUpdateClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PoolUpdateRef, _err error) {
+func PoolUpdateClassGetAllMockDefault(sessionID SessionRef) (_retval []PoolUpdateRef, _err error) {
 	log.Println("PoolUpdate.GetAll not mocked")
 	_err = errors.New("PoolUpdate.GetAll not mocked")
 	return
 }
 
+var PoolUpdateClassGetAllMockedCallback = PoolUpdateClassGetAllMockDefault
+
 func (_class PoolUpdateClass) GetAllMock(sessionID SessionRef) (_retval []PoolUpdateRef, _err error) {
-	return PoolUpdateClass_GetAllMockedCallback(sessionID)
+	return PoolUpdateClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the pool_updates known to the system.
 func (_class PoolUpdateClass) GetAll(sessionID SessionRef) (_retval []PoolUpdateRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "pool_update.get_all"
@@ -138,18 +142,20 @@ func (_class PoolUpdateClass) GetAll(sessionID SessionRef) (_retval []PoolUpdate
 }
 
 
-var PoolUpdateClass_DestroyMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_err error) {
+func PoolUpdateClassDestroyMockDefault(sessionID SessionRef, self PoolUpdateRef) (_err error) {
 	log.Println("PoolUpdate.Destroy not mocked")
 	_err = errors.New("PoolUpdate.Destroy not mocked")
 	return
 }
 
+var PoolUpdateClassDestroyMockedCallback = PoolUpdateClassDestroyMockDefault
+
 func (_class PoolUpdateClass) DestroyMock(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	return PoolUpdateClass_DestroyMockedCallback(sessionID, self)
+	return PoolUpdateClassDestroyMockedCallback(sessionID, self)
 }
 // Removes the database entry. Only works on unapplied update.
 func (_class PoolUpdateClass) Destroy(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "pool_update.destroy"
@@ -166,18 +172,20 @@ func (_class PoolUpdateClass) Destroy(sessionID SessionRef, self PoolUpdateRef) 
 }
 
 
-var PoolUpdateClass_PoolCleanMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_err error) {
+func PoolUpdateClassPoolCleanMockDefault(sessionID SessionRef, self PoolUpdateRef) (_err error) {
 	log.Println("PoolUpdate.PoolClean not mocked")
 	_err = errors.New("PoolUpdate.PoolClean not mocked")
 	return
 }
 
+var PoolUpdateClassPoolCleanMockedCallback = PoolUpdateClassPoolCleanMockDefault
+
 func (_class PoolUpdateClass) PoolCleanMock(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	return PoolUpdateClass_PoolCleanMockedCallback(sessionID, self)
+	return PoolUpdateClassPoolCleanMockedCallback(sessionID, self)
 }
 // Removes the update's files from all hosts in the pool, but does not revert the update
 func (_class PoolUpdateClass) PoolClean(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PoolCleanMock(sessionID, self)
 	}	
 	_method := "pool_update.pool_clean"
@@ -194,18 +202,20 @@ func (_class PoolUpdateClass) PoolClean(sessionID SessionRef, self PoolUpdateRef
 }
 
 
-var PoolUpdateClass_PoolApplyMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_err error) {
+func PoolUpdateClassPoolApplyMockDefault(sessionID SessionRef, self PoolUpdateRef) (_err error) {
 	log.Println("PoolUpdate.PoolApply not mocked")
 	_err = errors.New("PoolUpdate.PoolApply not mocked")
 	return
 }
 
+var PoolUpdateClassPoolApplyMockedCallback = PoolUpdateClassPoolApplyMockDefault
+
 func (_class PoolUpdateClass) PoolApplyMock(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	return PoolUpdateClass_PoolApplyMockedCallback(sessionID, self)
+	return PoolUpdateClassPoolApplyMockedCallback(sessionID, self)
 }
 // Apply the selected update to all hosts in the pool
 func (_class PoolUpdateClass) PoolApply(sessionID SessionRef, self PoolUpdateRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PoolApplyMock(sessionID, self)
 	}	
 	_method := "pool_update.pool_apply"
@@ -222,18 +232,20 @@ func (_class PoolUpdateClass) PoolApply(sessionID SessionRef, self PoolUpdateRef
 }
 
 
-var PoolUpdateClass_ApplyMockedCallback = func (sessionID SessionRef, self PoolUpdateRef, host HostRef) (_err error) {
+func PoolUpdateClassApplyMockDefault(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_err error) {
 	log.Println("PoolUpdate.Apply not mocked")
 	_err = errors.New("PoolUpdate.Apply not mocked")
 	return
 }
 
+var PoolUpdateClassApplyMockedCallback = PoolUpdateClassApplyMockDefault
+
 func (_class PoolUpdateClass) ApplyMock(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_err error) {
-	return PoolUpdateClass_ApplyMockedCallback(sessionID, self, host)
+	return PoolUpdateClassApplyMockedCallback(sessionID, self, host)
 }
 // Apply the selected update to a host
 func (_class PoolUpdateClass) Apply(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ApplyMock(sessionID, self, host)
 	}	
 	_method := "pool_update.apply"
@@ -254,18 +266,20 @@ func (_class PoolUpdateClass) Apply(sessionID SessionRef, self PoolUpdateRef, ho
 }
 
 
-var PoolUpdateClass_PrecheckMockedCallback = func (sessionID SessionRef, self PoolUpdateRef, host HostRef) (_retval LivepatchStatus, _err error) {
+func PoolUpdateClassPrecheckMockDefault(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_retval LivepatchStatus, _err error) {
 	log.Println("PoolUpdate.Precheck not mocked")
 	_err = errors.New("PoolUpdate.Precheck not mocked")
 	return
 }
 
+var PoolUpdateClassPrecheckMockedCallback = PoolUpdateClassPrecheckMockDefault
+
 func (_class PoolUpdateClass) PrecheckMock(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_retval LivepatchStatus, _err error) {
-	return PoolUpdateClass_PrecheckMockedCallback(sessionID, self, host)
+	return PoolUpdateClassPrecheckMockedCallback(sessionID, self, host)
 }
 // Execute the precheck stage of the selected update on a host
 func (_class PoolUpdateClass) Precheck(sessionID SessionRef, self PoolUpdateRef, host HostRef) (_retval LivepatchStatus, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.PrecheckMock(sessionID, self, host)
 	}	
 	_method := "pool_update.precheck"
@@ -290,18 +304,20 @@ func (_class PoolUpdateClass) Precheck(sessionID SessionRef, self PoolUpdateRef,
 }
 
 
-var PoolUpdateClass_IntroduceMockedCallback = func (sessionID SessionRef, vdi VDIRef) (_retval PoolUpdateRef, _err error) {
+func PoolUpdateClassIntroduceMockDefault(sessionID SessionRef, vdi VDIRef) (_retval PoolUpdateRef, _err error) {
 	log.Println("PoolUpdate.Introduce not mocked")
 	_err = errors.New("PoolUpdate.Introduce not mocked")
 	return
 }
 
+var PoolUpdateClassIntroduceMockedCallback = PoolUpdateClassIntroduceMockDefault
+
 func (_class PoolUpdateClass) IntroduceMock(sessionID SessionRef, vdi VDIRef) (_retval PoolUpdateRef, _err error) {
-	return PoolUpdateClass_IntroduceMockedCallback(sessionID, vdi)
+	return PoolUpdateClassIntroduceMockedCallback(sessionID, vdi)
 }
 // Introduce update VDI
 func (_class PoolUpdateClass) Introduce(sessionID SessionRef, vdi VDIRef) (_retval PoolUpdateRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.IntroduceMock(sessionID, vdi)
 	}	
 	_method := "pool_update.introduce"
@@ -322,18 +338,20 @@ func (_class PoolUpdateClass) Introduce(sessionID SessionRef, vdi VDIRef) (_retv
 }
 
 
-var PoolUpdateClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self PoolUpdateRef, key string) (_err error) {
+func PoolUpdateClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self PoolUpdateRef, key string) (_err error) {
 	log.Println("PoolUpdate.RemoveFromOtherConfig not mocked")
 	_err = errors.New("PoolUpdate.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var PoolUpdateClassRemoveFromOtherConfigMockedCallback = PoolUpdateClassRemoveFromOtherConfigMockDefault
+
 func (_class PoolUpdateClass) RemoveFromOtherConfigMock(sessionID SessionRef, self PoolUpdateRef, key string) (_err error) {
-	return PoolUpdateClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return PoolUpdateClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given pool_update.  If the key is not in that Map, then do nothing.
 func (_class PoolUpdateClass) RemoveFromOtherConfig(sessionID SessionRef, self PoolUpdateRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "pool_update.remove_from_other_config"
@@ -354,18 +372,20 @@ func (_class PoolUpdateClass) RemoveFromOtherConfig(sessionID SessionRef, self P
 }
 
 
-var PoolUpdateClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self PoolUpdateRef, key string, value string) (_err error) {
+func PoolUpdateClassAddToOtherConfigMockDefault(sessionID SessionRef, self PoolUpdateRef, key string, value string) (_err error) {
 	log.Println("PoolUpdate.AddToOtherConfig not mocked")
 	_err = errors.New("PoolUpdate.AddToOtherConfig not mocked")
 	return
 }
 
+var PoolUpdateClassAddToOtherConfigMockedCallback = PoolUpdateClassAddToOtherConfigMockDefault
+
 func (_class PoolUpdateClass) AddToOtherConfigMock(sessionID SessionRef, self PoolUpdateRef, key string, value string) (_err error) {
-	return PoolUpdateClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return PoolUpdateClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given pool_update.
 func (_class PoolUpdateClass) AddToOtherConfig(sessionID SessionRef, self PoolUpdateRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "pool_update.add_to_other_config"
@@ -390,18 +410,20 @@ func (_class PoolUpdateClass) AddToOtherConfig(sessionID SessionRef, self PoolUp
 }
 
 
-var PoolUpdateClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self PoolUpdateRef, value map[string]string) (_err error) {
+func PoolUpdateClassSetOtherConfigMockDefault(sessionID SessionRef, self PoolUpdateRef, value map[string]string) (_err error) {
 	log.Println("PoolUpdate.SetOtherConfig not mocked")
 	_err = errors.New("PoolUpdate.SetOtherConfig not mocked")
 	return
 }
 
+var PoolUpdateClassSetOtherConfigMockedCallback = PoolUpdateClassSetOtherConfigMockDefault
+
 func (_class PoolUpdateClass) SetOtherConfigMock(sessionID SessionRef, self PoolUpdateRef, value map[string]string) (_err error) {
-	return PoolUpdateClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return PoolUpdateClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given pool_update.
 func (_class PoolUpdateClass) SetOtherConfig(sessionID SessionRef, self PoolUpdateRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "pool_update.set_other_config"
@@ -422,18 +444,20 @@ func (_class PoolUpdateClass) SetOtherConfig(sessionID SessionRef, self PoolUpda
 }
 
 
-var PoolUpdateClass_GetEnforceHomogeneityMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval bool, _err error) {
+func PoolUpdateClassGetEnforceHomogeneityMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval bool, _err error) {
 	log.Println("PoolUpdate.GetEnforceHomogeneity not mocked")
 	_err = errors.New("PoolUpdate.GetEnforceHomogeneity not mocked")
 	return
 }
 
+var PoolUpdateClassGetEnforceHomogeneityMockedCallback = PoolUpdateClassGetEnforceHomogeneityMockDefault
+
 func (_class PoolUpdateClass) GetEnforceHomogeneityMock(sessionID SessionRef, self PoolUpdateRef) (_retval bool, _err error) {
-	return PoolUpdateClass_GetEnforceHomogeneityMockedCallback(sessionID, self)
+	return PoolUpdateClassGetEnforceHomogeneityMockedCallback(sessionID, self)
 }
 // Get the enforce_homogeneity field of the given pool_update.
 func (_class PoolUpdateClass) GetEnforceHomogeneity(sessionID SessionRef, self PoolUpdateRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnforceHomogeneityMock(sessionID, self)
 	}	
 	_method := "pool_update.get_enforce_homogeneity"
@@ -454,18 +478,20 @@ func (_class PoolUpdateClass) GetEnforceHomogeneity(sessionID SessionRef, self P
 }
 
 
-var PoolUpdateClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval map[string]string, _err error) {
+func PoolUpdateClassGetOtherConfigMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval map[string]string, _err error) {
 	log.Println("PoolUpdate.GetOtherConfig not mocked")
 	_err = errors.New("PoolUpdate.GetOtherConfig not mocked")
 	return
 }
 
+var PoolUpdateClassGetOtherConfigMockedCallback = PoolUpdateClassGetOtherConfigMockDefault
+
 func (_class PoolUpdateClass) GetOtherConfigMock(sessionID SessionRef, self PoolUpdateRef) (_retval map[string]string, _err error) {
-	return PoolUpdateClass_GetOtherConfigMockedCallback(sessionID, self)
+	return PoolUpdateClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given pool_update.
 func (_class PoolUpdateClass) GetOtherConfig(sessionID SessionRef, self PoolUpdateRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "pool_update.get_other_config"
@@ -486,18 +512,20 @@ func (_class PoolUpdateClass) GetOtherConfig(sessionID SessionRef, self PoolUpda
 }
 
 
-var PoolUpdateClass_GetHostsMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval []HostRef, _err error) {
+func PoolUpdateClassGetHostsMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval []HostRef, _err error) {
 	log.Println("PoolUpdate.GetHosts not mocked")
 	_err = errors.New("PoolUpdate.GetHosts not mocked")
 	return
 }
 
+var PoolUpdateClassGetHostsMockedCallback = PoolUpdateClassGetHostsMockDefault
+
 func (_class PoolUpdateClass) GetHostsMock(sessionID SessionRef, self PoolUpdateRef) (_retval []HostRef, _err error) {
-	return PoolUpdateClass_GetHostsMockedCallback(sessionID, self)
+	return PoolUpdateClassGetHostsMockedCallback(sessionID, self)
 }
 // Get the hosts field of the given pool_update.
 func (_class PoolUpdateClass) GetHosts(sessionID SessionRef, self PoolUpdateRef) (_retval []HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostsMock(sessionID, self)
 	}	
 	_method := "pool_update.get_hosts"
@@ -518,18 +546,20 @@ func (_class PoolUpdateClass) GetHosts(sessionID SessionRef, self PoolUpdateRef)
 }
 
 
-var PoolUpdateClass_GetVdiMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval VDIRef, _err error) {
+func PoolUpdateClassGetVdiMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval VDIRef, _err error) {
 	log.Println("PoolUpdate.GetVdi not mocked")
 	_err = errors.New("PoolUpdate.GetVdi not mocked")
 	return
 }
 
+var PoolUpdateClassGetVdiMockedCallback = PoolUpdateClassGetVdiMockDefault
+
 func (_class PoolUpdateClass) GetVdiMock(sessionID SessionRef, self PoolUpdateRef) (_retval VDIRef, _err error) {
-	return PoolUpdateClass_GetVdiMockedCallback(sessionID, self)
+	return PoolUpdateClassGetVdiMockedCallback(sessionID, self)
 }
 // Get the vdi field of the given pool_update.
 func (_class PoolUpdateClass) GetVdi(sessionID SessionRef, self PoolUpdateRef) (_retval VDIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVdiMock(sessionID, self)
 	}	
 	_method := "pool_update.get_vdi"
@@ -550,18 +580,20 @@ func (_class PoolUpdateClass) GetVdi(sessionID SessionRef, self PoolUpdateRef) (
 }
 
 
-var PoolUpdateClass_GetAfterApplyGuidanceMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval []UpdateAfterApplyGuidance, _err error) {
+func PoolUpdateClassGetAfterApplyGuidanceMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval []UpdateAfterApplyGuidance, _err error) {
 	log.Println("PoolUpdate.GetAfterApplyGuidance not mocked")
 	_err = errors.New("PoolUpdate.GetAfterApplyGuidance not mocked")
 	return
 }
 
+var PoolUpdateClassGetAfterApplyGuidanceMockedCallback = PoolUpdateClassGetAfterApplyGuidanceMockDefault
+
 func (_class PoolUpdateClass) GetAfterApplyGuidanceMock(sessionID SessionRef, self PoolUpdateRef) (_retval []UpdateAfterApplyGuidance, _err error) {
-	return PoolUpdateClass_GetAfterApplyGuidanceMockedCallback(sessionID, self)
+	return PoolUpdateClassGetAfterApplyGuidanceMockedCallback(sessionID, self)
 }
 // Get the after_apply_guidance field of the given pool_update.
 func (_class PoolUpdateClass) GetAfterApplyGuidance(sessionID SessionRef, self PoolUpdateRef) (_retval []UpdateAfterApplyGuidance, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAfterApplyGuidanceMock(sessionID, self)
 	}	
 	_method := "pool_update.get_after_apply_guidance"
@@ -582,18 +614,20 @@ func (_class PoolUpdateClass) GetAfterApplyGuidance(sessionID SessionRef, self P
 }
 
 
-var PoolUpdateClass_GetKeyMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
+func PoolUpdateClassGetKeyMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
 	log.Println("PoolUpdate.GetKey not mocked")
 	_err = errors.New("PoolUpdate.GetKey not mocked")
 	return
 }
 
+var PoolUpdateClassGetKeyMockedCallback = PoolUpdateClassGetKeyMockDefault
+
 func (_class PoolUpdateClass) GetKeyMock(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	return PoolUpdateClass_GetKeyMockedCallback(sessionID, self)
+	return PoolUpdateClassGetKeyMockedCallback(sessionID, self)
 }
 // Get the key field of the given pool_update.
 func (_class PoolUpdateClass) GetKey(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetKeyMock(sessionID, self)
 	}	
 	_method := "pool_update.get_key"
@@ -614,18 +648,20 @@ func (_class PoolUpdateClass) GetKey(sessionID SessionRef, self PoolUpdateRef) (
 }
 
 
-var PoolUpdateClass_GetInstallationSizeMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval int, _err error) {
+func PoolUpdateClassGetInstallationSizeMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval int, _err error) {
 	log.Println("PoolUpdate.GetInstallationSize not mocked")
 	_err = errors.New("PoolUpdate.GetInstallationSize not mocked")
 	return
 }
 
+var PoolUpdateClassGetInstallationSizeMockedCallback = PoolUpdateClassGetInstallationSizeMockDefault
+
 func (_class PoolUpdateClass) GetInstallationSizeMock(sessionID SessionRef, self PoolUpdateRef) (_retval int, _err error) {
-	return PoolUpdateClass_GetInstallationSizeMockedCallback(sessionID, self)
+	return PoolUpdateClassGetInstallationSizeMockedCallback(sessionID, self)
 }
 // Get the installation_size field of the given pool_update.
 func (_class PoolUpdateClass) GetInstallationSize(sessionID SessionRef, self PoolUpdateRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetInstallationSizeMock(sessionID, self)
 	}	
 	_method := "pool_update.get_installation_size"
@@ -646,18 +682,20 @@ func (_class PoolUpdateClass) GetInstallationSize(sessionID SessionRef, self Poo
 }
 
 
-var PoolUpdateClass_GetVersionMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
+func PoolUpdateClassGetVersionMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
 	log.Println("PoolUpdate.GetVersion not mocked")
 	_err = errors.New("PoolUpdate.GetVersion not mocked")
 	return
 }
 
+var PoolUpdateClassGetVersionMockedCallback = PoolUpdateClassGetVersionMockDefault
+
 func (_class PoolUpdateClass) GetVersionMock(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	return PoolUpdateClass_GetVersionMockedCallback(sessionID, self)
+	return PoolUpdateClassGetVersionMockedCallback(sessionID, self)
 }
 // Get the version field of the given pool_update.
 func (_class PoolUpdateClass) GetVersion(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVersionMock(sessionID, self)
 	}	
 	_method := "pool_update.get_version"
@@ -678,18 +716,20 @@ func (_class PoolUpdateClass) GetVersion(sessionID SessionRef, self PoolUpdateRe
 }
 
 
-var PoolUpdateClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
+func PoolUpdateClassGetNameDescriptionMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
 	log.Println("PoolUpdate.GetNameDescription not mocked")
 	_err = errors.New("PoolUpdate.GetNameDescription not mocked")
 	return
 }
 
+var PoolUpdateClassGetNameDescriptionMockedCallback = PoolUpdateClassGetNameDescriptionMockDefault
+
 func (_class PoolUpdateClass) GetNameDescriptionMock(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	return PoolUpdateClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return PoolUpdateClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given pool_update.
 func (_class PoolUpdateClass) GetNameDescription(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "pool_update.get_name_description"
@@ -710,18 +750,20 @@ func (_class PoolUpdateClass) GetNameDescription(sessionID SessionRef, self Pool
 }
 
 
-var PoolUpdateClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
+func PoolUpdateClassGetNameLabelMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
 	log.Println("PoolUpdate.GetNameLabel not mocked")
 	_err = errors.New("PoolUpdate.GetNameLabel not mocked")
 	return
 }
 
+var PoolUpdateClassGetNameLabelMockedCallback = PoolUpdateClassGetNameLabelMockDefault
+
 func (_class PoolUpdateClass) GetNameLabelMock(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	return PoolUpdateClass_GetNameLabelMockedCallback(sessionID, self)
+	return PoolUpdateClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given pool_update.
 func (_class PoolUpdateClass) GetNameLabel(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "pool_update.get_name_label"
@@ -742,18 +784,20 @@ func (_class PoolUpdateClass) GetNameLabel(sessionID SessionRef, self PoolUpdate
 }
 
 
-var PoolUpdateClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
+func PoolUpdateClassGetUUIDMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
 	log.Println("PoolUpdate.GetUUID not mocked")
 	_err = errors.New("PoolUpdate.GetUUID not mocked")
 	return
 }
 
+var PoolUpdateClassGetUUIDMockedCallback = PoolUpdateClassGetUUIDMockDefault
+
 func (_class PoolUpdateClass) GetUUIDMock(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	return PoolUpdateClass_GetUUIDMockedCallback(sessionID, self)
+	return PoolUpdateClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given pool_update.
 func (_class PoolUpdateClass) GetUUID(sessionID SessionRef, self PoolUpdateRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "pool_update.get_uuid"
@@ -774,18 +818,20 @@ func (_class PoolUpdateClass) GetUUID(sessionID SessionRef, self PoolUpdateRef) 
 }
 
 
-var PoolUpdateClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []PoolUpdateRef, _err error) {
+func PoolUpdateClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []PoolUpdateRef, _err error) {
 	log.Println("PoolUpdate.GetByNameLabel not mocked")
 	_err = errors.New("PoolUpdate.GetByNameLabel not mocked")
 	return
 }
 
+var PoolUpdateClassGetByNameLabelMockedCallback = PoolUpdateClassGetByNameLabelMockDefault
+
 func (_class PoolUpdateClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []PoolUpdateRef, _err error) {
-	return PoolUpdateClass_GetByNameLabelMockedCallback(sessionID, label)
+	return PoolUpdateClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the pool_update instances with the given label.
 func (_class PoolUpdateClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []PoolUpdateRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "pool_update.get_by_name_label"
@@ -806,18 +852,20 @@ func (_class PoolUpdateClass) GetByNameLabel(sessionID SessionRef, label string)
 }
 
 
-var PoolUpdateClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PoolUpdateRef, _err error) {
+func PoolUpdateClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval PoolUpdateRef, _err error) {
 	log.Println("PoolUpdate.GetByUUID not mocked")
 	_err = errors.New("PoolUpdate.GetByUUID not mocked")
 	return
 }
 
+var PoolUpdateClassGetByUUIDMockedCallback = PoolUpdateClassGetByUUIDMockDefault
+
 func (_class PoolUpdateClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PoolUpdateRef, _err error) {
-	return PoolUpdateClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return PoolUpdateClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the pool_update instance with the specified UUID.
 func (_class PoolUpdateClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PoolUpdateRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "pool_update.get_by_uuid"
@@ -838,18 +886,20 @@ func (_class PoolUpdateClass) GetByUUID(sessionID SessionRef, uuid string) (_ret
 }
 
 
-var PoolUpdateClass_GetRecordMockedCallback = func (sessionID SessionRef, self PoolUpdateRef) (_retval PoolUpdateRecord, _err error) {
+func PoolUpdateClassGetRecordMockDefault(sessionID SessionRef, self PoolUpdateRef) (_retval PoolUpdateRecord, _err error) {
 	log.Println("PoolUpdate.GetRecord not mocked")
 	_err = errors.New("PoolUpdate.GetRecord not mocked")
 	return
 }
 
+var PoolUpdateClassGetRecordMockedCallback = PoolUpdateClassGetRecordMockDefault
+
 func (_class PoolUpdateClass) GetRecordMock(sessionID SessionRef, self PoolUpdateRef) (_retval PoolUpdateRecord, _err error) {
-	return PoolUpdateClass_GetRecordMockedCallback(sessionID, self)
+	return PoolUpdateClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given pool_update.
 func (_class PoolUpdateClass) GetRecord(sessionID SessionRef, self PoolUpdateRef) (_retval PoolUpdateRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "pool_update.get_record"

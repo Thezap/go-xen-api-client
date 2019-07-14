@@ -44,18 +44,20 @@ type CrashdumpClass struct {
 }
 
 
-var CrashdumpClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[CrashdumpRef]CrashdumpRecord, _err error) {
+func CrashdumpClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[CrashdumpRef]CrashdumpRecord, _err error) {
 	log.Println("Crashdump.GetAllRecords not mocked")
 	_err = errors.New("Crashdump.GetAllRecords not mocked")
 	return
 }
 
+var CrashdumpClassGetAllRecordsMockedCallback = CrashdumpClassGetAllRecordsMockDefault
+
 func (_class CrashdumpClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[CrashdumpRef]CrashdumpRecord, _err error) {
-	return CrashdumpClass_GetAllRecordsMockedCallback(sessionID)
+	return CrashdumpClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of crashdump references to crashdump records for all crashdumps known to the system.
 func (_class CrashdumpClass) GetAllRecords(sessionID SessionRef) (_retval map[CrashdumpRef]CrashdumpRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "crashdump.get_all_records"
@@ -72,18 +74,20 @@ func (_class CrashdumpClass) GetAllRecords(sessionID SessionRef) (_retval map[Cr
 }
 
 
-var CrashdumpClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []CrashdumpRef, _err error) {
+func CrashdumpClassGetAllMockDefault(sessionID SessionRef) (_retval []CrashdumpRef, _err error) {
 	log.Println("Crashdump.GetAll not mocked")
 	_err = errors.New("Crashdump.GetAll not mocked")
 	return
 }
 
+var CrashdumpClassGetAllMockedCallback = CrashdumpClassGetAllMockDefault
+
 func (_class CrashdumpClass) GetAllMock(sessionID SessionRef) (_retval []CrashdumpRef, _err error) {
-	return CrashdumpClass_GetAllMockedCallback(sessionID)
+	return CrashdumpClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the crashdumps known to the system.
 func (_class CrashdumpClass) GetAll(sessionID SessionRef) (_retval []CrashdumpRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "crashdump.get_all"
@@ -100,18 +104,20 @@ func (_class CrashdumpClass) GetAll(sessionID SessionRef) (_retval []CrashdumpRe
 }
 
 
-var CrashdumpClass_DestroyMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_err error) {
+func CrashdumpClassDestroyMockDefault(sessionID SessionRef, self CrashdumpRef) (_err error) {
 	log.Println("Crashdump.Destroy not mocked")
 	_err = errors.New("Crashdump.Destroy not mocked")
 	return
 }
 
+var CrashdumpClassDestroyMockedCallback = CrashdumpClassDestroyMockDefault
+
 func (_class CrashdumpClass) DestroyMock(sessionID SessionRef, self CrashdumpRef) (_err error) {
-	return CrashdumpClass_DestroyMockedCallback(sessionID, self)
+	return CrashdumpClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the specified crashdump
 func (_class CrashdumpClass) Destroy(sessionID SessionRef, self CrashdumpRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "crashdump.destroy"
@@ -128,18 +134,20 @@ func (_class CrashdumpClass) Destroy(sessionID SessionRef, self CrashdumpRef) (_
 }
 
 
-var CrashdumpClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self CrashdumpRef, key string) (_err error) {
+func CrashdumpClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self CrashdumpRef, key string) (_err error) {
 	log.Println("Crashdump.RemoveFromOtherConfig not mocked")
 	_err = errors.New("Crashdump.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var CrashdumpClassRemoveFromOtherConfigMockedCallback = CrashdumpClassRemoveFromOtherConfigMockDefault
+
 func (_class CrashdumpClass) RemoveFromOtherConfigMock(sessionID SessionRef, self CrashdumpRef, key string) (_err error) {
-	return CrashdumpClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return CrashdumpClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given crashdump.  If the key is not in that Map, then do nothing.
 func (_class CrashdumpClass) RemoveFromOtherConfig(sessionID SessionRef, self CrashdumpRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "crashdump.remove_from_other_config"
@@ -160,18 +168,20 @@ func (_class CrashdumpClass) RemoveFromOtherConfig(sessionID SessionRef, self Cr
 }
 
 
-var CrashdumpClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self CrashdumpRef, key string, value string) (_err error) {
+func CrashdumpClassAddToOtherConfigMockDefault(sessionID SessionRef, self CrashdumpRef, key string, value string) (_err error) {
 	log.Println("Crashdump.AddToOtherConfig not mocked")
 	_err = errors.New("Crashdump.AddToOtherConfig not mocked")
 	return
 }
 
+var CrashdumpClassAddToOtherConfigMockedCallback = CrashdumpClassAddToOtherConfigMockDefault
+
 func (_class CrashdumpClass) AddToOtherConfigMock(sessionID SessionRef, self CrashdumpRef, key string, value string) (_err error) {
-	return CrashdumpClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return CrashdumpClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given crashdump.
 func (_class CrashdumpClass) AddToOtherConfig(sessionID SessionRef, self CrashdumpRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "crashdump.add_to_other_config"
@@ -196,18 +206,20 @@ func (_class CrashdumpClass) AddToOtherConfig(sessionID SessionRef, self Crashdu
 }
 
 
-var CrashdumpClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self CrashdumpRef, value map[string]string) (_err error) {
+func CrashdumpClassSetOtherConfigMockDefault(sessionID SessionRef, self CrashdumpRef, value map[string]string) (_err error) {
 	log.Println("Crashdump.SetOtherConfig not mocked")
 	_err = errors.New("Crashdump.SetOtherConfig not mocked")
 	return
 }
 
+var CrashdumpClassSetOtherConfigMockedCallback = CrashdumpClassSetOtherConfigMockDefault
+
 func (_class CrashdumpClass) SetOtherConfigMock(sessionID SessionRef, self CrashdumpRef, value map[string]string) (_err error) {
-	return CrashdumpClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return CrashdumpClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given crashdump.
 func (_class CrashdumpClass) SetOtherConfig(sessionID SessionRef, self CrashdumpRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "crashdump.set_other_config"
@@ -228,18 +240,20 @@ func (_class CrashdumpClass) SetOtherConfig(sessionID SessionRef, self Crashdump
 }
 
 
-var CrashdumpClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_retval map[string]string, _err error) {
+func CrashdumpClassGetOtherConfigMockDefault(sessionID SessionRef, self CrashdumpRef) (_retval map[string]string, _err error) {
 	log.Println("Crashdump.GetOtherConfig not mocked")
 	_err = errors.New("Crashdump.GetOtherConfig not mocked")
 	return
 }
 
+var CrashdumpClassGetOtherConfigMockedCallback = CrashdumpClassGetOtherConfigMockDefault
+
 func (_class CrashdumpClass) GetOtherConfigMock(sessionID SessionRef, self CrashdumpRef) (_retval map[string]string, _err error) {
-	return CrashdumpClass_GetOtherConfigMockedCallback(sessionID, self)
+	return CrashdumpClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given crashdump.
 func (_class CrashdumpClass) GetOtherConfig(sessionID SessionRef, self CrashdumpRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "crashdump.get_other_config"
@@ -260,18 +274,20 @@ func (_class CrashdumpClass) GetOtherConfig(sessionID SessionRef, self Crashdump
 }
 
 
-var CrashdumpClass_GetVDIMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_retval VDIRef, _err error) {
+func CrashdumpClassGetVDIMockDefault(sessionID SessionRef, self CrashdumpRef) (_retval VDIRef, _err error) {
 	log.Println("Crashdump.GetVDI not mocked")
 	_err = errors.New("Crashdump.GetVDI not mocked")
 	return
 }
 
+var CrashdumpClassGetVDIMockedCallback = CrashdumpClassGetVDIMockDefault
+
 func (_class CrashdumpClass) GetVDIMock(sessionID SessionRef, self CrashdumpRef) (_retval VDIRef, _err error) {
-	return CrashdumpClass_GetVDIMockedCallback(sessionID, self)
+	return CrashdumpClassGetVDIMockedCallback(sessionID, self)
 }
 // Get the VDI field of the given crashdump.
 func (_class CrashdumpClass) GetVDI(sessionID SessionRef, self CrashdumpRef) (_retval VDIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVDIMock(sessionID, self)
 	}	
 	_method := "crashdump.get_VDI"
@@ -292,18 +308,20 @@ func (_class CrashdumpClass) GetVDI(sessionID SessionRef, self CrashdumpRef) (_r
 }
 
 
-var CrashdumpClass_GetVMMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_retval VMRef, _err error) {
+func CrashdumpClassGetVMMockDefault(sessionID SessionRef, self CrashdumpRef) (_retval VMRef, _err error) {
 	log.Println("Crashdump.GetVM not mocked")
 	_err = errors.New("Crashdump.GetVM not mocked")
 	return
 }
 
+var CrashdumpClassGetVMMockedCallback = CrashdumpClassGetVMMockDefault
+
 func (_class CrashdumpClass) GetVMMock(sessionID SessionRef, self CrashdumpRef) (_retval VMRef, _err error) {
-	return CrashdumpClass_GetVMMockedCallback(sessionID, self)
+	return CrashdumpClassGetVMMockedCallback(sessionID, self)
 }
 // Get the VM field of the given crashdump.
 func (_class CrashdumpClass) GetVM(sessionID SessionRef, self CrashdumpRef) (_retval VMRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVMMock(sessionID, self)
 	}	
 	_method := "crashdump.get_VM"
@@ -324,18 +342,20 @@ func (_class CrashdumpClass) GetVM(sessionID SessionRef, self CrashdumpRef) (_re
 }
 
 
-var CrashdumpClass_GetUUIDMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_retval string, _err error) {
+func CrashdumpClassGetUUIDMockDefault(sessionID SessionRef, self CrashdumpRef) (_retval string, _err error) {
 	log.Println("Crashdump.GetUUID not mocked")
 	_err = errors.New("Crashdump.GetUUID not mocked")
 	return
 }
 
+var CrashdumpClassGetUUIDMockedCallback = CrashdumpClassGetUUIDMockDefault
+
 func (_class CrashdumpClass) GetUUIDMock(sessionID SessionRef, self CrashdumpRef) (_retval string, _err error) {
-	return CrashdumpClass_GetUUIDMockedCallback(sessionID, self)
+	return CrashdumpClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given crashdump.
 func (_class CrashdumpClass) GetUUID(sessionID SessionRef, self CrashdumpRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "crashdump.get_uuid"
@@ -356,18 +376,20 @@ func (_class CrashdumpClass) GetUUID(sessionID SessionRef, self CrashdumpRef) (_
 }
 
 
-var CrashdumpClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval CrashdumpRef, _err error) {
+func CrashdumpClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval CrashdumpRef, _err error) {
 	log.Println("Crashdump.GetByUUID not mocked")
 	_err = errors.New("Crashdump.GetByUUID not mocked")
 	return
 }
 
+var CrashdumpClassGetByUUIDMockedCallback = CrashdumpClassGetByUUIDMockDefault
+
 func (_class CrashdumpClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval CrashdumpRef, _err error) {
-	return CrashdumpClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return CrashdumpClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the crashdump instance with the specified UUID.
 func (_class CrashdumpClass) GetByUUID(sessionID SessionRef, uuid string) (_retval CrashdumpRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "crashdump.get_by_uuid"
@@ -388,18 +410,20 @@ func (_class CrashdumpClass) GetByUUID(sessionID SessionRef, uuid string) (_retv
 }
 
 
-var CrashdumpClass_GetRecordMockedCallback = func (sessionID SessionRef, self CrashdumpRef) (_retval CrashdumpRecord, _err error) {
+func CrashdumpClassGetRecordMockDefault(sessionID SessionRef, self CrashdumpRef) (_retval CrashdumpRecord, _err error) {
 	log.Println("Crashdump.GetRecord not mocked")
 	_err = errors.New("Crashdump.GetRecord not mocked")
 	return
 }
 
+var CrashdumpClassGetRecordMockedCallback = CrashdumpClassGetRecordMockDefault
+
 func (_class CrashdumpClass) GetRecordMock(sessionID SessionRef, self CrashdumpRef) (_retval CrashdumpRecord, _err error) {
-	return CrashdumpClass_GetRecordMockedCallback(sessionID, self)
+	return CrashdumpClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given crashdump.
 func (_class CrashdumpClass) GetRecord(sessionID SessionRef, self CrashdumpRef) (_retval CrashdumpRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "crashdump.get_record"

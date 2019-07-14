@@ -50,18 +50,20 @@ type FeatureClass struct {
 }
 
 
-var FeatureClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[FeatureRef]FeatureRecord, _err error) {
+func FeatureClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[FeatureRef]FeatureRecord, _err error) {
 	log.Println("Feature.GetAllRecords not mocked")
 	_err = errors.New("Feature.GetAllRecords not mocked")
 	return
 }
 
+var FeatureClassGetAllRecordsMockedCallback = FeatureClassGetAllRecordsMockDefault
+
 func (_class FeatureClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[FeatureRef]FeatureRecord, _err error) {
-	return FeatureClass_GetAllRecordsMockedCallback(sessionID)
+	return FeatureClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of Feature references to Feature records for all Features known to the system.
 func (_class FeatureClass) GetAllRecords(sessionID SessionRef) (_retval map[FeatureRef]FeatureRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "Feature.get_all_records"
@@ -78,18 +80,20 @@ func (_class FeatureClass) GetAllRecords(sessionID SessionRef) (_retval map[Feat
 }
 
 
-var FeatureClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []FeatureRef, _err error) {
+func FeatureClassGetAllMockDefault(sessionID SessionRef) (_retval []FeatureRef, _err error) {
 	log.Println("Feature.GetAll not mocked")
 	_err = errors.New("Feature.GetAll not mocked")
 	return
 }
 
+var FeatureClassGetAllMockedCallback = FeatureClassGetAllMockDefault
+
 func (_class FeatureClass) GetAllMock(sessionID SessionRef) (_retval []FeatureRef, _err error) {
-	return FeatureClass_GetAllMockedCallback(sessionID)
+	return FeatureClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the Features known to the system.
 func (_class FeatureClass) GetAll(sessionID SessionRef) (_retval []FeatureRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "Feature.get_all"
@@ -106,18 +110,20 @@ func (_class FeatureClass) GetAll(sessionID SessionRef) (_retval []FeatureRef, _
 }
 
 
-var FeatureClass_GetHostMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval HostRef, _err error) {
+func FeatureClassGetHostMockDefault(sessionID SessionRef, self FeatureRef) (_retval HostRef, _err error) {
 	log.Println("Feature.GetHost not mocked")
 	_err = errors.New("Feature.GetHost not mocked")
 	return
 }
 
+var FeatureClassGetHostMockedCallback = FeatureClassGetHostMockDefault
+
 func (_class FeatureClass) GetHostMock(sessionID SessionRef, self FeatureRef) (_retval HostRef, _err error) {
-	return FeatureClass_GetHostMockedCallback(sessionID, self)
+	return FeatureClassGetHostMockedCallback(sessionID, self)
 }
 // Get the host field of the given Feature.
 func (_class FeatureClass) GetHost(sessionID SessionRef, self FeatureRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "Feature.get_host"
@@ -138,18 +144,20 @@ func (_class FeatureClass) GetHost(sessionID SessionRef, self FeatureRef) (_retv
 }
 
 
-var FeatureClass_GetVersionMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
+func FeatureClassGetVersionMockDefault(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
 	log.Println("Feature.GetVersion not mocked")
 	_err = errors.New("Feature.GetVersion not mocked")
 	return
 }
 
+var FeatureClassGetVersionMockedCallback = FeatureClassGetVersionMockDefault
+
 func (_class FeatureClass) GetVersionMock(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	return FeatureClass_GetVersionMockedCallback(sessionID, self)
+	return FeatureClassGetVersionMockedCallback(sessionID, self)
 }
 // Get the version field of the given Feature.
 func (_class FeatureClass) GetVersion(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVersionMock(sessionID, self)
 	}	
 	_method := "Feature.get_version"
@@ -170,18 +178,20 @@ func (_class FeatureClass) GetVersion(sessionID SessionRef, self FeatureRef) (_r
 }
 
 
-var FeatureClass_GetExperimentalMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
+func FeatureClassGetExperimentalMockDefault(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
 	log.Println("Feature.GetExperimental not mocked")
 	_err = errors.New("Feature.GetExperimental not mocked")
 	return
 }
 
+var FeatureClassGetExperimentalMockedCallback = FeatureClassGetExperimentalMockDefault
+
 func (_class FeatureClass) GetExperimentalMock(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
-	return FeatureClass_GetExperimentalMockedCallback(sessionID, self)
+	return FeatureClassGetExperimentalMockedCallback(sessionID, self)
 }
 // Get the experimental field of the given Feature.
 func (_class FeatureClass) GetExperimental(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetExperimentalMock(sessionID, self)
 	}	
 	_method := "Feature.get_experimental"
@@ -202,18 +212,20 @@ func (_class FeatureClass) GetExperimental(sessionID SessionRef, self FeatureRef
 }
 
 
-var FeatureClass_GetEnabledMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
+func FeatureClassGetEnabledMockDefault(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
 	log.Println("Feature.GetEnabled not mocked")
 	_err = errors.New("Feature.GetEnabled not mocked")
 	return
 }
 
+var FeatureClassGetEnabledMockedCallback = FeatureClassGetEnabledMockDefault
+
 func (_class FeatureClass) GetEnabledMock(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
-	return FeatureClass_GetEnabledMockedCallback(sessionID, self)
+	return FeatureClassGetEnabledMockedCallback(sessionID, self)
 }
 // Get the enabled field of the given Feature.
 func (_class FeatureClass) GetEnabled(sessionID SessionRef, self FeatureRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnabledMock(sessionID, self)
 	}	
 	_method := "Feature.get_enabled"
@@ -234,18 +246,20 @@ func (_class FeatureClass) GetEnabled(sessionID SessionRef, self FeatureRef) (_r
 }
 
 
-var FeatureClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
+func FeatureClassGetNameDescriptionMockDefault(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
 	log.Println("Feature.GetNameDescription not mocked")
 	_err = errors.New("Feature.GetNameDescription not mocked")
 	return
 }
 
+var FeatureClassGetNameDescriptionMockedCallback = FeatureClassGetNameDescriptionMockDefault
+
 func (_class FeatureClass) GetNameDescriptionMock(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	return FeatureClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return FeatureClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given Feature.
 func (_class FeatureClass) GetNameDescription(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "Feature.get_name_description"
@@ -266,18 +280,20 @@ func (_class FeatureClass) GetNameDescription(sessionID SessionRef, self Feature
 }
 
 
-var FeatureClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
+func FeatureClassGetNameLabelMockDefault(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
 	log.Println("Feature.GetNameLabel not mocked")
 	_err = errors.New("Feature.GetNameLabel not mocked")
 	return
 }
 
+var FeatureClassGetNameLabelMockedCallback = FeatureClassGetNameLabelMockDefault
+
 func (_class FeatureClass) GetNameLabelMock(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	return FeatureClass_GetNameLabelMockedCallback(sessionID, self)
+	return FeatureClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given Feature.
 func (_class FeatureClass) GetNameLabel(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "Feature.get_name_label"
@@ -298,18 +314,20 @@ func (_class FeatureClass) GetNameLabel(sessionID SessionRef, self FeatureRef) (
 }
 
 
-var FeatureClass_GetUUIDMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
+func FeatureClassGetUUIDMockDefault(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
 	log.Println("Feature.GetUUID not mocked")
 	_err = errors.New("Feature.GetUUID not mocked")
 	return
 }
 
+var FeatureClassGetUUIDMockedCallback = FeatureClassGetUUIDMockDefault
+
 func (_class FeatureClass) GetUUIDMock(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	return FeatureClass_GetUUIDMockedCallback(sessionID, self)
+	return FeatureClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given Feature.
 func (_class FeatureClass) GetUUID(sessionID SessionRef, self FeatureRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "Feature.get_uuid"
@@ -330,18 +348,20 @@ func (_class FeatureClass) GetUUID(sessionID SessionRef, self FeatureRef) (_retv
 }
 
 
-var FeatureClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []FeatureRef, _err error) {
+func FeatureClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []FeatureRef, _err error) {
 	log.Println("Feature.GetByNameLabel not mocked")
 	_err = errors.New("Feature.GetByNameLabel not mocked")
 	return
 }
 
+var FeatureClassGetByNameLabelMockedCallback = FeatureClassGetByNameLabelMockDefault
+
 func (_class FeatureClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []FeatureRef, _err error) {
-	return FeatureClass_GetByNameLabelMockedCallback(sessionID, label)
+	return FeatureClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the Feature instances with the given label.
 func (_class FeatureClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []FeatureRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "Feature.get_by_name_label"
@@ -362,18 +382,20 @@ func (_class FeatureClass) GetByNameLabel(sessionID SessionRef, label string) (_
 }
 
 
-var FeatureClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval FeatureRef, _err error) {
+func FeatureClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval FeatureRef, _err error) {
 	log.Println("Feature.GetByUUID not mocked")
 	_err = errors.New("Feature.GetByUUID not mocked")
 	return
 }
 
+var FeatureClassGetByUUIDMockedCallback = FeatureClassGetByUUIDMockDefault
+
 func (_class FeatureClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval FeatureRef, _err error) {
-	return FeatureClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return FeatureClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the Feature instance with the specified UUID.
 func (_class FeatureClass) GetByUUID(sessionID SessionRef, uuid string) (_retval FeatureRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "Feature.get_by_uuid"
@@ -394,18 +416,20 @@ func (_class FeatureClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 }
 
 
-var FeatureClass_GetRecordMockedCallback = func (sessionID SessionRef, self FeatureRef) (_retval FeatureRecord, _err error) {
+func FeatureClassGetRecordMockDefault(sessionID SessionRef, self FeatureRef) (_retval FeatureRecord, _err error) {
 	log.Println("Feature.GetRecord not mocked")
 	_err = errors.New("Feature.GetRecord not mocked")
 	return
 }
 
+var FeatureClassGetRecordMockedCallback = FeatureClassGetRecordMockDefault
+
 func (_class FeatureClass) GetRecordMock(sessionID SessionRef, self FeatureRef) (_retval FeatureRecord, _err error) {
-	return FeatureClass_GetRecordMockedCallback(sessionID, self)
+	return FeatureClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given Feature.
 func (_class FeatureClass) GetRecord(sessionID SessionRef, self FeatureRef) (_retval FeatureRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "Feature.get_record"

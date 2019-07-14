@@ -63,18 +63,20 @@ type BondClass struct {
 }
 
 
-var BondClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[BondRef]BondRecord, _err error) {
+func BondClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[BondRef]BondRecord, _err error) {
 	log.Println("Bond.GetAllRecords not mocked")
 	_err = errors.New("Bond.GetAllRecords not mocked")
 	return
 }
 
+var BondClassGetAllRecordsMockedCallback = BondClassGetAllRecordsMockDefault
+
 func (_class BondClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[BondRef]BondRecord, _err error) {
-	return BondClass_GetAllRecordsMockedCallback(sessionID)
+	return BondClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of Bond references to Bond records for all Bonds known to the system.
 func (_class BondClass) GetAllRecords(sessionID SessionRef) (_retval map[BondRef]BondRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "Bond.get_all_records"
@@ -91,18 +93,20 @@ func (_class BondClass) GetAllRecords(sessionID SessionRef) (_retval map[BondRef
 }
 
 
-var BondClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []BondRef, _err error) {
+func BondClassGetAllMockDefault(sessionID SessionRef) (_retval []BondRef, _err error) {
 	log.Println("Bond.GetAll not mocked")
 	_err = errors.New("Bond.GetAll not mocked")
 	return
 }
 
+var BondClassGetAllMockedCallback = BondClassGetAllMockDefault
+
 func (_class BondClass) GetAllMock(sessionID SessionRef) (_retval []BondRef, _err error) {
-	return BondClass_GetAllMockedCallback(sessionID)
+	return BondClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the Bonds known to the system.
 func (_class BondClass) GetAll(sessionID SessionRef) (_retval []BondRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "Bond.get_all"
@@ -119,18 +123,20 @@ func (_class BondClass) GetAll(sessionID SessionRef) (_retval []BondRef, _err er
 }
 
 
-var BondClass_SetPropertyMockedCallback = func (sessionID SessionRef, self BondRef, name string, value string) (_err error) {
+func BondClassSetPropertyMockDefault(sessionID SessionRef, self BondRef, name string, value string) (_err error) {
 	log.Println("Bond.SetProperty not mocked")
 	_err = errors.New("Bond.SetProperty not mocked")
 	return
 }
 
+var BondClassSetPropertyMockedCallback = BondClassSetPropertyMockDefault
+
 func (_class BondClass) SetPropertyMock(sessionID SessionRef, self BondRef, name string, value string) (_err error) {
-	return BondClass_SetPropertyMockedCallback(sessionID, self, name, value)
+	return BondClassSetPropertyMockedCallback(sessionID, self, name, value)
 }
 // Set the value of a property of the bond
 func (_class BondClass) SetProperty(sessionID SessionRef, self BondRef, name string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPropertyMock(sessionID, self, name, value)
 	}	
 	_method := "Bond.set_property"
@@ -155,18 +161,20 @@ func (_class BondClass) SetProperty(sessionID SessionRef, self BondRef, name str
 }
 
 
-var BondClass_SetModeMockedCallback = func (sessionID SessionRef, self BondRef, value BondMode) (_err error) {
+func BondClassSetModeMockDefault(sessionID SessionRef, self BondRef, value BondMode) (_err error) {
 	log.Println("Bond.SetMode not mocked")
 	_err = errors.New("Bond.SetMode not mocked")
 	return
 }
 
+var BondClassSetModeMockedCallback = BondClassSetModeMockDefault
+
 func (_class BondClass) SetModeMock(sessionID SessionRef, self BondRef, value BondMode) (_err error) {
-	return BondClass_SetModeMockedCallback(sessionID, self, value)
+	return BondClassSetModeMockedCallback(sessionID, self, value)
 }
 // Change the bond mode
 func (_class BondClass) SetMode(sessionID SessionRef, self BondRef, value BondMode) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetModeMock(sessionID, self, value)
 	}	
 	_method := "Bond.set_mode"
@@ -187,18 +195,20 @@ func (_class BondClass) SetMode(sessionID SessionRef, self BondRef, value BondMo
 }
 
 
-var BondClass_DestroyMockedCallback = func (sessionID SessionRef, self BondRef) (_err error) {
+func BondClassDestroyMockDefault(sessionID SessionRef, self BondRef) (_err error) {
 	log.Println("Bond.Destroy not mocked")
 	_err = errors.New("Bond.Destroy not mocked")
 	return
 }
 
+var BondClassDestroyMockedCallback = BondClassDestroyMockDefault
+
 func (_class BondClass) DestroyMock(sessionID SessionRef, self BondRef) (_err error) {
-	return BondClass_DestroyMockedCallback(sessionID, self)
+	return BondClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy an interface bond
 func (_class BondClass) Destroy(sessionID SessionRef, self BondRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "Bond.destroy"
@@ -215,18 +225,20 @@ func (_class BondClass) Destroy(sessionID SessionRef, self BondRef) (_err error)
 }
 
 
-var BondClass_CreateMockedCallback = func (sessionID SessionRef, network NetworkRef, members []PIFRef, mac string, mode BondMode, properties map[string]string) (_retval BondRef, _err error) {
+func BondClassCreateMockDefault(sessionID SessionRef, network NetworkRef, members []PIFRef, mac string, mode BondMode, properties map[string]string) (_retval BondRef, _err error) {
 	log.Println("Bond.Create not mocked")
 	_err = errors.New("Bond.Create not mocked")
 	return
 }
 
+var BondClassCreateMockedCallback = BondClassCreateMockDefault
+
 func (_class BondClass) CreateMock(sessionID SessionRef, network NetworkRef, members []PIFRef, mac string, mode BondMode, properties map[string]string) (_retval BondRef, _err error) {
-	return BondClass_CreateMockedCallback(sessionID, network, members, mac, mode, properties)
+	return BondClassCreateMockedCallback(sessionID, network, members, mac, mode, properties)
 }
 // Create an interface bond
 func (_class BondClass) Create(sessionID SessionRef, network NetworkRef, members []PIFRef, mac string, mode BondMode, properties map[string]string) (_retval BondRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, network, members, mac, mode, properties)
 	}	
 	_method := "Bond.create"
@@ -263,18 +275,20 @@ func (_class BondClass) Create(sessionID SessionRef, network NetworkRef, members
 }
 
 
-var BondClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self BondRef, key string) (_err error) {
+func BondClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self BondRef, key string) (_err error) {
 	log.Println("Bond.RemoveFromOtherConfig not mocked")
 	_err = errors.New("Bond.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var BondClassRemoveFromOtherConfigMockedCallback = BondClassRemoveFromOtherConfigMockDefault
+
 func (_class BondClass) RemoveFromOtherConfigMock(sessionID SessionRef, self BondRef, key string) (_err error) {
-	return BondClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return BondClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given Bond.  If the key is not in that Map, then do nothing.
 func (_class BondClass) RemoveFromOtherConfig(sessionID SessionRef, self BondRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "Bond.remove_from_other_config"
@@ -295,18 +309,20 @@ func (_class BondClass) RemoveFromOtherConfig(sessionID SessionRef, self BondRef
 }
 
 
-var BondClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self BondRef, key string, value string) (_err error) {
+func BondClassAddToOtherConfigMockDefault(sessionID SessionRef, self BondRef, key string, value string) (_err error) {
 	log.Println("Bond.AddToOtherConfig not mocked")
 	_err = errors.New("Bond.AddToOtherConfig not mocked")
 	return
 }
 
+var BondClassAddToOtherConfigMockedCallback = BondClassAddToOtherConfigMockDefault
+
 func (_class BondClass) AddToOtherConfigMock(sessionID SessionRef, self BondRef, key string, value string) (_err error) {
-	return BondClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return BondClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given Bond.
 func (_class BondClass) AddToOtherConfig(sessionID SessionRef, self BondRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "Bond.add_to_other_config"
@@ -331,18 +347,20 @@ func (_class BondClass) AddToOtherConfig(sessionID SessionRef, self BondRef, key
 }
 
 
-var BondClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self BondRef, value map[string]string) (_err error) {
+func BondClassSetOtherConfigMockDefault(sessionID SessionRef, self BondRef, value map[string]string) (_err error) {
 	log.Println("Bond.SetOtherConfig not mocked")
 	_err = errors.New("Bond.SetOtherConfig not mocked")
 	return
 }
 
+var BondClassSetOtherConfigMockedCallback = BondClassSetOtherConfigMockDefault
+
 func (_class BondClass) SetOtherConfigMock(sessionID SessionRef, self BondRef, value map[string]string) (_err error) {
-	return BondClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return BondClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given Bond.
 func (_class BondClass) SetOtherConfig(sessionID SessionRef, self BondRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "Bond.set_other_config"
@@ -363,18 +381,20 @@ func (_class BondClass) SetOtherConfig(sessionID SessionRef, self BondRef, value
 }
 
 
-var BondClass_GetLinksUpMockedCallback = func (sessionID SessionRef, self BondRef) (_retval int, _err error) {
+func BondClassGetLinksUpMockDefault(sessionID SessionRef, self BondRef) (_retval int, _err error) {
 	log.Println("Bond.GetLinksUp not mocked")
 	_err = errors.New("Bond.GetLinksUp not mocked")
 	return
 }
 
+var BondClassGetLinksUpMockedCallback = BondClassGetLinksUpMockDefault
+
 func (_class BondClass) GetLinksUpMock(sessionID SessionRef, self BondRef) (_retval int, _err error) {
-	return BondClass_GetLinksUpMockedCallback(sessionID, self)
+	return BondClassGetLinksUpMockedCallback(sessionID, self)
 }
 // Get the links_up field of the given Bond.
 func (_class BondClass) GetLinksUp(sessionID SessionRef, self BondRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLinksUpMock(sessionID, self)
 	}	
 	_method := "Bond.get_links_up"
@@ -395,18 +415,20 @@ func (_class BondClass) GetLinksUp(sessionID SessionRef, self BondRef) (_retval 
 }
 
 
-var BondClass_GetPropertiesMockedCallback = func (sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
+func BondClassGetPropertiesMockDefault(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
 	log.Println("Bond.GetProperties not mocked")
 	_err = errors.New("Bond.GetProperties not mocked")
 	return
 }
 
+var BondClassGetPropertiesMockedCallback = BondClassGetPropertiesMockDefault
+
 func (_class BondClass) GetPropertiesMock(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
-	return BondClass_GetPropertiesMockedCallback(sessionID, self)
+	return BondClassGetPropertiesMockedCallback(sessionID, self)
 }
 // Get the properties field of the given Bond.
 func (_class BondClass) GetProperties(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPropertiesMock(sessionID, self)
 	}	
 	_method := "Bond.get_properties"
@@ -427,18 +449,20 @@ func (_class BondClass) GetProperties(sessionID SessionRef, self BondRef) (_retv
 }
 
 
-var BondClass_GetModeMockedCallback = func (sessionID SessionRef, self BondRef) (_retval BondMode, _err error) {
+func BondClassGetModeMockDefault(sessionID SessionRef, self BondRef) (_retval BondMode, _err error) {
 	log.Println("Bond.GetMode not mocked")
 	_err = errors.New("Bond.GetMode not mocked")
 	return
 }
 
+var BondClassGetModeMockedCallback = BondClassGetModeMockDefault
+
 func (_class BondClass) GetModeMock(sessionID SessionRef, self BondRef) (_retval BondMode, _err error) {
-	return BondClass_GetModeMockedCallback(sessionID, self)
+	return BondClassGetModeMockedCallback(sessionID, self)
 }
 // Get the mode field of the given Bond.
 func (_class BondClass) GetMode(sessionID SessionRef, self BondRef) (_retval BondMode, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetModeMock(sessionID, self)
 	}	
 	_method := "Bond.get_mode"
@@ -459,18 +483,20 @@ func (_class BondClass) GetMode(sessionID SessionRef, self BondRef) (_retval Bon
 }
 
 
-var BondClass_GetPrimarySlaveMockedCallback = func (sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
+func BondClassGetPrimarySlaveMockDefault(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
 	log.Println("Bond.GetPrimarySlave not mocked")
 	_err = errors.New("Bond.GetPrimarySlave not mocked")
 	return
 }
 
+var BondClassGetPrimarySlaveMockedCallback = BondClassGetPrimarySlaveMockDefault
+
 func (_class BondClass) GetPrimarySlaveMock(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
-	return BondClass_GetPrimarySlaveMockedCallback(sessionID, self)
+	return BondClassGetPrimarySlaveMockedCallback(sessionID, self)
 }
 // Get the primary_slave field of the given Bond.
 func (_class BondClass) GetPrimarySlave(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPrimarySlaveMock(sessionID, self)
 	}	
 	_method := "Bond.get_primary_slave"
@@ -491,18 +517,20 @@ func (_class BondClass) GetPrimarySlave(sessionID SessionRef, self BondRef) (_re
 }
 
 
-var BondClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
+func BondClassGetOtherConfigMockDefault(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
 	log.Println("Bond.GetOtherConfig not mocked")
 	_err = errors.New("Bond.GetOtherConfig not mocked")
 	return
 }
 
+var BondClassGetOtherConfigMockedCallback = BondClassGetOtherConfigMockDefault
+
 func (_class BondClass) GetOtherConfigMock(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
-	return BondClass_GetOtherConfigMockedCallback(sessionID, self)
+	return BondClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given Bond.
 func (_class BondClass) GetOtherConfig(sessionID SessionRef, self BondRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "Bond.get_other_config"
@@ -523,18 +551,20 @@ func (_class BondClass) GetOtherConfig(sessionID SessionRef, self BondRef) (_ret
 }
 
 
-var BondClass_GetSlavesMockedCallback = func (sessionID SessionRef, self BondRef) (_retval []PIFRef, _err error) {
+func BondClassGetSlavesMockDefault(sessionID SessionRef, self BondRef) (_retval []PIFRef, _err error) {
 	log.Println("Bond.GetSlaves not mocked")
 	_err = errors.New("Bond.GetSlaves not mocked")
 	return
 }
 
+var BondClassGetSlavesMockedCallback = BondClassGetSlavesMockDefault
+
 func (_class BondClass) GetSlavesMock(sessionID SessionRef, self BondRef) (_retval []PIFRef, _err error) {
-	return BondClass_GetSlavesMockedCallback(sessionID, self)
+	return BondClassGetSlavesMockedCallback(sessionID, self)
 }
 // Get the slaves field of the given Bond.
 func (_class BondClass) GetSlaves(sessionID SessionRef, self BondRef) (_retval []PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSlavesMock(sessionID, self)
 	}	
 	_method := "Bond.get_slaves"
@@ -555,18 +585,20 @@ func (_class BondClass) GetSlaves(sessionID SessionRef, self BondRef) (_retval [
 }
 
 
-var BondClass_GetMasterMockedCallback = func (sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
+func BondClassGetMasterMockDefault(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
 	log.Println("Bond.GetMaster not mocked")
 	_err = errors.New("Bond.GetMaster not mocked")
 	return
 }
 
+var BondClassGetMasterMockedCallback = BondClassGetMasterMockDefault
+
 func (_class BondClass) GetMasterMock(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
-	return BondClass_GetMasterMockedCallback(sessionID, self)
+	return BondClassGetMasterMockedCallback(sessionID, self)
 }
 // Get the master field of the given Bond.
 func (_class BondClass) GetMaster(sessionID SessionRef, self BondRef) (_retval PIFRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMasterMock(sessionID, self)
 	}	
 	_method := "Bond.get_master"
@@ -587,18 +619,20 @@ func (_class BondClass) GetMaster(sessionID SessionRef, self BondRef) (_retval P
 }
 
 
-var BondClass_GetUUIDMockedCallback = func (sessionID SessionRef, self BondRef) (_retval string, _err error) {
+func BondClassGetUUIDMockDefault(sessionID SessionRef, self BondRef) (_retval string, _err error) {
 	log.Println("Bond.GetUUID not mocked")
 	_err = errors.New("Bond.GetUUID not mocked")
 	return
 }
 
+var BondClassGetUUIDMockedCallback = BondClassGetUUIDMockDefault
+
 func (_class BondClass) GetUUIDMock(sessionID SessionRef, self BondRef) (_retval string, _err error) {
-	return BondClass_GetUUIDMockedCallback(sessionID, self)
+	return BondClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given Bond.
 func (_class BondClass) GetUUID(sessionID SessionRef, self BondRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "Bond.get_uuid"
@@ -619,18 +653,20 @@ func (_class BondClass) GetUUID(sessionID SessionRef, self BondRef) (_retval str
 }
 
 
-var BondClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval BondRef, _err error) {
+func BondClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval BondRef, _err error) {
 	log.Println("Bond.GetByUUID not mocked")
 	_err = errors.New("Bond.GetByUUID not mocked")
 	return
 }
 
+var BondClassGetByUUIDMockedCallback = BondClassGetByUUIDMockDefault
+
 func (_class BondClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval BondRef, _err error) {
-	return BondClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return BondClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the Bond instance with the specified UUID.
 func (_class BondClass) GetByUUID(sessionID SessionRef, uuid string) (_retval BondRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "Bond.get_by_uuid"
@@ -651,18 +687,20 @@ func (_class BondClass) GetByUUID(sessionID SessionRef, uuid string) (_retval Bo
 }
 
 
-var BondClass_GetRecordMockedCallback = func (sessionID SessionRef, self BondRef) (_retval BondRecord, _err error) {
+func BondClassGetRecordMockDefault(sessionID SessionRef, self BondRef) (_retval BondRecord, _err error) {
 	log.Println("Bond.GetRecord not mocked")
 	_err = errors.New("Bond.GetRecord not mocked")
 	return
 }
 
+var BondClassGetRecordMockedCallback = BondClassGetRecordMockDefault
+
 func (_class BondClass) GetRecordMock(sessionID SessionRef, self BondRef) (_retval BondRecord, _err error) {
-	return BondClass_GetRecordMockedCallback(sessionID, self)
+	return BondClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given Bond.
 func (_class BondClass) GetRecord(sessionID SessionRef, self BondRef) (_retval BondRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "Bond.get_record"

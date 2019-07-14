@@ -94,18 +94,20 @@ type TaskClass struct {
 }
 
 
-var TaskClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[TaskRef]TaskRecord, _err error) {
+func TaskClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[TaskRef]TaskRecord, _err error) {
 	log.Println("Task.GetAllRecords not mocked")
 	_err = errors.New("Task.GetAllRecords not mocked")
 	return
 }
 
+var TaskClassGetAllRecordsMockedCallback = TaskClassGetAllRecordsMockDefault
+
 func (_class TaskClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[TaskRef]TaskRecord, _err error) {
-	return TaskClass_GetAllRecordsMockedCallback(sessionID)
+	return TaskClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of task references to task records for all tasks known to the system.
 func (_class TaskClass) GetAllRecords(sessionID SessionRef) (_retval map[TaskRef]TaskRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "task.get_all_records"
@@ -122,18 +124,20 @@ func (_class TaskClass) GetAllRecords(sessionID SessionRef) (_retval map[TaskRef
 }
 
 
-var TaskClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []TaskRef, _err error) {
+func TaskClassGetAllMockDefault(sessionID SessionRef) (_retval []TaskRef, _err error) {
 	log.Println("Task.GetAll not mocked")
 	_err = errors.New("Task.GetAll not mocked")
 	return
 }
 
+var TaskClassGetAllMockedCallback = TaskClassGetAllMockDefault
+
 func (_class TaskClass) GetAllMock(sessionID SessionRef) (_retval []TaskRef, _err error) {
-	return TaskClass_GetAllMockedCallback(sessionID)
+	return TaskClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the tasks known to the system.
 func (_class TaskClass) GetAll(sessionID SessionRef) (_retval []TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "task.get_all"
@@ -150,18 +154,20 @@ func (_class TaskClass) GetAll(sessionID SessionRef) (_retval []TaskRef, _err er
 }
 
 
-var TaskClass_SetStatusMockedCallback = func (sessionID SessionRef, self TaskRef, value TaskStatusType) (_err error) {
+func TaskClassSetStatusMockDefault(sessionID SessionRef, self TaskRef, value TaskStatusType) (_err error) {
 	log.Println("Task.SetStatus not mocked")
 	_err = errors.New("Task.SetStatus not mocked")
 	return
 }
 
+var TaskClassSetStatusMockedCallback = TaskClassSetStatusMockDefault
+
 func (_class TaskClass) SetStatusMock(sessionID SessionRef, self TaskRef, value TaskStatusType) (_err error) {
-	return TaskClass_SetStatusMockedCallback(sessionID, self, value)
+	return TaskClassSetStatusMockedCallback(sessionID, self, value)
 }
 // Set the task status
 func (_class TaskClass) SetStatus(sessionID SessionRef, self TaskRef, value TaskStatusType) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetStatusMock(sessionID, self, value)
 	}	
 	_method := "task.set_status"
@@ -182,21 +188,23 @@ func (_class TaskClass) SetStatus(sessionID SessionRef, self TaskRef, value Task
 }
 
 
-var TaskClass_CancelMockedCallback = func (sessionID SessionRef, task TaskRef) (_err error) {
+func TaskClassCancelMockDefault(sessionID SessionRef, task TaskRef) (_err error) {
 	log.Println("Task.Cancel not mocked")
 	_err = errors.New("Task.Cancel not mocked")
 	return
 }
 
+var TaskClassCancelMockedCallback = TaskClassCancelMockDefault
+
 func (_class TaskClass) CancelMock(sessionID SessionRef, task TaskRef) (_err error) {
-	return TaskClass_CancelMockedCallback(sessionID, task)
+	return TaskClassCancelMockedCallback(sessionID, task)
 }
 // Request that a task be cancelled. Note that a task may fail to be cancelled and may complete or fail normally and note that, even when a task does cancel, it might take an arbitrary amount of time.
 //
 // Errors:
 //  OPERATION_NOT_ALLOWED - You attempted an operation that was not allowed.
 func (_class TaskClass) Cancel(sessionID SessionRef, task TaskRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CancelMock(sessionID, task)
 	}	
 	_method := "task.cancel"
@@ -213,18 +221,20 @@ func (_class TaskClass) Cancel(sessionID SessionRef, task TaskRef) (_err error) 
 }
 
 
-var TaskClass_DestroyMockedCallback = func (sessionID SessionRef, self TaskRef) (_err error) {
+func TaskClassDestroyMockDefault(sessionID SessionRef, self TaskRef) (_err error) {
 	log.Println("Task.Destroy not mocked")
 	_err = errors.New("Task.Destroy not mocked")
 	return
 }
 
+var TaskClassDestroyMockedCallback = TaskClassDestroyMockDefault
+
 func (_class TaskClass) DestroyMock(sessionID SessionRef, self TaskRef) (_err error) {
-	return TaskClass_DestroyMockedCallback(sessionID, self)
+	return TaskClassDestroyMockedCallback(sessionID, self)
 }
 // Destroy the task object
 func (_class TaskClass) Destroy(sessionID SessionRef, self TaskRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "task.destroy"
@@ -241,18 +251,20 @@ func (_class TaskClass) Destroy(sessionID SessionRef, self TaskRef) (_err error)
 }
 
 
-var TaskClass_CreateMockedCallback = func (sessionID SessionRef, label string, description string) (_retval TaskRef, _err error) {
+func TaskClassCreateMockDefault(sessionID SessionRef, label string, description string) (_retval TaskRef, _err error) {
 	log.Println("Task.Create not mocked")
 	_err = errors.New("Task.Create not mocked")
 	return
 }
 
+var TaskClassCreateMockedCallback = TaskClassCreateMockDefault
+
 func (_class TaskClass) CreateMock(sessionID SessionRef, label string, description string) (_retval TaskRef, _err error) {
-	return TaskClass_CreateMockedCallback(sessionID, label, description)
+	return TaskClassCreateMockedCallback(sessionID, label, description)
 }
 // Create a new task object which must be manually destroyed.
 func (_class TaskClass) Create(sessionID SessionRef, label string, description string) (_retval TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, label, description)
 	}	
 	_method := "task.create"
@@ -277,18 +289,20 @@ func (_class TaskClass) Create(sessionID SessionRef, label string, description s
 }
 
 
-var TaskClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self TaskRef, key string) (_err error) {
+func TaskClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self TaskRef, key string) (_err error) {
 	log.Println("Task.RemoveFromOtherConfig not mocked")
 	_err = errors.New("Task.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var TaskClassRemoveFromOtherConfigMockedCallback = TaskClassRemoveFromOtherConfigMockDefault
+
 func (_class TaskClass) RemoveFromOtherConfigMock(sessionID SessionRef, self TaskRef, key string) (_err error) {
-	return TaskClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return TaskClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given task.  If the key is not in that Map, then do nothing.
 func (_class TaskClass) RemoveFromOtherConfig(sessionID SessionRef, self TaskRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "task.remove_from_other_config"
@@ -309,18 +323,20 @@ func (_class TaskClass) RemoveFromOtherConfig(sessionID SessionRef, self TaskRef
 }
 
 
-var TaskClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self TaskRef, key string, value string) (_err error) {
+func TaskClassAddToOtherConfigMockDefault(sessionID SessionRef, self TaskRef, key string, value string) (_err error) {
 	log.Println("Task.AddToOtherConfig not mocked")
 	_err = errors.New("Task.AddToOtherConfig not mocked")
 	return
 }
 
+var TaskClassAddToOtherConfigMockedCallback = TaskClassAddToOtherConfigMockDefault
+
 func (_class TaskClass) AddToOtherConfigMock(sessionID SessionRef, self TaskRef, key string, value string) (_err error) {
-	return TaskClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return TaskClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given task.
 func (_class TaskClass) AddToOtherConfig(sessionID SessionRef, self TaskRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "task.add_to_other_config"
@@ -345,18 +361,20 @@ func (_class TaskClass) AddToOtherConfig(sessionID SessionRef, self TaskRef, key
 }
 
 
-var TaskClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self TaskRef, value map[string]string) (_err error) {
+func TaskClassSetOtherConfigMockDefault(sessionID SessionRef, self TaskRef, value map[string]string) (_err error) {
 	log.Println("Task.SetOtherConfig not mocked")
 	_err = errors.New("Task.SetOtherConfig not mocked")
 	return
 }
 
+var TaskClassSetOtherConfigMockedCallback = TaskClassSetOtherConfigMockDefault
+
 func (_class TaskClass) SetOtherConfigMock(sessionID SessionRef, self TaskRef, value map[string]string) (_err error) {
-	return TaskClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return TaskClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given task.
 func (_class TaskClass) SetOtherConfig(sessionID SessionRef, self TaskRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "task.set_other_config"
@@ -377,18 +395,20 @@ func (_class TaskClass) SetOtherConfig(sessionID SessionRef, self TaskRef, value
 }
 
 
-var TaskClass_GetBacktraceMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetBacktraceMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetBacktrace not mocked")
 	_err = errors.New("Task.GetBacktrace not mocked")
 	return
 }
 
+var TaskClassGetBacktraceMockedCallback = TaskClassGetBacktraceMockDefault
+
 func (_class TaskClass) GetBacktraceMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetBacktraceMockedCallback(sessionID, self)
+	return TaskClassGetBacktraceMockedCallback(sessionID, self)
 }
 // Get the backtrace field of the given task.
 func (_class TaskClass) GetBacktrace(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBacktraceMock(sessionID, self)
 	}	
 	_method := "task.get_backtrace"
@@ -409,18 +429,20 @@ func (_class TaskClass) GetBacktrace(sessionID SessionRef, self TaskRef) (_retva
 }
 
 
-var TaskClass_GetSubtasksMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval []TaskRef, _err error) {
+func TaskClassGetSubtasksMockDefault(sessionID SessionRef, self TaskRef) (_retval []TaskRef, _err error) {
 	log.Println("Task.GetSubtasks not mocked")
 	_err = errors.New("Task.GetSubtasks not mocked")
 	return
 }
 
+var TaskClassGetSubtasksMockedCallback = TaskClassGetSubtasksMockDefault
+
 func (_class TaskClass) GetSubtasksMock(sessionID SessionRef, self TaskRef) (_retval []TaskRef, _err error) {
-	return TaskClass_GetSubtasksMockedCallback(sessionID, self)
+	return TaskClassGetSubtasksMockedCallback(sessionID, self)
 }
 // Get the subtasks field of the given task.
 func (_class TaskClass) GetSubtasks(sessionID SessionRef, self TaskRef) (_retval []TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSubtasksMock(sessionID, self)
 	}	
 	_method := "task.get_subtasks"
@@ -441,18 +463,20 @@ func (_class TaskClass) GetSubtasks(sessionID SessionRef, self TaskRef) (_retval
 }
 
 
-var TaskClass_GetSubtaskOfMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval TaskRef, _err error) {
+func TaskClassGetSubtaskOfMockDefault(sessionID SessionRef, self TaskRef) (_retval TaskRef, _err error) {
 	log.Println("Task.GetSubtaskOf not mocked")
 	_err = errors.New("Task.GetSubtaskOf not mocked")
 	return
 }
 
+var TaskClassGetSubtaskOfMockedCallback = TaskClassGetSubtaskOfMockDefault
+
 func (_class TaskClass) GetSubtaskOfMock(sessionID SessionRef, self TaskRef) (_retval TaskRef, _err error) {
-	return TaskClass_GetSubtaskOfMockedCallback(sessionID, self)
+	return TaskClassGetSubtaskOfMockedCallback(sessionID, self)
 }
 // Get the subtask_of field of the given task.
 func (_class TaskClass) GetSubtaskOf(sessionID SessionRef, self TaskRef) (_retval TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSubtaskOfMock(sessionID, self)
 	}	
 	_method := "task.get_subtask_of"
@@ -473,18 +497,20 @@ func (_class TaskClass) GetSubtaskOf(sessionID SessionRef, self TaskRef) (_retva
 }
 
 
-var TaskClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval map[string]string, _err error) {
+func TaskClassGetOtherConfigMockDefault(sessionID SessionRef, self TaskRef) (_retval map[string]string, _err error) {
 	log.Println("Task.GetOtherConfig not mocked")
 	_err = errors.New("Task.GetOtherConfig not mocked")
 	return
 }
 
+var TaskClassGetOtherConfigMockedCallback = TaskClassGetOtherConfigMockDefault
+
 func (_class TaskClass) GetOtherConfigMock(sessionID SessionRef, self TaskRef) (_retval map[string]string, _err error) {
-	return TaskClass_GetOtherConfigMockedCallback(sessionID, self)
+	return TaskClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given task.
 func (_class TaskClass) GetOtherConfig(sessionID SessionRef, self TaskRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "task.get_other_config"
@@ -505,18 +531,20 @@ func (_class TaskClass) GetOtherConfig(sessionID SessionRef, self TaskRef) (_ret
 }
 
 
-var TaskClass_GetErrorInfoMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval []string, _err error) {
+func TaskClassGetErrorInfoMockDefault(sessionID SessionRef, self TaskRef) (_retval []string, _err error) {
 	log.Println("Task.GetErrorInfo not mocked")
 	_err = errors.New("Task.GetErrorInfo not mocked")
 	return
 }
 
+var TaskClassGetErrorInfoMockedCallback = TaskClassGetErrorInfoMockDefault
+
 func (_class TaskClass) GetErrorInfoMock(sessionID SessionRef, self TaskRef) (_retval []string, _err error) {
-	return TaskClass_GetErrorInfoMockedCallback(sessionID, self)
+	return TaskClassGetErrorInfoMockedCallback(sessionID, self)
 }
 // Get the error_info field of the given task.
 func (_class TaskClass) GetErrorInfo(sessionID SessionRef, self TaskRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetErrorInfoMock(sessionID, self)
 	}	
 	_method := "task.get_error_info"
@@ -537,18 +565,20 @@ func (_class TaskClass) GetErrorInfo(sessionID SessionRef, self TaskRef) (_retva
 }
 
 
-var TaskClass_GetResultMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetResultMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetResult not mocked")
 	_err = errors.New("Task.GetResult not mocked")
 	return
 }
 
+var TaskClassGetResultMockedCallback = TaskClassGetResultMockDefault
+
 func (_class TaskClass) GetResultMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetResultMockedCallback(sessionID, self)
+	return TaskClassGetResultMockedCallback(sessionID, self)
 }
 // Get the result field of the given task.
 func (_class TaskClass) GetResult(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetResultMock(sessionID, self)
 	}	
 	_method := "task.get_result"
@@ -569,18 +599,20 @@ func (_class TaskClass) GetResult(sessionID SessionRef, self TaskRef) (_retval s
 }
 
 
-var TaskClass_GetTypeMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetTypeMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetType not mocked")
 	_err = errors.New("Task.GetType not mocked")
 	return
 }
 
+var TaskClassGetTypeMockedCallback = TaskClassGetTypeMockDefault
+
 func (_class TaskClass) GetTypeMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetTypeMockedCallback(sessionID, self)
+	return TaskClassGetTypeMockedCallback(sessionID, self)
 }
 // Get the type field of the given task.
 func (_class TaskClass) GetType(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTypeMock(sessionID, self)
 	}	
 	_method := "task.get_type"
@@ -601,18 +633,20 @@ func (_class TaskClass) GetType(sessionID SessionRef, self TaskRef) (_retval str
 }
 
 
-var TaskClass_GetProgressMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval float64, _err error) {
+func TaskClassGetProgressMockDefault(sessionID SessionRef, self TaskRef) (_retval float64, _err error) {
 	log.Println("Task.GetProgress not mocked")
 	_err = errors.New("Task.GetProgress not mocked")
 	return
 }
 
+var TaskClassGetProgressMockedCallback = TaskClassGetProgressMockDefault
+
 func (_class TaskClass) GetProgressMock(sessionID SessionRef, self TaskRef) (_retval float64, _err error) {
-	return TaskClass_GetProgressMockedCallback(sessionID, self)
+	return TaskClassGetProgressMockedCallback(sessionID, self)
 }
 // Get the progress field of the given task.
 func (_class TaskClass) GetProgress(sessionID SessionRef, self TaskRef) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetProgressMock(sessionID, self)
 	}	
 	_method := "task.get_progress"
@@ -633,18 +667,20 @@ func (_class TaskClass) GetProgress(sessionID SessionRef, self TaskRef) (_retval
 }
 
 
-var TaskClass_GetResidentOnMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval HostRef, _err error) {
+func TaskClassGetResidentOnMockDefault(sessionID SessionRef, self TaskRef) (_retval HostRef, _err error) {
 	log.Println("Task.GetResidentOn not mocked")
 	_err = errors.New("Task.GetResidentOn not mocked")
 	return
 }
 
+var TaskClassGetResidentOnMockedCallback = TaskClassGetResidentOnMockDefault
+
 func (_class TaskClass) GetResidentOnMock(sessionID SessionRef, self TaskRef) (_retval HostRef, _err error) {
-	return TaskClass_GetResidentOnMockedCallback(sessionID, self)
+	return TaskClassGetResidentOnMockedCallback(sessionID, self)
 }
 // Get the resident_on field of the given task.
 func (_class TaskClass) GetResidentOn(sessionID SessionRef, self TaskRef) (_retval HostRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetResidentOnMock(sessionID, self)
 	}	
 	_method := "task.get_resident_on"
@@ -665,18 +701,20 @@ func (_class TaskClass) GetResidentOn(sessionID SessionRef, self TaskRef) (_retv
 }
 
 
-var TaskClass_GetStatusMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval TaskStatusType, _err error) {
+func TaskClassGetStatusMockDefault(sessionID SessionRef, self TaskRef) (_retval TaskStatusType, _err error) {
 	log.Println("Task.GetStatus not mocked")
 	_err = errors.New("Task.GetStatus not mocked")
 	return
 }
 
+var TaskClassGetStatusMockedCallback = TaskClassGetStatusMockDefault
+
 func (_class TaskClass) GetStatusMock(sessionID SessionRef, self TaskRef) (_retval TaskStatusType, _err error) {
-	return TaskClass_GetStatusMockedCallback(sessionID, self)
+	return TaskClassGetStatusMockedCallback(sessionID, self)
 }
 // Get the status field of the given task.
 func (_class TaskClass) GetStatus(sessionID SessionRef, self TaskRef) (_retval TaskStatusType, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetStatusMock(sessionID, self)
 	}	
 	_method := "task.get_status"
@@ -697,18 +735,20 @@ func (_class TaskClass) GetStatus(sessionID SessionRef, self TaskRef) (_retval T
 }
 
 
-var TaskClass_GetFinishedMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
+func TaskClassGetFinishedMockDefault(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
 	log.Println("Task.GetFinished not mocked")
 	_err = errors.New("Task.GetFinished not mocked")
 	return
 }
 
+var TaskClassGetFinishedMockedCallback = TaskClassGetFinishedMockDefault
+
 func (_class TaskClass) GetFinishedMock(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
-	return TaskClass_GetFinishedMockedCallback(sessionID, self)
+	return TaskClassGetFinishedMockedCallback(sessionID, self)
 }
 // Get the finished field of the given task.
 func (_class TaskClass) GetFinished(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFinishedMock(sessionID, self)
 	}	
 	_method := "task.get_finished"
@@ -729,18 +769,20 @@ func (_class TaskClass) GetFinished(sessionID SessionRef, self TaskRef) (_retval
 }
 
 
-var TaskClass_GetCreatedMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
+func TaskClassGetCreatedMockDefault(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
 	log.Println("Task.GetCreated not mocked")
 	_err = errors.New("Task.GetCreated not mocked")
 	return
 }
 
+var TaskClassGetCreatedMockedCallback = TaskClassGetCreatedMockDefault
+
 func (_class TaskClass) GetCreatedMock(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
-	return TaskClass_GetCreatedMockedCallback(sessionID, self)
+	return TaskClassGetCreatedMockedCallback(sessionID, self)
 }
 // Get the created field of the given task.
 func (_class TaskClass) GetCreated(sessionID SessionRef, self TaskRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCreatedMock(sessionID, self)
 	}	
 	_method := "task.get_created"
@@ -761,18 +803,20 @@ func (_class TaskClass) GetCreated(sessionID SessionRef, self TaskRef) (_retval 
 }
 
 
-var TaskClass_GetCurrentOperationsMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval map[string]TaskAllowedOperations, _err error) {
+func TaskClassGetCurrentOperationsMockDefault(sessionID SessionRef, self TaskRef) (_retval map[string]TaskAllowedOperations, _err error) {
 	log.Println("Task.GetCurrentOperations not mocked")
 	_err = errors.New("Task.GetCurrentOperations not mocked")
 	return
 }
 
+var TaskClassGetCurrentOperationsMockedCallback = TaskClassGetCurrentOperationsMockDefault
+
 func (_class TaskClass) GetCurrentOperationsMock(sessionID SessionRef, self TaskRef) (_retval map[string]TaskAllowedOperations, _err error) {
-	return TaskClass_GetCurrentOperationsMockedCallback(sessionID, self)
+	return TaskClassGetCurrentOperationsMockedCallback(sessionID, self)
 }
 // Get the current_operations field of the given task.
 func (_class TaskClass) GetCurrentOperations(sessionID SessionRef, self TaskRef) (_retval map[string]TaskAllowedOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCurrentOperationsMock(sessionID, self)
 	}	
 	_method := "task.get_current_operations"
@@ -793,18 +837,20 @@ func (_class TaskClass) GetCurrentOperations(sessionID SessionRef, self TaskRef)
 }
 
 
-var TaskClass_GetAllowedOperationsMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval []TaskAllowedOperations, _err error) {
+func TaskClassGetAllowedOperationsMockDefault(sessionID SessionRef, self TaskRef) (_retval []TaskAllowedOperations, _err error) {
 	log.Println("Task.GetAllowedOperations not mocked")
 	_err = errors.New("Task.GetAllowedOperations not mocked")
 	return
 }
 
+var TaskClassGetAllowedOperationsMockedCallback = TaskClassGetAllowedOperationsMockDefault
+
 func (_class TaskClass) GetAllowedOperationsMock(sessionID SessionRef, self TaskRef) (_retval []TaskAllowedOperations, _err error) {
-	return TaskClass_GetAllowedOperationsMockedCallback(sessionID, self)
+	return TaskClassGetAllowedOperationsMockedCallback(sessionID, self)
 }
 // Get the allowed_operations field of the given task.
 func (_class TaskClass) GetAllowedOperations(sessionID SessionRef, self TaskRef) (_retval []TaskAllowedOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllowedOperationsMock(sessionID, self)
 	}	
 	_method := "task.get_allowed_operations"
@@ -825,18 +871,20 @@ func (_class TaskClass) GetAllowedOperations(sessionID SessionRef, self TaskRef)
 }
 
 
-var TaskClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetNameDescriptionMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetNameDescription not mocked")
 	_err = errors.New("Task.GetNameDescription not mocked")
 	return
 }
 
+var TaskClassGetNameDescriptionMockedCallback = TaskClassGetNameDescriptionMockDefault
+
 func (_class TaskClass) GetNameDescriptionMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return TaskClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given task.
 func (_class TaskClass) GetNameDescription(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "task.get_name_description"
@@ -857,18 +905,20 @@ func (_class TaskClass) GetNameDescription(sessionID SessionRef, self TaskRef) (
 }
 
 
-var TaskClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetNameLabelMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetNameLabel not mocked")
 	_err = errors.New("Task.GetNameLabel not mocked")
 	return
 }
 
+var TaskClassGetNameLabelMockedCallback = TaskClassGetNameLabelMockDefault
+
 func (_class TaskClass) GetNameLabelMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetNameLabelMockedCallback(sessionID, self)
+	return TaskClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given task.
 func (_class TaskClass) GetNameLabel(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "task.get_name_label"
@@ -889,18 +939,20 @@ func (_class TaskClass) GetNameLabel(sessionID SessionRef, self TaskRef) (_retva
 }
 
 
-var TaskClass_GetUUIDMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval string, _err error) {
+func TaskClassGetUUIDMockDefault(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
 	log.Println("Task.GetUUID not mocked")
 	_err = errors.New("Task.GetUUID not mocked")
 	return
 }
 
+var TaskClassGetUUIDMockedCallback = TaskClassGetUUIDMockDefault
+
 func (_class TaskClass) GetUUIDMock(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	return TaskClass_GetUUIDMockedCallback(sessionID, self)
+	return TaskClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given task.
 func (_class TaskClass) GetUUID(sessionID SessionRef, self TaskRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "task.get_uuid"
@@ -921,18 +973,20 @@ func (_class TaskClass) GetUUID(sessionID SessionRef, self TaskRef) (_retval str
 }
 
 
-var TaskClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []TaskRef, _err error) {
+func TaskClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []TaskRef, _err error) {
 	log.Println("Task.GetByNameLabel not mocked")
 	_err = errors.New("Task.GetByNameLabel not mocked")
 	return
 }
 
+var TaskClassGetByNameLabelMockedCallback = TaskClassGetByNameLabelMockDefault
+
 func (_class TaskClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []TaskRef, _err error) {
-	return TaskClass_GetByNameLabelMockedCallback(sessionID, label)
+	return TaskClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the task instances with the given label.
 func (_class TaskClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "task.get_by_name_label"
@@ -953,18 +1007,20 @@ func (_class TaskClass) GetByNameLabel(sessionID SessionRef, label string) (_ret
 }
 
 
-var TaskClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval TaskRef, _err error) {
+func TaskClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval TaskRef, _err error) {
 	log.Println("Task.GetByUUID not mocked")
 	_err = errors.New("Task.GetByUUID not mocked")
 	return
 }
 
+var TaskClassGetByUUIDMockedCallback = TaskClassGetByUUIDMockDefault
+
 func (_class TaskClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval TaskRef, _err error) {
-	return TaskClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return TaskClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the task instance with the specified UUID.
 func (_class TaskClass) GetByUUID(sessionID SessionRef, uuid string) (_retval TaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "task.get_by_uuid"
@@ -985,18 +1041,20 @@ func (_class TaskClass) GetByUUID(sessionID SessionRef, uuid string) (_retval Ta
 }
 
 
-var TaskClass_GetRecordMockedCallback = func (sessionID SessionRef, self TaskRef) (_retval TaskRecord, _err error) {
+func TaskClassGetRecordMockDefault(sessionID SessionRef, self TaskRef) (_retval TaskRecord, _err error) {
 	log.Println("Task.GetRecord not mocked")
 	_err = errors.New("Task.GetRecord not mocked")
 	return
 }
 
+var TaskClassGetRecordMockedCallback = TaskClassGetRecordMockDefault
+
 func (_class TaskClass) GetRecordMock(sessionID SessionRef, self TaskRef) (_retval TaskRecord, _err error) {
-	return TaskClass_GetRecordMockedCallback(sessionID, self)
+	return TaskClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given task.
 func (_class TaskClass) GetRecord(sessionID SessionRef, self TaskRef) (_retval TaskRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "task.get_record"

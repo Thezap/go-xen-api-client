@@ -123,18 +123,20 @@ type SRClass struct {
 }
 
 
-var SRClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[SRRef]SRRecord, _err error) {
+func SRClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[SRRef]SRRecord, _err error) {
 	log.Println("SR.GetAllRecords not mocked")
 	_err = errors.New("SR.GetAllRecords not mocked")
 	return
 }
 
+var SRClassGetAllRecordsMockedCallback = SRClassGetAllRecordsMockDefault
+
 func (_class SRClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[SRRef]SRRecord, _err error) {
-	return SRClass_GetAllRecordsMockedCallback(sessionID)
+	return SRClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of SR references to SR records for all SRs known to the system.
 func (_class SRClass) GetAllRecords(sessionID SessionRef) (_retval map[SRRef]SRRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "SR.get_all_records"
@@ -151,18 +153,20 @@ func (_class SRClass) GetAllRecords(sessionID SessionRef) (_retval map[SRRef]SRR
 }
 
 
-var SRClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []SRRef, _err error) {
+func SRClassGetAllMockDefault(sessionID SessionRef) (_retval []SRRef, _err error) {
 	log.Println("SR.GetAll not mocked")
 	_err = errors.New("SR.GetAll not mocked")
 	return
 }
 
+var SRClassGetAllMockedCallback = SRClassGetAllMockDefault
+
 func (_class SRClass) GetAllMock(sessionID SessionRef) (_retval []SRRef, _err error) {
-	return SRClass_GetAllMockedCallback(sessionID)
+	return SRClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the SRs known to the system.
 func (_class SRClass) GetAll(sessionID SessionRef) (_retval []SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "SR.get_all"
@@ -179,18 +183,20 @@ func (_class SRClass) GetAll(sessionID SessionRef) (_retval []SRRef, _err error)
 }
 
 
-var SRClass_ForgetDataSourceArchivesMockedCallback = func (sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
+func SRClassForgetDataSourceArchivesMockDefault(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
 	log.Println("SR.ForgetDataSourceArchives not mocked")
 	_err = errors.New("SR.ForgetDataSourceArchives not mocked")
 	return
 }
 
+var SRClassForgetDataSourceArchivesMockedCallback = SRClassForgetDataSourceArchivesMockDefault
+
 func (_class SRClass) ForgetDataSourceArchivesMock(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
-	return SRClass_ForgetDataSourceArchivesMockedCallback(sessionID, sr, dataSource)
+	return SRClassForgetDataSourceArchivesMockedCallback(sessionID, sr, dataSource)
 }
 // Forget the recorded statistics related to the specified data source
 func (_class SRClass) ForgetDataSourceArchives(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetDataSourceArchivesMock(sessionID, sr, dataSource)
 	}	
 	_method := "SR.forget_data_source_archives"
@@ -211,18 +217,20 @@ func (_class SRClass) ForgetDataSourceArchives(sessionID SessionRef, sr SRRef, d
 }
 
 
-var SRClass_QueryDataSourceMockedCallback = func (sessionID SessionRef, sr SRRef, dataSource string) (_retval float64, _err error) {
+func SRClassQueryDataSourceMockDefault(sessionID SessionRef, sr SRRef, dataSource string) (_retval float64, _err error) {
 	log.Println("SR.QueryDataSource not mocked")
 	_err = errors.New("SR.QueryDataSource not mocked")
 	return
 }
 
+var SRClassQueryDataSourceMockedCallback = SRClassQueryDataSourceMockDefault
+
 func (_class SRClass) QueryDataSourceMock(sessionID SessionRef, sr SRRef, dataSource string) (_retval float64, _err error) {
-	return SRClass_QueryDataSourceMockedCallback(sessionID, sr, dataSource)
+	return SRClassQueryDataSourceMockedCallback(sessionID, sr, dataSource)
 }
 // Query the latest value of the specified data source
 func (_class SRClass) QueryDataSource(sessionID SessionRef, sr SRRef, dataSource string) (_retval float64, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.QueryDataSourceMock(sessionID, sr, dataSource)
 	}	
 	_method := "SR.query_data_source"
@@ -247,18 +255,20 @@ func (_class SRClass) QueryDataSource(sessionID SessionRef, sr SRRef, dataSource
 }
 
 
-var SRClass_RecordDataSourceMockedCallback = func (sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
+func SRClassRecordDataSourceMockDefault(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
 	log.Println("SR.RecordDataSource not mocked")
 	_err = errors.New("SR.RecordDataSource not mocked")
 	return
 }
 
+var SRClassRecordDataSourceMockedCallback = SRClassRecordDataSourceMockDefault
+
 func (_class SRClass) RecordDataSourceMock(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
-	return SRClass_RecordDataSourceMockedCallback(sessionID, sr, dataSource)
+	return SRClassRecordDataSourceMockedCallback(sessionID, sr, dataSource)
 }
 // Start recording the specified data source
 func (_class SRClass) RecordDataSource(sessionID SessionRef, sr SRRef, dataSource string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RecordDataSourceMock(sessionID, sr, dataSource)
 	}	
 	_method := "SR.record_data_source"
@@ -279,18 +289,20 @@ func (_class SRClass) RecordDataSource(sessionID SessionRef, sr SRRef, dataSourc
 }
 
 
-var SRClass_GetDataSourcesMockedCallback = func (sessionID SessionRef, sr SRRef) (_retval []DataSourceRecord, _err error) {
+func SRClassGetDataSourcesMockDefault(sessionID SessionRef, sr SRRef) (_retval []DataSourceRecord, _err error) {
 	log.Println("SR.GetDataSources not mocked")
 	_err = errors.New("SR.GetDataSources not mocked")
 	return
 }
 
+var SRClassGetDataSourcesMockedCallback = SRClassGetDataSourcesMockDefault
+
 func (_class SRClass) GetDataSourcesMock(sessionID SessionRef, sr SRRef) (_retval []DataSourceRecord, _err error) {
-	return SRClass_GetDataSourcesMockedCallback(sessionID, sr)
+	return SRClassGetDataSourcesMockedCallback(sessionID, sr)
 }
 // 
 func (_class SRClass) GetDataSources(sessionID SessionRef, sr SRRef) (_retval []DataSourceRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDataSourcesMock(sessionID, sr)
 	}	
 	_method := "SR.get_data_sources"
@@ -311,18 +323,20 @@ func (_class SRClass) GetDataSources(sessionID SessionRef, sr SRRef) (_retval []
 }
 
 
-var SRClass_DisableDatabaseReplicationMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassDisableDatabaseReplicationMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.DisableDatabaseReplication not mocked")
 	_err = errors.New("SR.DisableDatabaseReplication not mocked")
 	return
 }
 
+var SRClassDisableDatabaseReplicationMockedCallback = SRClassDisableDatabaseReplicationMockDefault
+
 func (_class SRClass) DisableDatabaseReplicationMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_DisableDatabaseReplicationMockedCallback(sessionID, sr)
+	return SRClassDisableDatabaseReplicationMockedCallback(sessionID, sr)
 }
 // 
 func (_class SRClass) DisableDatabaseReplication(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DisableDatabaseReplicationMock(sessionID, sr)
 	}	
 	_method := "SR.disable_database_replication"
@@ -339,18 +353,20 @@ func (_class SRClass) DisableDatabaseReplication(sessionID SessionRef, sr SRRef)
 }
 
 
-var SRClass_EnableDatabaseReplicationMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassEnableDatabaseReplicationMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.EnableDatabaseReplication not mocked")
 	_err = errors.New("SR.EnableDatabaseReplication not mocked")
 	return
 }
 
+var SRClassEnableDatabaseReplicationMockedCallback = SRClassEnableDatabaseReplicationMockDefault
+
 func (_class SRClass) EnableDatabaseReplicationMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_EnableDatabaseReplicationMockedCallback(sessionID, sr)
+	return SRClassEnableDatabaseReplicationMockedCallback(sessionID, sr)
 }
 // 
 func (_class SRClass) EnableDatabaseReplication(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.EnableDatabaseReplicationMock(sessionID, sr)
 	}	
 	_method := "SR.enable_database_replication"
@@ -367,18 +383,20 @@ func (_class SRClass) EnableDatabaseReplication(sessionID SessionRef, sr SRRef) 
 }
 
 
-var SRClass_AssertSupportsDatabaseReplicationMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassAssertSupportsDatabaseReplicationMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.AssertSupportsDatabaseReplication not mocked")
 	_err = errors.New("SR.AssertSupportsDatabaseReplication not mocked")
 	return
 }
 
+var SRClassAssertSupportsDatabaseReplicationMockedCallback = SRClassAssertSupportsDatabaseReplicationMockDefault
+
 func (_class SRClass) AssertSupportsDatabaseReplicationMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_AssertSupportsDatabaseReplicationMockedCallback(sessionID, sr)
+	return SRClassAssertSupportsDatabaseReplicationMockedCallback(sessionID, sr)
 }
 // Returns successfully if the given SR supports database replication. Otherwise returns an error to explain why not.
 func (_class SRClass) AssertSupportsDatabaseReplication(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertSupportsDatabaseReplicationMock(sessionID, sr)
 	}	
 	_method := "SR.assert_supports_database_replication"
@@ -395,18 +413,20 @@ func (_class SRClass) AssertSupportsDatabaseReplication(sessionID SessionRef, sr
 }
 
 
-var SRClass_AssertCanHostHaStatefileMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassAssertCanHostHaStatefileMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.AssertCanHostHaStatefile not mocked")
 	_err = errors.New("SR.AssertCanHostHaStatefile not mocked")
 	return
 }
 
+var SRClassAssertCanHostHaStatefileMockedCallback = SRClassAssertCanHostHaStatefileMockDefault
+
 func (_class SRClass) AssertCanHostHaStatefileMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_AssertCanHostHaStatefileMockedCallback(sessionID, sr)
+	return SRClassAssertCanHostHaStatefileMockedCallback(sessionID, sr)
 }
 // Returns successfully if the given SR can host an HA statefile. Otherwise returns an error to explain why not
 func (_class SRClass) AssertCanHostHaStatefile(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AssertCanHostHaStatefileMock(sessionID, sr)
 	}	
 	_method := "SR.assert_can_host_ha_statefile"
@@ -423,18 +443,20 @@ func (_class SRClass) AssertCanHostHaStatefile(sessionID SessionRef, sr SRRef) (
 }
 
 
-var SRClass_SetPhysicalUtilisationMockedCallback = func (sessionID SessionRef, self SRRef, value int) (_err error) {
+func SRClassSetPhysicalUtilisationMockDefault(sessionID SessionRef, self SRRef, value int) (_err error) {
 	log.Println("SR.SetPhysicalUtilisation not mocked")
 	_err = errors.New("SR.SetPhysicalUtilisation not mocked")
 	return
 }
 
+var SRClassSetPhysicalUtilisationMockedCallback = SRClassSetPhysicalUtilisationMockDefault
+
 func (_class SRClass) SetPhysicalUtilisationMock(sessionID SessionRef, self SRRef, value int) (_err error) {
-	return SRClass_SetPhysicalUtilisationMockedCallback(sessionID, self, value)
+	return SRClassSetPhysicalUtilisationMockedCallback(sessionID, self, value)
 }
 // Sets the SR's physical_utilisation field
 func (_class SRClass) SetPhysicalUtilisation(sessionID SessionRef, self SRRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPhysicalUtilisationMock(sessionID, self, value)
 	}	
 	_method := "SR.set_physical_utilisation"
@@ -455,18 +477,20 @@ func (_class SRClass) SetPhysicalUtilisation(sessionID SessionRef, self SRRef, v
 }
 
 
-var SRClass_SetVirtualAllocationMockedCallback = func (sessionID SessionRef, self SRRef, value int) (_err error) {
+func SRClassSetVirtualAllocationMockDefault(sessionID SessionRef, self SRRef, value int) (_err error) {
 	log.Println("SR.SetVirtualAllocation not mocked")
 	_err = errors.New("SR.SetVirtualAllocation not mocked")
 	return
 }
 
+var SRClassSetVirtualAllocationMockedCallback = SRClassSetVirtualAllocationMockDefault
+
 func (_class SRClass) SetVirtualAllocationMock(sessionID SessionRef, self SRRef, value int) (_err error) {
-	return SRClass_SetVirtualAllocationMockedCallback(sessionID, self, value)
+	return SRClassSetVirtualAllocationMockedCallback(sessionID, self, value)
 }
 // Sets the SR's virtual_allocation field
 func (_class SRClass) SetVirtualAllocation(sessionID SessionRef, self SRRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetVirtualAllocationMock(sessionID, self, value)
 	}	
 	_method := "SR.set_virtual_allocation"
@@ -487,18 +511,20 @@ func (_class SRClass) SetVirtualAllocation(sessionID SessionRef, self SRRef, val
 }
 
 
-var SRClass_SetPhysicalSizeMockedCallback = func (sessionID SessionRef, self SRRef, value int) (_err error) {
+func SRClassSetPhysicalSizeMockDefault(sessionID SessionRef, self SRRef, value int) (_err error) {
 	log.Println("SR.SetPhysicalSize not mocked")
 	_err = errors.New("SR.SetPhysicalSize not mocked")
 	return
 }
 
+var SRClassSetPhysicalSizeMockedCallback = SRClassSetPhysicalSizeMockDefault
+
 func (_class SRClass) SetPhysicalSizeMock(sessionID SessionRef, self SRRef, value int) (_err error) {
-	return SRClass_SetPhysicalSizeMockedCallback(sessionID, self, value)
+	return SRClassSetPhysicalSizeMockedCallback(sessionID, self, value)
 }
 // Sets the SR's physical_size field
 func (_class SRClass) SetPhysicalSize(sessionID SessionRef, self SRRef, value int) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetPhysicalSizeMock(sessionID, self, value)
 	}	
 	_method := "SR.set_physical_size"
@@ -519,18 +545,20 @@ func (_class SRClass) SetPhysicalSize(sessionID SessionRef, self SRRef, value in
 }
 
 
-var SRClass_CreateNewBlobMockedCallback = func (sessionID SessionRef, sr SRRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
+func SRClassCreateNewBlobMockDefault(sessionID SessionRef, sr SRRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
 	log.Println("SR.CreateNewBlob not mocked")
 	_err = errors.New("SR.CreateNewBlob not mocked")
 	return
 }
 
+var SRClassCreateNewBlobMockedCallback = SRClassCreateNewBlobMockDefault
+
 func (_class SRClass) CreateNewBlobMock(sessionID SessionRef, sr SRRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
-	return SRClass_CreateNewBlobMockedCallback(sessionID, sr, name, mimeType, public)
+	return SRClassCreateNewBlobMockedCallback(sessionID, sr, name, mimeType, public)
 }
 // Create a placeholder for a named binary blob of data that is associated with this SR
 func (_class SRClass) CreateNewBlob(sessionID SessionRef, sr SRRef, name string, mimeType string, public bool) (_retval BlobRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateNewBlobMock(sessionID, sr, name, mimeType, public)
 	}	
 	_method := "SR.create_new_blob"
@@ -563,18 +591,20 @@ func (_class SRClass) CreateNewBlob(sessionID SessionRef, sr SRRef, name string,
 }
 
 
-var SRClass_SetNameDescriptionMockedCallback = func (sessionID SessionRef, sr SRRef, value string) (_err error) {
+func SRClassSetNameDescriptionMockDefault(sessionID SessionRef, sr SRRef, value string) (_err error) {
 	log.Println("SR.SetNameDescription not mocked")
 	_err = errors.New("SR.SetNameDescription not mocked")
 	return
 }
 
+var SRClassSetNameDescriptionMockedCallback = SRClassSetNameDescriptionMockDefault
+
 func (_class SRClass) SetNameDescriptionMock(sessionID SessionRef, sr SRRef, value string) (_err error) {
-	return SRClass_SetNameDescriptionMockedCallback(sessionID, sr, value)
+	return SRClassSetNameDescriptionMockedCallback(sessionID, sr, value)
 }
 // Set the name description of the SR
 func (_class SRClass) SetNameDescription(sessionID SessionRef, sr SRRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameDescriptionMock(sessionID, sr, value)
 	}	
 	_method := "SR.set_name_description"
@@ -595,18 +625,20 @@ func (_class SRClass) SetNameDescription(sessionID SessionRef, sr SRRef, value s
 }
 
 
-var SRClass_SetNameLabelMockedCallback = func (sessionID SessionRef, sr SRRef, value string) (_err error) {
+func SRClassSetNameLabelMockDefault(sessionID SessionRef, sr SRRef, value string) (_err error) {
 	log.Println("SR.SetNameLabel not mocked")
 	_err = errors.New("SR.SetNameLabel not mocked")
 	return
 }
 
+var SRClassSetNameLabelMockedCallback = SRClassSetNameLabelMockDefault
+
 func (_class SRClass) SetNameLabelMock(sessionID SessionRef, sr SRRef, value string) (_err error) {
-	return SRClass_SetNameLabelMockedCallback(sessionID, sr, value)
+	return SRClassSetNameLabelMockedCallback(sessionID, sr, value)
 }
 // Set the name label of the SR
 func (_class SRClass) SetNameLabel(sessionID SessionRef, sr SRRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameLabelMock(sessionID, sr, value)
 	}	
 	_method := "SR.set_name_label"
@@ -627,18 +659,20 @@ func (_class SRClass) SetNameLabel(sessionID SessionRef, sr SRRef, value string)
 }
 
 
-var SRClass_SetSharedMockedCallback = func (sessionID SessionRef, sr SRRef, value bool) (_err error) {
+func SRClassSetSharedMockDefault(sessionID SessionRef, sr SRRef, value bool) (_err error) {
 	log.Println("SR.SetShared not mocked")
 	_err = errors.New("SR.SetShared not mocked")
 	return
 }
 
+var SRClassSetSharedMockedCallback = SRClassSetSharedMockDefault
+
 func (_class SRClass) SetSharedMock(sessionID SessionRef, sr SRRef, value bool) (_err error) {
-	return SRClass_SetSharedMockedCallback(sessionID, sr, value)
+	return SRClassSetSharedMockedCallback(sessionID, sr, value)
 }
 // Sets the shared flag on the SR
 func (_class SRClass) SetShared(sessionID SessionRef, sr SRRef, value bool) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetSharedMock(sessionID, sr, value)
 	}	
 	_method := "SR.set_shared"
@@ -659,18 +693,20 @@ func (_class SRClass) SetShared(sessionID SessionRef, sr SRRef, value bool) (_er
 }
 
 
-var SRClass_ProbeMockedCallback = func (sessionID SessionRef, host HostRef, deviceConfig map[string]string, atype string, smConfig map[string]string) (_retval string, _err error) {
+func SRClassProbeMockDefault(sessionID SessionRef, host HostRef, deviceConfig map[string]string, atype string, smConfig map[string]string) (_retval string, _err error) {
 	log.Println("SR.Probe not mocked")
 	_err = errors.New("SR.Probe not mocked")
 	return
 }
 
+var SRClassProbeMockedCallback = SRClassProbeMockDefault
+
 func (_class SRClass) ProbeMock(sessionID SessionRef, host HostRef, deviceConfig map[string]string, atype string, smConfig map[string]string) (_retval string, _err error) {
-	return SRClass_ProbeMockedCallback(sessionID, host, deviceConfig, atype, smConfig)
+	return SRClassProbeMockedCallback(sessionID, host, deviceConfig, atype, smConfig)
 }
 // Perform a backend-specific scan, using the given device_config.  If the device_config is complete, then this will return a list of the SRs present of this type on the device, if any.  If the device_config is partial, then a backend-specific scan will be performed, returning results that will guide the user in improving the device_config.
 func (_class SRClass) Probe(sessionID SessionRef, host HostRef, deviceConfig map[string]string, atype string, smConfig map[string]string) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ProbeMock(sessionID, host, deviceConfig, atype, smConfig)
 	}	
 	_method := "SR.probe"
@@ -703,18 +739,20 @@ func (_class SRClass) Probe(sessionID SessionRef, host HostRef, deviceConfig map
 }
 
 
-var SRClass_ScanMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassScanMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.Scan not mocked")
 	_err = errors.New("SR.Scan not mocked")
 	return
 }
 
+var SRClassScanMockedCallback = SRClassScanMockDefault
+
 func (_class SRClass) ScanMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_ScanMockedCallback(sessionID, sr)
+	return SRClassScanMockedCallback(sessionID, sr)
 }
 // Refreshes the list of VDIs associated with an SR
 func (_class SRClass) Scan(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ScanMock(sessionID, sr)
 	}	
 	_method := "SR.scan"
@@ -731,18 +769,20 @@ func (_class SRClass) Scan(sessionID SessionRef, sr SRRef) (_err error) {
 }
 
 
-var SRClass_GetSupportedTypesMockedCallback = func (sessionID SessionRef) (_retval []string, _err error) {
+func SRClassGetSupportedTypesMockDefault(sessionID SessionRef) (_retval []string, _err error) {
 	log.Println("SR.GetSupportedTypes not mocked")
 	_err = errors.New("SR.GetSupportedTypes not mocked")
 	return
 }
 
+var SRClassGetSupportedTypesMockedCallback = SRClassGetSupportedTypesMockDefault
+
 func (_class SRClass) GetSupportedTypesMock(sessionID SessionRef) (_retval []string, _err error) {
-	return SRClass_GetSupportedTypesMockedCallback(sessionID)
+	return SRClassGetSupportedTypesMockedCallback(sessionID)
 }
 // Return a set of all the SR types supported by the system
 func (_class SRClass) GetSupportedTypes(sessionID SessionRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedTypesMock(sessionID)
 	}	
 	_method := "SR.get_supported_types"
@@ -759,18 +799,20 @@ func (_class SRClass) GetSupportedTypes(sessionID SessionRef) (_retval []string,
 }
 
 
-var SRClass_UpdateMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassUpdateMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.Update not mocked")
 	_err = errors.New("SR.Update not mocked")
 	return
 }
 
+var SRClassUpdateMockedCallback = SRClassUpdateMockDefault
+
 func (_class SRClass) UpdateMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_UpdateMockedCallback(sessionID, sr)
+	return SRClassUpdateMockedCallback(sessionID, sr)
 }
 // Refresh the fields on the SR object
 func (_class SRClass) Update(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.UpdateMock(sessionID, sr)
 	}	
 	_method := "SR.update"
@@ -787,21 +829,23 @@ func (_class SRClass) Update(sessionID SessionRef, sr SRRef) (_err error) {
 }
 
 
-var SRClass_ForgetMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassForgetMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.Forget not mocked")
 	_err = errors.New("SR.Forget not mocked")
 	return
 }
 
+var SRClassForgetMockedCallback = SRClassForgetMockDefault
+
 func (_class SRClass) ForgetMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_ForgetMockedCallback(sessionID, sr)
+	return SRClassForgetMockedCallback(sessionID, sr)
 }
 // Removing specified SR-record from database, without attempting to remove SR from disk
 //
 // Errors:
 //  SR_HAS_PBD - The SR is still connected to a host via a PBD. It cannot be destroyed or forgotten.
 func (_class SRClass) Forget(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetMock(sessionID, sr)
 	}	
 	_method := "SR.forget"
@@ -818,21 +862,23 @@ func (_class SRClass) Forget(sessionID SessionRef, sr SRRef) (_err error) {
 }
 
 
-var SRClass_DestroyMockedCallback = func (sessionID SessionRef, sr SRRef) (_err error) {
+func SRClassDestroyMockDefault(sessionID SessionRef, sr SRRef) (_err error) {
 	log.Println("SR.Destroy not mocked")
 	_err = errors.New("SR.Destroy not mocked")
 	return
 }
 
+var SRClassDestroyMockedCallback = SRClassDestroyMockDefault
+
 func (_class SRClass) DestroyMock(sessionID SessionRef, sr SRRef) (_err error) {
-	return SRClass_DestroyMockedCallback(sessionID, sr)
+	return SRClassDestroyMockedCallback(sessionID, sr)
 }
 // Destroy specified SR, removing SR-record from database and remove SR from disk. (In order to affect this operation the appropriate device_config is read from the specified SR's PBD on current host)
 //
 // Errors:
 //  SR_HAS_PBD - The SR is still connected to a host via a PBD. It cannot be destroyed or forgotten.
 func (_class SRClass) Destroy(sessionID SessionRef, sr SRRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, sr)
 	}	
 	_method := "SR.destroy"
@@ -849,18 +895,20 @@ func (_class SRClass) Destroy(sessionID SessionRef, sr SRRef) (_err error) {
 }
 
 
-var SRClass_MakeMockedCallback = func (sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, smConfig map[string]string) (_retval string, _err error) {
+func SRClassMakeMockDefault(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, smConfig map[string]string) (_retval string, _err error) {
 	log.Println("SR.Make not mocked")
 	_err = errors.New("SR.Make not mocked")
 	return
 }
 
+var SRClassMakeMockedCallback = SRClassMakeMockDefault
+
 func (_class SRClass) MakeMock(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, smConfig map[string]string) (_retval string, _err error) {
-	return SRClass_MakeMockedCallback(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, smConfig)
+	return SRClassMakeMockedCallback(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, smConfig)
 }
 // Create a new Storage Repository on disk. This call is deprecated: use SR.create instead.
 func (_class SRClass) Make(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, smConfig map[string]string) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.MakeMock(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, smConfig)
 	}	
 	_method := "SR.make"
@@ -909,18 +957,20 @@ func (_class SRClass) Make(sessionID SessionRef, host HostRef, deviceConfig map[
 }
 
 
-var SRClass_IntroduceMockedCallback = func (sessionID SessionRef, uuid string, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
+func SRClassIntroduceMockDefault(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
 	log.Println("SR.Introduce not mocked")
 	_err = errors.New("SR.Introduce not mocked")
 	return
 }
 
+var SRClassIntroduceMockedCallback = SRClassIntroduceMockDefault
+
 func (_class SRClass) IntroduceMock(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
-	return SRClass_IntroduceMockedCallback(sessionID, uuid, nameLabel, nameDescription, atype, contentType, shared, smConfig)
+	return SRClassIntroduceMockedCallback(sessionID, uuid, nameLabel, nameDescription, atype, contentType, shared, smConfig)
 }
 // Introduce a new Storage Repository into the managed system
 func (_class SRClass) Introduce(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.IntroduceMock(sessionID, uuid, nameLabel, nameDescription, atype, contentType, shared, smConfig)
 	}	
 	_method := "SR.introduce"
@@ -965,21 +1015,23 @@ func (_class SRClass) Introduce(sessionID SessionRef, uuid string, nameLabel str
 }
 
 
-var SRClass_CreateMockedCallback = func (sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
+func SRClassCreateMockDefault(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
 	log.Println("SR.Create not mocked")
 	_err = errors.New("SR.Create not mocked")
 	return
 }
 
+var SRClassCreateMockedCallback = SRClassCreateMockDefault
+
 func (_class SRClass) CreateMock(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
-	return SRClass_CreateMockedCallback(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, shared, smConfig)
+	return SRClassCreateMockedCallback(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, shared, smConfig)
 }
 // Create a new Storage Repository and introduce it into the managed system, creating both SR record and PBD record to attach it to current host (with specified device_config parameters)
 //
 // Errors:
 //  SR_UNKNOWN_DRIVER - The SR could not be connected because the driver was not recognised.
 func (_class SRClass) Create(sessionID SessionRef, host HostRef, deviceConfig map[string]string, physicalSize int, nameLabel string, nameDescription string, atype string, contentType string, shared bool, smConfig map[string]string) (_retval SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, host, deviceConfig, physicalSize, nameLabel, nameDescription, atype, contentType, shared, smConfig)
 	}	
 	_method := "SR.create"
@@ -1032,18 +1084,20 @@ func (_class SRClass) Create(sessionID SessionRef, host HostRef, deviceConfig ma
 }
 
 
-var SRClass_RemoveFromSmConfigMockedCallback = func (sessionID SessionRef, self SRRef, key string) (_err error) {
+func SRClassRemoveFromSmConfigMockDefault(sessionID SessionRef, self SRRef, key string) (_err error) {
 	log.Println("SR.RemoveFromSmConfig not mocked")
 	_err = errors.New("SR.RemoveFromSmConfig not mocked")
 	return
 }
 
+var SRClassRemoveFromSmConfigMockedCallback = SRClassRemoveFromSmConfigMockDefault
+
 func (_class SRClass) RemoveFromSmConfigMock(sessionID SessionRef, self SRRef, key string) (_err error) {
-	return SRClass_RemoveFromSmConfigMockedCallback(sessionID, self, key)
+	return SRClassRemoveFromSmConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the sm_config field of the given SR.  If the key is not in that Map, then do nothing.
 func (_class SRClass) RemoveFromSmConfig(sessionID SessionRef, self SRRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromSmConfigMock(sessionID, self, key)
 	}	
 	_method := "SR.remove_from_sm_config"
@@ -1064,18 +1118,20 @@ func (_class SRClass) RemoveFromSmConfig(sessionID SessionRef, self SRRef, key s
 }
 
 
-var SRClass_AddToSmConfigMockedCallback = func (sessionID SessionRef, self SRRef, key string, value string) (_err error) {
+func SRClassAddToSmConfigMockDefault(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
 	log.Println("SR.AddToSmConfig not mocked")
 	_err = errors.New("SR.AddToSmConfig not mocked")
 	return
 }
 
+var SRClassAddToSmConfigMockedCallback = SRClassAddToSmConfigMockDefault
+
 func (_class SRClass) AddToSmConfigMock(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
-	return SRClass_AddToSmConfigMockedCallback(sessionID, self, key, value)
+	return SRClassAddToSmConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the sm_config field of the given SR.
 func (_class SRClass) AddToSmConfig(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToSmConfigMock(sessionID, self, key, value)
 	}	
 	_method := "SR.add_to_sm_config"
@@ -1100,18 +1156,20 @@ func (_class SRClass) AddToSmConfig(sessionID SessionRef, self SRRef, key string
 }
 
 
-var SRClass_SetSmConfigMockedCallback = func (sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
+func SRClassSetSmConfigMockDefault(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
 	log.Println("SR.SetSmConfig not mocked")
 	_err = errors.New("SR.SetSmConfig not mocked")
 	return
 }
 
+var SRClassSetSmConfigMockedCallback = SRClassSetSmConfigMockDefault
+
 func (_class SRClass) SetSmConfigMock(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
-	return SRClass_SetSmConfigMockedCallback(sessionID, self, value)
+	return SRClassSetSmConfigMockedCallback(sessionID, self, value)
 }
 // Set the sm_config field of the given SR.
 func (_class SRClass) SetSmConfig(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetSmConfigMock(sessionID, self, value)
 	}	
 	_method := "SR.set_sm_config"
@@ -1132,18 +1190,20 @@ func (_class SRClass) SetSmConfig(sessionID SessionRef, self SRRef, value map[st
 }
 
 
-var SRClass_RemoveTagsMockedCallback = func (sessionID SessionRef, self SRRef, value string) (_err error) {
+func SRClassRemoveTagsMockDefault(sessionID SessionRef, self SRRef, value string) (_err error) {
 	log.Println("SR.RemoveTags not mocked")
 	_err = errors.New("SR.RemoveTags not mocked")
 	return
 }
 
+var SRClassRemoveTagsMockedCallback = SRClassRemoveTagsMockDefault
+
 func (_class SRClass) RemoveTagsMock(sessionID SessionRef, self SRRef, value string) (_err error) {
-	return SRClass_RemoveTagsMockedCallback(sessionID, self, value)
+	return SRClassRemoveTagsMockedCallback(sessionID, self, value)
 }
 // Remove the given value from the tags field of the given SR.  If the value is not in that Set, then do nothing.
 func (_class SRClass) RemoveTags(sessionID SessionRef, self SRRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveTagsMock(sessionID, self, value)
 	}	
 	_method := "SR.remove_tags"
@@ -1164,18 +1224,20 @@ func (_class SRClass) RemoveTags(sessionID SessionRef, self SRRef, value string)
 }
 
 
-var SRClass_AddTagsMockedCallback = func (sessionID SessionRef, self SRRef, value string) (_err error) {
+func SRClassAddTagsMockDefault(sessionID SessionRef, self SRRef, value string) (_err error) {
 	log.Println("SR.AddTags not mocked")
 	_err = errors.New("SR.AddTags not mocked")
 	return
 }
 
+var SRClassAddTagsMockedCallback = SRClassAddTagsMockDefault
+
 func (_class SRClass) AddTagsMock(sessionID SessionRef, self SRRef, value string) (_err error) {
-	return SRClass_AddTagsMockedCallback(sessionID, self, value)
+	return SRClassAddTagsMockedCallback(sessionID, self, value)
 }
 // Add the given value to the tags field of the given SR.  If the value is already in that Set, then do nothing.
 func (_class SRClass) AddTags(sessionID SessionRef, self SRRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddTagsMock(sessionID, self, value)
 	}	
 	_method := "SR.add_tags"
@@ -1196,18 +1258,20 @@ func (_class SRClass) AddTags(sessionID SessionRef, self SRRef, value string) (_
 }
 
 
-var SRClass_SetTagsMockedCallback = func (sessionID SessionRef, self SRRef, value []string) (_err error) {
+func SRClassSetTagsMockDefault(sessionID SessionRef, self SRRef, value []string) (_err error) {
 	log.Println("SR.SetTags not mocked")
 	_err = errors.New("SR.SetTags not mocked")
 	return
 }
 
+var SRClassSetTagsMockedCallback = SRClassSetTagsMockDefault
+
 func (_class SRClass) SetTagsMock(sessionID SessionRef, self SRRef, value []string) (_err error) {
-	return SRClass_SetTagsMockedCallback(sessionID, self, value)
+	return SRClassSetTagsMockedCallback(sessionID, self, value)
 }
 // Set the tags field of the given SR.
 func (_class SRClass) SetTags(sessionID SessionRef, self SRRef, value []string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetTagsMock(sessionID, self, value)
 	}	
 	_method := "SR.set_tags"
@@ -1228,18 +1292,20 @@ func (_class SRClass) SetTags(sessionID SessionRef, self SRRef, value []string) 
 }
 
 
-var SRClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self SRRef, key string) (_err error) {
+func SRClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self SRRef, key string) (_err error) {
 	log.Println("SR.RemoveFromOtherConfig not mocked")
 	_err = errors.New("SR.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var SRClassRemoveFromOtherConfigMockedCallback = SRClassRemoveFromOtherConfigMockDefault
+
 func (_class SRClass) RemoveFromOtherConfigMock(sessionID SessionRef, self SRRef, key string) (_err error) {
-	return SRClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return SRClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given SR.  If the key is not in that Map, then do nothing.
 func (_class SRClass) RemoveFromOtherConfig(sessionID SessionRef, self SRRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "SR.remove_from_other_config"
@@ -1260,18 +1326,20 @@ func (_class SRClass) RemoveFromOtherConfig(sessionID SessionRef, self SRRef, ke
 }
 
 
-var SRClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self SRRef, key string, value string) (_err error) {
+func SRClassAddToOtherConfigMockDefault(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
 	log.Println("SR.AddToOtherConfig not mocked")
 	_err = errors.New("SR.AddToOtherConfig not mocked")
 	return
 }
 
+var SRClassAddToOtherConfigMockedCallback = SRClassAddToOtherConfigMockDefault
+
 func (_class SRClass) AddToOtherConfigMock(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
-	return SRClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return SRClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given SR.
 func (_class SRClass) AddToOtherConfig(sessionID SessionRef, self SRRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "SR.add_to_other_config"
@@ -1296,18 +1364,20 @@ func (_class SRClass) AddToOtherConfig(sessionID SessionRef, self SRRef, key str
 }
 
 
-var SRClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
+func SRClassSetOtherConfigMockDefault(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
 	log.Println("SR.SetOtherConfig not mocked")
 	_err = errors.New("SR.SetOtherConfig not mocked")
 	return
 }
 
+var SRClassSetOtherConfigMockedCallback = SRClassSetOtherConfigMockDefault
+
 func (_class SRClass) SetOtherConfigMock(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
-	return SRClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return SRClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given SR.
 func (_class SRClass) SetOtherConfig(sessionID SessionRef, self SRRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "SR.set_other_config"
@@ -1328,18 +1398,20 @@ func (_class SRClass) SetOtherConfig(sessionID SessionRef, self SRRef, value map
 }
 
 
-var SRClass_GetIsToolsSrMockedCallback = func (sessionID SessionRef, self SRRef) (_retval bool, _err error) {
+func SRClassGetIsToolsSrMockDefault(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
 	log.Println("SR.GetIsToolsSr not mocked")
 	_err = errors.New("SR.GetIsToolsSr not mocked")
 	return
 }
 
+var SRClassGetIsToolsSrMockedCallback = SRClassGetIsToolsSrMockDefault
+
 func (_class SRClass) GetIsToolsSrMock(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	return SRClass_GetIsToolsSrMockedCallback(sessionID, self)
+	return SRClassGetIsToolsSrMockedCallback(sessionID, self)
 }
 // Get the is_tools_sr field of the given SR.
 func (_class SRClass) GetIsToolsSr(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIsToolsSrMock(sessionID, self)
 	}	
 	_method := "SR.get_is_tools_sr"
@@ -1360,18 +1432,20 @@ func (_class SRClass) GetIsToolsSr(sessionID SessionRef, self SRRef) (_retval bo
 }
 
 
-var SRClass_GetClusteredMockedCallback = func (sessionID SessionRef, self SRRef) (_retval bool, _err error) {
+func SRClassGetClusteredMockDefault(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
 	log.Println("SR.GetClustered not mocked")
 	_err = errors.New("SR.GetClustered not mocked")
 	return
 }
 
+var SRClassGetClusteredMockedCallback = SRClassGetClusteredMockDefault
+
 func (_class SRClass) GetClusteredMock(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	return SRClass_GetClusteredMockedCallback(sessionID, self)
+	return SRClassGetClusteredMockedCallback(sessionID, self)
 }
 // Get the clustered field of the given SR.
 func (_class SRClass) GetClustered(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetClusteredMock(sessionID, self)
 	}	
 	_method := "SR.get_clustered"
@@ -1392,18 +1466,20 @@ func (_class SRClass) GetClustered(sessionID SessionRef, self SRRef) (_retval bo
 }
 
 
-var SRClass_GetIntroducedByMockedCallback = func (sessionID SessionRef, self SRRef) (_retval DRTaskRef, _err error) {
+func SRClassGetIntroducedByMockDefault(sessionID SessionRef, self SRRef) (_retval DRTaskRef, _err error) {
 	log.Println("SR.GetIntroducedBy not mocked")
 	_err = errors.New("SR.GetIntroducedBy not mocked")
 	return
 }
 
+var SRClassGetIntroducedByMockedCallback = SRClassGetIntroducedByMockDefault
+
 func (_class SRClass) GetIntroducedByMock(sessionID SessionRef, self SRRef) (_retval DRTaskRef, _err error) {
-	return SRClass_GetIntroducedByMockedCallback(sessionID, self)
+	return SRClassGetIntroducedByMockedCallback(sessionID, self)
 }
 // Get the introduced_by field of the given SR.
 func (_class SRClass) GetIntroducedBy(sessionID SessionRef, self SRRef) (_retval DRTaskRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetIntroducedByMock(sessionID, self)
 	}	
 	_method := "SR.get_introduced_by"
@@ -1424,18 +1500,20 @@ func (_class SRClass) GetIntroducedBy(sessionID SessionRef, self SRRef) (_retval
 }
 
 
-var SRClass_GetLocalCacheEnabledMockedCallback = func (sessionID SessionRef, self SRRef) (_retval bool, _err error) {
+func SRClassGetLocalCacheEnabledMockDefault(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
 	log.Println("SR.GetLocalCacheEnabled not mocked")
 	_err = errors.New("SR.GetLocalCacheEnabled not mocked")
 	return
 }
 
+var SRClassGetLocalCacheEnabledMockedCallback = SRClassGetLocalCacheEnabledMockDefault
+
 func (_class SRClass) GetLocalCacheEnabledMock(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	return SRClass_GetLocalCacheEnabledMockedCallback(sessionID, self)
+	return SRClassGetLocalCacheEnabledMockedCallback(sessionID, self)
 }
 // Get the local_cache_enabled field of the given SR.
 func (_class SRClass) GetLocalCacheEnabled(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLocalCacheEnabledMock(sessionID, self)
 	}	
 	_method := "SR.get_local_cache_enabled"
@@ -1456,18 +1534,20 @@ func (_class SRClass) GetLocalCacheEnabled(sessionID SessionRef, self SRRef) (_r
 }
 
 
-var SRClass_GetBlobsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval map[string]BlobRef, _err error) {
+func SRClassGetBlobsMockDefault(sessionID SessionRef, self SRRef) (_retval map[string]BlobRef, _err error) {
 	log.Println("SR.GetBlobs not mocked")
 	_err = errors.New("SR.GetBlobs not mocked")
 	return
 }
 
+var SRClassGetBlobsMockedCallback = SRClassGetBlobsMockDefault
+
 func (_class SRClass) GetBlobsMock(sessionID SessionRef, self SRRef) (_retval map[string]BlobRef, _err error) {
-	return SRClass_GetBlobsMockedCallback(sessionID, self)
+	return SRClassGetBlobsMockedCallback(sessionID, self)
 }
 // Get the blobs field of the given SR.
 func (_class SRClass) GetBlobs(sessionID SessionRef, self SRRef) (_retval map[string]BlobRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetBlobsMock(sessionID, self)
 	}	
 	_method := "SR.get_blobs"
@@ -1488,18 +1568,20 @@ func (_class SRClass) GetBlobs(sessionID SessionRef, self SRRef) (_retval map[st
 }
 
 
-var SRClass_GetSmConfigMockedCallback = func (sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
+func SRClassGetSmConfigMockDefault(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
 	log.Println("SR.GetSmConfig not mocked")
 	_err = errors.New("SR.GetSmConfig not mocked")
 	return
 }
 
+var SRClassGetSmConfigMockedCallback = SRClassGetSmConfigMockDefault
+
 func (_class SRClass) GetSmConfigMock(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
-	return SRClass_GetSmConfigMockedCallback(sessionID, self)
+	return SRClassGetSmConfigMockedCallback(sessionID, self)
 }
 // Get the sm_config field of the given SR.
 func (_class SRClass) GetSmConfig(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSmConfigMock(sessionID, self)
 	}	
 	_method := "SR.get_sm_config"
@@ -1520,18 +1602,20 @@ func (_class SRClass) GetSmConfig(sessionID SessionRef, self SRRef) (_retval map
 }
 
 
-var SRClass_GetTagsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval []string, _err error) {
+func SRClassGetTagsMockDefault(sessionID SessionRef, self SRRef) (_retval []string, _err error) {
 	log.Println("SR.GetTags not mocked")
 	_err = errors.New("SR.GetTags not mocked")
 	return
 }
 
+var SRClassGetTagsMockedCallback = SRClassGetTagsMockDefault
+
 func (_class SRClass) GetTagsMock(sessionID SessionRef, self SRRef) (_retval []string, _err error) {
-	return SRClass_GetTagsMockedCallback(sessionID, self)
+	return SRClassGetTagsMockedCallback(sessionID, self)
 }
 // Get the tags field of the given SR.
 func (_class SRClass) GetTags(sessionID SessionRef, self SRRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTagsMock(sessionID, self)
 	}	
 	_method := "SR.get_tags"
@@ -1552,18 +1636,20 @@ func (_class SRClass) GetTags(sessionID SessionRef, self SRRef) (_retval []strin
 }
 
 
-var SRClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
+func SRClassGetOtherConfigMockDefault(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
 	log.Println("SR.GetOtherConfig not mocked")
 	_err = errors.New("SR.GetOtherConfig not mocked")
 	return
 }
 
+var SRClassGetOtherConfigMockedCallback = SRClassGetOtherConfigMockDefault
+
 func (_class SRClass) GetOtherConfigMock(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
-	return SRClass_GetOtherConfigMockedCallback(sessionID, self)
+	return SRClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given SR.
 func (_class SRClass) GetOtherConfig(sessionID SessionRef, self SRRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "SR.get_other_config"
@@ -1584,18 +1670,20 @@ func (_class SRClass) GetOtherConfig(sessionID SessionRef, self SRRef) (_retval 
 }
 
 
-var SRClass_GetSharedMockedCallback = func (sessionID SessionRef, self SRRef) (_retval bool, _err error) {
+func SRClassGetSharedMockDefault(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
 	log.Println("SR.GetShared not mocked")
 	_err = errors.New("SR.GetShared not mocked")
 	return
 }
 
+var SRClassGetSharedMockedCallback = SRClassGetSharedMockDefault
+
 func (_class SRClass) GetSharedMock(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	return SRClass_GetSharedMockedCallback(sessionID, self)
+	return SRClassGetSharedMockedCallback(sessionID, self)
 }
 // Get the shared field of the given SR.
 func (_class SRClass) GetShared(sessionID SessionRef, self SRRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSharedMock(sessionID, self)
 	}	
 	_method := "SR.get_shared"
@@ -1616,18 +1704,20 @@ func (_class SRClass) GetShared(sessionID SessionRef, self SRRef) (_retval bool,
 }
 
 
-var SRClass_GetContentTypeMockedCallback = func (sessionID SessionRef, self SRRef) (_retval string, _err error) {
+func SRClassGetContentTypeMockDefault(sessionID SessionRef, self SRRef) (_retval string, _err error) {
 	log.Println("SR.GetContentType not mocked")
 	_err = errors.New("SR.GetContentType not mocked")
 	return
 }
 
+var SRClassGetContentTypeMockedCallback = SRClassGetContentTypeMockDefault
+
 func (_class SRClass) GetContentTypeMock(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	return SRClass_GetContentTypeMockedCallback(sessionID, self)
+	return SRClassGetContentTypeMockedCallback(sessionID, self)
 }
 // Get the content_type field of the given SR.
 func (_class SRClass) GetContentType(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetContentTypeMock(sessionID, self)
 	}	
 	_method := "SR.get_content_type"
@@ -1648,18 +1738,20 @@ func (_class SRClass) GetContentType(sessionID SessionRef, self SRRef) (_retval 
 }
 
 
-var SRClass_GetTypeMockedCallback = func (sessionID SessionRef, self SRRef) (_retval string, _err error) {
+func SRClassGetTypeMockDefault(sessionID SessionRef, self SRRef) (_retval string, _err error) {
 	log.Println("SR.GetType not mocked")
 	_err = errors.New("SR.GetType not mocked")
 	return
 }
 
+var SRClassGetTypeMockedCallback = SRClassGetTypeMockDefault
+
 func (_class SRClass) GetTypeMock(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	return SRClass_GetTypeMockedCallback(sessionID, self)
+	return SRClassGetTypeMockedCallback(sessionID, self)
 }
 // Get the type field of the given SR.
 func (_class SRClass) GetType(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetTypeMock(sessionID, self)
 	}	
 	_method := "SR.get_type"
@@ -1680,18 +1772,20 @@ func (_class SRClass) GetType(sessionID SessionRef, self SRRef) (_retval string,
 }
 
 
-var SRClass_GetPhysicalSizeMockedCallback = func (sessionID SessionRef, self SRRef) (_retval int, _err error) {
+func SRClassGetPhysicalSizeMockDefault(sessionID SessionRef, self SRRef) (_retval int, _err error) {
 	log.Println("SR.GetPhysicalSize not mocked")
 	_err = errors.New("SR.GetPhysicalSize not mocked")
 	return
 }
 
+var SRClassGetPhysicalSizeMockedCallback = SRClassGetPhysicalSizeMockDefault
+
 func (_class SRClass) GetPhysicalSizeMock(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	return SRClass_GetPhysicalSizeMockedCallback(sessionID, self)
+	return SRClassGetPhysicalSizeMockedCallback(sessionID, self)
 }
 // Get the physical_size field of the given SR.
 func (_class SRClass) GetPhysicalSize(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPhysicalSizeMock(sessionID, self)
 	}	
 	_method := "SR.get_physical_size"
@@ -1712,18 +1806,20 @@ func (_class SRClass) GetPhysicalSize(sessionID SessionRef, self SRRef) (_retval
 }
 
 
-var SRClass_GetPhysicalUtilisationMockedCallback = func (sessionID SessionRef, self SRRef) (_retval int, _err error) {
+func SRClassGetPhysicalUtilisationMockDefault(sessionID SessionRef, self SRRef) (_retval int, _err error) {
 	log.Println("SR.GetPhysicalUtilisation not mocked")
 	_err = errors.New("SR.GetPhysicalUtilisation not mocked")
 	return
 }
 
+var SRClassGetPhysicalUtilisationMockedCallback = SRClassGetPhysicalUtilisationMockDefault
+
 func (_class SRClass) GetPhysicalUtilisationMock(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	return SRClass_GetPhysicalUtilisationMockedCallback(sessionID, self)
+	return SRClassGetPhysicalUtilisationMockedCallback(sessionID, self)
 }
 // Get the physical_utilisation field of the given SR.
 func (_class SRClass) GetPhysicalUtilisation(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPhysicalUtilisationMock(sessionID, self)
 	}	
 	_method := "SR.get_physical_utilisation"
@@ -1744,18 +1840,20 @@ func (_class SRClass) GetPhysicalUtilisation(sessionID SessionRef, self SRRef) (
 }
 
 
-var SRClass_GetVirtualAllocationMockedCallback = func (sessionID SessionRef, self SRRef) (_retval int, _err error) {
+func SRClassGetVirtualAllocationMockDefault(sessionID SessionRef, self SRRef) (_retval int, _err error) {
 	log.Println("SR.GetVirtualAllocation not mocked")
 	_err = errors.New("SR.GetVirtualAllocation not mocked")
 	return
 }
 
+var SRClassGetVirtualAllocationMockedCallback = SRClassGetVirtualAllocationMockDefault
+
 func (_class SRClass) GetVirtualAllocationMock(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	return SRClass_GetVirtualAllocationMockedCallback(sessionID, self)
+	return SRClassGetVirtualAllocationMockedCallback(sessionID, self)
 }
 // Get the virtual_allocation field of the given SR.
 func (_class SRClass) GetVirtualAllocation(sessionID SessionRef, self SRRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVirtualAllocationMock(sessionID, self)
 	}	
 	_method := "SR.get_virtual_allocation"
@@ -1776,18 +1874,20 @@ func (_class SRClass) GetVirtualAllocation(sessionID SessionRef, self SRRef) (_r
 }
 
 
-var SRClass_GetPBDsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval []PBDRef, _err error) {
+func SRClassGetPBDsMockDefault(sessionID SessionRef, self SRRef) (_retval []PBDRef, _err error) {
 	log.Println("SR.GetPBDs not mocked")
 	_err = errors.New("SR.GetPBDs not mocked")
 	return
 }
 
+var SRClassGetPBDsMockedCallback = SRClassGetPBDsMockDefault
+
 func (_class SRClass) GetPBDsMock(sessionID SessionRef, self SRRef) (_retval []PBDRef, _err error) {
-	return SRClass_GetPBDsMockedCallback(sessionID, self)
+	return SRClassGetPBDsMockedCallback(sessionID, self)
 }
 // Get the PBDs field of the given SR.
 func (_class SRClass) GetPBDs(sessionID SessionRef, self SRRef) (_retval []PBDRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPBDsMock(sessionID, self)
 	}	
 	_method := "SR.get_PBDs"
@@ -1808,18 +1908,20 @@ func (_class SRClass) GetPBDs(sessionID SessionRef, self SRRef) (_retval []PBDRe
 }
 
 
-var SRClass_GetVDIsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval []VDIRef, _err error) {
+func SRClassGetVDIsMockDefault(sessionID SessionRef, self SRRef) (_retval []VDIRef, _err error) {
 	log.Println("SR.GetVDIs not mocked")
 	_err = errors.New("SR.GetVDIs not mocked")
 	return
 }
 
+var SRClassGetVDIsMockedCallback = SRClassGetVDIsMockDefault
+
 func (_class SRClass) GetVDIsMock(sessionID SessionRef, self SRRef) (_retval []VDIRef, _err error) {
-	return SRClass_GetVDIsMockedCallback(sessionID, self)
+	return SRClassGetVDIsMockedCallback(sessionID, self)
 }
 // Get the VDIs field of the given SR.
 func (_class SRClass) GetVDIs(sessionID SessionRef, self SRRef) (_retval []VDIRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVDIsMock(sessionID, self)
 	}	
 	_method := "SR.get_VDIs"
@@ -1840,18 +1942,20 @@ func (_class SRClass) GetVDIs(sessionID SessionRef, self SRRef) (_retval []VDIRe
 }
 
 
-var SRClass_GetCurrentOperationsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval map[string]StorageOperations, _err error) {
+func SRClassGetCurrentOperationsMockDefault(sessionID SessionRef, self SRRef) (_retval map[string]StorageOperations, _err error) {
 	log.Println("SR.GetCurrentOperations not mocked")
 	_err = errors.New("SR.GetCurrentOperations not mocked")
 	return
 }
 
+var SRClassGetCurrentOperationsMockedCallback = SRClassGetCurrentOperationsMockDefault
+
 func (_class SRClass) GetCurrentOperationsMock(sessionID SessionRef, self SRRef) (_retval map[string]StorageOperations, _err error) {
-	return SRClass_GetCurrentOperationsMockedCallback(sessionID, self)
+	return SRClassGetCurrentOperationsMockedCallback(sessionID, self)
 }
 // Get the current_operations field of the given SR.
 func (_class SRClass) GetCurrentOperations(sessionID SessionRef, self SRRef) (_retval map[string]StorageOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCurrentOperationsMock(sessionID, self)
 	}	
 	_method := "SR.get_current_operations"
@@ -1872,18 +1976,20 @@ func (_class SRClass) GetCurrentOperations(sessionID SessionRef, self SRRef) (_r
 }
 
 
-var SRClass_GetAllowedOperationsMockedCallback = func (sessionID SessionRef, self SRRef) (_retval []StorageOperations, _err error) {
+func SRClassGetAllowedOperationsMockDefault(sessionID SessionRef, self SRRef) (_retval []StorageOperations, _err error) {
 	log.Println("SR.GetAllowedOperations not mocked")
 	_err = errors.New("SR.GetAllowedOperations not mocked")
 	return
 }
 
+var SRClassGetAllowedOperationsMockedCallback = SRClassGetAllowedOperationsMockDefault
+
 func (_class SRClass) GetAllowedOperationsMock(sessionID SessionRef, self SRRef) (_retval []StorageOperations, _err error) {
-	return SRClass_GetAllowedOperationsMockedCallback(sessionID, self)
+	return SRClassGetAllowedOperationsMockedCallback(sessionID, self)
 }
 // Get the allowed_operations field of the given SR.
 func (_class SRClass) GetAllowedOperations(sessionID SessionRef, self SRRef) (_retval []StorageOperations, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllowedOperationsMock(sessionID, self)
 	}	
 	_method := "SR.get_allowed_operations"
@@ -1904,18 +2010,20 @@ func (_class SRClass) GetAllowedOperations(sessionID SessionRef, self SRRef) (_r
 }
 
 
-var SRClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self SRRef) (_retval string, _err error) {
+func SRClassGetNameDescriptionMockDefault(sessionID SessionRef, self SRRef) (_retval string, _err error) {
 	log.Println("SR.GetNameDescription not mocked")
 	_err = errors.New("SR.GetNameDescription not mocked")
 	return
 }
 
+var SRClassGetNameDescriptionMockedCallback = SRClassGetNameDescriptionMockDefault
+
 func (_class SRClass) GetNameDescriptionMock(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	return SRClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return SRClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given SR.
 func (_class SRClass) GetNameDescription(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "SR.get_name_description"
@@ -1936,18 +2044,20 @@ func (_class SRClass) GetNameDescription(sessionID SessionRef, self SRRef) (_ret
 }
 
 
-var SRClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self SRRef) (_retval string, _err error) {
+func SRClassGetNameLabelMockDefault(sessionID SessionRef, self SRRef) (_retval string, _err error) {
 	log.Println("SR.GetNameLabel not mocked")
 	_err = errors.New("SR.GetNameLabel not mocked")
 	return
 }
 
+var SRClassGetNameLabelMockedCallback = SRClassGetNameLabelMockDefault
+
 func (_class SRClass) GetNameLabelMock(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	return SRClass_GetNameLabelMockedCallback(sessionID, self)
+	return SRClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given SR.
 func (_class SRClass) GetNameLabel(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "SR.get_name_label"
@@ -1968,18 +2078,20 @@ func (_class SRClass) GetNameLabel(sessionID SessionRef, self SRRef) (_retval st
 }
 
 
-var SRClass_GetUUIDMockedCallback = func (sessionID SessionRef, self SRRef) (_retval string, _err error) {
+func SRClassGetUUIDMockDefault(sessionID SessionRef, self SRRef) (_retval string, _err error) {
 	log.Println("SR.GetUUID not mocked")
 	_err = errors.New("SR.GetUUID not mocked")
 	return
 }
 
+var SRClassGetUUIDMockedCallback = SRClassGetUUIDMockDefault
+
 func (_class SRClass) GetUUIDMock(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	return SRClass_GetUUIDMockedCallback(sessionID, self)
+	return SRClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given SR.
 func (_class SRClass) GetUUID(sessionID SessionRef, self SRRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "SR.get_uuid"
@@ -2000,18 +2112,20 @@ func (_class SRClass) GetUUID(sessionID SessionRef, self SRRef) (_retval string,
 }
 
 
-var SRClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []SRRef, _err error) {
+func SRClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []SRRef, _err error) {
 	log.Println("SR.GetByNameLabel not mocked")
 	_err = errors.New("SR.GetByNameLabel not mocked")
 	return
 }
 
+var SRClassGetByNameLabelMockedCallback = SRClassGetByNameLabelMockDefault
+
 func (_class SRClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []SRRef, _err error) {
-	return SRClass_GetByNameLabelMockedCallback(sessionID, label)
+	return SRClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the SR instances with the given label.
 func (_class SRClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "SR.get_by_name_label"
@@ -2032,18 +2146,20 @@ func (_class SRClass) GetByNameLabel(sessionID SessionRef, label string) (_retva
 }
 
 
-var SRClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval SRRef, _err error) {
+func SRClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval SRRef, _err error) {
 	log.Println("SR.GetByUUID not mocked")
 	_err = errors.New("SR.GetByUUID not mocked")
 	return
 }
 
+var SRClassGetByUUIDMockedCallback = SRClassGetByUUIDMockDefault
+
 func (_class SRClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval SRRef, _err error) {
-	return SRClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return SRClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the SR instance with the specified UUID.
 func (_class SRClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SRRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "SR.get_by_uuid"
@@ -2064,18 +2180,20 @@ func (_class SRClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SRRe
 }
 
 
-var SRClass_GetRecordMockedCallback = func (sessionID SessionRef, self SRRef) (_retval SRRecord, _err error) {
+func SRClassGetRecordMockDefault(sessionID SessionRef, self SRRef) (_retval SRRecord, _err error) {
 	log.Println("SR.GetRecord not mocked")
 	_err = errors.New("SR.GetRecord not mocked")
 	return
 }
 
+var SRClassGetRecordMockedCallback = SRClassGetRecordMockDefault
+
 func (_class SRClass) GetRecordMock(sessionID SessionRef, self SRRef) (_retval SRRecord, _err error) {
-	return SRClass_GetRecordMockedCallback(sessionID, self)
+	return SRClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given SR.
 func (_class SRClass) GetRecord(sessionID SessionRef, self SRRef) (_retval SRRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "SR.get_record"

@@ -46,18 +46,20 @@ type PVSServerClass struct {
 }
 
 
-var PVSServerClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
+func PVSServerClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
 	log.Println("PVSServer.GetAllRecords not mocked")
 	_err = errors.New("PVSServer.GetAllRecords not mocked")
 	return
 }
 
+var PVSServerClassGetAllRecordsMockedCallback = PVSServerClassGetAllRecordsMockDefault
+
 func (_class PVSServerClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
-	return PVSServerClass_GetAllRecordsMockedCallback(sessionID)
+	return PVSServerClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of PVS_server references to PVS_server records for all PVS_servers known to the system.
 func (_class PVSServerClass) GetAllRecords(sessionID SessionRef) (_retval map[PVSServerRef]PVSServerRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "PVS_server.get_all_records"
@@ -74,18 +76,20 @@ func (_class PVSServerClass) GetAllRecords(sessionID SessionRef) (_retval map[PV
 }
 
 
-var PVSServerClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PVSServerRef, _err error) {
+func PVSServerClassGetAllMockDefault(sessionID SessionRef) (_retval []PVSServerRef, _err error) {
 	log.Println("PVSServer.GetAll not mocked")
 	_err = errors.New("PVSServer.GetAll not mocked")
 	return
 }
 
+var PVSServerClassGetAllMockedCallback = PVSServerClassGetAllMockDefault
+
 func (_class PVSServerClass) GetAllMock(sessionID SessionRef) (_retval []PVSServerRef, _err error) {
-	return PVSServerClass_GetAllMockedCallback(sessionID)
+	return PVSServerClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the PVS_servers known to the system.
 func (_class PVSServerClass) GetAll(sessionID SessionRef) (_retval []PVSServerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "PVS_server.get_all"
@@ -102,18 +106,20 @@ func (_class PVSServerClass) GetAll(sessionID SessionRef) (_retval []PVSServerRe
 }
 
 
-var PVSServerClass_ForgetMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_err error) {
+func PVSServerClassForgetMockDefault(sessionID SessionRef, self PVSServerRef) (_err error) {
 	log.Println("PVSServer.Forget not mocked")
 	_err = errors.New("PVSServer.Forget not mocked")
 	return
 }
 
+var PVSServerClassForgetMockedCallback = PVSServerClassForgetMockDefault
+
 func (_class PVSServerClass) ForgetMock(sessionID SessionRef, self PVSServerRef) (_err error) {
-	return PVSServerClass_ForgetMockedCallback(sessionID, self)
+	return PVSServerClassForgetMockedCallback(sessionID, self)
 }
 // forget a PVS server
 func (_class PVSServerClass) Forget(sessionID SessionRef, self PVSServerRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.ForgetMock(sessionID, self)
 	}	
 	_method := "PVS_server.forget"
@@ -130,18 +136,20 @@ func (_class PVSServerClass) Forget(sessionID SessionRef, self PVSServerRef) (_e
 }
 
 
-var PVSServerClass_IntroduceMockedCallback = func (sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
+func PVSServerClassIntroduceMockDefault(sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
 	log.Println("PVSServer.Introduce not mocked")
 	_err = errors.New("PVSServer.Introduce not mocked")
 	return
 }
 
+var PVSServerClassIntroduceMockedCallback = PVSServerClassIntroduceMockDefault
+
 func (_class PVSServerClass) IntroduceMock(sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
-	return PVSServerClass_IntroduceMockedCallback(sessionID, addresses, firstPort, lastPort, site)
+	return PVSServerClassIntroduceMockedCallback(sessionID, addresses, firstPort, lastPort, site)
 }
 // introduce new PVS server
 func (_class PVSServerClass) Introduce(sessionID SessionRef, addresses []string, firstPort int, lastPort int, site PVSSiteRef) (_retval PVSServerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.IntroduceMock(sessionID, addresses, firstPort, lastPort, site)
 	}	
 	_method := "PVS_server.introduce"
@@ -174,18 +182,20 @@ func (_class PVSServerClass) Introduce(sessionID SessionRef, addresses []string,
 }
 
 
-var PVSServerClass_GetSiteMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
+func PVSServerClassGetSiteMockDefault(sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
 	log.Println("PVSServer.GetSite not mocked")
 	_err = errors.New("PVSServer.GetSite not mocked")
 	return
 }
 
+var PVSServerClassGetSiteMockedCallback = PVSServerClassGetSiteMockDefault
+
 func (_class PVSServerClass) GetSiteMock(sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
-	return PVSServerClass_GetSiteMockedCallback(sessionID, self)
+	return PVSServerClassGetSiteMockedCallback(sessionID, self)
 }
 // Get the site field of the given PVS_server.
 func (_class PVSServerClass) GetSite(sessionID SessionRef, self PVSServerRef) (_retval PVSSiteRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSiteMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_site"
@@ -206,18 +216,20 @@ func (_class PVSServerClass) GetSite(sessionID SessionRef, self PVSServerRef) (_
 }
 
 
-var PVSServerClass_GetLastPortMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+func PVSServerClassGetLastPortMockDefault(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
 	log.Println("PVSServer.GetLastPort not mocked")
 	_err = errors.New("PVSServer.GetLastPort not mocked")
 	return
 }
 
+var PVSServerClassGetLastPortMockedCallback = PVSServerClassGetLastPortMockDefault
+
 func (_class PVSServerClass) GetLastPortMock(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
-	return PVSServerClass_GetLastPortMockedCallback(sessionID, self)
+	return PVSServerClassGetLastPortMockedCallback(sessionID, self)
 }
 // Get the last_port field of the given PVS_server.
 func (_class PVSServerClass) GetLastPort(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastPortMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_last_port"
@@ -238,18 +250,20 @@ func (_class PVSServerClass) GetLastPort(sessionID SessionRef, self PVSServerRef
 }
 
 
-var PVSServerClass_GetFirstPortMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
+func PVSServerClassGetFirstPortMockDefault(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
 	log.Println("PVSServer.GetFirstPort not mocked")
 	_err = errors.New("PVSServer.GetFirstPort not mocked")
 	return
 }
 
+var PVSServerClassGetFirstPortMockedCallback = PVSServerClassGetFirstPortMockDefault
+
 func (_class PVSServerClass) GetFirstPortMock(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
-	return PVSServerClass_GetFirstPortMockedCallback(sessionID, self)
+	return PVSServerClassGetFirstPortMockedCallback(sessionID, self)
 }
 // Get the first_port field of the given PVS_server.
 func (_class PVSServerClass) GetFirstPort(sessionID SessionRef, self PVSServerRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetFirstPortMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_first_port"
@@ -270,18 +284,20 @@ func (_class PVSServerClass) GetFirstPort(sessionID SessionRef, self PVSServerRe
 }
 
 
-var PVSServerClass_GetAddressesMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
+func PVSServerClassGetAddressesMockDefault(sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
 	log.Println("PVSServer.GetAddresses not mocked")
 	_err = errors.New("PVSServer.GetAddresses not mocked")
 	return
 }
 
+var PVSServerClassGetAddressesMockedCallback = PVSServerClassGetAddressesMockDefault
+
 func (_class PVSServerClass) GetAddressesMock(sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
-	return PVSServerClass_GetAddressesMockedCallback(sessionID, self)
+	return PVSServerClassGetAddressesMockedCallback(sessionID, self)
 }
 // Get the addresses field of the given PVS_server.
 func (_class PVSServerClass) GetAddresses(sessionID SessionRef, self PVSServerRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAddressesMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_addresses"
@@ -302,18 +318,20 @@ func (_class PVSServerClass) GetAddresses(sessionID SessionRef, self PVSServerRe
 }
 
 
-var PVSServerClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
+func PVSServerClassGetUUIDMockDefault(sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
 	log.Println("PVSServer.GetUUID not mocked")
 	_err = errors.New("PVSServer.GetUUID not mocked")
 	return
 }
 
+var PVSServerClassGetUUIDMockedCallback = PVSServerClassGetUUIDMockDefault
+
 func (_class PVSServerClass) GetUUIDMock(sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
-	return PVSServerClass_GetUUIDMockedCallback(sessionID, self)
+	return PVSServerClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given PVS_server.
 func (_class PVSServerClass) GetUUID(sessionID SessionRef, self PVSServerRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_uuid"
@@ -334,18 +352,20 @@ func (_class PVSServerClass) GetUUID(sessionID SessionRef, self PVSServerRef) (_
 }
 
 
-var PVSServerClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
+func PVSServerClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
 	log.Println("PVSServer.GetByUUID not mocked")
 	_err = errors.New("PVSServer.GetByUUID not mocked")
 	return
 }
 
+var PVSServerClassGetByUUIDMockedCallback = PVSServerClassGetByUUIDMockDefault
+
 func (_class PVSServerClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
-	return PVSServerClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return PVSServerClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the PVS_server instance with the specified UUID.
 func (_class PVSServerClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PVSServerRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "PVS_server.get_by_uuid"
@@ -366,18 +386,20 @@ func (_class PVSServerClass) GetByUUID(sessionID SessionRef, uuid string) (_retv
 }
 
 
-var PVSServerClass_GetRecordMockedCallback = func (sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
+func PVSServerClassGetRecordMockDefault(sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
 	log.Println("PVSServer.GetRecord not mocked")
 	_err = errors.New("PVSServer.GetRecord not mocked")
 	return
 }
 
+var PVSServerClassGetRecordMockedCallback = PVSServerClassGetRecordMockDefault
+
 func (_class PVSServerClass) GetRecordMock(sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
-	return PVSServerClass_GetRecordMockedCallback(sessionID, self)
+	return PVSServerClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given PVS_server.
 func (_class PVSServerClass) GetRecord(sessionID SessionRef, self PVSServerRef) (_retval PVSServerRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "PVS_server.get_record"

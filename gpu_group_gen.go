@@ -65,18 +65,20 @@ type GPUGroupClass struct {
 }
 
 
-var GPUGroupClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[GPUGroupRef]GPUGroupRecord, _err error) {
+func GPUGroupClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[GPUGroupRef]GPUGroupRecord, _err error) {
 	log.Println("GPUGroup.GetAllRecords not mocked")
 	_err = errors.New("GPUGroup.GetAllRecords not mocked")
 	return
 }
 
+var GPUGroupClassGetAllRecordsMockedCallback = GPUGroupClassGetAllRecordsMockDefault
+
 func (_class GPUGroupClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[GPUGroupRef]GPUGroupRecord, _err error) {
-	return GPUGroupClass_GetAllRecordsMockedCallback(sessionID)
+	return GPUGroupClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of GPU_group references to GPU_group records for all GPU_groups known to the system.
 func (_class GPUGroupClass) GetAllRecords(sessionID SessionRef) (_retval map[GPUGroupRef]GPUGroupRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "GPU_group.get_all_records"
@@ -93,18 +95,20 @@ func (_class GPUGroupClass) GetAllRecords(sessionID SessionRef) (_retval map[GPU
 }
 
 
-var GPUGroupClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []GPUGroupRef, _err error) {
+func GPUGroupClassGetAllMockDefault(sessionID SessionRef) (_retval []GPUGroupRef, _err error) {
 	log.Println("GPUGroup.GetAll not mocked")
 	_err = errors.New("GPUGroup.GetAll not mocked")
 	return
 }
 
+var GPUGroupClassGetAllMockedCallback = GPUGroupClassGetAllMockDefault
+
 func (_class GPUGroupClass) GetAllMock(sessionID SessionRef) (_retval []GPUGroupRef, _err error) {
-	return GPUGroupClass_GetAllMockedCallback(sessionID)
+	return GPUGroupClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the GPU_groups known to the system.
 func (_class GPUGroupClass) GetAll(sessionID SessionRef) (_retval []GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "GPU_group.get_all"
@@ -121,18 +125,20 @@ func (_class GPUGroupClass) GetAll(sessionID SessionRef) (_retval []GPUGroupRef,
 }
 
 
-var GPUGroupClass_GetRemainingCapacityMockedCallback = func (sessionID SessionRef, self GPUGroupRef, vgpuType VGPUTypeRef) (_retval int, _err error) {
+func GPUGroupClassGetRemainingCapacityMockDefault(sessionID SessionRef, self GPUGroupRef, vgpuType VGPUTypeRef) (_retval int, _err error) {
 	log.Println("GPUGroup.GetRemainingCapacity not mocked")
 	_err = errors.New("GPUGroup.GetRemainingCapacity not mocked")
 	return
 }
 
+var GPUGroupClassGetRemainingCapacityMockedCallback = GPUGroupClassGetRemainingCapacityMockDefault
+
 func (_class GPUGroupClass) GetRemainingCapacityMock(sessionID SessionRef, self GPUGroupRef, vgpuType VGPUTypeRef) (_retval int, _err error) {
-	return GPUGroupClass_GetRemainingCapacityMockedCallback(sessionID, self, vgpuType)
+	return GPUGroupClassGetRemainingCapacityMockedCallback(sessionID, self, vgpuType)
 }
 // 
 func (_class GPUGroupClass) GetRemainingCapacity(sessionID SessionRef, self GPUGroupRef, vgpuType VGPUTypeRef) (_retval int, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRemainingCapacityMock(sessionID, self, vgpuType)
 	}	
 	_method := "GPU_group.get_remaining_capacity"
@@ -157,18 +163,20 @@ func (_class GPUGroupClass) GetRemainingCapacity(sessionID SessionRef, self GPUG
 }
 
 
-var GPUGroupClass_DestroyMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_err error) {
+func GPUGroupClassDestroyMockDefault(sessionID SessionRef, self GPUGroupRef) (_err error) {
 	log.Println("GPUGroup.Destroy not mocked")
 	_err = errors.New("GPUGroup.Destroy not mocked")
 	return
 }
 
+var GPUGroupClassDestroyMockedCallback = GPUGroupClassDestroyMockDefault
+
 func (_class GPUGroupClass) DestroyMock(sessionID SessionRef, self GPUGroupRef) (_err error) {
-	return GPUGroupClass_DestroyMockedCallback(sessionID, self)
+	return GPUGroupClassDestroyMockedCallback(sessionID, self)
 }
 // 
 func (_class GPUGroupClass) Destroy(sessionID SessionRef, self GPUGroupRef) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "GPU_group.destroy"
@@ -185,18 +193,20 @@ func (_class GPUGroupClass) Destroy(sessionID SessionRef, self GPUGroupRef) (_er
 }
 
 
-var GPUGroupClass_CreateMockedCallback = func (sessionID SessionRef, nameLabel string, nameDescription string, otherConfig map[string]string) (_retval GPUGroupRef, _err error) {
+func GPUGroupClassCreateMockDefault(sessionID SessionRef, nameLabel string, nameDescription string, otherConfig map[string]string) (_retval GPUGroupRef, _err error) {
 	log.Println("GPUGroup.Create not mocked")
 	_err = errors.New("GPUGroup.Create not mocked")
 	return
 }
 
+var GPUGroupClassCreateMockedCallback = GPUGroupClassCreateMockDefault
+
 func (_class GPUGroupClass) CreateMock(sessionID SessionRef, nameLabel string, nameDescription string, otherConfig map[string]string) (_retval GPUGroupRef, _err error) {
-	return GPUGroupClass_CreateMockedCallback(sessionID, nameLabel, nameDescription, otherConfig)
+	return GPUGroupClassCreateMockedCallback(sessionID, nameLabel, nameDescription, otherConfig)
 }
 // 
 func (_class GPUGroupClass) Create(sessionID SessionRef, nameLabel string, nameDescription string, otherConfig map[string]string) (_retval GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.CreateMock(sessionID, nameLabel, nameDescription, otherConfig)
 	}	
 	_method := "GPU_group.create"
@@ -225,18 +235,20 @@ func (_class GPUGroupClass) Create(sessionID SessionRef, nameLabel string, nameD
 }
 
 
-var GPUGroupClass_SetAllocationAlgorithmMockedCallback = func (sessionID SessionRef, self GPUGroupRef, value AllocationAlgorithm) (_err error) {
+func GPUGroupClassSetAllocationAlgorithmMockDefault(sessionID SessionRef, self GPUGroupRef, value AllocationAlgorithm) (_err error) {
 	log.Println("GPUGroup.SetAllocationAlgorithm not mocked")
 	_err = errors.New("GPUGroup.SetAllocationAlgorithm not mocked")
 	return
 }
 
+var GPUGroupClassSetAllocationAlgorithmMockedCallback = GPUGroupClassSetAllocationAlgorithmMockDefault
+
 func (_class GPUGroupClass) SetAllocationAlgorithmMock(sessionID SessionRef, self GPUGroupRef, value AllocationAlgorithm) (_err error) {
-	return GPUGroupClass_SetAllocationAlgorithmMockedCallback(sessionID, self, value)
+	return GPUGroupClassSetAllocationAlgorithmMockedCallback(sessionID, self, value)
 }
 // Set the allocation_algorithm field of the given GPU_group.
 func (_class GPUGroupClass) SetAllocationAlgorithm(sessionID SessionRef, self GPUGroupRef, value AllocationAlgorithm) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetAllocationAlgorithmMock(sessionID, self, value)
 	}	
 	_method := "GPU_group.set_allocation_algorithm"
@@ -257,18 +269,20 @@ func (_class GPUGroupClass) SetAllocationAlgorithm(sessionID SessionRef, self GP
 }
 
 
-var GPUGroupClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self GPUGroupRef, key string) (_err error) {
+func GPUGroupClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self GPUGroupRef, key string) (_err error) {
 	log.Println("GPUGroup.RemoveFromOtherConfig not mocked")
 	_err = errors.New("GPUGroup.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var GPUGroupClassRemoveFromOtherConfigMockedCallback = GPUGroupClassRemoveFromOtherConfigMockDefault
+
 func (_class GPUGroupClass) RemoveFromOtherConfigMock(sessionID SessionRef, self GPUGroupRef, key string) (_err error) {
-	return GPUGroupClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return GPUGroupClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given GPU_group.  If the key is not in that Map, then do nothing.
 func (_class GPUGroupClass) RemoveFromOtherConfig(sessionID SessionRef, self GPUGroupRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "GPU_group.remove_from_other_config"
@@ -289,18 +303,20 @@ func (_class GPUGroupClass) RemoveFromOtherConfig(sessionID SessionRef, self GPU
 }
 
 
-var GPUGroupClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self GPUGroupRef, key string, value string) (_err error) {
+func GPUGroupClassAddToOtherConfigMockDefault(sessionID SessionRef, self GPUGroupRef, key string, value string) (_err error) {
 	log.Println("GPUGroup.AddToOtherConfig not mocked")
 	_err = errors.New("GPUGroup.AddToOtherConfig not mocked")
 	return
 }
 
+var GPUGroupClassAddToOtherConfigMockedCallback = GPUGroupClassAddToOtherConfigMockDefault
+
 func (_class GPUGroupClass) AddToOtherConfigMock(sessionID SessionRef, self GPUGroupRef, key string, value string) (_err error) {
-	return GPUGroupClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return GPUGroupClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given GPU_group.
 func (_class GPUGroupClass) AddToOtherConfig(sessionID SessionRef, self GPUGroupRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "GPU_group.add_to_other_config"
@@ -325,18 +341,20 @@ func (_class GPUGroupClass) AddToOtherConfig(sessionID SessionRef, self GPUGroup
 }
 
 
-var GPUGroupClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self GPUGroupRef, value map[string]string) (_err error) {
+func GPUGroupClassSetOtherConfigMockDefault(sessionID SessionRef, self GPUGroupRef, value map[string]string) (_err error) {
 	log.Println("GPUGroup.SetOtherConfig not mocked")
 	_err = errors.New("GPUGroup.SetOtherConfig not mocked")
 	return
 }
 
+var GPUGroupClassSetOtherConfigMockedCallback = GPUGroupClassSetOtherConfigMockDefault
+
 func (_class GPUGroupClass) SetOtherConfigMock(sessionID SessionRef, self GPUGroupRef, value map[string]string) (_err error) {
-	return GPUGroupClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return GPUGroupClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given GPU_group.
 func (_class GPUGroupClass) SetOtherConfig(sessionID SessionRef, self GPUGroupRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "GPU_group.set_other_config"
@@ -357,18 +375,20 @@ func (_class GPUGroupClass) SetOtherConfig(sessionID SessionRef, self GPUGroupRe
 }
 
 
-var GPUGroupClass_SetNameDescriptionMockedCallback = func (sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
+func GPUGroupClassSetNameDescriptionMockDefault(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
 	log.Println("GPUGroup.SetNameDescription not mocked")
 	_err = errors.New("GPUGroup.SetNameDescription not mocked")
 	return
 }
 
+var GPUGroupClassSetNameDescriptionMockedCallback = GPUGroupClassSetNameDescriptionMockDefault
+
 func (_class GPUGroupClass) SetNameDescriptionMock(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
-	return GPUGroupClass_SetNameDescriptionMockedCallback(sessionID, self, value)
+	return GPUGroupClassSetNameDescriptionMockedCallback(sessionID, self, value)
 }
 // Set the name/description field of the given GPU_group.
 func (_class GPUGroupClass) SetNameDescription(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameDescriptionMock(sessionID, self, value)
 	}	
 	_method := "GPU_group.set_name_description"
@@ -389,18 +409,20 @@ func (_class GPUGroupClass) SetNameDescription(sessionID SessionRef, self GPUGro
 }
 
 
-var GPUGroupClass_SetNameLabelMockedCallback = func (sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
+func GPUGroupClassSetNameLabelMockDefault(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
 	log.Println("GPUGroup.SetNameLabel not mocked")
 	_err = errors.New("GPUGroup.SetNameLabel not mocked")
 	return
 }
 
+var GPUGroupClassSetNameLabelMockedCallback = GPUGroupClassSetNameLabelMockDefault
+
 func (_class GPUGroupClass) SetNameLabelMock(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
-	return GPUGroupClass_SetNameLabelMockedCallback(sessionID, self, value)
+	return GPUGroupClassSetNameLabelMockedCallback(sessionID, self, value)
 }
 // Set the name/label field of the given GPU_group.
 func (_class GPUGroupClass) SetNameLabel(sessionID SessionRef, self GPUGroupRef, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetNameLabelMock(sessionID, self, value)
 	}	
 	_method := "GPU_group.set_name_label"
@@ -421,18 +443,20 @@ func (_class GPUGroupClass) SetNameLabel(sessionID SessionRef, self GPUGroupRef,
 }
 
 
-var GPUGroupClass_GetEnabledVGPUTypesMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
+func GPUGroupClassGetEnabledVGPUTypesMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
 	log.Println("GPUGroup.GetEnabledVGPUTypes not mocked")
 	_err = errors.New("GPUGroup.GetEnabledVGPUTypes not mocked")
 	return
 }
 
+var GPUGroupClassGetEnabledVGPUTypesMockedCallback = GPUGroupClassGetEnabledVGPUTypesMockDefault
+
 func (_class GPUGroupClass) GetEnabledVGPUTypesMock(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
-	return GPUGroupClass_GetEnabledVGPUTypesMockedCallback(sessionID, self)
+	return GPUGroupClassGetEnabledVGPUTypesMockedCallback(sessionID, self)
 }
 // Get the enabled_VGPU_types field of the given GPU_group.
 func (_class GPUGroupClass) GetEnabledVGPUTypes(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetEnabledVGPUTypesMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_enabled_VGPU_types"
@@ -453,18 +477,20 @@ func (_class GPUGroupClass) GetEnabledVGPUTypes(sessionID SessionRef, self GPUGr
 }
 
 
-var GPUGroupClass_GetSupportedVGPUTypesMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
+func GPUGroupClassGetSupportedVGPUTypesMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
 	log.Println("GPUGroup.GetSupportedVGPUTypes not mocked")
 	_err = errors.New("GPUGroup.GetSupportedVGPUTypes not mocked")
 	return
 }
 
+var GPUGroupClassGetSupportedVGPUTypesMockedCallback = GPUGroupClassGetSupportedVGPUTypesMockDefault
+
 func (_class GPUGroupClass) GetSupportedVGPUTypesMock(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
-	return GPUGroupClass_GetSupportedVGPUTypesMockedCallback(sessionID, self)
+	return GPUGroupClassGetSupportedVGPUTypesMockedCallback(sessionID, self)
 }
 // Get the supported_VGPU_types field of the given GPU_group.
 func (_class GPUGroupClass) GetSupportedVGPUTypes(sessionID SessionRef, self GPUGroupRef) (_retval []VGPUTypeRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetSupportedVGPUTypesMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_supported_VGPU_types"
@@ -485,18 +511,20 @@ func (_class GPUGroupClass) GetSupportedVGPUTypes(sessionID SessionRef, self GPU
 }
 
 
-var GPUGroupClass_GetAllocationAlgorithmMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval AllocationAlgorithm, _err error) {
+func GPUGroupClassGetAllocationAlgorithmMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval AllocationAlgorithm, _err error) {
 	log.Println("GPUGroup.GetAllocationAlgorithm not mocked")
 	_err = errors.New("GPUGroup.GetAllocationAlgorithm not mocked")
 	return
 }
 
+var GPUGroupClassGetAllocationAlgorithmMockedCallback = GPUGroupClassGetAllocationAlgorithmMockDefault
+
 func (_class GPUGroupClass) GetAllocationAlgorithmMock(sessionID SessionRef, self GPUGroupRef) (_retval AllocationAlgorithm, _err error) {
-	return GPUGroupClass_GetAllocationAlgorithmMockedCallback(sessionID, self)
+	return GPUGroupClassGetAllocationAlgorithmMockedCallback(sessionID, self)
 }
 // Get the allocation_algorithm field of the given GPU_group.
 func (_class GPUGroupClass) GetAllocationAlgorithm(sessionID SessionRef, self GPUGroupRef) (_retval AllocationAlgorithm, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllocationAlgorithmMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_allocation_algorithm"
@@ -517,18 +545,20 @@ func (_class GPUGroupClass) GetAllocationAlgorithm(sessionID SessionRef, self GP
 }
 
 
-var GPUGroupClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval map[string]string, _err error) {
+func GPUGroupClassGetOtherConfigMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval map[string]string, _err error) {
 	log.Println("GPUGroup.GetOtherConfig not mocked")
 	_err = errors.New("GPUGroup.GetOtherConfig not mocked")
 	return
 }
 
+var GPUGroupClassGetOtherConfigMockedCallback = GPUGroupClassGetOtherConfigMockDefault
+
 func (_class GPUGroupClass) GetOtherConfigMock(sessionID SessionRef, self GPUGroupRef) (_retval map[string]string, _err error) {
-	return GPUGroupClass_GetOtherConfigMockedCallback(sessionID, self)
+	return GPUGroupClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given GPU_group.
 func (_class GPUGroupClass) GetOtherConfig(sessionID SessionRef, self GPUGroupRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_other_config"
@@ -549,18 +579,20 @@ func (_class GPUGroupClass) GetOtherConfig(sessionID SessionRef, self GPUGroupRe
 }
 
 
-var GPUGroupClass_GetGPUTypesMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval []string, _err error) {
+func GPUGroupClassGetGPUTypesMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval []string, _err error) {
 	log.Println("GPUGroup.GetGPUTypes not mocked")
 	_err = errors.New("GPUGroup.GetGPUTypes not mocked")
 	return
 }
 
+var GPUGroupClassGetGPUTypesMockedCallback = GPUGroupClassGetGPUTypesMockDefault
+
 func (_class GPUGroupClass) GetGPUTypesMock(sessionID SessionRef, self GPUGroupRef) (_retval []string, _err error) {
-	return GPUGroupClass_GetGPUTypesMockedCallback(sessionID, self)
+	return GPUGroupClassGetGPUTypesMockedCallback(sessionID, self)
 }
 // Get the GPU_types field of the given GPU_group.
 func (_class GPUGroupClass) GetGPUTypes(sessionID SessionRef, self GPUGroupRef) (_retval []string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetGPUTypesMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_GPU_types"
@@ -581,18 +613,20 @@ func (_class GPUGroupClass) GetGPUTypes(sessionID SessionRef, self GPUGroupRef) 
 }
 
 
-var GPUGroupClass_GetVGPUsMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval []VGPURef, _err error) {
+func GPUGroupClassGetVGPUsMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval []VGPURef, _err error) {
 	log.Println("GPUGroup.GetVGPUs not mocked")
 	_err = errors.New("GPUGroup.GetVGPUs not mocked")
 	return
 }
 
+var GPUGroupClassGetVGPUsMockedCallback = GPUGroupClassGetVGPUsMockDefault
+
 func (_class GPUGroupClass) GetVGPUsMock(sessionID SessionRef, self GPUGroupRef) (_retval []VGPURef, _err error) {
-	return GPUGroupClass_GetVGPUsMockedCallback(sessionID, self)
+	return GPUGroupClassGetVGPUsMockedCallback(sessionID, self)
 }
 // Get the VGPUs field of the given GPU_group.
 func (_class GPUGroupClass) GetVGPUs(sessionID SessionRef, self GPUGroupRef) (_retval []VGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetVGPUsMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_VGPUs"
@@ -613,18 +647,20 @@ func (_class GPUGroupClass) GetVGPUs(sessionID SessionRef, self GPUGroupRef) (_r
 }
 
 
-var GPUGroupClass_GetPGPUsMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval []PGPURef, _err error) {
+func GPUGroupClassGetPGPUsMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval []PGPURef, _err error) {
 	log.Println("GPUGroup.GetPGPUs not mocked")
 	_err = errors.New("GPUGroup.GetPGPUs not mocked")
 	return
 }
 
+var GPUGroupClassGetPGPUsMockedCallback = GPUGroupClassGetPGPUsMockDefault
+
 func (_class GPUGroupClass) GetPGPUsMock(sessionID SessionRef, self GPUGroupRef) (_retval []PGPURef, _err error) {
-	return GPUGroupClass_GetPGPUsMockedCallback(sessionID, self)
+	return GPUGroupClassGetPGPUsMockedCallback(sessionID, self)
 }
 // Get the PGPUs field of the given GPU_group.
 func (_class GPUGroupClass) GetPGPUs(sessionID SessionRef, self GPUGroupRef) (_retval []PGPURef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPGPUsMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_PGPUs"
@@ -645,18 +681,20 @@ func (_class GPUGroupClass) GetPGPUs(sessionID SessionRef, self GPUGroupRef) (_r
 }
 
 
-var GPUGroupClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
+func GPUGroupClassGetNameDescriptionMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
 	log.Println("GPUGroup.GetNameDescription not mocked")
 	_err = errors.New("GPUGroup.GetNameDescription not mocked")
 	return
 }
 
+var GPUGroupClassGetNameDescriptionMockedCallback = GPUGroupClassGetNameDescriptionMockDefault
+
 func (_class GPUGroupClass) GetNameDescriptionMock(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	return GPUGroupClass_GetNameDescriptionMockedCallback(sessionID, self)
+	return GPUGroupClassGetNameDescriptionMockedCallback(sessionID, self)
 }
 // Get the name/description field of the given GPU_group.
 func (_class GPUGroupClass) GetNameDescription(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_name_description"
@@ -677,18 +715,20 @@ func (_class GPUGroupClass) GetNameDescription(sessionID SessionRef, self GPUGro
 }
 
 
-var GPUGroupClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
+func GPUGroupClassGetNameLabelMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
 	log.Println("GPUGroup.GetNameLabel not mocked")
 	_err = errors.New("GPUGroup.GetNameLabel not mocked")
 	return
 }
 
+var GPUGroupClassGetNameLabelMockedCallback = GPUGroupClassGetNameLabelMockDefault
+
 func (_class GPUGroupClass) GetNameLabelMock(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	return GPUGroupClass_GetNameLabelMockedCallback(sessionID, self)
+	return GPUGroupClassGetNameLabelMockedCallback(sessionID, self)
 }
 // Get the name/label field of the given GPU_group.
 func (_class GPUGroupClass) GetNameLabel(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_name_label"
@@ -709,18 +749,20 @@ func (_class GPUGroupClass) GetNameLabel(sessionID SessionRef, self GPUGroupRef)
 }
 
 
-var GPUGroupClass_GetUUIDMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
+func GPUGroupClassGetUUIDMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
 	log.Println("GPUGroup.GetUUID not mocked")
 	_err = errors.New("GPUGroup.GetUUID not mocked")
 	return
 }
 
+var GPUGroupClassGetUUIDMockedCallback = GPUGroupClassGetUUIDMockDefault
+
 func (_class GPUGroupClass) GetUUIDMock(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	return GPUGroupClass_GetUUIDMockedCallback(sessionID, self)
+	return GPUGroupClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given GPU_group.
 func (_class GPUGroupClass) GetUUID(sessionID SessionRef, self GPUGroupRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_uuid"
@@ -741,18 +783,20 @@ func (_class GPUGroupClass) GetUUID(sessionID SessionRef, self GPUGroupRef) (_re
 }
 
 
-var GPUGroupClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []GPUGroupRef, _err error) {
+func GPUGroupClassGetByNameLabelMockDefault(sessionID SessionRef, label string) (_retval []GPUGroupRef, _err error) {
 	log.Println("GPUGroup.GetByNameLabel not mocked")
 	_err = errors.New("GPUGroup.GetByNameLabel not mocked")
 	return
 }
 
+var GPUGroupClassGetByNameLabelMockedCallback = GPUGroupClassGetByNameLabelMockDefault
+
 func (_class GPUGroupClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []GPUGroupRef, _err error) {
-	return GPUGroupClass_GetByNameLabelMockedCallback(sessionID, label)
+	return GPUGroupClassGetByNameLabelMockedCallback(sessionID, label)
 }
 // Get all the GPU_group instances with the given label.
 func (_class GPUGroupClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "GPU_group.get_by_name_label"
@@ -773,18 +817,20 @@ func (_class GPUGroupClass) GetByNameLabel(sessionID SessionRef, label string) (
 }
 
 
-var GPUGroupClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval GPUGroupRef, _err error) {
+func GPUGroupClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval GPUGroupRef, _err error) {
 	log.Println("GPUGroup.GetByUUID not mocked")
 	_err = errors.New("GPUGroup.GetByUUID not mocked")
 	return
 }
 
+var GPUGroupClassGetByUUIDMockedCallback = GPUGroupClassGetByUUIDMockDefault
+
 func (_class GPUGroupClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval GPUGroupRef, _err error) {
-	return GPUGroupClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return GPUGroupClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the GPU_group instance with the specified UUID.
 func (_class GPUGroupClass) GetByUUID(sessionID SessionRef, uuid string) (_retval GPUGroupRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "GPU_group.get_by_uuid"
@@ -805,18 +851,20 @@ func (_class GPUGroupClass) GetByUUID(sessionID SessionRef, uuid string) (_retva
 }
 
 
-var GPUGroupClass_GetRecordMockedCallback = func (sessionID SessionRef, self GPUGroupRef) (_retval GPUGroupRecord, _err error) {
+func GPUGroupClassGetRecordMockDefault(sessionID SessionRef, self GPUGroupRef) (_retval GPUGroupRecord, _err error) {
 	log.Println("GPUGroup.GetRecord not mocked")
 	_err = errors.New("GPUGroup.GetRecord not mocked")
 	return
 }
 
+var GPUGroupClassGetRecordMockedCallback = GPUGroupClassGetRecordMockDefault
+
 func (_class GPUGroupClass) GetRecordMock(sessionID SessionRef, self GPUGroupRef) (_retval GPUGroupRecord, _err error) {
-	return GPUGroupClass_GetRecordMockedCallback(sessionID, self)
+	return GPUGroupClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given GPU_group.
 func (_class GPUGroupClass) GetRecord(sessionID SessionRef, self GPUGroupRef) (_retval GPUGroupRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "GPU_group.get_record"

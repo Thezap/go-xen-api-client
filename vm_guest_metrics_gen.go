@@ -75,18 +75,20 @@ type VMGuestMetricsClass struct {
 }
 
 
-var VMGuestMetricsClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VMGuestMetricsRef]VMGuestMetricsRecord, _err error) {
+func VMGuestMetricsClassGetAllRecordsMockDefault(sessionID SessionRef) (_retval map[VMGuestMetricsRef]VMGuestMetricsRecord, _err error) {
 	log.Println("VMGuestMetrics.GetAllRecords not mocked")
 	_err = errors.New("VMGuestMetrics.GetAllRecords not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetAllRecordsMockedCallback = VMGuestMetricsClassGetAllRecordsMockDefault
+
 func (_class VMGuestMetricsClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VMGuestMetricsRef]VMGuestMetricsRecord, _err error) {
-	return VMGuestMetricsClass_GetAllRecordsMockedCallback(sessionID)
+	return VMGuestMetricsClassGetAllRecordsMockedCallback(sessionID)
 }
 // Return a map of VM_guest_metrics references to VM_guest_metrics records for all VM_guest_metrics instances known to the system.
 func (_class VMGuestMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[VMGuestMetricsRef]VMGuestMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VM_guest_metrics.get_all_records"
@@ -103,18 +105,20 @@ func (_class VMGuestMetricsClass) GetAllRecords(sessionID SessionRef) (_retval m
 }
 
 
-var VMGuestMetricsClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VMGuestMetricsRef, _err error) {
+func VMGuestMetricsClassGetAllMockDefault(sessionID SessionRef) (_retval []VMGuestMetricsRef, _err error) {
 	log.Println("VMGuestMetrics.GetAll not mocked")
 	_err = errors.New("VMGuestMetrics.GetAll not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetAllMockedCallback = VMGuestMetricsClassGetAllMockDefault
+
 func (_class VMGuestMetricsClass) GetAllMock(sessionID SessionRef) (_retval []VMGuestMetricsRef, _err error) {
-	return VMGuestMetricsClass_GetAllMockedCallback(sessionID)
+	return VMGuestMetricsClassGetAllMockedCallback(sessionID)
 }
 // Return a list of all the VM_guest_metrics instances known to the system.
 func (_class VMGuestMetricsClass) GetAll(sessionID SessionRef) (_retval []VMGuestMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VM_guest_metrics.get_all"
@@ -131,18 +135,20 @@ func (_class VMGuestMetricsClass) GetAll(sessionID SessionRef) (_retval []VMGues
 }
 
 
-var VMGuestMetricsClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef, key string) (_err error) {
+func VMGuestMetricsClassRemoveFromOtherConfigMockDefault(sessionID SessionRef, self VMGuestMetricsRef, key string) (_err error) {
 	log.Println("VMGuestMetrics.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VMGuestMetrics.RemoveFromOtherConfig not mocked")
 	return
 }
 
+var VMGuestMetricsClassRemoveFromOtherConfigMockedCallback = VMGuestMetricsClassRemoveFromOtherConfigMockDefault
+
 func (_class VMGuestMetricsClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VMGuestMetricsRef, key string) (_err error) {
-	return VMGuestMetricsClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+	return VMGuestMetricsClassRemoveFromOtherConfigMockedCallback(sessionID, self, key)
 }
 // Remove the given key and its corresponding value from the other_config field of the given VM_guest_metrics.  If the key is not in that Map, then do nothing.
 func (_class VMGuestMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self VMGuestMetricsRef, key string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VM_guest_metrics.remove_from_other_config"
@@ -163,18 +169,20 @@ func (_class VMGuestMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, se
 }
 
 
-var VMGuestMetricsClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef, key string, value string) (_err error) {
+func VMGuestMetricsClassAddToOtherConfigMockDefault(sessionID SessionRef, self VMGuestMetricsRef, key string, value string) (_err error) {
 	log.Println("VMGuestMetrics.AddToOtherConfig not mocked")
 	_err = errors.New("VMGuestMetrics.AddToOtherConfig not mocked")
 	return
 }
 
+var VMGuestMetricsClassAddToOtherConfigMockedCallback = VMGuestMetricsClassAddToOtherConfigMockDefault
+
 func (_class VMGuestMetricsClass) AddToOtherConfigMock(sessionID SessionRef, self VMGuestMetricsRef, key string, value string) (_err error) {
-	return VMGuestMetricsClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+	return VMGuestMetricsClassAddToOtherConfigMockedCallback(sessionID, self, key, value)
 }
 // Add the given key-value pair to the other_config field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) AddToOtherConfig(sessionID SessionRef, self VMGuestMetricsRef, key string, value string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VM_guest_metrics.add_to_other_config"
@@ -199,18 +207,20 @@ func (_class VMGuestMetricsClass) AddToOtherConfig(sessionID SessionRef, self VM
 }
 
 
-var VMGuestMetricsClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef, value map[string]string) (_err error) {
+func VMGuestMetricsClassSetOtherConfigMockDefault(sessionID SessionRef, self VMGuestMetricsRef, value map[string]string) (_err error) {
 	log.Println("VMGuestMetrics.SetOtherConfig not mocked")
 	_err = errors.New("VMGuestMetrics.SetOtherConfig not mocked")
 	return
 }
 
+var VMGuestMetricsClassSetOtherConfigMockedCallback = VMGuestMetricsClassSetOtherConfigMockDefault
+
 func (_class VMGuestMetricsClass) SetOtherConfigMock(sessionID SessionRef, self VMGuestMetricsRef, value map[string]string) (_err error) {
-	return VMGuestMetricsClass_SetOtherConfigMockedCallback(sessionID, self, value)
+	return VMGuestMetricsClassSetOtherConfigMockedCallback(sessionID, self, value)
 }
 // Set the other_config field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) SetOtherConfig(sessionID SessionRef, self VMGuestMetricsRef, value map[string]string) (_err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VM_guest_metrics.set_other_config"
@@ -231,18 +241,20 @@ func (_class VMGuestMetricsClass) SetOtherConfig(sessionID SessionRef, self VMGu
 }
 
 
-var VMGuestMetricsClass_GetPVDriversDetectedMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
+func VMGuestMetricsClassGetPVDriversDetectedMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
 	log.Println("VMGuestMetrics.GetPVDriversDetected not mocked")
 	_err = errors.New("VMGuestMetrics.GetPVDriversDetected not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetPVDriversDetectedMockedCallback = VMGuestMetricsClassGetPVDriversDetectedMockDefault
+
 func (_class VMGuestMetricsClass) GetPVDriversDetectedMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	return VMGuestMetricsClass_GetPVDriversDetectedMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetPVDriversDetectedMockedCallback(sessionID, self)
 }
 // Get the PV_drivers_detected field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetPVDriversDetected(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVDriversDetectedMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_PV_drivers_detected"
@@ -263,18 +275,20 @@ func (_class VMGuestMetricsClass) GetPVDriversDetected(sessionID SessionRef, sel
 }
 
 
-var VMGuestMetricsClass_GetCanUseHotplugVifMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
+func VMGuestMetricsClassGetCanUseHotplugVifMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
 	log.Println("VMGuestMetrics.GetCanUseHotplugVif not mocked")
 	_err = errors.New("VMGuestMetrics.GetCanUseHotplugVif not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetCanUseHotplugVifMockedCallback = VMGuestMetricsClassGetCanUseHotplugVifMockDefault
+
 func (_class VMGuestMetricsClass) GetCanUseHotplugVifMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
-	return VMGuestMetricsClass_GetCanUseHotplugVifMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetCanUseHotplugVifMockedCallback(sessionID, self)
 }
 // Get the can_use_hotplug_vif field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetCanUseHotplugVif(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCanUseHotplugVifMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_can_use_hotplug_vif"
@@ -295,18 +309,20 @@ func (_class VMGuestMetricsClass) GetCanUseHotplugVif(sessionID SessionRef, self
 }
 
 
-var VMGuestMetricsClass_GetCanUseHotplugVbdMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
+func VMGuestMetricsClassGetCanUseHotplugVbdMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
 	log.Println("VMGuestMetrics.GetCanUseHotplugVbd not mocked")
 	_err = errors.New("VMGuestMetrics.GetCanUseHotplugVbd not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetCanUseHotplugVbdMockedCallback = VMGuestMetricsClassGetCanUseHotplugVbdMockDefault
+
 func (_class VMGuestMetricsClass) GetCanUseHotplugVbdMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
-	return VMGuestMetricsClass_GetCanUseHotplugVbdMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetCanUseHotplugVbdMockedCallback(sessionID, self)
 }
 // Get the can_use_hotplug_vbd field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetCanUseHotplugVbd(sessionID SessionRef, self VMGuestMetricsRef) (_retval TristateType, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetCanUseHotplugVbdMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_can_use_hotplug_vbd"
@@ -327,18 +343,20 @@ func (_class VMGuestMetricsClass) GetCanUseHotplugVbd(sessionID SessionRef, self
 }
 
 
-var VMGuestMetricsClass_GetLiveMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
+func VMGuestMetricsClassGetLiveMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
 	log.Println("VMGuestMetrics.GetLive not mocked")
 	_err = errors.New("VMGuestMetrics.GetLive not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetLiveMockedCallback = VMGuestMetricsClassGetLiveMockDefault
+
 func (_class VMGuestMetricsClass) GetLiveMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	return VMGuestMetricsClass_GetLiveMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetLiveMockedCallback(sessionID, self)
 }
 // Get the live field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetLive(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLiveMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_live"
@@ -359,18 +377,20 @@ func (_class VMGuestMetricsClass) GetLive(sessionID SessionRef, self VMGuestMetr
 }
 
 
-var VMGuestMetricsClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetOtherConfigMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetOtherConfig not mocked")
 	_err = errors.New("VMGuestMetrics.GetOtherConfig not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetOtherConfigMockedCallback = VMGuestMetricsClassGetOtherConfigMockDefault
+
 func (_class VMGuestMetricsClass) GetOtherConfigMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetOtherConfigMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetOtherConfigMockedCallback(sessionID, self)
 }
 // Get the other_config field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetOtherConfig(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_other_config"
@@ -391,18 +411,20 @@ func (_class VMGuestMetricsClass) GetOtherConfig(sessionID SessionRef, self VMGu
 }
 
 
-var VMGuestMetricsClass_GetLastUpdatedMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval time.Time, _err error) {
+func VMGuestMetricsClassGetLastUpdatedMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval time.Time, _err error) {
 	log.Println("VMGuestMetrics.GetLastUpdated not mocked")
 	_err = errors.New("VMGuestMetrics.GetLastUpdated not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetLastUpdatedMockedCallback = VMGuestMetricsClassGetLastUpdatedMockDefault
+
 func (_class VMGuestMetricsClass) GetLastUpdatedMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval time.Time, _err error) {
-	return VMGuestMetricsClass_GetLastUpdatedMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetLastUpdatedMockedCallback(sessionID, self)
 }
 // Get the last_updated field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetLastUpdated(sessionID SessionRef, self VMGuestMetricsRef) (_retval time.Time, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetLastUpdatedMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_last_updated"
@@ -423,18 +445,20 @@ func (_class VMGuestMetricsClass) GetLastUpdated(sessionID SessionRef, self VMGu
 }
 
 
-var VMGuestMetricsClass_GetOtherMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetOtherMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetOther not mocked")
 	_err = errors.New("VMGuestMetrics.GetOther not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetOtherMockedCallback = VMGuestMetricsClassGetOtherMockDefault
+
 func (_class VMGuestMetricsClass) GetOtherMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetOtherMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetOtherMockedCallback(sessionID, self)
 }
 // Get the other field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetOther(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOtherMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_other"
@@ -455,18 +479,20 @@ func (_class VMGuestMetricsClass) GetOther(sessionID SessionRef, self VMGuestMet
 }
 
 
-var VMGuestMetricsClass_GetNetworksMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetNetworksMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetNetworks not mocked")
 	_err = errors.New("VMGuestMetrics.GetNetworks not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetNetworksMockedCallback = VMGuestMetricsClassGetNetworksMockDefault
+
 func (_class VMGuestMetricsClass) GetNetworksMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetNetworksMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetNetworksMockedCallback(sessionID, self)
 }
 // Get the networks field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetNetworks(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetNetworksMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_networks"
@@ -487,18 +513,20 @@ func (_class VMGuestMetricsClass) GetNetworks(sessionID SessionRef, self VMGuest
 }
 
 
-var VMGuestMetricsClass_GetDisksMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetDisksMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetDisks not mocked")
 	_err = errors.New("VMGuestMetrics.GetDisks not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetDisksMockedCallback = VMGuestMetricsClassGetDisksMockDefault
+
 func (_class VMGuestMetricsClass) GetDisksMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetDisksMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetDisksMockedCallback(sessionID, self)
 }
 // Get the disks field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetDisks(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetDisksMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_disks"
@@ -519,18 +547,20 @@ func (_class VMGuestMetricsClass) GetDisks(sessionID SessionRef, self VMGuestMet
 }
 
 
-var VMGuestMetricsClass_GetMemoryMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetMemoryMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetMemory not mocked")
 	_err = errors.New("VMGuestMetrics.GetMemory not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetMemoryMockedCallback = VMGuestMetricsClassGetMemoryMockDefault
+
 func (_class VMGuestMetricsClass) GetMemoryMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetMemoryMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetMemoryMockedCallback(sessionID, self)
 }
 // Get the memory field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetMemory(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetMemoryMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_memory"
@@ -551,18 +581,20 @@ func (_class VMGuestMetricsClass) GetMemory(sessionID SessionRef, self VMGuestMe
 }
 
 
-var VMGuestMetricsClass_GetPVDriversUpToDateMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
+func VMGuestMetricsClassGetPVDriversUpToDateMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
 	log.Println("VMGuestMetrics.GetPVDriversUpToDate not mocked")
 	_err = errors.New("VMGuestMetrics.GetPVDriversUpToDate not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetPVDriversUpToDateMockedCallback = VMGuestMetricsClassGetPVDriversUpToDateMockDefault
+
 func (_class VMGuestMetricsClass) GetPVDriversUpToDateMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	return VMGuestMetricsClass_GetPVDriversUpToDateMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetPVDriversUpToDateMockedCallback(sessionID, self)
 }
 // Get the PV_drivers_up_to_date field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetPVDriversUpToDate(sessionID SessionRef, self VMGuestMetricsRef) (_retval bool, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVDriversUpToDateMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_PV_drivers_up_to_date"
@@ -583,18 +615,20 @@ func (_class VMGuestMetricsClass) GetPVDriversUpToDate(sessionID SessionRef, sel
 }
 
 
-var VMGuestMetricsClass_GetPVDriversVersionMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetPVDriversVersionMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetPVDriversVersion not mocked")
 	_err = errors.New("VMGuestMetrics.GetPVDriversVersion not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetPVDriversVersionMockedCallback = VMGuestMetricsClassGetPVDriversVersionMockDefault
+
 func (_class VMGuestMetricsClass) GetPVDriversVersionMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetPVDriversVersionMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetPVDriversVersionMockedCallback(sessionID, self)
 }
 // Get the PV_drivers_version field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetPVDriversVersion(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetPVDriversVersionMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_PV_drivers_version"
@@ -615,18 +649,20 @@ func (_class VMGuestMetricsClass) GetPVDriversVersion(sessionID SessionRef, self
 }
 
 
-var VMGuestMetricsClass_GetOSVersionMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
+func VMGuestMetricsClassGetOSVersionMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMGuestMetrics.GetOSVersion not mocked")
 	_err = errors.New("VMGuestMetrics.GetOSVersion not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetOSVersionMockedCallback = VMGuestMetricsClassGetOSVersionMockDefault
+
 func (_class VMGuestMetricsClass) GetOSVersionMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	return VMGuestMetricsClass_GetOSVersionMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetOSVersionMockedCallback(sessionID, self)
 }
 // Get the os_version field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetOSVersion(sessionID SessionRef, self VMGuestMetricsRef) (_retval map[string]string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetOSVersionMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_os_version"
@@ -647,18 +683,20 @@ func (_class VMGuestMetricsClass) GetOSVersion(sessionID SessionRef, self VMGues
 }
 
 
-var VMGuestMetricsClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval string, _err error) {
+func VMGuestMetricsClassGetUUIDMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval string, _err error) {
 	log.Println("VMGuestMetrics.GetUUID not mocked")
 	_err = errors.New("VMGuestMetrics.GetUUID not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetUUIDMockedCallback = VMGuestMetricsClassGetUUIDMockDefault
+
 func (_class VMGuestMetricsClass) GetUUIDMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval string, _err error) {
-	return VMGuestMetricsClass_GetUUIDMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetUUIDMockedCallback(sessionID, self)
 }
 // Get the uuid field of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetUUID(sessionID SessionRef, self VMGuestMetricsRef) (_retval string, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_uuid"
@@ -679,18 +717,20 @@ func (_class VMGuestMetricsClass) GetUUID(sessionID SessionRef, self VMGuestMetr
 }
 
 
-var VMGuestMetricsClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VMGuestMetricsRef, _err error) {
+func VMGuestMetricsClassGetByUUIDMockDefault(sessionID SessionRef, uuid string) (_retval VMGuestMetricsRef, _err error) {
 	log.Println("VMGuestMetrics.GetByUUID not mocked")
 	_err = errors.New("VMGuestMetrics.GetByUUID not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetByUUIDMockedCallback = VMGuestMetricsClassGetByUUIDMockDefault
+
 func (_class VMGuestMetricsClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VMGuestMetricsRef, _err error) {
-	return VMGuestMetricsClass_GetByUUIDMockedCallback(sessionID, uuid)
+	return VMGuestMetricsClassGetByUUIDMockedCallback(sessionID, uuid)
 }
 // Get a reference to the VM_guest_metrics instance with the specified UUID.
 func (_class VMGuestMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VMGuestMetricsRef, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VM_guest_metrics.get_by_uuid"
@@ -711,18 +751,20 @@ func (_class VMGuestMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (
 }
 
 
-var VMGuestMetricsClass_GetRecordMockedCallback = func (sessionID SessionRef, self VMGuestMetricsRef) (_retval VMGuestMetricsRecord, _err error) {
+func VMGuestMetricsClassGetRecordMockDefault(sessionID SessionRef, self VMGuestMetricsRef) (_retval VMGuestMetricsRecord, _err error) {
 	log.Println("VMGuestMetrics.GetRecord not mocked")
 	_err = errors.New("VMGuestMetrics.GetRecord not mocked")
 	return
 }
 
+var VMGuestMetricsClassGetRecordMockedCallback = VMGuestMetricsClassGetRecordMockDefault
+
 func (_class VMGuestMetricsClass) GetRecordMock(sessionID SessionRef, self VMGuestMetricsRef) (_retval VMGuestMetricsRecord, _err error) {
-	return VMGuestMetricsClass_GetRecordMockedCallback(sessionID, self)
+	return VMGuestMetricsClassGetRecordMockedCallback(sessionID, self)
 }
 // Get a record containing the current state of the given VM_guest_metrics.
 func (_class VMGuestMetricsClass) GetRecord(sessionID SessionRef, self VMGuestMetricsRef) (_retval VMGuestMetricsRecord, _err error) {
-	if (IsMock) {
+	if IsMock {
 		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VM_guest_metrics.get_record"
