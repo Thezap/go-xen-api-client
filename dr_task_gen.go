@@ -39,15 +39,20 @@ type DRTaskClass struct {
 	client *Client
 }
 
-func (_class DRTaskClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[DRTaskRef]DRTaskRecord, _err error) {
+
+var DRTaskClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[DRTaskRef]DRTaskRecord, _err error) {
 	log.Println("DRTask.GetAllRecords not mocked")
 	_err = errors.New("DRTask.GetAllRecords not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[DRTaskRef]DRTaskRecord, _err error) {
+	return DRTaskClass_GetAllRecordsMockedCallback(sessionID)
+}
 // Return a map of DR_task references to DR_task records for all DR_tasks known to the system.
 func (_class DRTaskClass) GetAllRecords(sessionID SessionRef) (_retval map[DRTaskRef]DRTaskRecord, _err error) {
 	if (IsMock) {
-		return _class.GetAllRecords__mock(sessionID)
+		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "DR_task.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -62,15 +67,20 @@ func (_class DRTaskClass) GetAllRecords(sessionID SessionRef) (_retval map[DRTas
 	return
 }
 
-func (_class DRTaskClass) GetAll__mock(sessionID SessionRef) (_retval []DRTaskRef, _err error) {
+
+var DRTaskClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []DRTaskRef, _err error) {
 	log.Println("DRTask.GetAll not mocked")
 	_err = errors.New("DRTask.GetAll not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetAllMock(sessionID SessionRef) (_retval []DRTaskRef, _err error) {
+	return DRTaskClass_GetAllMockedCallback(sessionID)
+}
 // Return a list of all the DR_tasks known to the system.
 func (_class DRTaskClass) GetAll(sessionID SessionRef) (_retval []DRTaskRef, _err error) {
 	if (IsMock) {
-		return _class.GetAll__mock(sessionID)
+		return _class.GetAllMock(sessionID)
 	}	
 	_method := "DR_task.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -85,15 +95,20 @@ func (_class DRTaskClass) GetAll(sessionID SessionRef) (_retval []DRTaskRef, _er
 	return
 }
 
-func (_class DRTaskClass) Destroy__mock(sessionID SessionRef, self DRTaskRef) (_err error) {
+
+var DRTaskClass_DestroyMockedCallback = func (sessionID SessionRef, self DRTaskRef) (_err error) {
 	log.Println("DRTask.Destroy not mocked")
 	_err = errors.New("DRTask.Destroy not mocked")
 	return
 }
+
+func (_class DRTaskClass) DestroyMock(sessionID SessionRef, self DRTaskRef) (_err error) {
+	return DRTaskClass_DestroyMockedCallback(sessionID, self)
+}
 // Destroy the disaster recovery task, detaching and forgetting any SRs introduced which are no longer required
 func (_class DRTaskClass) Destroy(sessionID SessionRef, self DRTaskRef) (_err error) {
 	if (IsMock) {
-		return _class.Destroy__mock(sessionID, self)
+		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "DR_task.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -108,15 +123,20 @@ func (_class DRTaskClass) Destroy(sessionID SessionRef, self DRTaskRef) (_err er
 	return
 }
 
-func (_class DRTaskClass) Create__mock(sessionID SessionRef, atype string, deviceConfig map[string]string, whitelist []string) (_retval DRTaskRef, _err error) {
+
+var DRTaskClass_CreateMockedCallback = func (sessionID SessionRef, atype string, deviceConfig map[string]string, whitelist []string) (_retval DRTaskRef, _err error) {
 	log.Println("DRTask.Create not mocked")
 	_err = errors.New("DRTask.Create not mocked")
 	return
 }
+
+func (_class DRTaskClass) CreateMock(sessionID SessionRef, atype string, deviceConfig map[string]string, whitelist []string) (_retval DRTaskRef, _err error) {
+	return DRTaskClass_CreateMockedCallback(sessionID, atype, deviceConfig, whitelist)
+}
 // Create a disaster recovery task which will query the supplied list of devices
 func (_class DRTaskClass) Create(sessionID SessionRef, atype string, deviceConfig map[string]string, whitelist []string) (_retval DRTaskRef, _err error) {
 	if (IsMock) {
-		return _class.Create__mock(sessionID, atype, deviceConfig, whitelist)
+		return _class.CreateMock(sessionID, atype, deviceConfig, whitelist)
 	}	
 	_method := "DR_task.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -143,15 +163,20 @@ func (_class DRTaskClass) Create(sessionID SessionRef, atype string, deviceConfi
 	return
 }
 
-func (_class DRTaskClass) GetIntroducedSRs__mock(sessionID SessionRef, self DRTaskRef) (_retval []SRRef, _err error) {
+
+var DRTaskClass_GetIntroducedSRsMockedCallback = func (sessionID SessionRef, self DRTaskRef) (_retval []SRRef, _err error) {
 	log.Println("DRTask.GetIntroducedSRs not mocked")
 	_err = errors.New("DRTask.GetIntroducedSRs not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetIntroducedSRsMock(sessionID SessionRef, self DRTaskRef) (_retval []SRRef, _err error) {
+	return DRTaskClass_GetIntroducedSRsMockedCallback(sessionID, self)
+}
 // Get the introduced_SRs field of the given DR_task.
 func (_class DRTaskClass) GetIntroducedSRs(sessionID SessionRef, self DRTaskRef) (_retval []SRRef, _err error) {
 	if (IsMock) {
-		return _class.GetIntroducedSRs__mock(sessionID, self)
+		return _class.GetIntroducedSRsMock(sessionID, self)
 	}	
 	_method := "DR_task.get_introduced_SRs"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -170,15 +195,20 @@ func (_class DRTaskClass) GetIntroducedSRs(sessionID SessionRef, self DRTaskRef)
 	return
 }
 
-func (_class DRTaskClass) GetUUID__mock(sessionID SessionRef, self DRTaskRef) (_retval string, _err error) {
+
+var DRTaskClass_GetUUIDMockedCallback = func (sessionID SessionRef, self DRTaskRef) (_retval string, _err error) {
 	log.Println("DRTask.GetUUID not mocked")
 	_err = errors.New("DRTask.GetUUID not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetUUIDMock(sessionID SessionRef, self DRTaskRef) (_retval string, _err error) {
+	return DRTaskClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given DR_task.
 func (_class DRTaskClass) GetUUID(sessionID SessionRef, self DRTaskRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "DR_task.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -197,15 +227,20 @@ func (_class DRTaskClass) GetUUID(sessionID SessionRef, self DRTaskRef) (_retval
 	return
 }
 
-func (_class DRTaskClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval DRTaskRef, _err error) {
+
+var DRTaskClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval DRTaskRef, _err error) {
 	log.Println("DRTask.GetByUUID not mocked")
 	_err = errors.New("DRTask.GetByUUID not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval DRTaskRef, _err error) {
+	return DRTaskClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the DR_task instance with the specified UUID.
 func (_class DRTaskClass) GetByUUID(sessionID SessionRef, uuid string) (_retval DRTaskRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "DR_task.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -224,15 +259,20 @@ func (_class DRTaskClass) GetByUUID(sessionID SessionRef, uuid string) (_retval 
 	return
 }
 
-func (_class DRTaskClass) GetRecord__mock(sessionID SessionRef, self DRTaskRef) (_retval DRTaskRecord, _err error) {
+
+var DRTaskClass_GetRecordMockedCallback = func (sessionID SessionRef, self DRTaskRef) (_retval DRTaskRecord, _err error) {
 	log.Println("DRTask.GetRecord not mocked")
 	_err = errors.New("DRTask.GetRecord not mocked")
 	return
 }
+
+func (_class DRTaskClass) GetRecordMock(sessionID SessionRef, self DRTaskRef) (_retval DRTaskRecord, _err error) {
+	return DRTaskClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given DR_task.
 func (_class DRTaskClass) GetRecord(sessionID SessionRef, self DRTaskRef) (_retval DRTaskRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "DR_task.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

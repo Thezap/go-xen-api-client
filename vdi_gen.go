@@ -174,15 +174,20 @@ type VDIClass struct {
 	client *Client
 }
 
-func (_class VDIClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[VDIRef]VDIRecord, _err error) {
+
+var VDIClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VDIRef]VDIRecord, _err error) {
 	log.Println("VDI.GetAllRecords not mocked")
 	_err = errors.New("VDI.GetAllRecords not mocked")
 	return
 }
+
+func (_class VDIClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VDIRef]VDIRecord, _err error) {
+	return VDIClass_GetAllRecordsMockedCallback(sessionID)
+}
 // Return a map of VDI references to VDI records for all VDIs known to the system.
 func (_class VDIClass) GetAllRecords(sessionID SessionRef) (_retval map[VDIRef]VDIRecord, _err error) {
 	if (IsMock) {
-		return _class.GetAllRecords__mock(sessionID)
+		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VDI.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -197,15 +202,20 @@ func (_class VDIClass) GetAllRecords(sessionID SessionRef) (_retval map[VDIRef]V
 	return
 }
 
-func (_class VDIClass) GetAll__mock(sessionID SessionRef) (_retval []VDIRef, _err error) {
+
+var VDIClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VDIRef, _err error) {
 	log.Println("VDI.GetAll not mocked")
 	_err = errors.New("VDI.GetAll not mocked")
 	return
 }
+
+func (_class VDIClass) GetAllMock(sessionID SessionRef) (_retval []VDIRef, _err error) {
+	return VDIClass_GetAllMockedCallback(sessionID)
+}
 // Return a list of all the VDIs known to the system.
 func (_class VDIClass) GetAll(sessionID SessionRef) (_retval []VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetAll__mock(sessionID)
+		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VDI.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -220,10 +230,15 @@ func (_class VDIClass) GetAll(sessionID SessionRef) (_retval []VDIRef, _err erro
 	return
 }
 
-func (_class VDIClass) GetNbdInfo__mock(sessionID SessionRef, self VDIRef) (_retval []VdiNbdServerInfoRecord, _err error) {
+
+var VDIClass_GetNbdInfoMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []VdiNbdServerInfoRecord, _err error) {
 	log.Println("VDI.GetNbdInfo not mocked")
 	_err = errors.New("VDI.GetNbdInfo not mocked")
 	return
+}
+
+func (_class VDIClass) GetNbdInfoMock(sessionID SessionRef, self VDIRef) (_retval []VdiNbdServerInfoRecord, _err error) {
+	return VDIClass_GetNbdInfoMockedCallback(sessionID, self)
 }
 // Get details specifying how to access this VDI via a Network Block Device server. For each of a set of NBD server addresses on which the VDI is available, the return value set contains a vdi_nbd_server_info object that contains an exportname to request once the NBD connection is established, and connection details for the address. An empty list is returned if there is no network that has a PIF on a host with access to the relevant SR, or if no such network has been assigned an NBD-related purpose in its purpose field. To access the given VDI, any of the vdi_nbd_server_info objects can be used to make a connection to a server, and then the VDI will be available by requesting the exportname.
 //
@@ -231,7 +246,7 @@ func (_class VDIClass) GetNbdInfo__mock(sessionID SessionRef, self VDIRef) (_ret
 //  VDI_INCOMPATIBLE_TYPE - This operation cannot be performed because the specified VDI is of an incompatible type (eg: an HA statefile cannot be attached to a guest)
 func (_class VDIClass) GetNbdInfo(sessionID SessionRef, self VDIRef) (_retval []VdiNbdServerInfoRecord, _err error) {
 	if (IsMock) {
-		return _class.GetNbdInfo__mock(sessionID, self)
+		return _class.GetNbdInfoMock(sessionID, self)
 	}	
 	_method := "VDI.get_nbd_info"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -250,10 +265,15 @@ func (_class VDIClass) GetNbdInfo(sessionID SessionRef, self VDIRef) (_retval []
 	return
 }
 
-func (_class VDIClass) ListChangedBlocks__mock(sessionID SessionRef, vdiFrom VDIRef, vdiTo VDIRef) (_retval string, _err error) {
+
+var VDIClass_ListChangedBlocksMockedCallback = func (sessionID SessionRef, vdiFrom VDIRef, vdiTo VDIRef) (_retval string, _err error) {
 	log.Println("VDI.ListChangedBlocks not mocked")
 	_err = errors.New("VDI.ListChangedBlocks not mocked")
 	return
+}
+
+func (_class VDIClass) ListChangedBlocksMock(sessionID SessionRef, vdiFrom VDIRef, vdiTo VDIRef) (_retval string, _err error) {
+	return VDIClass_ListChangedBlocksMockedCallback(sessionID, vdiFrom, vdiTo)
 }
 // Compare two VDIs in 64k block increments and report which blocks differ. This operation is not allowed when vdi_to is attached to a VM.
 //
@@ -265,7 +285,7 @@ func (_class VDIClass) ListChangedBlocks__mock(sessionID SessionRef, vdiFrom VDI
 //  VDI_IN_USE - This operation cannot be performed because this VDI is in use by some other operation
 func (_class VDIClass) ListChangedBlocks(sessionID SessionRef, vdiFrom VDIRef, vdiTo VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.ListChangedBlocks__mock(sessionID, vdiFrom, vdiTo)
+		return _class.ListChangedBlocksMock(sessionID, vdiFrom, vdiTo)
 	}	
 	_method := "VDI.list_changed_blocks"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -288,10 +308,15 @@ func (_class VDIClass) ListChangedBlocks(sessionID SessionRef, vdiFrom VDIRef, v
 	return
 }
 
-func (_class VDIClass) DataDestroy__mock(sessionID SessionRef, self VDIRef) (_err error) {
+
+var VDIClass_DataDestroyMockedCallback = func (sessionID SessionRef, self VDIRef) (_err error) {
 	log.Println("VDI.DataDestroy not mocked")
 	_err = errors.New("VDI.DataDestroy not mocked")
 	return
+}
+
+func (_class VDIClass) DataDestroyMock(sessionID SessionRef, self VDIRef) (_err error) {
+	return VDIClass_DataDestroyMockedCallback(sessionID, self)
 }
 // Delete the data of the snapshot VDI, but keep its changed block tracking metadata. When successful, this call changes the type of the VDI to cbt_metadata. This operation is idempotent: calling it on a VDI of type cbt_metadata results in a no-op, and no error will be thrown.
 //
@@ -307,7 +332,7 @@ func (_class VDIClass) DataDestroy__mock(sessionID SessionRef, self VDIRef) (_er
 //  VDI_IS_A_PHYSICAL_DEVICE - The operation cannot be performed on physical device
 func (_class VDIClass) DataDestroy(sessionID SessionRef, self VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.DataDestroy__mock(sessionID, self)
+		return _class.DataDestroyMock(sessionID, self)
 	}	
 	_method := "VDI.data_destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -322,10 +347,15 @@ func (_class VDIClass) DataDestroy(sessionID SessionRef, self VDIRef) (_err erro
 	return
 }
 
-func (_class VDIClass) DisableCbt__mock(sessionID SessionRef, self VDIRef) (_err error) {
+
+var VDIClass_DisableCbtMockedCallback = func (sessionID SessionRef, self VDIRef) (_err error) {
 	log.Println("VDI.DisableCbt not mocked")
 	_err = errors.New("VDI.DisableCbt not mocked")
 	return
+}
+
+func (_class VDIClass) DisableCbtMock(sessionID SessionRef, self VDIRef) (_err error) {
+	return VDIClass_DisableCbtMockedCallback(sessionID, self)
 }
 // Disable changed block tracking for the VDI. This call is only allowed on VDIs that support enabling CBT. It is an idempotent operation - disabling CBT for a VDI for which CBT is not enabled results in a no-op, and no error will be thrown.
 //
@@ -339,7 +369,7 @@ func (_class VDIClass) DisableCbt__mock(sessionID SessionRef, self VDIRef) (_err
 //  VDI_ON_BOOT_MODE_INCOMPATIBLE_WITH_OPERATION - This operation is not permitted on VDIs in the 'on-boot=reset' mode, or on VMs having such VDIs.
 func (_class VDIClass) DisableCbt(sessionID SessionRef, self VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.DisableCbt__mock(sessionID, self)
+		return _class.DisableCbtMock(sessionID, self)
 	}	
 	_method := "VDI.disable_cbt"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -354,10 +384,15 @@ func (_class VDIClass) DisableCbt(sessionID SessionRef, self VDIRef) (_err error
 	return
 }
 
-func (_class VDIClass) EnableCbt__mock(sessionID SessionRef, self VDIRef) (_err error) {
+
+var VDIClass_EnableCbtMockedCallback = func (sessionID SessionRef, self VDIRef) (_err error) {
 	log.Println("VDI.EnableCbt not mocked")
 	_err = errors.New("VDI.EnableCbt not mocked")
 	return
+}
+
+func (_class VDIClass) EnableCbtMock(sessionID SessionRef, self VDIRef) (_err error) {
+	return VDIClass_EnableCbtMockedCallback(sessionID, self)
 }
 // Enable changed block tracking for the VDI. This call is idempotent - enabling CBT for a VDI for which CBT is already enabled results in a no-op, and no error will be thrown.
 //
@@ -371,7 +406,7 @@ func (_class VDIClass) EnableCbt__mock(sessionID SessionRef, self VDIRef) (_err 
 //  VDI_ON_BOOT_MODE_INCOMPATIBLE_WITH_OPERATION - This operation is not permitted on VDIs in the 'on-boot=reset' mode, or on VMs having such VDIs.
 func (_class VDIClass) EnableCbt(sessionID SessionRef, self VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.EnableCbt__mock(sessionID, self)
+		return _class.EnableCbtMock(sessionID, self)
 	}	
 	_method := "VDI.enable_cbt"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -386,15 +421,20 @@ func (_class VDIClass) EnableCbt(sessionID SessionRef, self VDIRef) (_err error)
 	return
 }
 
-func (_class VDIClass) PoolMigrate__mock(sessionID SessionRef, vdi VDIRef, sr SRRef, options map[string]string) (_retval VDIRef, _err error) {
+
+var VDIClass_PoolMigrateMockedCallback = func (sessionID SessionRef, vdi VDIRef, sr SRRef, options map[string]string) (_retval VDIRef, _err error) {
 	log.Println("VDI.PoolMigrate not mocked")
 	_err = errors.New("VDI.PoolMigrate not mocked")
 	return
 }
+
+func (_class VDIClass) PoolMigrateMock(sessionID SessionRef, vdi VDIRef, sr SRRef, options map[string]string) (_retval VDIRef, _err error) {
+	return VDIClass_PoolMigrateMockedCallback(sessionID, vdi, sr, options)
+}
 // Migrate a VDI, which may be attached to a running guest, to a different SR. The destination SR must be visible to the guest.
 func (_class VDIClass) PoolMigrate(sessionID SessionRef, vdi VDIRef, sr SRRef, options map[string]string) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.PoolMigrate__mock(sessionID, vdi, sr, options)
+		return _class.PoolMigrateMock(sessionID, vdi, sr, options)
 	}	
 	_method := "VDI.pool_migrate"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -421,15 +461,20 @@ func (_class VDIClass) PoolMigrate(sessionID SessionRef, vdi VDIRef, sr SRRef, o
 	return
 }
 
-func (_class VDIClass) ReadDatabasePoolUUID__mock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+
+var VDIClass_ReadDatabasePoolUUIDMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	log.Println("VDI.ReadDatabasePoolUUID not mocked")
 	_err = errors.New("VDI.ReadDatabasePoolUUID not mocked")
 	return
 }
+
+func (_class VDIClass) ReadDatabasePoolUUIDMock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+	return VDIClass_ReadDatabasePoolUUIDMockedCallback(sessionID, self)
+}
 // Check the VDI cache for the pool UUID of the database on this VDI.
 func (_class VDIClass) ReadDatabasePoolUUID(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.ReadDatabasePoolUUID__mock(sessionID, self)
+		return _class.ReadDatabasePoolUUIDMock(sessionID, self)
 	}	
 	_method := "VDI.read_database_pool_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -448,15 +493,20 @@ func (_class VDIClass) ReadDatabasePoolUUID(sessionID SessionRef, self VDIRef) (
 	return
 }
 
-func (_class VDIClass) OpenDatabase__mock(sessionID SessionRef, self VDIRef) (_retval SessionRef, _err error) {
+
+var VDIClass_OpenDatabaseMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval SessionRef, _err error) {
 	log.Println("VDI.OpenDatabase not mocked")
 	_err = errors.New("VDI.OpenDatabase not mocked")
 	return
 }
+
+func (_class VDIClass) OpenDatabaseMock(sessionID SessionRef, self VDIRef) (_retval SessionRef, _err error) {
+	return VDIClass_OpenDatabaseMockedCallback(sessionID, self)
+}
 // Load the metadata found on the supplied VDI and return a session reference which can be used in XenAPI calls to query its contents.
 func (_class VDIClass) OpenDatabase(sessionID SessionRef, self VDIRef) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.OpenDatabase__mock(sessionID, self)
+		return _class.OpenDatabaseMock(sessionID, self)
 	}	
 	_method := "VDI.open_database"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -475,15 +525,20 @@ func (_class VDIClass) OpenDatabase(sessionID SessionRef, self VDIRef) (_retval 
 	return
 }
 
-func (_class VDIClass) SetAllowCaching__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetAllowCachingMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetAllowCaching not mocked")
 	_err = errors.New("VDI.SetAllowCaching not mocked")
 	return
 }
+
+func (_class VDIClass) SetAllowCachingMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetAllowCachingMockedCallback(sessionID, self, value)
+}
 // Set the value of the allow_caching parameter. This value can only be changed when the VDI is not attached to a running VM. The caching behaviour is only affected by this flag for VHD-based VDIs that have one parent and no child VHDs. Moreover, caching only takes place when the host running the VM containing this VDI has a nominated SR for local caching.
 func (_class VDIClass) SetAllowCaching(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetAllowCaching__mock(sessionID, self, value)
+		return _class.SetAllowCachingMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_allow_caching"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -502,15 +557,20 @@ func (_class VDIClass) SetAllowCaching(sessionID SessionRef, self VDIRef, value 
 	return
 }
 
-func (_class VDIClass) SetOnBoot__mock(sessionID SessionRef, self VDIRef, value OnBoot) (_err error) {
+
+var VDIClass_SetOnBootMockedCallback = func (sessionID SessionRef, self VDIRef, value OnBoot) (_err error) {
 	log.Println("VDI.SetOnBoot not mocked")
 	_err = errors.New("VDI.SetOnBoot not mocked")
 	return
 }
+
+func (_class VDIClass) SetOnBootMock(sessionID SessionRef, self VDIRef, value OnBoot) (_err error) {
+	return VDIClass_SetOnBootMockedCallback(sessionID, self, value)
+}
 // Set the value of the on_boot parameter. This value can only be changed when the VDI is not attached to a running VM.
 func (_class VDIClass) SetOnBoot(sessionID SessionRef, self VDIRef, value OnBoot) (_err error) {
 	if (IsMock) {
-		return _class.SetOnBoot__mock(sessionID, self, value)
+		return _class.SetOnBootMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_on_boot"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -529,15 +589,20 @@ func (_class VDIClass) SetOnBoot(sessionID SessionRef, self VDIRef, value OnBoot
 	return
 }
 
-func (_class VDIClass) SetNameDescription__mock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+
+var VDIClass_SetNameDescriptionMockedCallback = func (sessionID SessionRef, self VDIRef, value string) (_err error) {
 	log.Println("VDI.SetNameDescription not mocked")
 	_err = errors.New("VDI.SetNameDescription not mocked")
 	return
 }
+
+func (_class VDIClass) SetNameDescriptionMock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+	return VDIClass_SetNameDescriptionMockedCallback(sessionID, self, value)
+}
 // Set the name description of the VDI. This can only happen when its SR is currently attached.
 func (_class VDIClass) SetNameDescription(sessionID SessionRef, self VDIRef, value string) (_err error) {
 	if (IsMock) {
-		return _class.SetNameDescription__mock(sessionID, self, value)
+		return _class.SetNameDescriptionMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_name_description"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -556,15 +621,20 @@ func (_class VDIClass) SetNameDescription(sessionID SessionRef, self VDIRef, val
 	return
 }
 
-func (_class VDIClass) SetNameLabel__mock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+
+var VDIClass_SetNameLabelMockedCallback = func (sessionID SessionRef, self VDIRef, value string) (_err error) {
 	log.Println("VDI.SetNameLabel not mocked")
 	_err = errors.New("VDI.SetNameLabel not mocked")
 	return
 }
+
+func (_class VDIClass) SetNameLabelMock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+	return VDIClass_SetNameLabelMockedCallback(sessionID, self, value)
+}
 // Set the name label of the VDI. This can only happen when then its SR is currently attached.
 func (_class VDIClass) SetNameLabel(sessionID SessionRef, self VDIRef, value string) (_err error) {
 	if (IsMock) {
-		return _class.SetNameLabel__mock(sessionID, self, value)
+		return _class.SetNameLabelMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -583,15 +653,20 @@ func (_class VDIClass) SetNameLabel(sessionID SessionRef, self VDIRef, value str
 	return
 }
 
-func (_class VDIClass) SetMetadataOfPool__mock(sessionID SessionRef, self VDIRef, value PoolRef) (_err error) {
+
+var VDIClass_SetMetadataOfPoolMockedCallback = func (sessionID SessionRef, self VDIRef, value PoolRef) (_err error) {
 	log.Println("VDI.SetMetadataOfPool not mocked")
 	_err = errors.New("VDI.SetMetadataOfPool not mocked")
 	return
 }
+
+func (_class VDIClass) SetMetadataOfPoolMock(sessionID SessionRef, self VDIRef, value PoolRef) (_err error) {
+	return VDIClass_SetMetadataOfPoolMockedCallback(sessionID, self, value)
+}
 // Records the pool whose metadata is contained by this VDI.
 func (_class VDIClass) SetMetadataOfPool(sessionID SessionRef, self VDIRef, value PoolRef) (_err error) {
 	if (IsMock) {
-		return _class.SetMetadataOfPool__mock(sessionID, self, value)
+		return _class.SetMetadataOfPoolMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_metadata_of_pool"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -610,15 +685,20 @@ func (_class VDIClass) SetMetadataOfPool(sessionID SessionRef, self VDIRef, valu
 	return
 }
 
-func (_class VDIClass) SetSnapshotTime__mock(sessionID SessionRef, self VDIRef, value time.Time) (_err error) {
+
+var VDIClass_SetSnapshotTimeMockedCallback = func (sessionID SessionRef, self VDIRef, value time.Time) (_err error) {
 	log.Println("VDI.SetSnapshotTime not mocked")
 	_err = errors.New("VDI.SetSnapshotTime not mocked")
 	return
 }
+
+func (_class VDIClass) SetSnapshotTimeMock(sessionID SessionRef, self VDIRef, value time.Time) (_err error) {
+	return VDIClass_SetSnapshotTimeMockedCallback(sessionID, self, value)
+}
 // Sets the snapshot time of this VDI.
 func (_class VDIClass) SetSnapshotTime(sessionID SessionRef, self VDIRef, value time.Time) (_err error) {
 	if (IsMock) {
-		return _class.SetSnapshotTime__mock(sessionID, self, value)
+		return _class.SetSnapshotTimeMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_snapshot_time"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -637,15 +717,20 @@ func (_class VDIClass) SetSnapshotTime(sessionID SessionRef, self VDIRef, value 
 	return
 }
 
-func (_class VDIClass) SetSnapshotOf__mock(sessionID SessionRef, self VDIRef, value VDIRef) (_err error) {
+
+var VDIClass_SetSnapshotOfMockedCallback = func (sessionID SessionRef, self VDIRef, value VDIRef) (_err error) {
 	log.Println("VDI.SetSnapshotOf not mocked")
 	_err = errors.New("VDI.SetSnapshotOf not mocked")
 	return
 }
+
+func (_class VDIClass) SetSnapshotOfMock(sessionID SessionRef, self VDIRef, value VDIRef) (_err error) {
+	return VDIClass_SetSnapshotOfMockedCallback(sessionID, self, value)
+}
 // Sets the VDI of which this VDI is a snapshot
 func (_class VDIClass) SetSnapshotOf(sessionID SessionRef, self VDIRef, value VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.SetSnapshotOf__mock(sessionID, self, value)
+		return _class.SetSnapshotOfMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_snapshot_of"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -664,15 +749,20 @@ func (_class VDIClass) SetSnapshotOf(sessionID SessionRef, self VDIRef, value VD
 	return
 }
 
-func (_class VDIClass) SetIsASnapshot__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetIsASnapshotMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetIsASnapshot not mocked")
 	_err = errors.New("VDI.SetIsASnapshot not mocked")
 	return
 }
+
+func (_class VDIClass) SetIsASnapshotMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetIsASnapshotMockedCallback(sessionID, self, value)
+}
 // Sets whether this VDI is a snapshot
 func (_class VDIClass) SetIsASnapshot(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetIsASnapshot__mock(sessionID, self, value)
+		return _class.SetIsASnapshotMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_is_a_snapshot"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -691,15 +781,20 @@ func (_class VDIClass) SetIsASnapshot(sessionID SessionRef, self VDIRef, value b
 	return
 }
 
-func (_class VDIClass) SetPhysicalUtilisation__mock(sessionID SessionRef, self VDIRef, value int) (_err error) {
+
+var VDIClass_SetPhysicalUtilisationMockedCallback = func (sessionID SessionRef, self VDIRef, value int) (_err error) {
 	log.Println("VDI.SetPhysicalUtilisation not mocked")
 	_err = errors.New("VDI.SetPhysicalUtilisation not mocked")
 	return
 }
+
+func (_class VDIClass) SetPhysicalUtilisationMock(sessionID SessionRef, self VDIRef, value int) (_err error) {
+	return VDIClass_SetPhysicalUtilisationMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's physical_utilisation field
 func (_class VDIClass) SetPhysicalUtilisation(sessionID SessionRef, self VDIRef, value int) (_err error) {
 	if (IsMock) {
-		return _class.SetPhysicalUtilisation__mock(sessionID, self, value)
+		return _class.SetPhysicalUtilisationMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_physical_utilisation"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -718,15 +813,20 @@ func (_class VDIClass) SetPhysicalUtilisation(sessionID SessionRef, self VDIRef,
 	return
 }
 
-func (_class VDIClass) SetVirtualSize__mock(sessionID SessionRef, self VDIRef, value int) (_err error) {
+
+var VDIClass_SetVirtualSizeMockedCallback = func (sessionID SessionRef, self VDIRef, value int) (_err error) {
 	log.Println("VDI.SetVirtualSize not mocked")
 	_err = errors.New("VDI.SetVirtualSize not mocked")
 	return
 }
+
+func (_class VDIClass) SetVirtualSizeMock(sessionID SessionRef, self VDIRef, value int) (_err error) {
+	return VDIClass_SetVirtualSizeMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's virtual_size field
 func (_class VDIClass) SetVirtualSize(sessionID SessionRef, self VDIRef, value int) (_err error) {
 	if (IsMock) {
-		return _class.SetVirtualSize__mock(sessionID, self, value)
+		return _class.SetVirtualSizeMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_virtual_size"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -745,15 +845,20 @@ func (_class VDIClass) SetVirtualSize(sessionID SessionRef, self VDIRef, value i
 	return
 }
 
-func (_class VDIClass) SetMissing__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetMissingMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetMissing not mocked")
 	_err = errors.New("VDI.SetMissing not mocked")
 	return
 }
+
+func (_class VDIClass) SetMissingMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetMissingMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's missing field
 func (_class VDIClass) SetMissing(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetMissing__mock(sessionID, self, value)
+		return _class.SetMissingMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_missing"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -772,15 +877,20 @@ func (_class VDIClass) SetMissing(sessionID SessionRef, self VDIRef, value bool)
 	return
 }
 
-func (_class VDIClass) SetReadOnly__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetReadOnlyMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetReadOnly not mocked")
 	_err = errors.New("VDI.SetReadOnly not mocked")
 	return
 }
+
+func (_class VDIClass) SetReadOnlyMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetReadOnlyMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's read_only field
 func (_class VDIClass) SetReadOnly(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetReadOnly__mock(sessionID, self, value)
+		return _class.SetReadOnlyMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_read_only"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -799,15 +909,20 @@ func (_class VDIClass) SetReadOnly(sessionID SessionRef, self VDIRef, value bool
 	return
 }
 
-func (_class VDIClass) SetSharable__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetSharableMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetSharable not mocked")
 	_err = errors.New("VDI.SetSharable not mocked")
 	return
 }
+
+func (_class VDIClass) SetSharableMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetSharableMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's sharable field
 func (_class VDIClass) SetSharable(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetSharable__mock(sessionID, self, value)
+		return _class.SetSharableMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_sharable"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -826,15 +941,20 @@ func (_class VDIClass) SetSharable(sessionID SessionRef, self VDIRef, value bool
 	return
 }
 
-func (_class VDIClass) Forget__mock(sessionID SessionRef, vdi VDIRef) (_err error) {
+
+var VDIClass_ForgetMockedCallback = func (sessionID SessionRef, vdi VDIRef) (_err error) {
 	log.Println("VDI.Forget not mocked")
 	_err = errors.New("VDI.Forget not mocked")
 	return
 }
+
+func (_class VDIClass) ForgetMock(sessionID SessionRef, vdi VDIRef) (_err error) {
+	return VDIClass_ForgetMockedCallback(sessionID, vdi)
+}
 // Removes a VDI record from the database
 func (_class VDIClass) Forget(sessionID SessionRef, vdi VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.Forget__mock(sessionID, vdi)
+		return _class.ForgetMock(sessionID, vdi)
 	}	
 	_method := "VDI.forget"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -849,15 +969,20 @@ func (_class VDIClass) Forget(sessionID SessionRef, vdi VDIRef) (_err error) {
 	return
 }
 
-func (_class VDIClass) SetManaged__mock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+
+var VDIClass_SetManagedMockedCallback = func (sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	log.Println("VDI.SetManaged not mocked")
 	_err = errors.New("VDI.SetManaged not mocked")
 	return
 }
+
+func (_class VDIClass) SetManagedMock(sessionID SessionRef, self VDIRef, value bool) (_err error) {
+	return VDIClass_SetManagedMockedCallback(sessionID, self, value)
+}
 // Sets the VDI's managed field
 func (_class VDIClass) SetManaged(sessionID SessionRef, self VDIRef, value bool) (_err error) {
 	if (IsMock) {
-		return _class.SetManaged__mock(sessionID, self, value)
+		return _class.SetManagedMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_managed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -876,10 +1001,15 @@ func (_class VDIClass) SetManaged(sessionID SessionRef, self VDIRef, value bool)
 	return
 }
 
-func (_class VDIClass) Copy__mock(sessionID SessionRef, vdi VDIRef, sr SRRef, baseVdi VDIRef, intoVdi VDIRef) (_retval VDIRef, _err error) {
+
+var VDIClass_CopyMockedCallback = func (sessionID SessionRef, vdi VDIRef, sr SRRef, baseVdi VDIRef, intoVdi VDIRef) (_retval VDIRef, _err error) {
 	log.Println("VDI.Copy not mocked")
 	_err = errors.New("VDI.Copy not mocked")
 	return
+}
+
+func (_class VDIClass) CopyMock(sessionID SessionRef, vdi VDIRef, sr SRRef, baseVdi VDIRef, intoVdi VDIRef) (_retval VDIRef, _err error) {
+	return VDIClass_CopyMockedCallback(sessionID, vdi, sr, baseVdi, intoVdi)
 }
 // Copy either a full VDI or the block differences between two VDIs into either a fresh VDI or an existing VDI.
 //
@@ -889,7 +1019,7 @@ func (_class VDIClass) Copy__mock(sessionID SessionRef, vdi VDIRef, sr SRRef, ba
 //  VDI_NOT_SPARSE - The VDI is not stored using a sparse format. It is not possible to query and manipulate only the changed blocks (or 'block differences' or 'disk deltas') between two VDIs. Please select a VDI which uses a sparse-aware technology such as VHD.
 func (_class VDIClass) Copy(sessionID SessionRef, vdi VDIRef, sr SRRef, baseVdi VDIRef, intoVdi VDIRef) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.Copy__mock(sessionID, vdi, sr, baseVdi, intoVdi)
+		return _class.CopyMock(sessionID, vdi, sr, baseVdi, intoVdi)
 	}	
 	_method := "VDI.copy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -920,10 +1050,15 @@ func (_class VDIClass) Copy(sessionID SessionRef, vdi VDIRef, sr SRRef, baseVdi 
 	return
 }
 
-func (_class VDIClass) Update__mock(sessionID SessionRef, vdi VDIRef) (_err error) {
+
+var VDIClass_UpdateMockedCallback = func (sessionID SessionRef, vdi VDIRef) (_err error) {
 	log.Println("VDI.Update not mocked")
 	_err = errors.New("VDI.Update not mocked")
 	return
+}
+
+func (_class VDIClass) UpdateMock(sessionID SessionRef, vdi VDIRef) (_err error) {
+	return VDIClass_UpdateMockedCallback(sessionID, vdi)
 }
 // Ask the storage backend to refresh the fields in the VDI object
 //
@@ -931,7 +1066,7 @@ func (_class VDIClass) Update__mock(sessionID SessionRef, vdi VDIRef) (_err erro
 //  SR_OPERATION_NOT_SUPPORTED - The SR backend does not support the operation (check the SR's allowed operations)
 func (_class VDIClass) Update(sessionID SessionRef, vdi VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.Update__mock(sessionID, vdi)
+		return _class.UpdateMock(sessionID, vdi)
 	}	
 	_method := "VDI.update"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -946,15 +1081,20 @@ func (_class VDIClass) Update(sessionID SessionRef, vdi VDIRef) (_err error) {
 	return
 }
 
-func (_class VDIClass) DbForget__mock(sessionID SessionRef, vdi VDIRef) (_err error) {
+
+var VDIClass_DbForgetMockedCallback = func (sessionID SessionRef, vdi VDIRef) (_err error) {
 	log.Println("VDI.DbForget not mocked")
 	_err = errors.New("VDI.DbForget not mocked")
 	return
 }
+
+func (_class VDIClass) DbForgetMock(sessionID SessionRef, vdi VDIRef) (_err error) {
+	return VDIClass_DbForgetMockedCallback(sessionID, vdi)
+}
 // Removes a VDI record from the database
 func (_class VDIClass) DbForget(sessionID SessionRef, vdi VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.DbForget__mock(sessionID, vdi)
+		return _class.DbForgetMock(sessionID, vdi)
 	}	
 	_method := "VDI.db_forget"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -969,15 +1109,20 @@ func (_class VDIClass) DbForget(sessionID SessionRef, vdi VDIRef) (_err error) {
 	return
 }
 
-func (_class VDIClass) DbIntroduce__mock(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef, cbtEnabled bool) (_retval VDIRef, _err error) {
+
+var VDIClass_DbIntroduceMockedCallback = func (sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef, cbtEnabled bool) (_retval VDIRef, _err error) {
 	log.Println("VDI.DbIntroduce not mocked")
 	_err = errors.New("VDI.DbIntroduce not mocked")
 	return
 }
+
+func (_class VDIClass) DbIntroduceMock(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef, cbtEnabled bool) (_retval VDIRef, _err error) {
+	return VDIClass_DbIntroduceMockedCallback(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf, cbtEnabled)
+}
 // Create a new VDI record in the database only
 func (_class VDIClass) DbIntroduce(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef, cbtEnabled bool) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.DbIntroduce__mock(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf, cbtEnabled)
+		return _class.DbIntroduceMock(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf, cbtEnabled)
 	}	
 	_method := "VDI.db_introduce"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1068,10 +1213,15 @@ func (_class VDIClass) DbIntroduce(sessionID SessionRef, uuid string, nameLabel 
 	return
 }
 
-func (_class VDIClass) Introduce__mock(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef) (_retval VDIRef, _err error) {
+
+var VDIClass_IntroduceMockedCallback = func (sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef) (_retval VDIRef, _err error) {
 	log.Println("VDI.Introduce not mocked")
 	_err = errors.New("VDI.Introduce not mocked")
 	return
+}
+
+func (_class VDIClass) IntroduceMock(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef) (_retval VDIRef, _err error) {
+	return VDIClass_IntroduceMockedCallback(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf)
 }
 // Create a new VDI record in the database only
 //
@@ -1079,7 +1229,7 @@ func (_class VDIClass) Introduce__mock(sessionID SessionRef, uuid string, nameLa
 //  SR_OPERATION_NOT_SUPPORTED - The SR backend does not support the operation (check the SR's allowed operations)
 func (_class VDIClass) Introduce(sessionID SessionRef, uuid string, nameLabel string, nameDescription string, sr SRRef, atype VdiType, sharable bool, readOnly bool, otherConfig map[string]string, location string, xenstoreData map[string]string, smConfig map[string]string, managed bool, virtualSize int, physicalUtilisation int, metadataOfPool PoolRef, isASnapshot bool, snapshotTime time.Time, snapshotOf VDIRef) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.Introduce__mock(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf)
+		return _class.IntroduceMock(sessionID, uuid, nameLabel, nameDescription, sr, atype, sharable, readOnly, otherConfig, location, xenstoreData, smConfig, managed, virtualSize, physicalUtilisation, metadataOfPool, isASnapshot, snapshotTime, snapshotOf)
 	}	
 	_method := "VDI.introduce"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1166,15 +1316,20 @@ func (_class VDIClass) Introduce(sessionID SessionRef, uuid string, nameLabel st
 	return
 }
 
-func (_class VDIClass) ResizeOnline__mock(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
+
+var VDIClass_ResizeOnlineMockedCallback = func (sessionID SessionRef, vdi VDIRef, size int) (_err error) {
 	log.Println("VDI.ResizeOnline not mocked")
 	_err = errors.New("VDI.ResizeOnline not mocked")
 	return
 }
+
+func (_class VDIClass) ResizeOnlineMock(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
+	return VDIClass_ResizeOnlineMockedCallback(sessionID, vdi, size)
+}
 // Resize the VDI which may or may not be attached to running guests.
 func (_class VDIClass) ResizeOnline(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
 	if (IsMock) {
-		return _class.ResizeOnline__mock(sessionID, vdi, size)
+		return _class.ResizeOnlineMock(sessionID, vdi, size)
 	}	
 	_method := "VDI.resize_online"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1193,15 +1348,20 @@ func (_class VDIClass) ResizeOnline(sessionID SessionRef, vdi VDIRef, size int) 
 	return
 }
 
-func (_class VDIClass) Resize__mock(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
+
+var VDIClass_ResizeMockedCallback = func (sessionID SessionRef, vdi VDIRef, size int) (_err error) {
 	log.Println("VDI.Resize not mocked")
 	_err = errors.New("VDI.Resize not mocked")
 	return
 }
+
+func (_class VDIClass) ResizeMock(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
+	return VDIClass_ResizeMockedCallback(sessionID, vdi, size)
+}
 // Resize the VDI.
 func (_class VDIClass) Resize(sessionID SessionRef, vdi VDIRef, size int) (_err error) {
 	if (IsMock) {
-		return _class.Resize__mock(sessionID, vdi, size)
+		return _class.ResizeMock(sessionID, vdi, size)
 	}	
 	_method := "VDI.resize"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1220,15 +1380,20 @@ func (_class VDIClass) Resize(sessionID SessionRef, vdi VDIRef, size int) (_err 
 	return
 }
 
-func (_class VDIClass) Clone__mock(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
+
+var VDIClass_CloneMockedCallback = func (sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
 	log.Println("VDI.Clone not mocked")
 	_err = errors.New("VDI.Clone not mocked")
 	return
 }
+
+func (_class VDIClass) CloneMock(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
+	return VDIClass_CloneMockedCallback(sessionID, vdi, driverParams)
+}
 // Take an exact copy of the VDI and return a reference to the new disk. If any driver_params are specified then these are passed through to the storage-specific substrate driver that implements the clone operation. NB the clone lives in the same Storage Repository as its parent.
 func (_class VDIClass) Clone(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.Clone__mock(sessionID, vdi, driverParams)
+		return _class.CloneMock(sessionID, vdi, driverParams)
 	}	
 	_method := "VDI.clone"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1251,15 +1416,20 @@ func (_class VDIClass) Clone(sessionID SessionRef, vdi VDIRef, driverParams map[
 	return
 }
 
-func (_class VDIClass) Snapshot__mock(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
+
+var VDIClass_SnapshotMockedCallback = func (sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
 	log.Println("VDI.Snapshot not mocked")
 	_err = errors.New("VDI.Snapshot not mocked")
 	return
 }
+
+func (_class VDIClass) SnapshotMock(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
+	return VDIClass_SnapshotMockedCallback(sessionID, vdi, driverParams)
+}
 // Take a read-only snapshot of the VDI, returning a reference to the snapshot. If any driver_params are specified then these are passed through to the storage-specific substrate driver that takes the snapshot. NB the snapshot lives in the same Storage Repository as its parent.
 func (_class VDIClass) Snapshot(sessionID SessionRef, vdi VDIRef, driverParams map[string]string) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.Snapshot__mock(sessionID, vdi, driverParams)
+		return _class.SnapshotMock(sessionID, vdi, driverParams)
 	}	
 	_method := "VDI.snapshot"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1282,15 +1452,20 @@ func (_class VDIClass) Snapshot(sessionID SessionRef, vdi VDIRef, driverParams m
 	return
 }
 
-func (_class VDIClass) RemoveTags__mock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+
+var VDIClass_RemoveTagsMockedCallback = func (sessionID SessionRef, self VDIRef, value string) (_err error) {
 	log.Println("VDI.RemoveTags not mocked")
 	_err = errors.New("VDI.RemoveTags not mocked")
 	return
 }
+
+func (_class VDIClass) RemoveTagsMock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+	return VDIClass_RemoveTagsMockedCallback(sessionID, self, value)
+}
 // Remove the given value from the tags field of the given VDI.  If the value is not in that Set, then do nothing.
 func (_class VDIClass) RemoveTags(sessionID SessionRef, self VDIRef, value string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveTags__mock(sessionID, self, value)
+		return _class.RemoveTagsMock(sessionID, self, value)
 	}	
 	_method := "VDI.remove_tags"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1309,15 +1484,20 @@ func (_class VDIClass) RemoveTags(sessionID SessionRef, self VDIRef, value strin
 	return
 }
 
-func (_class VDIClass) AddTags__mock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+
+var VDIClass_AddTagsMockedCallback = func (sessionID SessionRef, self VDIRef, value string) (_err error) {
 	log.Println("VDI.AddTags not mocked")
 	_err = errors.New("VDI.AddTags not mocked")
 	return
 }
+
+func (_class VDIClass) AddTagsMock(sessionID SessionRef, self VDIRef, value string) (_err error) {
+	return VDIClass_AddTagsMockedCallback(sessionID, self, value)
+}
 // Add the given value to the tags field of the given VDI.  If the value is already in that Set, then do nothing.
 func (_class VDIClass) AddTags(sessionID SessionRef, self VDIRef, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddTags__mock(sessionID, self, value)
+		return _class.AddTagsMock(sessionID, self, value)
 	}	
 	_method := "VDI.add_tags"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1336,15 +1516,20 @@ func (_class VDIClass) AddTags(sessionID SessionRef, self VDIRef, value string) 
 	return
 }
 
-func (_class VDIClass) SetTags__mock(sessionID SessionRef, self VDIRef, value []string) (_err error) {
+
+var VDIClass_SetTagsMockedCallback = func (sessionID SessionRef, self VDIRef, value []string) (_err error) {
 	log.Println("VDI.SetTags not mocked")
 	_err = errors.New("VDI.SetTags not mocked")
 	return
 }
+
+func (_class VDIClass) SetTagsMock(sessionID SessionRef, self VDIRef, value []string) (_err error) {
+	return VDIClass_SetTagsMockedCallback(sessionID, self, value)
+}
 // Set the tags field of the given VDI.
 func (_class VDIClass) SetTags(sessionID SessionRef, self VDIRef, value []string) (_err error) {
 	if (IsMock) {
-		return _class.SetTags__mock(sessionID, self, value)
+		return _class.SetTagsMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_tags"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1363,15 +1548,20 @@ func (_class VDIClass) SetTags(sessionID SessionRef, self VDIRef, value []string
 	return
 }
 
-func (_class VDIClass) RemoveFromSmConfig__mock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+
+var VDIClass_RemoveFromSmConfigMockedCallback = func (sessionID SessionRef, self VDIRef, key string) (_err error) {
 	log.Println("VDI.RemoveFromSmConfig not mocked")
 	_err = errors.New("VDI.RemoveFromSmConfig not mocked")
 	return
 }
+
+func (_class VDIClass) RemoveFromSmConfigMock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+	return VDIClass_RemoveFromSmConfigMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the sm_config field of the given VDI.  If the key is not in that Map, then do nothing.
 func (_class VDIClass) RemoveFromSmConfig(sessionID SessionRef, self VDIRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromSmConfig__mock(sessionID, self, key)
+		return _class.RemoveFromSmConfigMock(sessionID, self, key)
 	}	
 	_method := "VDI.remove_from_sm_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1390,15 +1580,20 @@ func (_class VDIClass) RemoveFromSmConfig(sessionID SessionRef, self VDIRef, key
 	return
 }
 
-func (_class VDIClass) AddToSmConfig__mock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+
+var VDIClass_AddToSmConfigMockedCallback = func (sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	log.Println("VDI.AddToSmConfig not mocked")
 	_err = errors.New("VDI.AddToSmConfig not mocked")
 	return
 }
+
+func (_class VDIClass) AddToSmConfigMock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+	return VDIClass_AddToSmConfigMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the sm_config field of the given VDI.
 func (_class VDIClass) AddToSmConfig(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToSmConfig__mock(sessionID, self, key, value)
+		return _class.AddToSmConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VDI.add_to_sm_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1421,15 +1616,20 @@ func (_class VDIClass) AddToSmConfig(sessionID SessionRef, self VDIRef, key stri
 	return
 }
 
-func (_class VDIClass) SetSmConfig__mock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+
+var VDIClass_SetSmConfigMockedCallback = func (sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	log.Println("VDI.SetSmConfig not mocked")
 	_err = errors.New("VDI.SetSmConfig not mocked")
 	return
 }
+
+func (_class VDIClass) SetSmConfigMock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+	return VDIClass_SetSmConfigMockedCallback(sessionID, self, value)
+}
 // Set the sm_config field of the given VDI.
 func (_class VDIClass) SetSmConfig(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetSmConfig__mock(sessionID, self, value)
+		return _class.SetSmConfigMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_sm_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1448,15 +1648,20 @@ func (_class VDIClass) SetSmConfig(sessionID SessionRef, self VDIRef, value map[
 	return
 }
 
-func (_class VDIClass) RemoveFromXenstoreData__mock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+
+var VDIClass_RemoveFromXenstoreDataMockedCallback = func (sessionID SessionRef, self VDIRef, key string) (_err error) {
 	log.Println("VDI.RemoveFromXenstoreData not mocked")
 	_err = errors.New("VDI.RemoveFromXenstoreData not mocked")
 	return
 }
+
+func (_class VDIClass) RemoveFromXenstoreDataMock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+	return VDIClass_RemoveFromXenstoreDataMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the xenstore_data field of the given VDI.  If the key is not in that Map, then do nothing.
 func (_class VDIClass) RemoveFromXenstoreData(sessionID SessionRef, self VDIRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromXenstoreData__mock(sessionID, self, key)
+		return _class.RemoveFromXenstoreDataMock(sessionID, self, key)
 	}	
 	_method := "VDI.remove_from_xenstore_data"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1475,15 +1680,20 @@ func (_class VDIClass) RemoveFromXenstoreData(sessionID SessionRef, self VDIRef,
 	return
 }
 
-func (_class VDIClass) AddToXenstoreData__mock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+
+var VDIClass_AddToXenstoreDataMockedCallback = func (sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	log.Println("VDI.AddToXenstoreData not mocked")
 	_err = errors.New("VDI.AddToXenstoreData not mocked")
 	return
 }
+
+func (_class VDIClass) AddToXenstoreDataMock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+	return VDIClass_AddToXenstoreDataMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the xenstore_data field of the given VDI.
 func (_class VDIClass) AddToXenstoreData(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToXenstoreData__mock(sessionID, self, key, value)
+		return _class.AddToXenstoreDataMock(sessionID, self, key, value)
 	}	
 	_method := "VDI.add_to_xenstore_data"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1506,15 +1716,20 @@ func (_class VDIClass) AddToXenstoreData(sessionID SessionRef, self VDIRef, key 
 	return
 }
 
-func (_class VDIClass) SetXenstoreData__mock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+
+var VDIClass_SetXenstoreDataMockedCallback = func (sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	log.Println("VDI.SetXenstoreData not mocked")
 	_err = errors.New("VDI.SetXenstoreData not mocked")
 	return
 }
+
+func (_class VDIClass) SetXenstoreDataMock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+	return VDIClass_SetXenstoreDataMockedCallback(sessionID, self, value)
+}
 // Set the xenstore_data field of the given VDI.
 func (_class VDIClass) SetXenstoreData(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetXenstoreData__mock(sessionID, self, value)
+		return _class.SetXenstoreDataMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_xenstore_data"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1533,15 +1748,20 @@ func (_class VDIClass) SetXenstoreData(sessionID SessionRef, self VDIRef, value 
 	return
 }
 
-func (_class VDIClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+
+var VDIClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VDIRef, key string) (_err error) {
 	log.Println("VDI.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VDI.RemoveFromOtherConfig not mocked")
 	return
 }
+
+func (_class VDIClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VDIRef, key string) (_err error) {
+	return VDIClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the other_config field of the given VDI.  If the key is not in that Map, then do nothing.
 func (_class VDIClass) RemoveFromOtherConfig(sessionID SessionRef, self VDIRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VDI.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1560,15 +1780,20 @@ func (_class VDIClass) RemoveFromOtherConfig(sessionID SessionRef, self VDIRef, 
 	return
 }
 
-func (_class VDIClass) AddToOtherConfig__mock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+
+var VDIClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	log.Println("VDI.AddToOtherConfig not mocked")
 	_err = errors.New("VDI.AddToOtherConfig not mocked")
 	return
 }
+
+func (_class VDIClass) AddToOtherConfigMock(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
+	return VDIClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the other_config field of the given VDI.
 func (_class VDIClass) AddToOtherConfig(sessionID SessionRef, self VDIRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VDI.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1591,15 +1816,20 @@ func (_class VDIClass) AddToOtherConfig(sessionID SessionRef, self VDIRef, key s
 	return
 }
 
-func (_class VDIClass) SetOtherConfig__mock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+
+var VDIClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	log.Println("VDI.SetOtherConfig not mocked")
 	_err = errors.New("VDI.SetOtherConfig not mocked")
 	return
 }
+
+func (_class VDIClass) SetOtherConfigMock(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
+	return VDIClass_SetOtherConfigMockedCallback(sessionID, self, value)
+}
 // Set the other_config field of the given VDI.
 func (_class VDIClass) SetOtherConfig(sessionID SessionRef, self VDIRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetOtherConfig__mock(sessionID, self, value)
+		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VDI.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1618,15 +1848,20 @@ func (_class VDIClass) SetOtherConfig(sessionID SessionRef, self VDIRef, value m
 	return
 }
 
-func (_class VDIClass) GetCbtEnabled__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetCbtEnabledMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetCbtEnabled not mocked")
 	_err = errors.New("VDI.GetCbtEnabled not mocked")
 	return
 }
+
+func (_class VDIClass) GetCbtEnabledMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetCbtEnabledMockedCallback(sessionID, self)
+}
 // Get the cbt_enabled field of the given VDI.
 func (_class VDIClass) GetCbtEnabled(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetCbtEnabled__mock(sessionID, self)
+		return _class.GetCbtEnabledMock(sessionID, self)
 	}	
 	_method := "VDI.get_cbt_enabled"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1645,15 +1880,20 @@ func (_class VDIClass) GetCbtEnabled(sessionID SessionRef, self VDIRef) (_retval
 	return
 }
 
-func (_class VDIClass) GetIsToolsIso__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetIsToolsIsoMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetIsToolsIso not mocked")
 	_err = errors.New("VDI.GetIsToolsIso not mocked")
 	return
 }
+
+func (_class VDIClass) GetIsToolsIsoMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetIsToolsIsoMockedCallback(sessionID, self)
+}
 // Get the is_tools_iso field of the given VDI.
 func (_class VDIClass) GetIsToolsIso(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetIsToolsIso__mock(sessionID, self)
+		return _class.GetIsToolsIsoMock(sessionID, self)
 	}	
 	_method := "VDI.get_is_tools_iso"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1672,15 +1912,20 @@ func (_class VDIClass) GetIsToolsIso(sessionID SessionRef, self VDIRef) (_retval
 	return
 }
 
-func (_class VDIClass) GetMetadataLatest__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetMetadataLatestMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetMetadataLatest not mocked")
 	_err = errors.New("VDI.GetMetadataLatest not mocked")
 	return
 }
+
+func (_class VDIClass) GetMetadataLatestMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetMetadataLatestMockedCallback(sessionID, self)
+}
 // Get the metadata_latest field of the given VDI.
 func (_class VDIClass) GetMetadataLatest(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetMetadataLatest__mock(sessionID, self)
+		return _class.GetMetadataLatestMock(sessionID, self)
 	}	
 	_method := "VDI.get_metadata_latest"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1699,15 +1944,20 @@ func (_class VDIClass) GetMetadataLatest(sessionID SessionRef, self VDIRef) (_re
 	return
 }
 
-func (_class VDIClass) GetMetadataOfPool__mock(sessionID SessionRef, self VDIRef) (_retval PoolRef, _err error) {
+
+var VDIClass_GetMetadataOfPoolMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval PoolRef, _err error) {
 	log.Println("VDI.GetMetadataOfPool not mocked")
 	_err = errors.New("VDI.GetMetadataOfPool not mocked")
 	return
 }
+
+func (_class VDIClass) GetMetadataOfPoolMock(sessionID SessionRef, self VDIRef) (_retval PoolRef, _err error) {
+	return VDIClass_GetMetadataOfPoolMockedCallback(sessionID, self)
+}
 // Get the metadata_of_pool field of the given VDI.
 func (_class VDIClass) GetMetadataOfPool(sessionID SessionRef, self VDIRef) (_retval PoolRef, _err error) {
 	if (IsMock) {
-		return _class.GetMetadataOfPool__mock(sessionID, self)
+		return _class.GetMetadataOfPoolMock(sessionID, self)
 	}	
 	_method := "VDI.get_metadata_of_pool"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1726,15 +1976,20 @@ func (_class VDIClass) GetMetadataOfPool(sessionID SessionRef, self VDIRef) (_re
 	return
 }
 
-func (_class VDIClass) GetOnBoot__mock(sessionID SessionRef, self VDIRef) (_retval OnBoot, _err error) {
+
+var VDIClass_GetOnBootMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval OnBoot, _err error) {
 	log.Println("VDI.GetOnBoot not mocked")
 	_err = errors.New("VDI.GetOnBoot not mocked")
 	return
 }
+
+func (_class VDIClass) GetOnBootMock(sessionID SessionRef, self VDIRef) (_retval OnBoot, _err error) {
+	return VDIClass_GetOnBootMockedCallback(sessionID, self)
+}
 // Get the on_boot field of the given VDI.
 func (_class VDIClass) GetOnBoot(sessionID SessionRef, self VDIRef) (_retval OnBoot, _err error) {
 	if (IsMock) {
-		return _class.GetOnBoot__mock(sessionID, self)
+		return _class.GetOnBootMock(sessionID, self)
 	}	
 	_method := "VDI.get_on_boot"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1753,15 +2008,20 @@ func (_class VDIClass) GetOnBoot(sessionID SessionRef, self VDIRef) (_retval OnB
 	return
 }
 
-func (_class VDIClass) GetAllowCaching__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetAllowCachingMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetAllowCaching not mocked")
 	_err = errors.New("VDI.GetAllowCaching not mocked")
 	return
 }
+
+func (_class VDIClass) GetAllowCachingMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetAllowCachingMockedCallback(sessionID, self)
+}
 // Get the allow_caching field of the given VDI.
 func (_class VDIClass) GetAllowCaching(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetAllowCaching__mock(sessionID, self)
+		return _class.GetAllowCachingMock(sessionID, self)
 	}	
 	_method := "VDI.get_allow_caching"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1780,15 +2040,20 @@ func (_class VDIClass) GetAllowCaching(sessionID SessionRef, self VDIRef) (_retv
 	return
 }
 
-func (_class VDIClass) GetTags__mock(sessionID SessionRef, self VDIRef) (_retval []string, _err error) {
+
+var VDIClass_GetTagsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []string, _err error) {
 	log.Println("VDI.GetTags not mocked")
 	_err = errors.New("VDI.GetTags not mocked")
 	return
 }
+
+func (_class VDIClass) GetTagsMock(sessionID SessionRef, self VDIRef) (_retval []string, _err error) {
+	return VDIClass_GetTagsMockedCallback(sessionID, self)
+}
 // Get the tags field of the given VDI.
 func (_class VDIClass) GetTags(sessionID SessionRef, self VDIRef) (_retval []string, _err error) {
 	if (IsMock) {
-		return _class.GetTags__mock(sessionID, self)
+		return _class.GetTagsMock(sessionID, self)
 	}	
 	_method := "VDI.get_tags"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1807,15 +2072,20 @@ func (_class VDIClass) GetTags(sessionID SessionRef, self VDIRef) (_retval []str
 	return
 }
 
-func (_class VDIClass) GetSnapshotTime__mock(sessionID SessionRef, self VDIRef) (_retval time.Time, _err error) {
+
+var VDIClass_GetSnapshotTimeMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval time.Time, _err error) {
 	log.Println("VDI.GetSnapshotTime not mocked")
 	_err = errors.New("VDI.GetSnapshotTime not mocked")
 	return
 }
+
+func (_class VDIClass) GetSnapshotTimeMock(sessionID SessionRef, self VDIRef) (_retval time.Time, _err error) {
+	return VDIClass_GetSnapshotTimeMockedCallback(sessionID, self)
+}
 // Get the snapshot_time field of the given VDI.
 func (_class VDIClass) GetSnapshotTime(sessionID SessionRef, self VDIRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetSnapshotTime__mock(sessionID, self)
+		return _class.GetSnapshotTimeMock(sessionID, self)
 	}	
 	_method := "VDI.get_snapshot_time"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1834,15 +2104,20 @@ func (_class VDIClass) GetSnapshotTime(sessionID SessionRef, self VDIRef) (_retv
 	return
 }
 
-func (_class VDIClass) GetSnapshots__mock(sessionID SessionRef, self VDIRef) (_retval []VDIRef, _err error) {
+
+var VDIClass_GetSnapshotsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []VDIRef, _err error) {
 	log.Println("VDI.GetSnapshots not mocked")
 	_err = errors.New("VDI.GetSnapshots not mocked")
 	return
 }
+
+func (_class VDIClass) GetSnapshotsMock(sessionID SessionRef, self VDIRef) (_retval []VDIRef, _err error) {
+	return VDIClass_GetSnapshotsMockedCallback(sessionID, self)
+}
 // Get the snapshots field of the given VDI.
 func (_class VDIClass) GetSnapshots(sessionID SessionRef, self VDIRef) (_retval []VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetSnapshots__mock(sessionID, self)
+		return _class.GetSnapshotsMock(sessionID, self)
 	}	
 	_method := "VDI.get_snapshots"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1861,15 +2136,20 @@ func (_class VDIClass) GetSnapshots(sessionID SessionRef, self VDIRef) (_retval 
 	return
 }
 
-func (_class VDIClass) GetSnapshotOf__mock(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
+
+var VDIClass_GetSnapshotOfMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
 	log.Println("VDI.GetSnapshotOf not mocked")
 	_err = errors.New("VDI.GetSnapshotOf not mocked")
 	return
 }
+
+func (_class VDIClass) GetSnapshotOfMock(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
+	return VDIClass_GetSnapshotOfMockedCallback(sessionID, self)
+}
 // Get the snapshot_of field of the given VDI.
 func (_class VDIClass) GetSnapshotOf(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetSnapshotOf__mock(sessionID, self)
+		return _class.GetSnapshotOfMock(sessionID, self)
 	}	
 	_method := "VDI.get_snapshot_of"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1888,15 +2168,20 @@ func (_class VDIClass) GetSnapshotOf(sessionID SessionRef, self VDIRef) (_retval
 	return
 }
 
-func (_class VDIClass) GetIsASnapshot__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetIsASnapshotMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetIsASnapshot not mocked")
 	_err = errors.New("VDI.GetIsASnapshot not mocked")
 	return
 }
+
+func (_class VDIClass) GetIsASnapshotMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetIsASnapshotMockedCallback(sessionID, self)
+}
 // Get the is_a_snapshot field of the given VDI.
 func (_class VDIClass) GetIsASnapshot(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetIsASnapshot__mock(sessionID, self)
+		return _class.GetIsASnapshotMock(sessionID, self)
 	}	
 	_method := "VDI.get_is_a_snapshot"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1915,15 +2200,20 @@ func (_class VDIClass) GetIsASnapshot(sessionID SessionRef, self VDIRef) (_retva
 	return
 }
 
-func (_class VDIClass) GetSmConfig__mock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+
+var VDIClass_GetSmConfigMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	log.Println("VDI.GetSmConfig not mocked")
 	_err = errors.New("VDI.GetSmConfig not mocked")
 	return
 }
+
+func (_class VDIClass) GetSmConfigMock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+	return VDIClass_GetSmConfigMockedCallback(sessionID, self)
+}
 // Get the sm_config field of the given VDI.
 func (_class VDIClass) GetSmConfig(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetSmConfig__mock(sessionID, self)
+		return _class.GetSmConfigMock(sessionID, self)
 	}	
 	_method := "VDI.get_sm_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1942,15 +2232,20 @@ func (_class VDIClass) GetSmConfig(sessionID SessionRef, self VDIRef) (_retval m
 	return
 }
 
-func (_class VDIClass) GetXenstoreData__mock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+
+var VDIClass_GetXenstoreDataMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	log.Println("VDI.GetXenstoreData not mocked")
 	_err = errors.New("VDI.GetXenstoreData not mocked")
 	return
 }
+
+func (_class VDIClass) GetXenstoreDataMock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+	return VDIClass_GetXenstoreDataMockedCallback(sessionID, self)
+}
 // Get the xenstore_data field of the given VDI.
 func (_class VDIClass) GetXenstoreData(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetXenstoreData__mock(sessionID, self)
+		return _class.GetXenstoreDataMock(sessionID, self)
 	}	
 	_method := "VDI.get_xenstore_data"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1969,15 +2264,20 @@ func (_class VDIClass) GetXenstoreData(sessionID SessionRef, self VDIRef) (_retv
 	return
 }
 
-func (_class VDIClass) GetParent__mock(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
+
+var VDIClass_GetParentMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
 	log.Println("VDI.GetParent not mocked")
 	_err = errors.New("VDI.GetParent not mocked")
 	return
 }
+
+func (_class VDIClass) GetParentMock(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
+	return VDIClass_GetParentMockedCallback(sessionID, self)
+}
 // Get the parent field of the given VDI.
 func (_class VDIClass) GetParent(sessionID SessionRef, self VDIRef) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetParent__mock(sessionID, self)
+		return _class.GetParentMock(sessionID, self)
 	}	
 	_method := "VDI.get_parent"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -1996,15 +2296,20 @@ func (_class VDIClass) GetParent(sessionID SessionRef, self VDIRef) (_retval VDI
 	return
 }
 
-func (_class VDIClass) GetMissing__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetMissingMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetMissing not mocked")
 	_err = errors.New("VDI.GetMissing not mocked")
 	return
 }
+
+func (_class VDIClass) GetMissingMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetMissingMockedCallback(sessionID, self)
+}
 // Get the missing field of the given VDI.
 func (_class VDIClass) GetMissing(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetMissing__mock(sessionID, self)
+		return _class.GetMissingMock(sessionID, self)
 	}	
 	_method := "VDI.get_missing"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2023,15 +2328,20 @@ func (_class VDIClass) GetMissing(sessionID SessionRef, self VDIRef) (_retval bo
 	return
 }
 
-func (_class VDIClass) GetManaged__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetManagedMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetManaged not mocked")
 	_err = errors.New("VDI.GetManaged not mocked")
 	return
 }
+
+func (_class VDIClass) GetManagedMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetManagedMockedCallback(sessionID, self)
+}
 // Get the managed field of the given VDI.
 func (_class VDIClass) GetManaged(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetManaged__mock(sessionID, self)
+		return _class.GetManagedMock(sessionID, self)
 	}	
 	_method := "VDI.get_managed"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2050,15 +2360,20 @@ func (_class VDIClass) GetManaged(sessionID SessionRef, self VDIRef) (_retval bo
 	return
 }
 
-func (_class VDIClass) GetLocation__mock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+
+var VDIClass_GetLocationMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	log.Println("VDI.GetLocation not mocked")
 	_err = errors.New("VDI.GetLocation not mocked")
 	return
 }
+
+func (_class VDIClass) GetLocationMock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+	return VDIClass_GetLocationMockedCallback(sessionID, self)
+}
 // Get the location field of the given VDI.
 func (_class VDIClass) GetLocation(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetLocation__mock(sessionID, self)
+		return _class.GetLocationMock(sessionID, self)
 	}	
 	_method := "VDI.get_location"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2077,15 +2392,20 @@ func (_class VDIClass) GetLocation(sessionID SessionRef, self VDIRef) (_retval s
 	return
 }
 
-func (_class VDIClass) GetStorageLock__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetStorageLockMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetStorageLock not mocked")
 	_err = errors.New("VDI.GetStorageLock not mocked")
 	return
 }
+
+func (_class VDIClass) GetStorageLockMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetStorageLockMockedCallback(sessionID, self)
+}
 // Get the storage_lock field of the given VDI.
 func (_class VDIClass) GetStorageLock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetStorageLock__mock(sessionID, self)
+		return _class.GetStorageLockMock(sessionID, self)
 	}	
 	_method := "VDI.get_storage_lock"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2104,15 +2424,20 @@ func (_class VDIClass) GetStorageLock(sessionID SessionRef, self VDIRef) (_retva
 	return
 }
 
-func (_class VDIClass) GetOtherConfig__mock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+
+var VDIClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	log.Println("VDI.GetOtherConfig not mocked")
 	_err = errors.New("VDI.GetOtherConfig not mocked")
 	return
 }
+
+func (_class VDIClass) GetOtherConfigMock(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
+	return VDIClass_GetOtherConfigMockedCallback(sessionID, self)
+}
 // Get the other_config field of the given VDI.
 func (_class VDIClass) GetOtherConfig(sessionID SessionRef, self VDIRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetOtherConfig__mock(sessionID, self)
+		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VDI.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2131,15 +2456,20 @@ func (_class VDIClass) GetOtherConfig(sessionID SessionRef, self VDIRef) (_retva
 	return
 }
 
-func (_class VDIClass) GetReadOnly__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetReadOnlyMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetReadOnly not mocked")
 	_err = errors.New("VDI.GetReadOnly not mocked")
 	return
 }
+
+func (_class VDIClass) GetReadOnlyMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetReadOnlyMockedCallback(sessionID, self)
+}
 // Get the read_only field of the given VDI.
 func (_class VDIClass) GetReadOnly(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetReadOnly__mock(sessionID, self)
+		return _class.GetReadOnlyMock(sessionID, self)
 	}	
 	_method := "VDI.get_read_only"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2158,15 +2488,20 @@ func (_class VDIClass) GetReadOnly(sessionID SessionRef, self VDIRef) (_retval b
 	return
 }
 
-func (_class VDIClass) GetSharable__mock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+
+var VDIClass_GetSharableMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	log.Println("VDI.GetSharable not mocked")
 	_err = errors.New("VDI.GetSharable not mocked")
 	return
 }
+
+func (_class VDIClass) GetSharableMock(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
+	return VDIClass_GetSharableMockedCallback(sessionID, self)
+}
 // Get the sharable field of the given VDI.
 func (_class VDIClass) GetSharable(sessionID SessionRef, self VDIRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetSharable__mock(sessionID, self)
+		return _class.GetSharableMock(sessionID, self)
 	}	
 	_method := "VDI.get_sharable"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2185,15 +2520,20 @@ func (_class VDIClass) GetSharable(sessionID SessionRef, self VDIRef) (_retval b
 	return
 }
 
-func (_class VDIClass) GetType__mock(sessionID SessionRef, self VDIRef) (_retval VdiType, _err error) {
+
+var VDIClass_GetTypeMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval VdiType, _err error) {
 	log.Println("VDI.GetType not mocked")
 	_err = errors.New("VDI.GetType not mocked")
 	return
 }
+
+func (_class VDIClass) GetTypeMock(sessionID SessionRef, self VDIRef) (_retval VdiType, _err error) {
+	return VDIClass_GetTypeMockedCallback(sessionID, self)
+}
 // Get the type field of the given VDI.
 func (_class VDIClass) GetType(sessionID SessionRef, self VDIRef) (_retval VdiType, _err error) {
 	if (IsMock) {
-		return _class.GetType__mock(sessionID, self)
+		return _class.GetTypeMock(sessionID, self)
 	}	
 	_method := "VDI.get_type"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2212,15 +2552,20 @@ func (_class VDIClass) GetType(sessionID SessionRef, self VDIRef) (_retval VdiTy
 	return
 }
 
-func (_class VDIClass) GetPhysicalUtilisation__mock(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
+
+var VDIClass_GetPhysicalUtilisationMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval int, _err error) {
 	log.Println("VDI.GetPhysicalUtilisation not mocked")
 	_err = errors.New("VDI.GetPhysicalUtilisation not mocked")
 	return
 }
+
+func (_class VDIClass) GetPhysicalUtilisationMock(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
+	return VDIClass_GetPhysicalUtilisationMockedCallback(sessionID, self)
+}
 // Get the physical_utilisation field of the given VDI.
 func (_class VDIClass) GetPhysicalUtilisation(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetPhysicalUtilisation__mock(sessionID, self)
+		return _class.GetPhysicalUtilisationMock(sessionID, self)
 	}	
 	_method := "VDI.get_physical_utilisation"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2239,15 +2584,20 @@ func (_class VDIClass) GetPhysicalUtilisation(sessionID SessionRef, self VDIRef)
 	return
 }
 
-func (_class VDIClass) GetVirtualSize__mock(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
+
+var VDIClass_GetVirtualSizeMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval int, _err error) {
 	log.Println("VDI.GetVirtualSize not mocked")
 	_err = errors.New("VDI.GetVirtualSize not mocked")
 	return
 }
+
+func (_class VDIClass) GetVirtualSizeMock(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
+	return VDIClass_GetVirtualSizeMockedCallback(sessionID, self)
+}
 // Get the virtual_size field of the given VDI.
 func (_class VDIClass) GetVirtualSize(sessionID SessionRef, self VDIRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetVirtualSize__mock(sessionID, self)
+		return _class.GetVirtualSizeMock(sessionID, self)
 	}	
 	_method := "VDI.get_virtual_size"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2266,15 +2616,20 @@ func (_class VDIClass) GetVirtualSize(sessionID SessionRef, self VDIRef) (_retva
 	return
 }
 
-func (_class VDIClass) GetCrashDumps__mock(sessionID SessionRef, self VDIRef) (_retval []CrashdumpRef, _err error) {
+
+var VDIClass_GetCrashDumpsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []CrashdumpRef, _err error) {
 	log.Println("VDI.GetCrashDumps not mocked")
 	_err = errors.New("VDI.GetCrashDumps not mocked")
 	return
 }
+
+func (_class VDIClass) GetCrashDumpsMock(sessionID SessionRef, self VDIRef) (_retval []CrashdumpRef, _err error) {
+	return VDIClass_GetCrashDumpsMockedCallback(sessionID, self)
+}
 // Get the crash_dumps field of the given VDI.
 func (_class VDIClass) GetCrashDumps(sessionID SessionRef, self VDIRef) (_retval []CrashdumpRef, _err error) {
 	if (IsMock) {
-		return _class.GetCrashDumps__mock(sessionID, self)
+		return _class.GetCrashDumpsMock(sessionID, self)
 	}	
 	_method := "VDI.get_crash_dumps"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2293,15 +2648,20 @@ func (_class VDIClass) GetCrashDumps(sessionID SessionRef, self VDIRef) (_retval
 	return
 }
 
-func (_class VDIClass) GetVBDs__mock(sessionID SessionRef, self VDIRef) (_retval []VBDRef, _err error) {
+
+var VDIClass_GetVBDsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []VBDRef, _err error) {
 	log.Println("VDI.GetVBDs not mocked")
 	_err = errors.New("VDI.GetVBDs not mocked")
 	return
 }
+
+func (_class VDIClass) GetVBDsMock(sessionID SessionRef, self VDIRef) (_retval []VBDRef, _err error) {
+	return VDIClass_GetVBDsMockedCallback(sessionID, self)
+}
 // Get the VBDs field of the given VDI.
 func (_class VDIClass) GetVBDs(sessionID SessionRef, self VDIRef) (_retval []VBDRef, _err error) {
 	if (IsMock) {
-		return _class.GetVBDs__mock(sessionID, self)
+		return _class.GetVBDsMock(sessionID, self)
 	}	
 	_method := "VDI.get_VBDs"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2320,15 +2680,20 @@ func (_class VDIClass) GetVBDs(sessionID SessionRef, self VDIRef) (_retval []VBD
 	return
 }
 
-func (_class VDIClass) GetSR__mock(sessionID SessionRef, self VDIRef) (_retval SRRef, _err error) {
+
+var VDIClass_GetSRMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval SRRef, _err error) {
 	log.Println("VDI.GetSR not mocked")
 	_err = errors.New("VDI.GetSR not mocked")
 	return
 }
+
+func (_class VDIClass) GetSRMock(sessionID SessionRef, self VDIRef) (_retval SRRef, _err error) {
+	return VDIClass_GetSRMockedCallback(sessionID, self)
+}
 // Get the SR field of the given VDI.
 func (_class VDIClass) GetSR(sessionID SessionRef, self VDIRef) (_retval SRRef, _err error) {
 	if (IsMock) {
-		return _class.GetSR__mock(sessionID, self)
+		return _class.GetSRMock(sessionID, self)
 	}	
 	_method := "VDI.get_SR"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2347,15 +2712,20 @@ func (_class VDIClass) GetSR(sessionID SessionRef, self VDIRef) (_retval SRRef, 
 	return
 }
 
-func (_class VDIClass) GetCurrentOperations__mock(sessionID SessionRef, self VDIRef) (_retval map[string]VdiOperations, _err error) {
+
+var VDIClass_GetCurrentOperationsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval map[string]VdiOperations, _err error) {
 	log.Println("VDI.GetCurrentOperations not mocked")
 	_err = errors.New("VDI.GetCurrentOperations not mocked")
 	return
 }
+
+func (_class VDIClass) GetCurrentOperationsMock(sessionID SessionRef, self VDIRef) (_retval map[string]VdiOperations, _err error) {
+	return VDIClass_GetCurrentOperationsMockedCallback(sessionID, self)
+}
 // Get the current_operations field of the given VDI.
 func (_class VDIClass) GetCurrentOperations(sessionID SessionRef, self VDIRef) (_retval map[string]VdiOperations, _err error) {
 	if (IsMock) {
-		return _class.GetCurrentOperations__mock(sessionID, self)
+		return _class.GetCurrentOperationsMock(sessionID, self)
 	}	
 	_method := "VDI.get_current_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2374,15 +2744,20 @@ func (_class VDIClass) GetCurrentOperations(sessionID SessionRef, self VDIRef) (
 	return
 }
 
-func (_class VDIClass) GetAllowedOperations__mock(sessionID SessionRef, self VDIRef) (_retval []VdiOperations, _err error) {
+
+var VDIClass_GetAllowedOperationsMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval []VdiOperations, _err error) {
 	log.Println("VDI.GetAllowedOperations not mocked")
 	_err = errors.New("VDI.GetAllowedOperations not mocked")
 	return
 }
+
+func (_class VDIClass) GetAllowedOperationsMock(sessionID SessionRef, self VDIRef) (_retval []VdiOperations, _err error) {
+	return VDIClass_GetAllowedOperationsMockedCallback(sessionID, self)
+}
 // Get the allowed_operations field of the given VDI.
 func (_class VDIClass) GetAllowedOperations(sessionID SessionRef, self VDIRef) (_retval []VdiOperations, _err error) {
 	if (IsMock) {
-		return _class.GetAllowedOperations__mock(sessionID, self)
+		return _class.GetAllowedOperationsMock(sessionID, self)
 	}	
 	_method := "VDI.get_allowed_operations"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2401,15 +2776,20 @@ func (_class VDIClass) GetAllowedOperations(sessionID SessionRef, self VDIRef) (
 	return
 }
 
-func (_class VDIClass) GetNameDescription__mock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+
+var VDIClass_GetNameDescriptionMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	log.Println("VDI.GetNameDescription not mocked")
 	_err = errors.New("VDI.GetNameDescription not mocked")
 	return
 }
+
+func (_class VDIClass) GetNameDescriptionMock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+	return VDIClass_GetNameDescriptionMockedCallback(sessionID, self)
+}
 // Get the name/description field of the given VDI.
 func (_class VDIClass) GetNameDescription(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetNameDescription__mock(sessionID, self)
+		return _class.GetNameDescriptionMock(sessionID, self)
 	}	
 	_method := "VDI.get_name_description"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2428,15 +2808,20 @@ func (_class VDIClass) GetNameDescription(sessionID SessionRef, self VDIRef) (_r
 	return
 }
 
-func (_class VDIClass) GetNameLabel__mock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+
+var VDIClass_GetNameLabelMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	log.Println("VDI.GetNameLabel not mocked")
 	_err = errors.New("VDI.GetNameLabel not mocked")
 	return
 }
+
+func (_class VDIClass) GetNameLabelMock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+	return VDIClass_GetNameLabelMockedCallback(sessionID, self)
+}
 // Get the name/label field of the given VDI.
 func (_class VDIClass) GetNameLabel(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetNameLabel__mock(sessionID, self)
+		return _class.GetNameLabelMock(sessionID, self)
 	}	
 	_method := "VDI.get_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2455,15 +2840,20 @@ func (_class VDIClass) GetNameLabel(sessionID SessionRef, self VDIRef) (_retval 
 	return
 }
 
-func (_class VDIClass) GetUUID__mock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+
+var VDIClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	log.Println("VDI.GetUUID not mocked")
 	_err = errors.New("VDI.GetUUID not mocked")
 	return
 }
+
+func (_class VDIClass) GetUUIDMock(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
+	return VDIClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given VDI.
 func (_class VDIClass) GetUUID(sessionID SessionRef, self VDIRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VDI.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2482,15 +2872,20 @@ func (_class VDIClass) GetUUID(sessionID SessionRef, self VDIRef) (_retval strin
 	return
 }
 
-func (_class VDIClass) GetByNameLabel__mock(sessionID SessionRef, label string) (_retval []VDIRef, _err error) {
+
+var VDIClass_GetByNameLabelMockedCallback = func (sessionID SessionRef, label string) (_retval []VDIRef, _err error) {
 	log.Println("VDI.GetByNameLabel not mocked")
 	_err = errors.New("VDI.GetByNameLabel not mocked")
 	return
 }
+
+func (_class VDIClass) GetByNameLabelMock(sessionID SessionRef, label string) (_retval []VDIRef, _err error) {
+	return VDIClass_GetByNameLabelMockedCallback(sessionID, label)
+}
 // Get all the VDI instances with the given label.
 func (_class VDIClass) GetByNameLabel(sessionID SessionRef, label string) (_retval []VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetByNameLabel__mock(sessionID, label)
+		return _class.GetByNameLabelMock(sessionID, label)
 	}	
 	_method := "VDI.get_by_name_label"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2509,15 +2904,20 @@ func (_class VDIClass) GetByNameLabel(sessionID SessionRef, label string) (_retv
 	return
 }
 
-func (_class VDIClass) Destroy__mock(sessionID SessionRef, self VDIRef) (_err error) {
+
+var VDIClass_DestroyMockedCallback = func (sessionID SessionRef, self VDIRef) (_err error) {
 	log.Println("VDI.Destroy not mocked")
 	_err = errors.New("VDI.Destroy not mocked")
 	return
 }
+
+func (_class VDIClass) DestroyMock(sessionID SessionRef, self VDIRef) (_err error) {
+	return VDIClass_DestroyMockedCallback(sessionID, self)
+}
 // Destroy the specified VDI instance.
 func (_class VDIClass) Destroy(sessionID SessionRef, self VDIRef) (_err error) {
 	if (IsMock) {
-		return _class.Destroy__mock(sessionID, self)
+		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "VDI.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2532,16 +2932,21 @@ func (_class VDIClass) Destroy(sessionID SessionRef, self VDIRef) (_err error) {
 	return
 }
 
-func (_class VDIClass) Create__mock(sessionID SessionRef, args VDIRecord) (_retval VDIRef, _err error) {
+
+var VDIClass_CreateMockedCallback = func (sessionID SessionRef, args VDIRecord) (_retval VDIRef, _err error) {
 	log.Println("VDI.Create not mocked")
 	_err = errors.New("VDI.Create not mocked")
 	return
+}
+
+func (_class VDIClass) CreateMock(sessionID SessionRef, args VDIRecord) (_retval VDIRef, _err error) {
+	return VDIClass_CreateMockedCallback(sessionID, args)
 }
 // Create a new VDI instance, and return its handle.
 // The constructor args are: name_label, name_description, SR*, virtual_size*, type*, sharable*, read_only*, other_config*, xenstore_data, sm_config, tags (* = non-optional).
 func (_class VDIClass) Create(sessionID SessionRef, args VDIRecord) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.Create__mock(sessionID, args)
+		return _class.CreateMock(sessionID, args)
 	}	
 	_method := "VDI.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2560,15 +2965,20 @@ func (_class VDIClass) Create(sessionID SessionRef, args VDIRecord) (_retval VDI
 	return
 }
 
-func (_class VDIClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval VDIRef, _err error) {
+
+var VDIClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VDIRef, _err error) {
 	log.Println("VDI.GetByUUID not mocked")
 	_err = errors.New("VDI.GetByUUID not mocked")
 	return
 }
+
+func (_class VDIClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VDIRef, _err error) {
+	return VDIClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the VDI instance with the specified UUID.
 func (_class VDIClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VDI.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -2587,15 +2997,20 @@ func (_class VDIClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VDI
 	return
 }
 
-func (_class VDIClass) GetRecord__mock(sessionID SessionRef, self VDIRef) (_retval VDIRecord, _err error) {
+
+var VDIClass_GetRecordMockedCallback = func (sessionID SessionRef, self VDIRef) (_retval VDIRecord, _err error) {
 	log.Println("VDI.GetRecord not mocked")
 	_err = errors.New("VDI.GetRecord not mocked")
 	return
 }
+
+func (_class VDIClass) GetRecordMock(sessionID SessionRef, self VDIRef) (_retval VDIRecord, _err error) {
+	return VDIClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given VDI.
 func (_class VDIClass) GetRecord(sessionID SessionRef, self VDIRef) (_retval VDIRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VDI.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

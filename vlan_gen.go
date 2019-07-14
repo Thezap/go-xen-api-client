@@ -45,15 +45,20 @@ type VLANClass struct {
 	client *Client
 }
 
-func (_class VLANClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[VLANRef]VLANRecord, _err error) {
+
+var VLANClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VLANRef]VLANRecord, _err error) {
 	log.Println("VLAN.GetAllRecords not mocked")
 	_err = errors.New("VLAN.GetAllRecords not mocked")
 	return
 }
+
+func (_class VLANClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VLANRef]VLANRecord, _err error) {
+	return VLANClass_GetAllRecordsMockedCallback(sessionID)
+}
 // Return a map of VLAN references to VLAN records for all VLANs known to the system.
 func (_class VLANClass) GetAllRecords(sessionID SessionRef) (_retval map[VLANRef]VLANRecord, _err error) {
 	if (IsMock) {
-		return _class.GetAllRecords__mock(sessionID)
+		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VLAN.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -68,15 +73,20 @@ func (_class VLANClass) GetAllRecords(sessionID SessionRef) (_retval map[VLANRef
 	return
 }
 
-func (_class VLANClass) GetAll__mock(sessionID SessionRef) (_retval []VLANRef, _err error) {
+
+var VLANClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VLANRef, _err error) {
 	log.Println("VLAN.GetAll not mocked")
 	_err = errors.New("VLAN.GetAll not mocked")
 	return
 }
+
+func (_class VLANClass) GetAllMock(sessionID SessionRef) (_retval []VLANRef, _err error) {
+	return VLANClass_GetAllMockedCallback(sessionID)
+}
 // Return a list of all the VLANs known to the system.
 func (_class VLANClass) GetAll(sessionID SessionRef) (_retval []VLANRef, _err error) {
 	if (IsMock) {
-		return _class.GetAll__mock(sessionID)
+		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VLAN.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -91,15 +101,20 @@ func (_class VLANClass) GetAll(sessionID SessionRef) (_retval []VLANRef, _err er
 	return
 }
 
-func (_class VLANClass) Destroy__mock(sessionID SessionRef, self VLANRef) (_err error) {
+
+var VLANClass_DestroyMockedCallback = func (sessionID SessionRef, self VLANRef) (_err error) {
 	log.Println("VLAN.Destroy not mocked")
 	_err = errors.New("VLAN.Destroy not mocked")
 	return
 }
+
+func (_class VLANClass) DestroyMock(sessionID SessionRef, self VLANRef) (_err error) {
+	return VLANClass_DestroyMockedCallback(sessionID, self)
+}
 // Destroy a VLAN mux/demuxer
 func (_class VLANClass) Destroy(sessionID SessionRef, self VLANRef) (_err error) {
 	if (IsMock) {
-		return _class.Destroy__mock(sessionID, self)
+		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "VLAN.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -114,15 +129,20 @@ func (_class VLANClass) Destroy(sessionID SessionRef, self VLANRef) (_err error)
 	return
 }
 
-func (_class VLANClass) Create__mock(sessionID SessionRef, taggedPIF PIFRef, tag int, network NetworkRef) (_retval VLANRef, _err error) {
+
+var VLANClass_CreateMockedCallback = func (sessionID SessionRef, taggedPIF PIFRef, tag int, network NetworkRef) (_retval VLANRef, _err error) {
 	log.Println("VLAN.Create not mocked")
 	_err = errors.New("VLAN.Create not mocked")
 	return
 }
+
+func (_class VLANClass) CreateMock(sessionID SessionRef, taggedPIF PIFRef, tag int, network NetworkRef) (_retval VLANRef, _err error) {
+	return VLANClass_CreateMockedCallback(sessionID, taggedPIF, tag, network)
+}
 // Create a VLAN mux/demuxer
 func (_class VLANClass) Create(sessionID SessionRef, taggedPIF PIFRef, tag int, network NetworkRef) (_retval VLANRef, _err error) {
 	if (IsMock) {
-		return _class.Create__mock(sessionID, taggedPIF, tag, network)
+		return _class.CreateMock(sessionID, taggedPIF, tag, network)
 	}	
 	_method := "VLAN.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -149,15 +169,20 @@ func (_class VLANClass) Create(sessionID SessionRef, taggedPIF PIFRef, tag int, 
 	return
 }
 
-func (_class VLANClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self VLANRef, key string) (_err error) {
+
+var VLANClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VLANRef, key string) (_err error) {
 	log.Println("VLAN.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VLAN.RemoveFromOtherConfig not mocked")
 	return
 }
+
+func (_class VLANClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VLANRef, key string) (_err error) {
+	return VLANClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the other_config field of the given VLAN.  If the key is not in that Map, then do nothing.
 func (_class VLANClass) RemoveFromOtherConfig(sessionID SessionRef, self VLANRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VLAN.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -176,15 +201,20 @@ func (_class VLANClass) RemoveFromOtherConfig(sessionID SessionRef, self VLANRef
 	return
 }
 
-func (_class VLANClass) AddToOtherConfig__mock(sessionID SessionRef, self VLANRef, key string, value string) (_err error) {
+
+var VLANClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VLANRef, key string, value string) (_err error) {
 	log.Println("VLAN.AddToOtherConfig not mocked")
 	_err = errors.New("VLAN.AddToOtherConfig not mocked")
 	return
 }
+
+func (_class VLANClass) AddToOtherConfigMock(sessionID SessionRef, self VLANRef, key string, value string) (_err error) {
+	return VLANClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the other_config field of the given VLAN.
 func (_class VLANClass) AddToOtherConfig(sessionID SessionRef, self VLANRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VLAN.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -207,15 +237,20 @@ func (_class VLANClass) AddToOtherConfig(sessionID SessionRef, self VLANRef, key
 	return
 }
 
-func (_class VLANClass) SetOtherConfig__mock(sessionID SessionRef, self VLANRef, value map[string]string) (_err error) {
+
+var VLANClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VLANRef, value map[string]string) (_err error) {
 	log.Println("VLAN.SetOtherConfig not mocked")
 	_err = errors.New("VLAN.SetOtherConfig not mocked")
 	return
 }
+
+func (_class VLANClass) SetOtherConfigMock(sessionID SessionRef, self VLANRef, value map[string]string) (_err error) {
+	return VLANClass_SetOtherConfigMockedCallback(sessionID, self, value)
+}
 // Set the other_config field of the given VLAN.
 func (_class VLANClass) SetOtherConfig(sessionID SessionRef, self VLANRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetOtherConfig__mock(sessionID, self, value)
+		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VLAN.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -234,15 +269,20 @@ func (_class VLANClass) SetOtherConfig(sessionID SessionRef, self VLANRef, value
 	return
 }
 
-func (_class VLANClass) GetOtherConfig__mock(sessionID SessionRef, self VLANRef) (_retval map[string]string, _err error) {
+
+var VLANClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval map[string]string, _err error) {
 	log.Println("VLAN.GetOtherConfig not mocked")
 	_err = errors.New("VLAN.GetOtherConfig not mocked")
 	return
 }
+
+func (_class VLANClass) GetOtherConfigMock(sessionID SessionRef, self VLANRef) (_retval map[string]string, _err error) {
+	return VLANClass_GetOtherConfigMockedCallback(sessionID, self)
+}
 // Get the other_config field of the given VLAN.
 func (_class VLANClass) GetOtherConfig(sessionID SessionRef, self VLANRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetOtherConfig__mock(sessionID, self)
+		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VLAN.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -261,15 +301,20 @@ func (_class VLANClass) GetOtherConfig(sessionID SessionRef, self VLANRef) (_ret
 	return
 }
 
-func (_class VLANClass) GetTag__mock(sessionID SessionRef, self VLANRef) (_retval int, _err error) {
+
+var VLANClass_GetTagMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval int, _err error) {
 	log.Println("VLAN.GetTag not mocked")
 	_err = errors.New("VLAN.GetTag not mocked")
 	return
 }
+
+func (_class VLANClass) GetTagMock(sessionID SessionRef, self VLANRef) (_retval int, _err error) {
+	return VLANClass_GetTagMockedCallback(sessionID, self)
+}
 // Get the tag field of the given VLAN.
 func (_class VLANClass) GetTag(sessionID SessionRef, self VLANRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetTag__mock(sessionID, self)
+		return _class.GetTagMock(sessionID, self)
 	}	
 	_method := "VLAN.get_tag"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -288,15 +333,20 @@ func (_class VLANClass) GetTag(sessionID SessionRef, self VLANRef) (_retval int,
 	return
 }
 
-func (_class VLANClass) GetUntaggedPIF__mock(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
+
+var VLANClass_GetUntaggedPIFMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
 	log.Println("VLAN.GetUntaggedPIF not mocked")
 	_err = errors.New("VLAN.GetUntaggedPIF not mocked")
 	return
 }
+
+func (_class VLANClass) GetUntaggedPIFMock(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
+	return VLANClass_GetUntaggedPIFMockedCallback(sessionID, self)
+}
 // Get the untagged_PIF field of the given VLAN.
 func (_class VLANClass) GetUntaggedPIF(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
 	if (IsMock) {
-		return _class.GetUntaggedPIF__mock(sessionID, self)
+		return _class.GetUntaggedPIFMock(sessionID, self)
 	}	
 	_method := "VLAN.get_untagged_PIF"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -315,15 +365,20 @@ func (_class VLANClass) GetUntaggedPIF(sessionID SessionRef, self VLANRef) (_ret
 	return
 }
 
-func (_class VLANClass) GetTaggedPIF__mock(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
+
+var VLANClass_GetTaggedPIFMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
 	log.Println("VLAN.GetTaggedPIF not mocked")
 	_err = errors.New("VLAN.GetTaggedPIF not mocked")
 	return
 }
+
+func (_class VLANClass) GetTaggedPIFMock(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
+	return VLANClass_GetTaggedPIFMockedCallback(sessionID, self)
+}
 // Get the tagged_PIF field of the given VLAN.
 func (_class VLANClass) GetTaggedPIF(sessionID SessionRef, self VLANRef) (_retval PIFRef, _err error) {
 	if (IsMock) {
-		return _class.GetTaggedPIF__mock(sessionID, self)
+		return _class.GetTaggedPIFMock(sessionID, self)
 	}	
 	_method := "VLAN.get_tagged_PIF"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -342,15 +397,20 @@ func (_class VLANClass) GetTaggedPIF(sessionID SessionRef, self VLANRef) (_retva
 	return
 }
 
-func (_class VLANClass) GetUUID__mock(sessionID SessionRef, self VLANRef) (_retval string, _err error) {
+
+var VLANClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval string, _err error) {
 	log.Println("VLAN.GetUUID not mocked")
 	_err = errors.New("VLAN.GetUUID not mocked")
 	return
 }
+
+func (_class VLANClass) GetUUIDMock(sessionID SessionRef, self VLANRef) (_retval string, _err error) {
+	return VLANClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given VLAN.
 func (_class VLANClass) GetUUID(sessionID SessionRef, self VLANRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VLAN.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -369,15 +429,20 @@ func (_class VLANClass) GetUUID(sessionID SessionRef, self VLANRef) (_retval str
 	return
 }
 
-func (_class VLANClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval VLANRef, _err error) {
+
+var VLANClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VLANRef, _err error) {
 	log.Println("VLAN.GetByUUID not mocked")
 	_err = errors.New("VLAN.GetByUUID not mocked")
 	return
 }
+
+func (_class VLANClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VLANRef, _err error) {
+	return VLANClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the VLAN instance with the specified UUID.
 func (_class VLANClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VLANRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VLAN.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -396,15 +461,20 @@ func (_class VLANClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VL
 	return
 }
 
-func (_class VLANClass) GetRecord__mock(sessionID SessionRef, self VLANRef) (_retval VLANRecord, _err error) {
+
+var VLANClass_GetRecordMockedCallback = func (sessionID SessionRef, self VLANRef) (_retval VLANRecord, _err error) {
 	log.Println("VLAN.GetRecord not mocked")
 	_err = errors.New("VLAN.GetRecord not mocked")
 	return
 }
+
+func (_class VLANClass) GetRecordMock(sessionID SessionRef, self VLANRef) (_retval VLANRecord, _err error) {
+	return VLANClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given VLAN.
 func (_class VLANClass) GetRecord(sessionID SessionRef, self VLANRef) (_retval VLANRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VLAN.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

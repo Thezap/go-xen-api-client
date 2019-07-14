@@ -65,15 +65,20 @@ type SessionClass struct {
 	client *Client
 }
 
-func (_class SessionClass) LogoutSubjectIdentifier__mock(sessionID SessionRef, subjectIdentifier string) (_err error) {
+
+var SessionClass_LogoutSubjectIdentifierMockedCallback = func (sessionID SessionRef, subjectIdentifier string) (_err error) {
 	log.Println("Session.LogoutSubjectIdentifier not mocked")
 	_err = errors.New("Session.LogoutSubjectIdentifier not mocked")
 	return
 }
+
+func (_class SessionClass) LogoutSubjectIdentifierMock(sessionID SessionRef, subjectIdentifier string) (_err error) {
+	return SessionClass_LogoutSubjectIdentifierMockedCallback(sessionID, subjectIdentifier)
+}
 // Log out all sessions associated to a user subject-identifier, except the session associated with the context calling this function
 func (_class SessionClass) LogoutSubjectIdentifier(sessionID SessionRef, subjectIdentifier string) (_err error) {
 	if (IsMock) {
-		return _class.LogoutSubjectIdentifier__mock(sessionID, subjectIdentifier)
+		return _class.LogoutSubjectIdentifierMock(sessionID, subjectIdentifier)
 	}	
 	_method := "session.logout_subject_identifier"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -88,15 +93,20 @@ func (_class SessionClass) LogoutSubjectIdentifier(sessionID SessionRef, subject
 	return
 }
 
-func (_class SessionClass) GetAllSubjectIdentifiers__mock(sessionID SessionRef) (_retval []string, _err error) {
+
+var SessionClass_GetAllSubjectIdentifiersMockedCallback = func (sessionID SessionRef) (_retval []string, _err error) {
 	log.Println("Session.GetAllSubjectIdentifiers not mocked")
 	_err = errors.New("Session.GetAllSubjectIdentifiers not mocked")
 	return
 }
+
+func (_class SessionClass) GetAllSubjectIdentifiersMock(sessionID SessionRef) (_retval []string, _err error) {
+	return SessionClass_GetAllSubjectIdentifiersMockedCallback(sessionID)
+}
 // Return a list of all the user subject-identifiers of all existing sessions
 func (_class SessionClass) GetAllSubjectIdentifiers(sessionID SessionRef) (_retval []string, _err error) {
 	if (IsMock) {
-		return _class.GetAllSubjectIdentifiers__mock(sessionID)
+		return _class.GetAllSubjectIdentifiersMock(sessionID)
 	}	
 	_method := "session.get_all_subject_identifiers"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -111,15 +121,20 @@ func (_class SessionClass) GetAllSubjectIdentifiers(sessionID SessionRef) (_retv
 	return
 }
 
-func (_class SessionClass) LocalLogout__mock(sessionID SessionRef) (_err error) {
+
+var SessionClass_LocalLogoutMockedCallback = func (sessionID SessionRef) (_err error) {
 	log.Println("Session.LocalLogout not mocked")
 	_err = errors.New("Session.LocalLogout not mocked")
 	return
 }
+
+func (_class SessionClass) LocalLogoutMock(sessionID SessionRef) (_err error) {
+	return SessionClass_LocalLogoutMockedCallback(sessionID)
+}
 // Log out of local session.
 func (_class SessionClass) LocalLogout(sessionID SessionRef) (_err error) {
 	if (IsMock) {
-		return _class.LocalLogout__mock(sessionID)
+		return _class.LocalLogoutMock(sessionID)
 	}	
 	_method := "session.local_logout"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -130,15 +145,20 @@ func (_class SessionClass) LocalLogout(sessionID SessionRef) (_err error) {
 	return
 }
 
-func (_class SessionClass) CreateFromDbFile__mock(sessionID SessionRef, filename string) (_retval SessionRef, _err error) {
+
+var SessionClass_CreateFromDbFileMockedCallback = func (sessionID SessionRef, filename string) (_retval SessionRef, _err error) {
 	log.Println("Session.CreateFromDbFile not mocked")
 	_err = errors.New("Session.CreateFromDbFile not mocked")
 	return
 }
+
+func (_class SessionClass) CreateFromDbFileMock(sessionID SessionRef, filename string) (_retval SessionRef, _err error) {
+	return SessionClass_CreateFromDbFileMockedCallback(sessionID, filename)
+}
 // 
 func (_class SessionClass) CreateFromDbFile(sessionID SessionRef, filename string) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.CreateFromDbFile__mock(sessionID, filename)
+		return _class.CreateFromDbFileMock(sessionID, filename)
 	}	
 	_method := "session.create_from_db_file"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -157,15 +177,20 @@ func (_class SessionClass) CreateFromDbFile(sessionID SessionRef, filename strin
 	return
 }
 
-func (_class SessionClass) SlaveLocalLoginWithPassword__mock(uname string, pwd string) (_retval SessionRef, _err error) {
+
+var SessionClass_SlaveLocalLoginWithPasswordMockedCallback = func (uname string, pwd string) (_retval SessionRef, _err error) {
 	log.Println("Session.SlaveLocalLoginWithPassword not mocked")
 	_err = errors.New("Session.SlaveLocalLoginWithPassword not mocked")
 	return
 }
+
+func (_class SessionClass) SlaveLocalLoginWithPasswordMock(uname string, pwd string) (_retval SessionRef, _err error) {
+	return SessionClass_SlaveLocalLoginWithPasswordMockedCallback(uname, pwd)
+}
 // Authenticate locally against a slave in emergency mode. Note the resulting sessions are only good for use on this host.
 func (_class SessionClass) SlaveLocalLoginWithPassword(uname string, pwd string) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.SlaveLocalLoginWithPassword__mock(uname, pwd)
+		return _class.SlaveLocalLoginWithPasswordMock(uname, pwd)
 	}	
 	_method := "session.slave_local_login_with_password"
 	_unameArg, _err := convertStringToXen(fmt.Sprintf("%s(%s)", _method, "uname"), uname)
@@ -184,15 +209,20 @@ func (_class SessionClass) SlaveLocalLoginWithPassword(uname string, pwd string)
 	return
 }
 
-func (_class SessionClass) ChangePassword__mock(sessionID SessionRef, oldPwd string, newPwd string) (_err error) {
+
+var SessionClass_ChangePasswordMockedCallback = func (sessionID SessionRef, oldPwd string, newPwd string) (_err error) {
 	log.Println("Session.ChangePassword not mocked")
 	_err = errors.New("Session.ChangePassword not mocked")
 	return
 }
+
+func (_class SessionClass) ChangePasswordMock(sessionID SessionRef, oldPwd string, newPwd string) (_err error) {
+	return SessionClass_ChangePasswordMockedCallback(sessionID, oldPwd, newPwd)
+}
 // Change the account password; if your session is authenticated with root priviledges then the old_pwd is validated and the new_pwd is set regardless
 func (_class SessionClass) ChangePassword(sessionID SessionRef, oldPwd string, newPwd string) (_err error) {
 	if (IsMock) {
-		return _class.ChangePassword__mock(sessionID, oldPwd, newPwd)
+		return _class.ChangePasswordMock(sessionID, oldPwd, newPwd)
 	}	
 	_method := "session.change_password"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -211,15 +241,20 @@ func (_class SessionClass) ChangePassword(sessionID SessionRef, oldPwd string, n
 	return
 }
 
-func (_class SessionClass) Logout__mock(sessionID SessionRef) (_err error) {
+
+var SessionClass_LogoutMockedCallback = func (sessionID SessionRef) (_err error) {
 	log.Println("Session.Logout not mocked")
 	_err = errors.New("Session.Logout not mocked")
 	return
 }
+
+func (_class SessionClass) LogoutMock(sessionID SessionRef) (_err error) {
+	return SessionClass_LogoutMockedCallback(sessionID)
+}
 // Log out of a session
 func (_class SessionClass) Logout(sessionID SessionRef) (_err error) {
 	if (IsMock) {
-		return _class.Logout__mock(sessionID)
+		return _class.LogoutMock(sessionID)
 	}	
 	_method := "session.logout"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -230,10 +265,15 @@ func (_class SessionClass) Logout(sessionID SessionRef) (_err error) {
 	return
 }
 
-func (_class SessionClass) LoginWithPassword__mock(uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
+
+var SessionClass_LoginWithPasswordMockedCallback = func (uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
 	log.Println("Session.LoginWithPassword not mocked")
 	_err = errors.New("Session.LoginWithPassword not mocked")
 	return
+}
+
+func (_class SessionClass) LoginWithPasswordMock(uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
+	return SessionClass_LoginWithPasswordMockedCallback(uname, pwd, version, originator)
 }
 // Attempt to authenticate the user, returning a session reference if successful
 //
@@ -242,7 +282,7 @@ func (_class SessionClass) LoginWithPassword__mock(uname string, pwd string, ver
 //  HOST_IS_SLAVE - You cannot make regular API calls directly on a slave. Please pass API calls via the master host.
 func (_class SessionClass) LoginWithPassword(uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.LoginWithPassword__mock(uname, pwd, version, originator)
+		return _class.LoginWithPasswordMock(uname, pwd, version, originator)
 	}	
 	_method := "session.login_with_password"
 	_unameArg, _err := convertStringToXen(fmt.Sprintf("%s(%s)", _method, "uname"), uname)
@@ -269,15 +309,20 @@ func (_class SessionClass) LoginWithPassword(uname string, pwd string, version s
 	return
 }
 
-func (_class SessionClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self SessionRef, key string) (_err error) {
+
+var SessionClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self SessionRef, key string) (_err error) {
 	log.Println("Session.RemoveFromOtherConfig not mocked")
 	_err = errors.New("Session.RemoveFromOtherConfig not mocked")
 	return
 }
+
+func (_class SessionClass) RemoveFromOtherConfigMock(sessionID SessionRef, self SessionRef, key string) (_err error) {
+	return SessionClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the other_config field of the given session.  If the key is not in that Map, then do nothing.
 func (_class SessionClass) RemoveFromOtherConfig(sessionID SessionRef, self SessionRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "session.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -296,15 +341,20 @@ func (_class SessionClass) RemoveFromOtherConfig(sessionID SessionRef, self Sess
 	return
 }
 
-func (_class SessionClass) AddToOtherConfig__mock(sessionID SessionRef, self SessionRef, key string, value string) (_err error) {
+
+var SessionClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self SessionRef, key string, value string) (_err error) {
 	log.Println("Session.AddToOtherConfig not mocked")
 	_err = errors.New("Session.AddToOtherConfig not mocked")
 	return
 }
+
+func (_class SessionClass) AddToOtherConfigMock(sessionID SessionRef, self SessionRef, key string, value string) (_err error) {
+	return SessionClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the other_config field of the given session.
 func (_class SessionClass) AddToOtherConfig(sessionID SessionRef, self SessionRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "session.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -327,15 +377,20 @@ func (_class SessionClass) AddToOtherConfig(sessionID SessionRef, self SessionRe
 	return
 }
 
-func (_class SessionClass) SetOtherConfig__mock(sessionID SessionRef, self SessionRef, value map[string]string) (_err error) {
+
+var SessionClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self SessionRef, value map[string]string) (_err error) {
 	log.Println("Session.SetOtherConfig not mocked")
 	_err = errors.New("Session.SetOtherConfig not mocked")
 	return
 }
+
+func (_class SessionClass) SetOtherConfigMock(sessionID SessionRef, self SessionRef, value map[string]string) (_err error) {
+	return SessionClass_SetOtherConfigMockedCallback(sessionID, self, value)
+}
 // Set the other_config field of the given session.
 func (_class SessionClass) SetOtherConfig(sessionID SessionRef, self SessionRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetOtherConfig__mock(sessionID, self, value)
+		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "session.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -354,15 +409,20 @@ func (_class SessionClass) SetOtherConfig(sessionID SessionRef, self SessionRef,
 	return
 }
 
-func (_class SessionClass) GetOriginator__mock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+
+var SessionClass_GetOriginatorMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	log.Println("Session.GetOriginator not mocked")
 	_err = errors.New("Session.GetOriginator not mocked")
 	return
 }
+
+func (_class SessionClass) GetOriginatorMock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+	return SessionClass_GetOriginatorMockedCallback(sessionID, self)
+}
 // Get the originator field of the given session.
 func (_class SessionClass) GetOriginator(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetOriginator__mock(sessionID, self)
+		return _class.GetOriginatorMock(sessionID, self)
 	}	
 	_method := "session.get_originator"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -381,15 +441,20 @@ func (_class SessionClass) GetOriginator(sessionID SessionRef, self SessionRef) 
 	return
 }
 
-func (_class SessionClass) GetParent__mock(sessionID SessionRef, self SessionRef) (_retval SessionRef, _err error) {
+
+var SessionClass_GetParentMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval SessionRef, _err error) {
 	log.Println("Session.GetParent not mocked")
 	_err = errors.New("Session.GetParent not mocked")
 	return
 }
+
+func (_class SessionClass) GetParentMock(sessionID SessionRef, self SessionRef) (_retval SessionRef, _err error) {
+	return SessionClass_GetParentMockedCallback(sessionID, self)
+}
 // Get the parent field of the given session.
 func (_class SessionClass) GetParent(sessionID SessionRef, self SessionRef) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.GetParent__mock(sessionID, self)
+		return _class.GetParentMock(sessionID, self)
 	}	
 	_method := "session.get_parent"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -408,15 +473,20 @@ func (_class SessionClass) GetParent(sessionID SessionRef, self SessionRef) (_re
 	return
 }
 
-func (_class SessionClass) GetTasks__mock(sessionID SessionRef, self SessionRef) (_retval []TaskRef, _err error) {
+
+var SessionClass_GetTasksMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval []TaskRef, _err error) {
 	log.Println("Session.GetTasks not mocked")
 	_err = errors.New("Session.GetTasks not mocked")
 	return
 }
+
+func (_class SessionClass) GetTasksMock(sessionID SessionRef, self SessionRef) (_retval []TaskRef, _err error) {
+	return SessionClass_GetTasksMockedCallback(sessionID, self)
+}
 // Get the tasks field of the given session.
 func (_class SessionClass) GetTasks(sessionID SessionRef, self SessionRef) (_retval []TaskRef, _err error) {
 	if (IsMock) {
-		return _class.GetTasks__mock(sessionID, self)
+		return _class.GetTasksMock(sessionID, self)
 	}	
 	_method := "session.get_tasks"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -435,15 +505,20 @@ func (_class SessionClass) GetTasks(sessionID SessionRef, self SessionRef) (_ret
 	return
 }
 
-func (_class SessionClass) GetRbacPermissions__mock(sessionID SessionRef, self SessionRef) (_retval []string, _err error) {
+
+var SessionClass_GetRbacPermissionsMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval []string, _err error) {
 	log.Println("Session.GetRbacPermissions not mocked")
 	_err = errors.New("Session.GetRbacPermissions not mocked")
 	return
 }
+
+func (_class SessionClass) GetRbacPermissionsMock(sessionID SessionRef, self SessionRef) (_retval []string, _err error) {
+	return SessionClass_GetRbacPermissionsMockedCallback(sessionID, self)
+}
 // Get the rbac_permissions field of the given session.
 func (_class SessionClass) GetRbacPermissions(sessionID SessionRef, self SessionRef) (_retval []string, _err error) {
 	if (IsMock) {
-		return _class.GetRbacPermissions__mock(sessionID, self)
+		return _class.GetRbacPermissionsMock(sessionID, self)
 	}	
 	_method := "session.get_rbac_permissions"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -462,15 +537,20 @@ func (_class SessionClass) GetRbacPermissions(sessionID SessionRef, self Session
 	return
 }
 
-func (_class SessionClass) GetAuthUserName__mock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+
+var SessionClass_GetAuthUserNameMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	log.Println("Session.GetAuthUserName not mocked")
 	_err = errors.New("Session.GetAuthUserName not mocked")
 	return
 }
+
+func (_class SessionClass) GetAuthUserNameMock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+	return SessionClass_GetAuthUserNameMockedCallback(sessionID, self)
+}
 // Get the auth_user_name field of the given session.
 func (_class SessionClass) GetAuthUserName(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetAuthUserName__mock(sessionID, self)
+		return _class.GetAuthUserNameMock(sessionID, self)
 	}	
 	_method := "session.get_auth_user_name"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -489,15 +569,20 @@ func (_class SessionClass) GetAuthUserName(sessionID SessionRef, self SessionRef
 	return
 }
 
-func (_class SessionClass) GetAuthUserSid__mock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+
+var SessionClass_GetAuthUserSidMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	log.Println("Session.GetAuthUserSid not mocked")
 	_err = errors.New("Session.GetAuthUserSid not mocked")
 	return
 }
+
+func (_class SessionClass) GetAuthUserSidMock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+	return SessionClass_GetAuthUserSidMockedCallback(sessionID, self)
+}
 // Get the auth_user_sid field of the given session.
 func (_class SessionClass) GetAuthUserSid(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetAuthUserSid__mock(sessionID, self)
+		return _class.GetAuthUserSidMock(sessionID, self)
 	}	
 	_method := "session.get_auth_user_sid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -516,15 +601,20 @@ func (_class SessionClass) GetAuthUserSid(sessionID SessionRef, self SessionRef)
 	return
 }
 
-func (_class SessionClass) GetValidationTime__mock(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
+
+var SessionClass_GetValidationTimeMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
 	log.Println("Session.GetValidationTime not mocked")
 	_err = errors.New("Session.GetValidationTime not mocked")
 	return
 }
+
+func (_class SessionClass) GetValidationTimeMock(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
+	return SessionClass_GetValidationTimeMockedCallback(sessionID, self)
+}
 // Get the validation_time field of the given session.
 func (_class SessionClass) GetValidationTime(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetValidationTime__mock(sessionID, self)
+		return _class.GetValidationTimeMock(sessionID, self)
 	}	
 	_method := "session.get_validation_time"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -543,15 +633,20 @@ func (_class SessionClass) GetValidationTime(sessionID SessionRef, self SessionR
 	return
 }
 
-func (_class SessionClass) GetSubject__mock(sessionID SessionRef, self SessionRef) (_retval SubjectRef, _err error) {
+
+var SessionClass_GetSubjectMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval SubjectRef, _err error) {
 	log.Println("Session.GetSubject not mocked")
 	_err = errors.New("Session.GetSubject not mocked")
 	return
 }
+
+func (_class SessionClass) GetSubjectMock(sessionID SessionRef, self SessionRef) (_retval SubjectRef, _err error) {
+	return SessionClass_GetSubjectMockedCallback(sessionID, self)
+}
 // Get the subject field of the given session.
 func (_class SessionClass) GetSubject(sessionID SessionRef, self SessionRef) (_retval SubjectRef, _err error) {
 	if (IsMock) {
-		return _class.GetSubject__mock(sessionID, self)
+		return _class.GetSubjectMock(sessionID, self)
 	}	
 	_method := "session.get_subject"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -570,15 +665,20 @@ func (_class SessionClass) GetSubject(sessionID SessionRef, self SessionRef) (_r
 	return
 }
 
-func (_class SessionClass) GetIsLocalSuperuser__mock(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
+
+var SessionClass_GetIsLocalSuperuserMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
 	log.Println("Session.GetIsLocalSuperuser not mocked")
 	_err = errors.New("Session.GetIsLocalSuperuser not mocked")
 	return
 }
+
+func (_class SessionClass) GetIsLocalSuperuserMock(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
+	return SessionClass_GetIsLocalSuperuserMockedCallback(sessionID, self)
+}
 // Get the is_local_superuser field of the given session.
 func (_class SessionClass) GetIsLocalSuperuser(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetIsLocalSuperuser__mock(sessionID, self)
+		return _class.GetIsLocalSuperuserMock(sessionID, self)
 	}	
 	_method := "session.get_is_local_superuser"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -597,15 +697,20 @@ func (_class SessionClass) GetIsLocalSuperuser(sessionID SessionRef, self Sessio
 	return
 }
 
-func (_class SessionClass) GetOtherConfig__mock(sessionID SessionRef, self SessionRef) (_retval map[string]string, _err error) {
+
+var SessionClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval map[string]string, _err error) {
 	log.Println("Session.GetOtherConfig not mocked")
 	_err = errors.New("Session.GetOtherConfig not mocked")
 	return
 }
+
+func (_class SessionClass) GetOtherConfigMock(sessionID SessionRef, self SessionRef) (_retval map[string]string, _err error) {
+	return SessionClass_GetOtherConfigMockedCallback(sessionID, self)
+}
 // Get the other_config field of the given session.
 func (_class SessionClass) GetOtherConfig(sessionID SessionRef, self SessionRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetOtherConfig__mock(sessionID, self)
+		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "session.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -624,15 +729,20 @@ func (_class SessionClass) GetOtherConfig(sessionID SessionRef, self SessionRef)
 	return
 }
 
-func (_class SessionClass) GetPool__mock(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
+
+var SessionClass_GetPoolMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
 	log.Println("Session.GetPool not mocked")
 	_err = errors.New("Session.GetPool not mocked")
 	return
 }
+
+func (_class SessionClass) GetPoolMock(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
+	return SessionClass_GetPoolMockedCallback(sessionID, self)
+}
 // Get the pool field of the given session.
 func (_class SessionClass) GetPool(sessionID SessionRef, self SessionRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetPool__mock(sessionID, self)
+		return _class.GetPoolMock(sessionID, self)
 	}	
 	_method := "session.get_pool"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -651,15 +761,20 @@ func (_class SessionClass) GetPool(sessionID SessionRef, self SessionRef) (_retv
 	return
 }
 
-func (_class SessionClass) GetLastActive__mock(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
+
+var SessionClass_GetLastActiveMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
 	log.Println("Session.GetLastActive not mocked")
 	_err = errors.New("Session.GetLastActive not mocked")
 	return
 }
+
+func (_class SessionClass) GetLastActiveMock(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
+	return SessionClass_GetLastActiveMockedCallback(sessionID, self)
+}
 // Get the last_active field of the given session.
 func (_class SessionClass) GetLastActive(sessionID SessionRef, self SessionRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetLastActive__mock(sessionID, self)
+		return _class.GetLastActiveMock(sessionID, self)
 	}	
 	_method := "session.get_last_active"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -678,15 +793,20 @@ func (_class SessionClass) GetLastActive(sessionID SessionRef, self SessionRef) 
 	return
 }
 
-func (_class SessionClass) GetThisUser__mock(sessionID SessionRef, self SessionRef) (_retval UserRef, _err error) {
+
+var SessionClass_GetThisUserMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval UserRef, _err error) {
 	log.Println("Session.GetThisUser not mocked")
 	_err = errors.New("Session.GetThisUser not mocked")
 	return
 }
+
+func (_class SessionClass) GetThisUserMock(sessionID SessionRef, self SessionRef) (_retval UserRef, _err error) {
+	return SessionClass_GetThisUserMockedCallback(sessionID, self)
+}
 // Get the this_user field of the given session.
 func (_class SessionClass) GetThisUser(sessionID SessionRef, self SessionRef) (_retval UserRef, _err error) {
 	if (IsMock) {
-		return _class.GetThisUser__mock(sessionID, self)
+		return _class.GetThisUserMock(sessionID, self)
 	}	
 	_method := "session.get_this_user"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -705,15 +825,20 @@ func (_class SessionClass) GetThisUser(sessionID SessionRef, self SessionRef) (_
 	return
 }
 
-func (_class SessionClass) GetThisHost__mock(sessionID SessionRef, self SessionRef) (_retval HostRef, _err error) {
+
+var SessionClass_GetThisHostMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval HostRef, _err error) {
 	log.Println("Session.GetThisHost not mocked")
 	_err = errors.New("Session.GetThisHost not mocked")
 	return
 }
+
+func (_class SessionClass) GetThisHostMock(sessionID SessionRef, self SessionRef) (_retval HostRef, _err error) {
+	return SessionClass_GetThisHostMockedCallback(sessionID, self)
+}
 // Get the this_host field of the given session.
 func (_class SessionClass) GetThisHost(sessionID SessionRef, self SessionRef) (_retval HostRef, _err error) {
 	if (IsMock) {
-		return _class.GetThisHost__mock(sessionID, self)
+		return _class.GetThisHostMock(sessionID, self)
 	}	
 	_method := "session.get_this_host"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -732,15 +857,20 @@ func (_class SessionClass) GetThisHost(sessionID SessionRef, self SessionRef) (_
 	return
 }
 
-func (_class SessionClass) GetUUID__mock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+
+var SessionClass_GetUUIDMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	log.Println("Session.GetUUID not mocked")
 	_err = errors.New("Session.GetUUID not mocked")
 	return
 }
+
+func (_class SessionClass) GetUUIDMock(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
+	return SessionClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given session.
 func (_class SessionClass) GetUUID(sessionID SessionRef, self SessionRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "session.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -759,15 +889,20 @@ func (_class SessionClass) GetUUID(sessionID SessionRef, self SessionRef) (_retv
 	return
 }
 
-func (_class SessionClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval SessionRef, _err error) {
+
+var SessionClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval SessionRef, _err error) {
 	log.Println("Session.GetByUUID not mocked")
 	_err = errors.New("Session.GetByUUID not mocked")
 	return
 }
+
+func (_class SessionClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval SessionRef, _err error) {
+	return SessionClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the session instance with the specified UUID.
 func (_class SessionClass) GetByUUID(sessionID SessionRef, uuid string) (_retval SessionRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "session.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -786,15 +921,20 @@ func (_class SessionClass) GetByUUID(sessionID SessionRef, uuid string) (_retval
 	return
 }
 
-func (_class SessionClass) GetRecord__mock(sessionID SessionRef, self SessionRef) (_retval SessionRecord, _err error) {
+
+var SessionClass_GetRecordMockedCallback = func (sessionID SessionRef, self SessionRef) (_retval SessionRecord, _err error) {
 	log.Println("Session.GetRecord not mocked")
 	_err = errors.New("Session.GetRecord not mocked")
 	return
 }
+
+func (_class SessionClass) GetRecordMock(sessionID SessionRef, self SessionRef) (_retval SessionRecord, _err error) {
+	return SessionClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given session.
 func (_class SessionClass) GetRecord(sessionID SessionRef, self SessionRef) (_retval SessionRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "session.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

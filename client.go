@@ -10,7 +10,7 @@ import (
 	"github.com/amfranz/go-xmlrpc-client"
 )
 
-var mock = "false"
+var mock = "true"
 
 var IsMock = mock == "true"
 

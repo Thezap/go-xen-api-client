@@ -65,15 +65,20 @@ type VMMetricsClass struct {
 	client *Client
 }
 
-func (_class VMMetricsClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[VMMetricsRef]VMMetricsRecord, _err error) {
+
+var VMMetricsClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[VMMetricsRef]VMMetricsRecord, _err error) {
 	log.Println("VMMetrics.GetAllRecords not mocked")
 	_err = errors.New("VMMetrics.GetAllRecords not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[VMMetricsRef]VMMetricsRecord, _err error) {
+	return VMMetricsClass_GetAllRecordsMockedCallback(sessionID)
+}
 // Return a map of VM_metrics references to VM_metrics records for all VM_metrics instances known to the system.
 func (_class VMMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[VMMetricsRef]VMMetricsRecord, _err error) {
 	if (IsMock) {
-		return _class.GetAllRecords__mock(sessionID)
+		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "VM_metrics.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -88,15 +93,20 @@ func (_class VMMetricsClass) GetAllRecords(sessionID SessionRef) (_retval map[VM
 	return
 }
 
-func (_class VMMetricsClass) GetAll__mock(sessionID SessionRef) (_retval []VMMetricsRef, _err error) {
+
+var VMMetricsClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []VMMetricsRef, _err error) {
 	log.Println("VMMetrics.GetAll not mocked")
 	_err = errors.New("VMMetrics.GetAll not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetAllMock(sessionID SessionRef) (_retval []VMMetricsRef, _err error) {
+	return VMMetricsClass_GetAllMockedCallback(sessionID)
+}
 // Return a list of all the VM_metrics instances known to the system.
 func (_class VMMetricsClass) GetAll(sessionID SessionRef) (_retval []VMMetricsRef, _err error) {
 	if (IsMock) {
-		return _class.GetAll__mock(sessionID)
+		return _class.GetAllMock(sessionID)
 	}	
 	_method := "VM_metrics.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -111,15 +121,20 @@ func (_class VMMetricsClass) GetAll(sessionID SessionRef) (_retval []VMMetricsRe
 	return
 }
 
-func (_class VMMetricsClass) RemoveFromOtherConfig__mock(sessionID SessionRef, self VMMetricsRef, key string) (_err error) {
+
+var VMMetricsClass_RemoveFromOtherConfigMockedCallback = func (sessionID SessionRef, self VMMetricsRef, key string) (_err error) {
 	log.Println("VMMetrics.RemoveFromOtherConfig not mocked")
 	_err = errors.New("VMMetrics.RemoveFromOtherConfig not mocked")
 	return
 }
+
+func (_class VMMetricsClass) RemoveFromOtherConfigMock(sessionID SessionRef, self VMMetricsRef, key string) (_err error) {
+	return VMMetricsClass_RemoveFromOtherConfigMockedCallback(sessionID, self, key)
+}
 // Remove the given key and its corresponding value from the other_config field of the given VM_metrics.  If the key is not in that Map, then do nothing.
 func (_class VMMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self VMMetricsRef, key string) (_err error) {
 	if (IsMock) {
-		return _class.RemoveFromOtherConfig__mock(sessionID, self, key)
+		return _class.RemoveFromOtherConfigMock(sessionID, self, key)
 	}	
 	_method := "VM_metrics.remove_from_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -138,15 +153,20 @@ func (_class VMMetricsClass) RemoveFromOtherConfig(sessionID SessionRef, self VM
 	return
 }
 
-func (_class VMMetricsClass) AddToOtherConfig__mock(sessionID SessionRef, self VMMetricsRef, key string, value string) (_err error) {
+
+var VMMetricsClass_AddToOtherConfigMockedCallback = func (sessionID SessionRef, self VMMetricsRef, key string, value string) (_err error) {
 	log.Println("VMMetrics.AddToOtherConfig not mocked")
 	_err = errors.New("VMMetrics.AddToOtherConfig not mocked")
 	return
 }
+
+func (_class VMMetricsClass) AddToOtherConfigMock(sessionID SessionRef, self VMMetricsRef, key string, value string) (_err error) {
+	return VMMetricsClass_AddToOtherConfigMockedCallback(sessionID, self, key, value)
+}
 // Add the given key-value pair to the other_config field of the given VM_metrics.
 func (_class VMMetricsClass) AddToOtherConfig(sessionID SessionRef, self VMMetricsRef, key string, value string) (_err error) {
 	if (IsMock) {
-		return _class.AddToOtherConfig__mock(sessionID, self, key, value)
+		return _class.AddToOtherConfigMock(sessionID, self, key, value)
 	}	
 	_method := "VM_metrics.add_to_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -169,15 +189,20 @@ func (_class VMMetricsClass) AddToOtherConfig(sessionID SessionRef, self VMMetri
 	return
 }
 
-func (_class VMMetricsClass) SetOtherConfig__mock(sessionID SessionRef, self VMMetricsRef, value map[string]string) (_err error) {
+
+var VMMetricsClass_SetOtherConfigMockedCallback = func (sessionID SessionRef, self VMMetricsRef, value map[string]string) (_err error) {
 	log.Println("VMMetrics.SetOtherConfig not mocked")
 	_err = errors.New("VMMetrics.SetOtherConfig not mocked")
 	return
 }
+
+func (_class VMMetricsClass) SetOtherConfigMock(sessionID SessionRef, self VMMetricsRef, value map[string]string) (_err error) {
+	return VMMetricsClass_SetOtherConfigMockedCallback(sessionID, self, value)
+}
 // Set the other_config field of the given VM_metrics.
 func (_class VMMetricsClass) SetOtherConfig(sessionID SessionRef, self VMMetricsRef, value map[string]string) (_err error) {
 	if (IsMock) {
-		return _class.SetOtherConfig__mock(sessionID, self, value)
+		return _class.SetOtherConfigMock(sessionID, self, value)
 	}	
 	_method := "VM_metrics.set_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -196,15 +221,20 @@ func (_class VMMetricsClass) SetOtherConfig(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetNomigrate__mock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+
+var VMMetricsClass_GetNomigrateMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	log.Println("VMMetrics.GetNomigrate not mocked")
 	_err = errors.New("VMMetrics.GetNomigrate not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetNomigrateMock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+	return VMMetricsClass_GetNomigrateMockedCallback(sessionID, self)
+}
 // Get the nomigrate field of the given VM_metrics.
 func (_class VMMetricsClass) GetNomigrate(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetNomigrate__mock(sessionID, self)
+		return _class.GetNomigrateMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_nomigrate"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -223,15 +253,20 @@ func (_class VMMetricsClass) GetNomigrate(sessionID SessionRef, self VMMetricsRe
 	return
 }
 
-func (_class VMMetricsClass) GetNestedVirt__mock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+
+var VMMetricsClass_GetNestedVirtMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	log.Println("VMMetrics.GetNestedVirt not mocked")
 	_err = errors.New("VMMetrics.GetNestedVirt not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetNestedVirtMock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+	return VMMetricsClass_GetNestedVirtMockedCallback(sessionID, self)
+}
 // Get the nested_virt field of the given VM_metrics.
 func (_class VMMetricsClass) GetNestedVirt(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetNestedVirt__mock(sessionID, self)
+		return _class.GetNestedVirtMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_nested_virt"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -250,15 +285,20 @@ func (_class VMMetricsClass) GetNestedVirt(sessionID SessionRef, self VMMetricsR
 	return
 }
 
-func (_class VMMetricsClass) GetHvm__mock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+
+var VMMetricsClass_GetHvmMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	log.Println("VMMetrics.GetHvm not mocked")
 	_err = errors.New("VMMetrics.GetHvm not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetHvmMock(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
+	return VMMetricsClass_GetHvmMockedCallback(sessionID, self)
+}
 // Get the hvm field of the given VM_metrics.
 func (_class VMMetricsClass) GetHvm(sessionID SessionRef, self VMMetricsRef) (_retval bool, _err error) {
 	if (IsMock) {
-		return _class.GetHvm__mock(sessionID, self)
+		return _class.GetHvmMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_hvm"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -277,15 +317,20 @@ func (_class VMMetricsClass) GetHvm(sessionID SessionRef, self VMMetricsRef) (_r
 	return
 }
 
-func (_class VMMetricsClass) GetOtherConfig__mock(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
+
+var VMMetricsClass_GetOtherConfigMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMMetrics.GetOtherConfig not mocked")
 	_err = errors.New("VMMetrics.GetOtherConfig not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetOtherConfigMock(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
+	return VMMetricsClass_GetOtherConfigMockedCallback(sessionID, self)
+}
 // Get the other_config field of the given VM_metrics.
 func (_class VMMetricsClass) GetOtherConfig(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetOtherConfig__mock(sessionID, self)
+		return _class.GetOtherConfigMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_other_config"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -304,15 +349,20 @@ func (_class VMMetricsClass) GetOtherConfig(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetLastUpdated__mock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+
+var VMMetricsClass_GetLastUpdatedMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	log.Println("VMMetrics.GetLastUpdated not mocked")
 	_err = errors.New("VMMetrics.GetLastUpdated not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetLastUpdatedMock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+	return VMMetricsClass_GetLastUpdatedMockedCallback(sessionID, self)
+}
 // Get the last_updated field of the given VM_metrics.
 func (_class VMMetricsClass) GetLastUpdated(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetLastUpdated__mock(sessionID, self)
+		return _class.GetLastUpdatedMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_last_updated"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -331,15 +381,20 @@ func (_class VMMetricsClass) GetLastUpdated(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetInstallTime__mock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+
+var VMMetricsClass_GetInstallTimeMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	log.Println("VMMetrics.GetInstallTime not mocked")
 	_err = errors.New("VMMetrics.GetInstallTime not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetInstallTimeMock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+	return VMMetricsClass_GetInstallTimeMockedCallback(sessionID, self)
+}
 // Get the install_time field of the given VM_metrics.
 func (_class VMMetricsClass) GetInstallTime(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetInstallTime__mock(sessionID, self)
+		return _class.GetInstallTimeMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_install_time"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -358,15 +413,20 @@ func (_class VMMetricsClass) GetInstallTime(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetStartTime__mock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+
+var VMMetricsClass_GetStartTimeMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	log.Println("VMMetrics.GetStartTime not mocked")
 	_err = errors.New("VMMetrics.GetStartTime not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetStartTimeMock(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
+	return VMMetricsClass_GetStartTimeMockedCallback(sessionID, self)
+}
 // Get the start_time field of the given VM_metrics.
 func (_class VMMetricsClass) GetStartTime(sessionID SessionRef, self VMMetricsRef) (_retval time.Time, _err error) {
 	if (IsMock) {
-		return _class.GetStartTime__mock(sessionID, self)
+		return _class.GetStartTimeMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_start_time"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -385,15 +445,20 @@ func (_class VMMetricsClass) GetStartTime(sessionID SessionRef, self VMMetricsRe
 	return
 }
 
-func (_class VMMetricsClass) GetState__mock(sessionID SessionRef, self VMMetricsRef) (_retval []string, _err error) {
+
+var VMMetricsClass_GetStateMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval []string, _err error) {
 	log.Println("VMMetrics.GetState not mocked")
 	_err = errors.New("VMMetrics.GetState not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetStateMock(sessionID SessionRef, self VMMetricsRef) (_retval []string, _err error) {
+	return VMMetricsClass_GetStateMockedCallback(sessionID, self)
+}
 // Get the state field of the given VM_metrics.
 func (_class VMMetricsClass) GetState(sessionID SessionRef, self VMMetricsRef) (_retval []string, _err error) {
 	if (IsMock) {
-		return _class.GetState__mock(sessionID, self)
+		return _class.GetStateMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_state"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -412,15 +477,20 @@ func (_class VMMetricsClass) GetState(sessionID SessionRef, self VMMetricsRef) (
 	return
 }
 
-func (_class VMMetricsClass) GetVCPUsFlags__mock(sessionID SessionRef, self VMMetricsRef) (_retval map[int][]string, _err error) {
+
+var VMMetricsClass_GetVCPUsFlagsMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval map[int][]string, _err error) {
 	log.Println("VMMetrics.GetVCPUsFlags not mocked")
 	_err = errors.New("VMMetrics.GetVCPUsFlags not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetVCPUsFlagsMock(sessionID SessionRef, self VMMetricsRef) (_retval map[int][]string, _err error) {
+	return VMMetricsClass_GetVCPUsFlagsMockedCallback(sessionID, self)
+}
 // Get the VCPUs/flags field of the given VM_metrics.
 func (_class VMMetricsClass) GetVCPUsFlags(sessionID SessionRef, self VMMetricsRef) (_retval map[int][]string, _err error) {
 	if (IsMock) {
-		return _class.GetVCPUsFlags__mock(sessionID, self)
+		return _class.GetVCPUsFlagsMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_VCPUs_flags"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -439,15 +509,20 @@ func (_class VMMetricsClass) GetVCPUsFlags(sessionID SessionRef, self VMMetricsR
 	return
 }
 
-func (_class VMMetricsClass) GetVCPUsParams__mock(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
+
+var VMMetricsClass_GetVCPUsParamsMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
 	log.Println("VMMetrics.GetVCPUsParams not mocked")
 	_err = errors.New("VMMetrics.GetVCPUsParams not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetVCPUsParamsMock(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
+	return VMMetricsClass_GetVCPUsParamsMockedCallback(sessionID, self)
+}
 // Get the VCPUs/params field of the given VM_metrics.
 func (_class VMMetricsClass) GetVCPUsParams(sessionID SessionRef, self VMMetricsRef) (_retval map[string]string, _err error) {
 	if (IsMock) {
-		return _class.GetVCPUsParams__mock(sessionID, self)
+		return _class.GetVCPUsParamsMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_VCPUs_params"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -466,15 +541,20 @@ func (_class VMMetricsClass) GetVCPUsParams(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetVCPUsCPU__mock(sessionID SessionRef, self VMMetricsRef) (_retval map[int]int, _err error) {
+
+var VMMetricsClass_GetVCPUsCPUMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval map[int]int, _err error) {
 	log.Println("VMMetrics.GetVCPUsCPU not mocked")
 	_err = errors.New("VMMetrics.GetVCPUsCPU not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetVCPUsCPUMock(sessionID SessionRef, self VMMetricsRef) (_retval map[int]int, _err error) {
+	return VMMetricsClass_GetVCPUsCPUMockedCallback(sessionID, self)
+}
 // Get the VCPUs/CPU field of the given VM_metrics.
 func (_class VMMetricsClass) GetVCPUsCPU(sessionID SessionRef, self VMMetricsRef) (_retval map[int]int, _err error) {
 	if (IsMock) {
-		return _class.GetVCPUsCPU__mock(sessionID, self)
+		return _class.GetVCPUsCPUMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_VCPUs_CPU"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -493,15 +573,20 @@ func (_class VMMetricsClass) GetVCPUsCPU(sessionID SessionRef, self VMMetricsRef
 	return
 }
 
-func (_class VMMetricsClass) GetVCPUsUtilisation__mock(sessionID SessionRef, self VMMetricsRef) (_retval map[int]float64, _err error) {
+
+var VMMetricsClass_GetVCPUsUtilisationMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval map[int]float64, _err error) {
 	log.Println("VMMetrics.GetVCPUsUtilisation not mocked")
 	_err = errors.New("VMMetrics.GetVCPUsUtilisation not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetVCPUsUtilisationMock(sessionID SessionRef, self VMMetricsRef) (_retval map[int]float64, _err error) {
+	return VMMetricsClass_GetVCPUsUtilisationMockedCallback(sessionID, self)
+}
 // Get the VCPUs/utilisation field of the given VM_metrics.
 func (_class VMMetricsClass) GetVCPUsUtilisation(sessionID SessionRef, self VMMetricsRef) (_retval map[int]float64, _err error) {
 	if (IsMock) {
-		return _class.GetVCPUsUtilisation__mock(sessionID, self)
+		return _class.GetVCPUsUtilisationMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_VCPUs_utilisation"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -520,15 +605,20 @@ func (_class VMMetricsClass) GetVCPUsUtilisation(sessionID SessionRef, self VMMe
 	return
 }
 
-func (_class VMMetricsClass) GetVCPUsNumber__mock(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
+
+var VMMetricsClass_GetVCPUsNumberMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
 	log.Println("VMMetrics.GetVCPUsNumber not mocked")
 	_err = errors.New("VMMetrics.GetVCPUsNumber not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetVCPUsNumberMock(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
+	return VMMetricsClass_GetVCPUsNumberMockedCallback(sessionID, self)
+}
 // Get the VCPUs/number field of the given VM_metrics.
 func (_class VMMetricsClass) GetVCPUsNumber(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetVCPUsNumber__mock(sessionID, self)
+		return _class.GetVCPUsNumberMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_VCPUs_number"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -547,15 +637,20 @@ func (_class VMMetricsClass) GetVCPUsNumber(sessionID SessionRef, self VMMetrics
 	return
 }
 
-func (_class VMMetricsClass) GetMemoryActual__mock(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
+
+var VMMetricsClass_GetMemoryActualMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
 	log.Println("VMMetrics.GetMemoryActual not mocked")
 	_err = errors.New("VMMetrics.GetMemoryActual not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetMemoryActualMock(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
+	return VMMetricsClass_GetMemoryActualMockedCallback(sessionID, self)
+}
 // Get the memory/actual field of the given VM_metrics.
 func (_class VMMetricsClass) GetMemoryActual(sessionID SessionRef, self VMMetricsRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetMemoryActual__mock(sessionID, self)
+		return _class.GetMemoryActualMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_memory_actual"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -574,15 +669,20 @@ func (_class VMMetricsClass) GetMemoryActual(sessionID SessionRef, self VMMetric
 	return
 }
 
-func (_class VMMetricsClass) GetUUID__mock(sessionID SessionRef, self VMMetricsRef) (_retval string, _err error) {
+
+var VMMetricsClass_GetUUIDMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval string, _err error) {
 	log.Println("VMMetrics.GetUUID not mocked")
 	_err = errors.New("VMMetrics.GetUUID not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetUUIDMock(sessionID SessionRef, self VMMetricsRef) (_retval string, _err error) {
+	return VMMetricsClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given VM_metrics.
 func (_class VMMetricsClass) GetUUID(sessionID SessionRef, self VMMetricsRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -601,15 +701,20 @@ func (_class VMMetricsClass) GetUUID(sessionID SessionRef, self VMMetricsRef) (_
 	return
 }
 
-func (_class VMMetricsClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval VMMetricsRef, _err error) {
+
+var VMMetricsClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval VMMetricsRef, _err error) {
 	log.Println("VMMetrics.GetByUUID not mocked")
 	_err = errors.New("VMMetrics.GetByUUID not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval VMMetricsRef, _err error) {
+	return VMMetricsClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the VM_metrics instance with the specified UUID.
 func (_class VMMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retval VMMetricsRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "VM_metrics.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -628,15 +733,20 @@ func (_class VMMetricsClass) GetByUUID(sessionID SessionRef, uuid string) (_retv
 	return
 }
 
-func (_class VMMetricsClass) GetRecord__mock(sessionID SessionRef, self VMMetricsRef) (_retval VMMetricsRecord, _err error) {
+
+var VMMetricsClass_GetRecordMockedCallback = func (sessionID SessionRef, self VMMetricsRef) (_retval VMMetricsRecord, _err error) {
 	log.Println("VMMetrics.GetRecord not mocked")
 	_err = errors.New("VMMetrics.GetRecord not mocked")
 	return
 }
+
+func (_class VMMetricsClass) GetRecordMock(sessionID SessionRef, self VMMetricsRef) (_retval VMMetricsRecord, _err error) {
+	return VMMetricsClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given VM_metrics.
 func (_class VMMetricsClass) GetRecord(sessionID SessionRef, self VMMetricsRef) (_retval VMMetricsRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "VM_metrics.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

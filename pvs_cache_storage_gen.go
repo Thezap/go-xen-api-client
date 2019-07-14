@@ -47,15 +47,20 @@ type PVSCacheStorageClass struct {
 	client *Client
 }
 
-func (_class PVSCacheStorageClass) GetAllRecords__mock(sessionID SessionRef) (_retval map[PVSCacheStorageRef]PVSCacheStorageRecord, _err error) {
+
+var PVSCacheStorageClass_GetAllRecordsMockedCallback = func (sessionID SessionRef) (_retval map[PVSCacheStorageRef]PVSCacheStorageRecord, _err error) {
 	log.Println("PVSCacheStorage.GetAllRecords not mocked")
 	_err = errors.New("PVSCacheStorage.GetAllRecords not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetAllRecordsMock(sessionID SessionRef) (_retval map[PVSCacheStorageRef]PVSCacheStorageRecord, _err error) {
+	return PVSCacheStorageClass_GetAllRecordsMockedCallback(sessionID)
+}
 // Return a map of PVS_cache_storage references to PVS_cache_storage records for all PVS_cache_storages known to the system.
 func (_class PVSCacheStorageClass) GetAllRecords(sessionID SessionRef) (_retval map[PVSCacheStorageRef]PVSCacheStorageRecord, _err error) {
 	if (IsMock) {
-		return _class.GetAllRecords__mock(sessionID)
+		return _class.GetAllRecordsMock(sessionID)
 	}	
 	_method := "PVS_cache_storage.get_all_records"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -70,15 +75,20 @@ func (_class PVSCacheStorageClass) GetAllRecords(sessionID SessionRef) (_retval 
 	return
 }
 
-func (_class PVSCacheStorageClass) GetAll__mock(sessionID SessionRef) (_retval []PVSCacheStorageRef, _err error) {
+
+var PVSCacheStorageClass_GetAllMockedCallback = func (sessionID SessionRef) (_retval []PVSCacheStorageRef, _err error) {
 	log.Println("PVSCacheStorage.GetAll not mocked")
 	_err = errors.New("PVSCacheStorage.GetAll not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetAllMock(sessionID SessionRef) (_retval []PVSCacheStorageRef, _err error) {
+	return PVSCacheStorageClass_GetAllMockedCallback(sessionID)
+}
 // Return a list of all the PVS_cache_storages known to the system.
 func (_class PVSCacheStorageClass) GetAll(sessionID SessionRef) (_retval []PVSCacheStorageRef, _err error) {
 	if (IsMock) {
-		return _class.GetAll__mock(sessionID)
+		return _class.GetAllMock(sessionID)
 	}	
 	_method := "PVS_cache_storage.get_all"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -93,15 +103,20 @@ func (_class PVSCacheStorageClass) GetAll(sessionID SessionRef) (_retval []PVSCa
 	return
 }
 
-func (_class PVSCacheStorageClass) GetVDI__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval VDIRef, _err error) {
+
+var PVSCacheStorageClass_GetVDIMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval VDIRef, _err error) {
 	log.Println("PVSCacheStorage.GetVDI not mocked")
 	_err = errors.New("PVSCacheStorage.GetVDI not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetVDIMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval VDIRef, _err error) {
+	return PVSCacheStorageClass_GetVDIMockedCallback(sessionID, self)
+}
 // Get the VDI field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetVDI(sessionID SessionRef, self PVSCacheStorageRef) (_retval VDIRef, _err error) {
 	if (IsMock) {
-		return _class.GetVDI__mock(sessionID, self)
+		return _class.GetVDIMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_VDI"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -120,15 +135,20 @@ func (_class PVSCacheStorageClass) GetVDI(sessionID SessionRef, self PVSCacheSto
 	return
 }
 
-func (_class PVSCacheStorageClass) GetSize__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval int, _err error) {
+
+var PVSCacheStorageClass_GetSizeMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval int, _err error) {
 	log.Println("PVSCacheStorage.GetSize not mocked")
 	_err = errors.New("PVSCacheStorage.GetSize not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetSizeMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval int, _err error) {
+	return PVSCacheStorageClass_GetSizeMockedCallback(sessionID, self)
+}
 // Get the size field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetSize(sessionID SessionRef, self PVSCacheStorageRef) (_retval int, _err error) {
 	if (IsMock) {
-		return _class.GetSize__mock(sessionID, self)
+		return _class.GetSizeMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_size"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -147,15 +167,20 @@ func (_class PVSCacheStorageClass) GetSize(sessionID SessionRef, self PVSCacheSt
 	return
 }
 
-func (_class PVSCacheStorageClass) GetSite__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSSiteRef, _err error) {
+
+var PVSCacheStorageClass_GetSiteMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSSiteRef, _err error) {
 	log.Println("PVSCacheStorage.GetSite not mocked")
 	_err = errors.New("PVSCacheStorage.GetSite not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetSiteMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSSiteRef, _err error) {
+	return PVSCacheStorageClass_GetSiteMockedCallback(sessionID, self)
+}
 // Get the site field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetSite(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSSiteRef, _err error) {
 	if (IsMock) {
-		return _class.GetSite__mock(sessionID, self)
+		return _class.GetSiteMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_site"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -174,15 +199,20 @@ func (_class PVSCacheStorageClass) GetSite(sessionID SessionRef, self PVSCacheSt
 	return
 }
 
-func (_class PVSCacheStorageClass) GetSR__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval SRRef, _err error) {
+
+var PVSCacheStorageClass_GetSRMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval SRRef, _err error) {
 	log.Println("PVSCacheStorage.GetSR not mocked")
 	_err = errors.New("PVSCacheStorage.GetSR not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetSRMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval SRRef, _err error) {
+	return PVSCacheStorageClass_GetSRMockedCallback(sessionID, self)
+}
 // Get the SR field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetSR(sessionID SessionRef, self PVSCacheStorageRef) (_retval SRRef, _err error) {
 	if (IsMock) {
-		return _class.GetSR__mock(sessionID, self)
+		return _class.GetSRMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_SR"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -201,15 +231,20 @@ func (_class PVSCacheStorageClass) GetSR(sessionID SessionRef, self PVSCacheStor
 	return
 }
 
-func (_class PVSCacheStorageClass) GetHost__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval HostRef, _err error) {
+
+var PVSCacheStorageClass_GetHostMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval HostRef, _err error) {
 	log.Println("PVSCacheStorage.GetHost not mocked")
 	_err = errors.New("PVSCacheStorage.GetHost not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetHostMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval HostRef, _err error) {
+	return PVSCacheStorageClass_GetHostMockedCallback(sessionID, self)
+}
 // Get the host field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetHost(sessionID SessionRef, self PVSCacheStorageRef) (_retval HostRef, _err error) {
 	if (IsMock) {
-		return _class.GetHost__mock(sessionID, self)
+		return _class.GetHostMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_host"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -228,15 +263,20 @@ func (_class PVSCacheStorageClass) GetHost(sessionID SessionRef, self PVSCacheSt
 	return
 }
 
-func (_class PVSCacheStorageClass) GetUUID__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval string, _err error) {
+
+var PVSCacheStorageClass_GetUUIDMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval string, _err error) {
 	log.Println("PVSCacheStorage.GetUUID not mocked")
 	_err = errors.New("PVSCacheStorage.GetUUID not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetUUIDMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval string, _err error) {
+	return PVSCacheStorageClass_GetUUIDMockedCallback(sessionID, self)
+}
 // Get the uuid field of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetUUID(sessionID SessionRef, self PVSCacheStorageRef) (_retval string, _err error) {
 	if (IsMock) {
-		return _class.GetUUID__mock(sessionID, self)
+		return _class.GetUUIDMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -255,15 +295,20 @@ func (_class PVSCacheStorageClass) GetUUID(sessionID SessionRef, self PVSCacheSt
 	return
 }
 
-func (_class PVSCacheStorageClass) Destroy__mock(sessionID SessionRef, self PVSCacheStorageRef) (_err error) {
+
+var PVSCacheStorageClass_DestroyMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_err error) {
 	log.Println("PVSCacheStorage.Destroy not mocked")
 	_err = errors.New("PVSCacheStorage.Destroy not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) DestroyMock(sessionID SessionRef, self PVSCacheStorageRef) (_err error) {
+	return PVSCacheStorageClass_DestroyMockedCallback(sessionID, self)
+}
 // Destroy the specified PVS_cache_storage instance.
 func (_class PVSCacheStorageClass) Destroy(sessionID SessionRef, self PVSCacheStorageRef) (_err error) {
 	if (IsMock) {
-		return _class.Destroy__mock(sessionID, self)
+		return _class.DestroyMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.destroy"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -278,16 +323,21 @@ func (_class PVSCacheStorageClass) Destroy(sessionID SessionRef, self PVSCacheSt
 	return
 }
 
-func (_class PVSCacheStorageClass) Create__mock(sessionID SessionRef, args PVSCacheStorageRecord) (_retval PVSCacheStorageRef, _err error) {
+
+var PVSCacheStorageClass_CreateMockedCallback = func (sessionID SessionRef, args PVSCacheStorageRecord) (_retval PVSCacheStorageRef, _err error) {
 	log.Println("PVSCacheStorage.Create not mocked")
 	_err = errors.New("PVSCacheStorage.Create not mocked")
 	return
+}
+
+func (_class PVSCacheStorageClass) CreateMock(sessionID SessionRef, args PVSCacheStorageRecord) (_retval PVSCacheStorageRef, _err error) {
+	return PVSCacheStorageClass_CreateMockedCallback(sessionID, args)
 }
 // Create a new PVS_cache_storage instance, and return its handle.
 // The constructor args are: host, SR, site, size (* = non-optional).
 func (_class PVSCacheStorageClass) Create(sessionID SessionRef, args PVSCacheStorageRecord) (_retval PVSCacheStorageRef, _err error) {
 	if (IsMock) {
-		return _class.Create__mock(sessionID, args)
+		return _class.CreateMock(sessionID, args)
 	}	
 	_method := "PVS_cache_storage.create"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -306,15 +356,20 @@ func (_class PVSCacheStorageClass) Create(sessionID SessionRef, args PVSCacheSto
 	return
 }
 
-func (_class PVSCacheStorageClass) GetByUUID__mock(sessionID SessionRef, uuid string) (_retval PVSCacheStorageRef, _err error) {
+
+var PVSCacheStorageClass_GetByUUIDMockedCallback = func (sessionID SessionRef, uuid string) (_retval PVSCacheStorageRef, _err error) {
 	log.Println("PVSCacheStorage.GetByUUID not mocked")
 	_err = errors.New("PVSCacheStorage.GetByUUID not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetByUUIDMock(sessionID SessionRef, uuid string) (_retval PVSCacheStorageRef, _err error) {
+	return PVSCacheStorageClass_GetByUUIDMockedCallback(sessionID, uuid)
+}
 // Get a reference to the PVS_cache_storage instance with the specified UUID.
 func (_class PVSCacheStorageClass) GetByUUID(sessionID SessionRef, uuid string) (_retval PVSCacheStorageRef, _err error) {
 	if (IsMock) {
-		return _class.GetByUUID__mock(sessionID, uuid)
+		return _class.GetByUUIDMock(sessionID, uuid)
 	}	
 	_method := "PVS_cache_storage.get_by_uuid"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)
@@ -333,15 +388,20 @@ func (_class PVSCacheStorageClass) GetByUUID(sessionID SessionRef, uuid string) 
 	return
 }
 
-func (_class PVSCacheStorageClass) GetRecord__mock(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSCacheStorageRecord, _err error) {
+
+var PVSCacheStorageClass_GetRecordMockedCallback = func (sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSCacheStorageRecord, _err error) {
 	log.Println("PVSCacheStorage.GetRecord not mocked")
 	_err = errors.New("PVSCacheStorage.GetRecord not mocked")
 	return
 }
+
+func (_class PVSCacheStorageClass) GetRecordMock(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSCacheStorageRecord, _err error) {
+	return PVSCacheStorageClass_GetRecordMockedCallback(sessionID, self)
+}
 // Get a record containing the current state of the given PVS_cache_storage.
 func (_class PVSCacheStorageClass) GetRecord(sessionID SessionRef, self PVSCacheStorageRef) (_retval PVSCacheStorageRecord, _err error) {
 	if (IsMock) {
-		return _class.GetRecord__mock(sessionID, self)
+		return _class.GetRecordMock(sessionID, self)
 	}	
 	_method := "PVS_cache_storage.get_record"
 	_sessionIDArg, _err := convertSessionRefToXen(fmt.Sprintf("%s(%s)", _method, "session_id"), sessionID)

@@ -7,17 +7,29 @@ import (
 	"testing"
 )
 
-func TestAuthentication(t *testing.T) {
-	client := NewClient("http://localhost:40080")
+var LoginSessionId = 0
 
-	sessionRef, err := client.Session().LoginWithPassword("terraform", "testing", "1.0", "terraform")
+func TestAuthentication(t *testing.T) {
+
+	SessionClass_LoginWithPasswordMockedCallback =  func (uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
+		LoginSessionId++
+		log.Printf("New connection uname: %v, pwd: %v, version: %v, originator: %v, LoginSessionId: %v", uname, pwd, version, originator, LoginSessionId)
+		return SessionRef("Login " + string(LoginSessionId)), nil
+	}
+
+	SessionClass_LogoutMockedCallback = func (sessionID SessionRef) (_err error) {
+		return nil
+	}
+	client, _ := NewClient("http://localhost:40080", nil)
+
+	sessionRef, err := client.Session.LoginWithPassword("terraform", "testing", "1.0", "terraform")
 	if err != nil {
 		t.Log(err)
 		t.Fail()
 		return
 	}
 
-	err = client.Session().Logout(sessionRef)
+	err = client.Session.Logout(sessionRef)
 	if err != nil {
 		t.Log(err)
 		t.Fail()

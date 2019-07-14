@@ -302,10 +302,15 @@ type {{ .Name|exported }}Ref string
 `
 
 const messageFuncTemplate string = `
-func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}__mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
+
+var {{ .Class.Name|exported }}Class_{{ .Message.Name|exported }}MockedCallback = func ({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
 	log.Println("{{ .Class.Name|exported }}.{{ .Message.Name|exported }} not mocked")
 	_err = errors.New("{{ .Class.Name|exported }}.{{ .Message.Name|exported }} not mocked")
 	return
+}
+
+func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}Mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
+	return {{ .Class.Name|exported }}Class_{{ .Message.Name|exported }}MockedCallback({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }}{{ end }})
 }
 {{ .Message.Description|godoc }}{{ if .Message.Errors }}
 //
@@ -313,7 +318,7 @@ func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}__mock
 //  {{ .Name }} - {{ .Doc }}{{ end }}{{ end }}
 func (_class {{ .Class.Name|exported }}Class) {{ .Message.Name|exported }}({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }} {{ .GoType }}{{ end }}) ({{ if not .Message.Result.IsVoid }}_retval {{ .Message.Result.GoType }}, {{ end }}_err error) {
 	if (IsMock) {
-		return _class.{{ .Message.Name|exported }}__mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }}{{ end }})
+		return _class.{{ .Message.Name|exported }}Mock({{ range $index, $param := .Message.Params }}{{ if gt $index 0 }}, {{ end }}{{ .Name|internal }}{{ end }})
 	}	
 	_method := "{{ .Class.Name }}.{{ .Message.Name }}"{{ range .Message.Params }}
 	_{{ .Name|internal }}Arg, _err := {{ .Type|convertToXen }}(fmt.Sprintf("%s(%s)", _method, {{ printf "%q" .Name }}), {{ .Name|internal }})
