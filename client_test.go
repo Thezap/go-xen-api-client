@@ -11,15 +11,13 @@ var LoginSessionId = 0
 
 func TestAuthentication(t *testing.T) {
 
-
-
-	SessionClassLoginWithPasswordMockedCallback =  func (uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
+	SessionClassLoginWithPasswordMockedCallback = func(uname string, pwd string, version string, originator string) (_retval SessionRef, _err error) {
 		LoginSessionId++
 		log.Printf("New connection uname: %v, pwd: %v, version: %v, originator: %v, LoginSessionId: %v", uname, pwd, version, originator, LoginSessionId)
 		return SessionRef("Login " + string(LoginSessionId)), nil
 	}
 
-	SessionClassLogoutMockedCallback = func (sessionID SessionRef) (_err error) {
+	SessionClassLogoutMockedCallback = func(sessionID SessionRef) (_err error) {
 		log.Printf("Session Logout %v", sessionID)
 		return nil
 	}
